@@ -39,6 +39,7 @@ if($isFirefox){
                                                // GB: United Kingdom
                                                // ZA: South Africa
                                                // AU: Australia
+                                               // NZ: New Zealand
 
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
