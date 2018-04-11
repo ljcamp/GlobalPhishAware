@@ -31,7 +31,7 @@ if ($authenticated) {
 		$cas_answer = ob_get_contents();
 		ob_end_clean();
 
-		list($access,$user) = split("\n",$cas_answer,3);
+		list($access,$user) = explode("\n",$cas_answer,3);
 		$access = trim($access);
 		$user = trim($user);
 
