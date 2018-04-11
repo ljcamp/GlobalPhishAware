@@ -1511,7 +1511,42 @@ var cultureQuestions = [
 
 
 var skill_questions = [
-
+  {
+    type:'agreementscale',
+    min:'1',
+    step:'0.1',
+    scale:'5',
+    def:'3.0',
+    question:'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
+    options:[
+      'adcash.com',
+      'adf.ly',
+      'adobe.com',
+      'airbnb.com',
+      'aliexpress.com',
+      'amazon.com',
+      'battle.net',
+      'dropbox.com',
+      'ebay.com',
+      'expedia.com',
+      'flipkart.com',
+      'giphy.com',
+      'github.com',
+      'godaddy.com',
+      'netflix.com',
+      'paypal.com',
+      'salesforce.com',
+      'stackoverflow.com',
+      'steampowered.com',
+      'tripadvisor.com',
+      'twitch.tv',
+      'twitter.com',
+      'ups.com',
+      'wordpress.com',
+      'yahoo.com',
+      'yelp.com'
+    ]
+  },
     {
         type:'checkall',
         question:'What is phishing?',
@@ -1648,42 +1683,6 @@ var skill_questions = [
       'website privacy statements',
       'type of website',
       'professional-looking website'
-    ]
-  },
-  {
-    type:'agreementscale',
-    min:'1',
-    step:'0.1',
-    scale:'5',
-    def:'3.0',
-    question:'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
-    options:[
-      'adcash.com',
-      'adf.ly',
-      'adobe.com',
-      'airbnb.com',
-      'aliexpress.com',
-      'amazon.com',
-      'battle.net',
-      'dropbox.com',
-      'ebay.com',
-      'expedia.com',
-      'flipkart.com',
-      'giphy.com',
-      'github.com',
-      'godaddy.com',
-      'netflix.com',
-      'paypal.com',
-      'salesforce.com',
-      'stackoverflow.com',
-      'steampowered.com',
-      'tripadvisor.com',
-      'twitch.tv',
-      'twitter.com',
-      'ups.com',
-      'wordpress.com',
-      'yahoo.com',
-      'yelp.com'
     ]
   },
   {

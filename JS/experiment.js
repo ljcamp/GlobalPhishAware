@@ -246,15 +246,16 @@ console.log("ordergroup: " + ordergroup);
 var taskDifficulty = [
   [1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3], // order1 - control + not spoofed
   [1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3], // order2 - control + spoofed 
-  [1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,1,3,3], // order3 - lowrisk + not spoofed
-  [1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,1,3,3], // order4 - lowrisk + spoofed
-  [1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,1,3,3,3,3], // order5 - midrisk + not spoofed
+  [1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,1,3,3], // order3 - lowrisk + not spoofed- BECOMES AU
+  [1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,1,3,3], // order4 - lowrisk + spoofed BECOMES AU
+  [1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,1,3,3,3,3], // order5 - midrisk + not spoofed-BECOMES UK...
   [1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,3,3,3,1,1,1,1,3,3,3,3], // order6 - midrisk + spoofed
   [3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,3,1,1], // order7 - highrisk + not spoofed
   [3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,3,1,1]  // order8 - highrisk + spoofed
 ];
 
-var presentationIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+var presentationIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]; //we will need to make sure the orresponding sites are removed, I would just copy the files in so that there are 13 in each folder
+
 var nTrials = tasks.length;
 
 function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); }
