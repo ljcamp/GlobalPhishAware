@@ -1,27 +1,7 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-#===============================================================================
-#
-#         FILE: rtf2js.py
-#
-#        USAGE: ./rtf2js.py
-#
-#  DESCRIPTION:
-#
-#      OPTIONS: ---
-# REQUIREMENTS: ---
-#         BUGS: ---
-#        NOTES: ---
-#       AUTHOR: DongInn Kim (kdi) dikim@indiana.edu
-# ORGANIZATION: School of Informatics and Computing
-#      VERSION: 1.0
-#      CREATED: 04/09/2018 12:31:38
-# LAST UPDATED: $Date$
-#     REVISION: $Rev:$
-#===============================================================================
 
-
-def rtf2js(rtfFile, jsFile, outFile, country):
+def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
     assert len(country) == 2, "The length of the country must be 2 letters only (country 2 letter code)"
     final_str = country+'_Dict = {\n'
     list_of_maps = []
@@ -57,15 +37,19 @@ def rtf2js(rtfFile, jsFile, outFile, country):
         list_of_maps.append(tmp_str[quote_indices[ii-2]:quote_indices[ii]])
     for each_map in list_of_maps:
         name = each_map.split(':')[0].replace("'", '')
+        if country == 'GB': name = name.split('_UK_910')[0]
         circle_coords=  each_map.split('circle" coords="')[1].split('" />')[0]
-        circle_part_str ='<area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\\\'back\\\')" coords="' + circle_coords +'" shape="circle">'
+        circle_part_str ='<area target="" alt="%s_CONTROL_BACK" title="%s_CONTROL_BACK" href="javascript:advanceExperiment(\\\'back\\\')" coords="'%(name,name) + circle_coords +'" shape="circle">'
         if 'rect" coords="' in each_map:
             rect_coords = each_map.split('rect" coords="')[1].split('" />')[0]
-            second_part = '<area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\\\'login\\\')" coords="' + rect_coords + '" shape="rect"></map>\',\n'
+            second_part = '<area target="" alt="%s_CONTROL_LOGIN" title="%s_CONTROL_LOGIN" href="javascript:advanceExperiment(\\\'login\\\')" coords="'%(name,name) + rect_coords + '" shape="rect"></map>\',\n'
         elif 'poly" coords="' in each_map:
             poly_coords = each_map.split('poly" coords="')[1].split('" />')[0]
-            second_part = '<area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\\\'login\\\')" coords="' + poly_coords + '" shape="poly"></map>\',\n'
-        final_str += "'" + name + "'"  + ':\'<map id="scaleMap0" name="'+ name + '">' + circle_part_str + second_part
+            second_part = '<area target="" alt="%s_CONTROL_LOGIN" title="%s_CONTROL_LOGIN" href="javascript:advanceExperiment(\\\'login\\\')" coords="'%(name,name) + poly_coords + '" shape="poly"></map>\',\n'
+        if toolbar == True:
+            final_str += "'" + name + "'"  + ':\'<map id="scaleMap0" name="'+ name + '">' + circle_part_str + second_part
+        else:
+            final_str += "'" + name + "12'" + ':\'<map id="scaleMap0" name="' + name + '">' + circle_part_str + second_part
 
 
     final_str = final_str[:-2] + '};\n\n'
@@ -78,4 +62,4 @@ def rtf2js(rtfFile, jsFile, outFile, country):
 
 
 if __name__ == '__main__':
-    rtf2js('./southafrica','./tmp.js','./output.js','ZA')
+    rtf2js('./uk','./tmp.js','./output.js','GB',toolbar=False)
