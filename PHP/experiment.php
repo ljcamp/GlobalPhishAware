@@ -126,6 +126,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://
 <div id=\"stimuliImage1\"></div>
 <div id=\"stimuliImage2\"></div>
 <div id=\"ordergroup\">" . $_SESSION['group'] . "</div>
+<div id=\"countrycode\">" . $_SESSION['country'] . "</div>
 </div>
 </div>
 

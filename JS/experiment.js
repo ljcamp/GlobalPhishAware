@@ -25,7 +25,7 @@ GB_Dict = {
 'wiki_UK_910':'<map id="scaleMap0" name="wiki_UK_910"><area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\'back\')" coords="32,66,25" shape="circle"><area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\'login\')" coords="1826, 107, 1894, 131" shape="rect"></map>',
 'yahoo_UK_910':'<map id="scaleMap0" name="yahoo_UK_910"><area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\'back\')" coords="32,66,25" shape="circle"><area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\'login\')" coords="1572, 166, 1690, 197" shape="rect"></map>'};
 
-ZA_Dict = {
+SA_Dict = {
 'absa':'<map id="scaleMap0" name="absa"><area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\'back\')" coords="19, 39, 18" shape="circle"><area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\'login\')" coords="1642, 103, 1701, 132" shape="rect"></map>',
 'bidorbuy':'<map id="scaleMap0" name="bidorbuy"><area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\'back\')" coords="18, 39, 19" shape="circle"><area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\'login\')" coords="1321, 75, 1445, 111" shape="rect"></map>',
 'news24':'<map id="scaleMap0" name="news24"><area target="" alt="Back_adcash_control" title="Back_adcash_control" href="javascript:advanceExperiment(\'back\')" coords="20, 41, 20" shape="circle"><area target="" alt="Login_adcash_control" title="Login_adcash_control" href="javascript:advanceExperiment(\'login\')" coords="1290, 80, 1424, 109" shape="rect"></map>',
@@ -204,6 +204,13 @@ winMapDict = {
 'yelp':'<map id="scaleMap0" name="yelp_map"><area target="" alt="YELP_TOOL_BACK" title="YELP_TOOL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,52,24" shape="circle"><area target="" alt="YELP_TOOL_LOGIN" title="YELP_TOOL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1244,236,1310,192" shape="rect"></map>'
 };
 
+var dict = {};
+
+dict["GB"] = GB_Dict;
+dict["SA"] = SA_Dict;
+dict["AU"] = AU_Dict;
+//dict["NZ"] = NZ_Dict;
+dict["US"] = macMapDict;
 
 //variable definitions
 var trialNum=0;
@@ -273,7 +280,7 @@ switch(simplifiedOS){
     break;
   case "Mac":
     participantInfo.simplifiedOS = "Mac";
-    participantInfo.map = macMapDict;
+    //participantInfo.map = macMapDict;
     break;
     //case "x86_64":
     //case "-sm":
@@ -288,6 +295,7 @@ switch(simplifiedOS){
 //This forces the simplified OS to Windows until images are created for other OSes
 participantInfo.simplifiedOS = "Windows";
 participantInfo.map = winMapDict;
+
 
 var stimuliDirectory="../Images/"+participantInfo.simplifiedOS;
 
@@ -328,6 +336,12 @@ var tasks = [
   {"taskSite":"twitch","pages":2,"condition":"SV"},
   {"taskSite":"yelp","pages":2,"condition":"SV"}  
 ];
+
+if(countrycode != "US"){
+  tasks = [];
+  console.log("country is not US");
+}
+
 
 //adjust this to include all the orders, but for now testing
 // The number of actual orders is 4 but
@@ -382,6 +396,10 @@ $(document).ready(function(){
   //  mouseClick['mouseY'] += event.pageY +";"+mouseClick['mouseY'];
   //  mouseClick['type'] += 'dblclick;'+mouseClick['type'];
   //});
+  countrycode = $('#countrycode').text();
+  $('#countrycode').hide();
+  participantInfo.map = dict[countrycode];
+
   ordergroup = $('#ordergroup').text();
   $('#ordergroup').hide();
   // Debug
@@ -552,7 +570,7 @@ function startExperiment(){
   participantInfo.experimentCondition = experimentCondition;
   participantInfo.experimentOrderNumber = experimentOrderNumber;
   participantInfo.experimentPresentationOrder = presentationOrder;
-  stimuliDirectory = stimuliDirectory+"/Order";
+  stimuliDirectory = stimuliDirectory+ "/" + countrycode + "/Order";
 
   experimentRunning=true;
   //hide the experiment start
@@ -593,7 +611,7 @@ function loadAndSaveStimuli(){
   var trial = {"difficulty": trialDifficulty, "trialNumber": trialNum,"image":task["taskSite"],"trialCondition":task["condition"],"pages":task["pages"]};
   // Debug 
   //console.log(participantInfo.experimentOrderNumber + ", " + participantInfo.experimentPresentationOrder[trialNum]);
-  //console.log(trial);
+  console.log(trial);
   return(trial);
 }
 
@@ -641,6 +659,7 @@ function startTrial(){
   }
   var initialSource = stimuliDirectory+""+spoofedOrNot+"/"+trial.image;
   var image = initialSource+".jpg";
+  console.log("Image path" + image);
   //  var loginImage = initialSource+"_login.png";
   var trial_image;
   if(experimentOrderNumber === 0 || experimentOrderNumber === 1){
