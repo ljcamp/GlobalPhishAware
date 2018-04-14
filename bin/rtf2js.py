@@ -35,6 +35,7 @@ def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
     quote_indices = [q for q,r in enumerate(tmp_str) if r =="'"]
     for ii in range (2,len(quote_indices),2):
         list_of_maps.append(tmp_str[quote_indices[ii-2]:quote_indices[ii]])
+    list_of_maps.append(tmp_str[quote_indices[len(quote_indices)- 2]:])
     for each_map in list_of_maps:
         name = each_map.split(':')[0].replace("'", '')
         if country == 'GB': name = name.split('_UK_910')[0]
