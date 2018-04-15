@@ -96,6 +96,7 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://
 
 </style>
 <script src=\"../JS/jquery-1.11.0.js\" type=\"text/javascript\"></script>
+<script src=\"../JS/common.js\" type=\"text/javascript\"></script>
 <script src=\"../JS/experiment.js\" type=\"text/javascript\"></script>
 </head>
 <body>

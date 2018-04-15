@@ -20,6 +20,10 @@ foreach($_POST as $k => $v) {
     }
 }
 
+if (!file_exists(dirname(__FILE__)."/results/".$_SESSION['country'])) {
+    mkdir(dirname(__FILE__)."/results/".$_SESSION['country'], 0755, true);
+}
+
 if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     $_POST['participant'] = $_SESSION['participant'];
     $encoded = json_encode($_POST, JSON_PRETTY_PRINT);

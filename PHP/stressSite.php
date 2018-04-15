@@ -34,11 +34,13 @@ font-size:150%;
 
 </style>
 <script src="../JS/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="../JS/common.js" type="text/javascript"></script>
 <script src="../JS/survey.js" type="text/javascript"></script>
 
 
 </head>
 <body>
+      <div id="countrycode"><?= $_SESSION['country']; ?></div>
 <?php
 
 if($_SESSION['type']=='mturk'){

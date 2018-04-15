@@ -5,6 +5,9 @@
 var questions;
 var which_set;
 
+var countrycode;
+var opts;
+
 //function processReload(event){
 
 
@@ -49,24 +52,25 @@ $(document).ready(function(){
 	window.history.forward(-1);
 	var experimentCondition = $('#experimentCondition').val();
 	var participantType = $('#participantType').val();
-
-	var docTitle = document.title;
-	switch(docTitle){
-	case "Log in Not Log in Study Description":
-		prepValidationInstructions();
-		questions = participantValidationQuestions[participantType].concat(validationQuestions[participantType][experimentCondition]);
-		which_set = "validation";
-		break;
-	case "Study Description":
-	        prepExperimentInstructions();
-        	questions = cultureQuestions.concat(skill_questions);
-        	which_set = "skills";
-		break;
-	case "Log in Not Log in Consent Form":
-	        prepSisAcknowledged();
-        	questions = participantQuestions[participantType];
-        	which_set = "sis";
-		break;
+  
+    $("#countrycode").hide();
+  	var docTitle = document.title;
+  	switch(docTitle){
+  	case "Log in Not Log in Study Description":
+  		prepValidationInstructions();
+  		questions = participantValidationQuestions[participantType].concat(validationQuestions[participantType][experimentCondition]);
+  		which_set = "validation";
+  		break;
+  	case "Study Description":
+  	        prepExperimentInstructions();
+          	questions = cultureQuestions.concat(skill_questions);
+          	which_set = "skills";
+  		break;
+  	case "Log in Not Log in Consent Form":
+  	        prepSisAcknowledged();
+          	questions = participantQuestions[participantType];
+          	which_set = "sis";
+  		break;
 	default:
 		console.log("Unknown");
 	}
@@ -142,6 +146,25 @@ function runSurvey(){
 }
 
 function showFinish(){
+
+    countrycode = $('#countrycode').text();
+
+    console.log("countrycode: " + countrycode);
+    var websites = Object.keys(dict[countrycode + ""]);
+    console.log("Websites: " + websites)
+    // console.log(tasks["taskSite"])
+    opts = [];
+    var arrayLength = websites.length;
+    console.log("ArrayLength: " + arrayLength);
+    for (var i = 0; i < arrayLength; i++) {
+      if(websites[i].match(/12/)){
+        var str = websites[i].replace('12', '');
+        opts.push(str);
+        console.log(str);
+      }
+    }
+    skill_questions[0].options = opts;
+
 	switch(which_set){
 		case 'skills':
 		$("#surveyResults").submit();
@@ -378,6 +401,7 @@ function nextQuestion(){
         //submit agreement
         //open sites
         //please wait
+        console.log("BABO showFinish");
         $("#question").html("<h2>Survey Complete</h2>");
         convertCheckboxesToHiddens();
         $("#nextbutton").hide();
@@ -1508,8 +1532,6 @@ var cultureQuestions = [
 		question:'What is your religion?'
 	}
 */
-
-
 var skill_questions = [
   {
     type:'agreementscale',
@@ -1518,34 +1540,35 @@ var skill_questions = [
     scale:'5',
     def:'3.0',
     question:'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
-    options:[
-      'adcash.com',
-      'adf.ly',
-      'adobe.com',
-      'airbnb.com',
-      'aliexpress.com',
-      'amazon.com',
-      'battle.net',
-      'dropbox.com',
-      'ebay.com',
-      'expedia.com',
-      'flipkart.com',
-      'giphy.com',
-      'github.com',
-      'godaddy.com',
-      'netflix.com',
-      'paypal.com',
-      'salesforce.com',
-      'stackoverflow.com',
-      'steampowered.com',
-      'tripadvisor.com',
-      'twitch.tv',
-      'twitter.com',
-      'ups.com',
-      'wordpress.com',
-      'yahoo.com',
-      'yelp.com'
-    ]
+    options: opts
+    // options:[
+    //   'adcash.com',
+    //   'adf.ly',
+    //   'adobe.com',
+    //   'airbnb.com',
+    //   'aliexpress.com',
+    //   'amazon.com',
+    //   'battle.net',
+    //   'dropbox.com',
+    //   'ebay.com',
+    //   'expedia.com',
+    //   'flipkart.com',
+    //   'giphy.com',
+    //   'github.com',
+    //   'godaddy.com',
+    //   'netflix.com',
+    //   'paypal.com',
+    //   'salesforce.com',
+    //   'stackoverflow.com',
+    //   'steampowered.com',
+    //   'tripadvisor.com',
+    //   'twitch.tv',
+    //   'twitter.com',
+    //   'ups.com',
+    //   'wordpress.com',
+    //   'yahoo.com',
+    //   'yelp.com'
+    // ]
   },
     {
         type:'checkall',
@@ -1721,3 +1744,4 @@ var skill_questions = [
   }
 
 ];
+console.log("OPTS: " + opts)

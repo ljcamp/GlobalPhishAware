@@ -103,6 +103,7 @@ top:50px;
 
 </style>
 <script src="JS/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="JS/common.js" type="text/javascript"></script>
 <script src="JS/survey.js" type="text/javascript"></script>
 </head>
 
@@ -119,6 +120,7 @@ $_SESSION['sisStart'] = true;
 <div id="studyarea" class="ease">
 <div id="jscriptwarning">You must have javascript enabled to take this study.</div>
 <div id="sis">
+      <div id="countrycode"><?= $_SESSION['country']; ?></div>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
 <center><H3>INDIANA UNIVERSITY STUDY INFORMATION SHEET</H3></center><p>
