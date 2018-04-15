@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+import sys
 
 def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
     assert len(country) == 2, "The length of the country must be 2 letters only (country 2 letter code)"
@@ -39,6 +40,7 @@ def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
     for each_map in list_of_maps:
         name = each_map.split(':')[0].replace("'", '')
         if country == 'GB': name = name.split('_UK_910')[0]
+        if country == 'AU': name = name.split('_au_910')[0]
         circle_coords=  each_map.split('circle" coords="')[1].split('" />')[0]
         circle_part_str ='<area target="" alt="%s_CONTROL_BACK" title="%s_CONTROL_BACK" href="javascript:advanceExperiment(\\\'back\\\')" coords="'%(name,name) + circle_coords +'" shape="circle">'
         if 'rect" coords="' in each_map:
@@ -63,4 +65,5 @@ def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
 
 
 if __name__ == '__main__':
-    rtf2js('./uk','./tmp.js','./output.js','GB',toolbar=False)
+    assert len(sys.argv) == 5 , "Usage ./rtf2js.py RTF_file src_JS_file dst_JS_file country_code"
+    rtf2js(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],toolbar=False)
