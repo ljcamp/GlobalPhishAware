@@ -149,18 +149,18 @@ function showFinish(){
 
     countrycode = $('#countrycode').text();
 
-    console.log("countrycode: " + countrycode);
+    // console.log("countrycode: " + countrycode);
     var websites = Object.keys(dict[countrycode + ""]);
-    console.log("Websites: " + websites)
+    // console.log("Websites: " + websites)
     // console.log(tasks["taskSite"])
     opts = [];
     var arrayLength = websites.length;
-    console.log("ArrayLength: " + arrayLength);
+    // console.log("ArrayLength: " + arrayLength);
     for (var i = 0; i < arrayLength; i++) {
       if(websites[i].match(/12/)){
         var str = websites[i].replace('12', '');
         opts.push(str);
-        console.log(str);
+        // console.log(str);
       }
     }
     skill_questions[0].options = opts;
@@ -173,7 +173,7 @@ function showFinish(){
 		$("#sis_form").submit();
 		break;
 		case 'validation':
-		console.log("HERE");
+		// console.log("HERE");
 		$.post('dataReceiver.php', $("#surveyResults").serialize());
 		$("#sis").hide();
 		popup("experiment.php");
@@ -390,7 +390,7 @@ function nextQuestion(){
     var endTime = new Date().getTime();
     var responseTime = endTime - window.currentQuestionStartTime;
     var responseTimeName = clean(window.questions[window.currentQuestion].question)+"ResponseTime";
-    console.log(responseTimeName);
+    // console.log(responseTimeName);
     $("#question").append('<input type="hidden" name="'+responseTimeName+'" value="'+responseTime+'">');
 
     window.currentQuestion++;
@@ -401,7 +401,7 @@ function nextQuestion(){
         //submit agreement
         //open sites
         //please wait
-        console.log("BABO showFinish");
+        // console.log("BABO showFinish");
         $("#question").html("<h2>Survey Complete</h2>");
         convertCheckboxesToHiddens();
         $("#nextbutton").hide();
@@ -1744,4 +1744,4 @@ var skill_questions = [
   }
 
 ];
-console.log("OPTS: " + opts)
+// console.log("OPTS: " + opts)
