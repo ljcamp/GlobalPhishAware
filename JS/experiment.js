@@ -198,10 +198,12 @@ $(document).ready(function(){
   presentationIndex = []
   var arrayLength = keys.length;
   for (var i = 0; i < arrayLength; i++) {
-    var str = keys[i].replace('12', '');
-    console.log(str);
-    tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
-    presentationIndex.push(i);
+    if(websites[i].match(/12/)){
+      var str = keys[i].replace('12', '');
+      console.log(str);
+      tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+      presentationIndex.push(i);
+    }
   }
   console.log(presentationIndex);
   
