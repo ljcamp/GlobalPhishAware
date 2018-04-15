@@ -150,7 +150,8 @@ var taskDifficulty = [
   [3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,1,3,3,1,3,1,1]  // order8 - highrisk + spoofed
 ];
 
-var presentationIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]; //we will need to make sure the orresponding sites are removed, I would just copy the files in so that there are 13 in each folder
+//var presentationIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]; //we will need to make sure the orresponding sites are removed, I would just copy the files in so that there are 13 in each folder
+var presentationIndex = []; //we will need to make sure the orresponding sites are removed, I would just copy the files in so that there are 13 in each folder
 
 var nTrials = tasks.length;
 
@@ -198,10 +199,26 @@ $(document).ready(function(){
   presentationIndex = []
   var arrayLength = keys.length;
   for (var i = 0; i < arrayLength; i++) {
-    if(keys[i].match(/12/)){
-      var str = keys[i].replace('12', '');
-      console.log(str);
-      tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+    if(ordergroup == 0){
+      if(keys[i].match(/12/)){
+        var str = keys[i].replace('12', '');
+        console.log(str);
+        tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+        if(countrycode == "US"){
+          presentationIndex.push(i/2);
+        }
+      }
+    }else{
+      if(!keys[i].match(/12/)){
+        var str = keys[i];
+        console.log(str);
+        tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+        if(countrycode == "US"){
+          presentationIndex.push(i/2);
+        }
+      }
+    }  
+    if(countrycode != "US"){
       presentationIndex.push(i);
     }
   }
@@ -431,13 +448,26 @@ function loadAndSaveStimuli(){
   tasks = [];
   var arrayLength = keys.length;
   for (var i = 0; i < arrayLength; i++) {
-    var str = keys[i].replace('12', '');
-    console.log(str);
-    tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+    if(experimentOrderNumber === 0 || experimentOrderNumber === 1){
+      if(keys[i].match(/12/)){
+        var str = keys[i].replace('12', '');
+        console.log(str);
+        tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+      }
+    }else{
+      if(!keys[i].match(/12/)){
+        var str = keys[i];
+        console.log(str);
+        tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
+      }
+    }
   }
   var task = tasks[participantInfo.experimentPresentationOrder[trialNum]];
   console.log(task);
   var trialDifficulty = taskDifficulty[participantInfo.experimentOrderNumber][participantInfo.experimentPresentationOrder[trialNum]];
+  console.log("participantInfo.experimentOrderNumber: " + participantInfo.experimentOrderNumber);
+  console.log("participantInfo.experimentPresentationOrder[trialNum]: " + participantInfo.experimentPresentationOrder[trialNum]);
+  console.log("trialDifficulty: " + trialDifficulty);
   var trial = {"difficulty": trialDifficulty, "trialNumber": trialNum,"image":task["taskSite"],"trialCondition":task["condition"],"pages":task["pages"]};
   // Debug 
   //console.log(participantInfo.experimentOrderNumber + ", " + participantInfo.experimentPresentationOrder[trialNum]);
@@ -481,6 +511,8 @@ function startTrial(){
   $('#startTrial').hide();
   //load the image
   var spoofedOrNot = (experimentOrderNumber+1);
+  console.log(experimentOrderNumber);
+  console.log("Difficulty: " + trial["difficulty"])
   if(isEven(experimentOrderNumber) && trial["difficulty"] == 3){
     spoofedOrNot = spoofedOrNot + 1;
   }
