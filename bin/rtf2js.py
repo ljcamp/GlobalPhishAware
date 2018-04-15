@@ -50,7 +50,7 @@ def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
         if toolbar == True:
             final_str += "'" + name + "'"  + ':\'<map id="scaleMap0" name="'+ name + '">' + circle_part_str + second_part
         else:
-            final_str += "'" + name + "12'" + ':\'<map id="scaleMap0" name="' + name + '">' + circle_part_str + second_part
+            final_str += "'" + name + "12'" + ':\'<map id="scaleMap0" name="' + name + '12_map">' + circle_part_str + second_part
 
 
     final_str = final_str[:-2] + '};\n\n'
