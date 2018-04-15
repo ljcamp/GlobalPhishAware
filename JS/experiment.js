@@ -198,7 +198,7 @@ $(document).ready(function(){
   presentationIndex = []
   var arrayLength = keys.length;
   for (var i = 0; i < arrayLength; i++) {
-    if(websites[i].match(/12/)){
+    if(keys[i].match(/12/)){
       var str = keys[i].replace('12', '');
       console.log(str);
       tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
