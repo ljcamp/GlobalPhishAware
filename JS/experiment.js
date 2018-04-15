@@ -136,7 +136,7 @@ var tasks = [
 var taskOrdering = [0,2,4,6];
 var orderingdictionary = {0:0, 1:2, 2:4, 3:6};
 
-console.log("ordergroup: " + ordergroup);
+// console.log("ordergroup: " + ordergroup);
 // 1; not-spoof
 // 3; spoof
 var taskDifficulty = [
@@ -191,9 +191,9 @@ $(document).ready(function(){
   $('#ordergroup').hide();
 
 
-  console.log(countrycode);
+  // console.log(countrycode);
   var keys = Object.keys(dict[countrycode + ""]);
-//console.log(keys)
+  // console.log(keys)
   // console.log(tasks["taskSite"])
   tasks = [];
   presentationIndex = []
@@ -202,7 +202,7 @@ $(document).ready(function(){
     if(ordergroup == 0){
       if(keys[i].match(/12/)){
         var str = keys[i].replace('12', '');
-        console.log(str);
+        // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
         if(countrycode == "US"){
           presentationIndex.push(i/2);
@@ -211,7 +211,7 @@ $(document).ready(function(){
     }else{
       if(!keys[i].match(/12/)){
         var str = keys[i];
-        console.log(str);
+        // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
         if(countrycode == "US"){
           presentationIndex.push(i/2);
@@ -222,7 +222,7 @@ $(document).ready(function(){
       presentationIndex.push(i);
     }
   }
-  console.log(presentationIndex);
+  // console.log(presentationIndex);
   
   // if(countrycode == "NZ"){
   //   presentationIndex = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]; //we will need to make sure the orresponding sites are removed, I would just copy the files in so that there are 13 in each folder
@@ -235,7 +235,7 @@ $(document).ready(function(){
   nTrials = tasks.length;
 
   // console.log(tasks["taskSite"])
-  console.log(tasks);
+  // console.log(tasks);
   // Debug
   //console.log("ordergroup: " + ordergroup);
   advanceExperiment('startExperiment');
@@ -401,7 +401,7 @@ function startExperiment(){
   //experimentOrderNumber = getRandomSubarray(taskOrdering,1)[0];
   experimentOrderNumber = orderingdictionary[ordergroup];
   presentationOrder = getRandomSubarray(presentationIndex,nTrials);
-  console.log(presentationOrder);
+  // console.log(presentationOrder);
   participantInfo.experimentCondition = experimentCondition;
   participantInfo.experimentOrderNumber = experimentOrderNumber;
   participantInfo.experimentPresentationOrder = presentationOrder;
@@ -441,7 +441,7 @@ function showInstructions(){
 
 
 function loadAndSaveStimuli(){
-  console.log(countrycode);
+  // console.log(countrycode);
   var keys = Object.keys(dict[countrycode + ""]);
 //console.log(keys)
   // console.log(tasks["taskSite"])
@@ -451,27 +451,27 @@ function loadAndSaveStimuli(){
     if(experimentOrderNumber === 0 || experimentOrderNumber === 1){
       if(keys[i].match(/12/)){
         var str = keys[i].replace('12', '');
-        console.log(str);
+        // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
       }
     }else{
       if(!keys[i].match(/12/)){
         var str = keys[i];
-        console.log(str);
+        // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
       }
     }
   }
   var task = tasks[participantInfo.experimentPresentationOrder[trialNum]];
-  console.log(task);
+  // console.log(task);
   var trialDifficulty = taskDifficulty[participantInfo.experimentOrderNumber][participantInfo.experimentPresentationOrder[trialNum]];
-  console.log("participantInfo.experimentOrderNumber: " + participantInfo.experimentOrderNumber);
-  console.log("participantInfo.experimentPresentationOrder[trialNum]: " + participantInfo.experimentPresentationOrder[trialNum]);
-  console.log("trialDifficulty: " + trialDifficulty);
+  // console.log("participantInfo.experimentOrderNumber: " + participantInfo.experimentOrderNumber);
+  // console.log("participantInfo.experimentPresentationOrder[trialNum]: " + participantInfo.experimentPresentationOrder[trialNum]);
+  // console.log("trialDifficulty: " + trialDifficulty);
   var trial = {"difficulty": trialDifficulty, "trialNumber": trialNum,"image":task["taskSite"],"trialCondition":task["condition"],"pages":task["pages"]};
   // Debug 
   //console.log(participantInfo.experimentOrderNumber + ", " + participantInfo.experimentPresentationOrder[trialNum]);
-  console.log(trial);
+  // console.log(trial);
   return(trial);
 }
 
@@ -511,8 +511,8 @@ function startTrial(){
   $('#startTrial').hide();
   //load the image
   var spoofedOrNot = (experimentOrderNumber+1);
-  console.log(experimentOrderNumber);
-  console.log("Difficulty: " + trial["difficulty"])
+  // console.log(experimentOrderNumber);
+  // console.log("Difficulty: " + trial["difficulty"])
   if(isEven(experimentOrderNumber) && trial["difficulty"] == 3){
     spoofedOrNot = spoofedOrNot + 1;
   }
@@ -525,7 +525,7 @@ function startTrial(){
   //   image = initialSource+"_" + countrycode + ".jpg";
   // }
     
-  console.log("Image path" + image);
+  // console.log("Image path" + image);
   //  var loginImage = initialSource+"_login.png";
   var trial_image;
   if(experimentOrderNumber === 0 || experimentOrderNumber === 1){
@@ -533,7 +533,7 @@ function startTrial(){
   }else{
     trial_image = trial.image;
   }
-  console.log("trial_image: " + trial_image);
+  // console.log("trial_image: " + trial_image);
   // Debug
   //console.log("experimentOrderNumber: " + experimentOrderNumber + ", trial_image: " + trial_image);
   var imageMap = participantInfo.map[trial_image];
