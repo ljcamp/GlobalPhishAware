@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import sys
 
 def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
@@ -65,5 +66,7 @@ def rtf2js(rtfFile, jsFile, outFile, country,toolbar):
 
 
 if __name__ == '__main__':
-    assert len(sys.argv) == 5 , "Usage ./rtf2js.py RTF_file src_JS_file dst_JS_file country_code"
+    if len(sys.argv) != 5:
+        print  "Usage ./rtf2js.py RTF_file src_JS_file dst_JS_file country_code"
+        sys.exit(1)
     rtf2js(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],toolbar=False)
