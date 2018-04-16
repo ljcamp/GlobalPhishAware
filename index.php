@@ -35,11 +35,11 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=$_GET['country']; // US: United States
-                                               // GB: United Kingdom
-                                               // ZA: South Africa
-                                               // AU: Australia
-                                               // NZ: New Zealand
+        $_SESSION['country']=strtoupper($_GET['COUNTRY']); // US: United States
+                                                           // GB: United Kingdom
+                                                           // ZA: South Africa
+                                                           // AU: Australia
+                                                           // NZ: New Zealand
 
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
@@ -65,11 +65,11 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=$_GET['COUNTRY']; // US: United States
-                                               // GB: United Kingdom
-                                               // ZA: South Africa
-                                               // AU: Australia
-                                               // NZ: New Zealand
+        $_SESSION['country']=strtoupper($_GET['COUNTRY']); // US: United States
+                                                           // GB: United Kingdom
+                                                           // ZA: South Africa
+                                                           // AU: Australia
+                                                           // NZ: New Zealand
 
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
