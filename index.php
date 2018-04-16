@@ -44,12 +44,12 @@ if($isFirefox){
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
         }else{
-          if($_SESSION['type'] == 'mturk') { //mturk
+          if($_SESSION['type'] == 'mturk' || $_SESSION['type'] == 'MTURK' ) { //mturk
               require_once('PHP/sisSite.php');
           }
               else if($_SESSION['type'] == 'inv') { //inv
               require_once('PHP/sisSite.php');
-          } elseif($_SESSION['type'] == 'iu') {//iu
+          } elseif($_SESSION['type'] == 'iu' || $_SESSION['type'] == 'IU' ) {//iu
               require_once('PHP/casauth.php');
           } else {
             echo 'There seems to be an error in your study type. Please contact and administrator.';
@@ -74,7 +74,7 @@ if($isFirefox){
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
         }else{
-          if($_SESSION['type'] == 'mturk') { //mturk
+          if($_SESSION['type'] == 'mturk' || $_SESSION['type'] == 'MTURK' ) { //mturk
               require_once('PHP/sisSite.php');
           }
               else if($_SESSION['type'] == 'inv') { //inv
