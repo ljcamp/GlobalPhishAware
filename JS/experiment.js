@@ -185,9 +185,11 @@ $(document).ready(function(){
   //});
   countrycode = $('#countrycode').text();
   //if(countrycode === ""){
-  if (typeof countrycode != 'undefined'){
+  // console.log(countrycode);
+  if (typeof countrycode == 'undefined'){
       countrycode = "US";
   }
+  // console.log(countrycode);
   $('#countrycode').hide();
   participantInfo.map = dict[countrycode];
 

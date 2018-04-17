@@ -121,6 +121,7 @@ $_SESSION['sisStart'] = true;
 <div id="jscriptwarning">You must have javascript enabled to take this study.</div>
 <div id="sis">
       <div id="countrycode"><?= $_SESSION['country']; ?></div>
+<?php if($_SESSION['country'] == "US"){ ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
 <center><H3>INDIANA UNIVERSITY STUDY INFORMATION SHEET</H3></center><p>
@@ -182,10 +183,34 @@ researchers Sanchari Das at sancdas@indiana.edu. You can also contact our group 
 
 <p>For questions about your rights as a research participant or to discuss problems, complaints or concerns about a research study, or to obtain information, or offer input, contact the IU Human Subjects Office at (812) 856-4242 or (800) 696-2949 [toll free].</p>
 
-
 		<H3>PARTICIPATION</H3>
 <p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with Indiana University.</p>
-																																									      <?php if(!$preview) :?>
+<?php } ?>
+<?php if($_SESSION['country'] != "US"){ ?>
+    <H3 ALIGN=RIGHT><I>Ethical clearance (002/18)</I></H3></right>
+
+<center><H3>LA TROBE UNIVERSITY STUDY INFORMATION SHEET</H3></center><p>
+<H3>INTRODUCTION</H3>
+<P>If you are interested in helping us better understand what users are paying attention to when browsing the Internet, we welcome you to participate in our research study. This study is being conducted in Australia by Prof Paul Watters from La Trobe University and Dr Marthie Grobler from CSIRO’s Data61, in collaboration with Prof L. Jean Camp from Indiana University, USA, Prof Karen Renaud from Abertay University, United Kingdom, and Prof Julian Jang-Jaccard from Massey University, New Zealand.</p>
+<p><B>Do not complete this study unless you can read and understand English, are familiar with the Firefox web browser, and are at least 18 years old.</B></p>
+<p>You must be familiar with and have experience using the Firefox browser to participate in this study. If you do not meet these qualifications, do not accept this task as your results may be rejected. We ask that you read this form and ask any questions you may have before agreeing to be in the study. Before you begin, please note that the data you provide may be collected and used by Amazon as per its privacy agreement. <b>Additionally, you must be at least 18 years of age to participate in this study</b>; if you are under the age of 18, please do not complete this study. Also, please disable any Firefox add-ons to complete the survey.</p>
+<H3>STUDY PURPOSE</H3> 
+<p>This study seeks to understand how people decide whether or not it is secure to sign-in to different websites on the Internet.</p>
+<H3>PROCEDURES FOR THE STUDY</H3>
+<p>This study consists of three tasks. The first task is a very brief validation survey to ensure you understand the instructions. The second task is to complete a brief experiment, and the third task is to complete a demographic and informational survey. The experimental task involves visiting a series of websites and deciding whether or not they are secure enough to sign-in. The final survey involves a series of questions concerning your practical experience and knowledge about security on the Internet. The combined time for completing these three tasks will be approximately 15-20 minutes.</p>
+<H3>CONFIDENTIALITY</H3>
+<p>Efforts will be made to keep your personal information confidential. We cannot guarantee absolute confidentiality. Your personal information may be disclosed if required by law. Your identity will be held in confidence in reports in which the study is published.
+The information will be stored securely in the Scholarly Data Archive at Indiana University and will only be accessible to those conducting this study. There will be no references in oral or written reports that could link participants to the study.
+</p>
+<H3>CONTACT</H3>
+<p>If you have questions at any time about the study or the procedures, you may contact the researchers Prof Paul Watters from La Trobe University (P.Watters@latrobe.edu.au) and Dr Marthie Grobler from CSIRO’s Data61 (marthie.grobler@data61.csiro.au).</p>
+<p>This study has been approved by La Trobe University’s University Human Ethics Committee and CSIRO’s Social Science Human Research Ethics Committee in accordance with the National Statement on Ethical Conduct in Human Research (2007). If you have any questions concerning your participation in the study please contact the researchers directly. Alternatively any concerns or complaints about the conduct of this study can be raised with La Trobe University’ Chair of the University Human Ethics Committee on (03) 9479 1443 |  humanethics@latrobe.edu.au, or the CSIRO’s Manager of Social Responsibility and Ethics on (07) 3833 5693 | csshrec@csiro.au.</p>
+<H3>PARTICIPATION</H3>
+<p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with La Trobe University or CSIRO’s Data61.</p>
+<p>By clicking on the ‘Continue to Experiment’ button, you agree to participate in this research.</p>
+<?php } ?>
+
+<?php if(!$preview) :?>
 		<BUTTON id="sisacknowledged">Continue to Experiment</BUTTON>
 		   <?php endif;?>
 

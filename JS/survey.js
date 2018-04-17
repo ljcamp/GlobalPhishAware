@@ -1746,8 +1746,405 @@ var skill_questions = [
       'Agree',
       'Strongly agree'
     ]
-  }
+  },
 
+  {
+    type:'radio',
+    question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? (1=Voluntary; 5=Involuntary) ',
+    options: [
+      'Completely voluntary',
+      'Voluntary',
+      'Neither voluntary nor involuntary',
+      'Involuntary',
+      'Completely involuntary'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? (1=Immediate; 5=Delayed) ',
+    options: [
+      'Immediate',
+      'Somewhat immediate',
+      'Neither',
+      'Somewhat delayed',
+      'Delayed'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
+    options: [
+      'No knowledge',
+      'Very little knowledge',
+      'May or may not know about the risk',
+      'Knowledgeable',
+      'Very knowledgeable'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Knowledge to the expert: How much would an expert know about the implications of phishing? ',
+    options: [
+      'No knowledge',
+      'Very little knowledge',
+      'May or may not know about the risk',
+      'Knowledgeable',
+      'Very knowledgeable'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? (1=Uncontrollable; 5=Controllable) ',
+    options: [
+      'Can prevent all harm',
+      'Can prevent some harm',
+      'May or may not be able to prevent harm',
+      'Can somewhat reduce harm',
+      'No control over resulting harm'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? (1=Old; 5=New) ',
+    options: [
+      'Entirely an old risk',
+      'Mostly an old risk',
+      'Neither new nor old',
+      'Somewhat new',
+      'Completely new'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? (1=Common; 5=Rare) ',
+    options: [
+      'Common',
+      'Frequently encountered',
+      'Neither common nor rare',
+      'Infrequently encountered',
+      'Rare'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? (1= Individual; 5=(Many People) Global) ',
+    options: [
+      'Individual',
+      'Multiple people',
+      'May be global or individual',
+      'Large numbers of people',
+      'Global'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? (1=Not Severe; 5=Severe) ',
+    options: [
+      'Not at all severe, trivial',
+      'Not trivial but not severe',
+      'Neither trivial nor severe',
+      'May be severe',
+      'Severe'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? (1=Voluntary; 5=Involuntary) ',
+    options: [
+      'Completely voluntary',
+      'Voluntary',
+      'Neither voluntary nor involuntary',
+      'Involuntary',
+      'Completely involuntary'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Immediacy: Is the risk from the to account takeover immediate or does it occur at a later time? (1=Immediate; 5=Delayed) ',
+    options: [
+      'Immediate',
+      'Somewhat immediate',
+      'Neither',
+      'Somewhat delayed',
+      'Delayed'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+    options: [
+      'No knowledge',
+      'Very little knowledge',
+      'May or may not know about the risk',
+      'Knowledgeable',
+      'Very knowledgeable'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
+    options: [
+      'No knowledge',
+      'Very little knowledge',
+      'May or may not know about the risk',
+      'Knowledgeable',
+      'Very knowledgeable'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? (1=Uncontrollable; 5=Controllable) ',
+    options: [
+      'Can prevent all harm',
+      'Can prevent some harm',
+      'May or may not be able to prevent harm',
+      'Can somewhat reduce harm',
+      'No control over resulting harm'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? (1=Old; 5=New) ',
+    options: [
+      'Entirely an old risk',
+      'Mostly an old risk',
+      'Neither new nor old',
+      'Somewhat new',
+      'Completely new'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? (1=Common; 5=Rare) ',
+    options: [
+      'Common',
+      'Frequently encountered',
+      'Neither common nor rare',
+      'Infrequently encountered',
+      'Rare'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people? (1= Individual; 5=(Many People) Global)',
+    options: [
+      'Individual',
+      'Multiple people',
+      'May be global or individual',
+      'Large numbers of people',
+      'Global'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ? (1=Not Severe; 5=Severe)',
+    options: [
+      'Not at all severe, trivial',
+      'Not trivial but not severe',
+      'Neither trivial nor severe',
+      'May be severe',
+      'Severe'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'Online companies would be trustworthy in handling my personal purchase preferences \n(1=Strongly Disagree, 7=Strongly Agree)?',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'In general, it would be risky to give my personal purchase preference information to online companies',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'It usually bothers me when online companies ask me for personal information',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'When online companies ask me for personal information, I sometimes think twice before providing it',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'It bothers me to give personal information to so many online companies',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'I\'m concerned that online companies are collecting too much personal information about me',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'Online companies should never sell the personal information in their computer databases to other companies',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  },
+
+  {
+    type:'radio',
+    question:'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information',
+    options: [
+      '1 (Strongly disagree)',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7 (Stringly agree)'
+    ]
+  }
 ];
 // console.log("OPTS: " + opts)
 var PreStudyQuestions = [
@@ -1775,7 +2172,7 @@ var PreStudyQuestions = [
     },
     {
 	type: 'radio',
-	question: 'Which gender do you most identify with?'
+	question: 'Which gender do you most identify with?',
 	options: [
 	    'Male',
 	    'Female',
@@ -1785,11 +2182,11 @@ var PreStudyQuestions = [
     },
     {
 	type:'radio',
-	question: 'Can you read and understand English?'
+	question: 'Can you read and understand English?',
 	options: [
 	    'Yes',
 	    'No'
-	]
+	],
 	mustbechecked:'Yes'
     },
     {

@@ -43,9 +43,9 @@ font-size:150%;
       <div id="countrycode"><?= $_SESSION['country']; ?></div>
       <div id="ordergroup"><?= $_SESSION['group']; ?></div>
 <?php
-if($_SESSION["country"] == ""){
-    $_SESSION["country"] = "US";
-}
+// if($_SESSION["country"] == ""){
+//     $_SESSION["country"] = "US";
+// }
 
 if($_SESSION['type']=='mturk'){
     //mturk

@@ -35,7 +35,7 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=$_GET['COUNTRY']; // US: United States
+        $_SESSION['country']=$_GET['country']; // US: United States
                                                            // GB: United Kingdom
                                                            // ZA: South Africa
                                                            // AU: Australia
@@ -54,7 +54,7 @@ if($isFirefox){
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }
         }
-      } else if(isset($_GET['TT']) && isset($_GET['TYPE'])  && isset($_GET['COUNTRY'])){
+      }elseif(isset($_GET['TT']) && isset($_GET['TYPE'])  && isset($_GET['COUNTRY'])){
         $_SESSION['tt']=$_GET['TT']; //Time = 0, Accuracy = 1
         $_SESSION['type']=$_GET['TYPE']; //iu or mturk or inv
         $_SESSION['group'] = $group;
@@ -93,7 +93,6 @@ if($isFirefox){
 else{
   echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
 }
-        print($_SESSION['country']);
 //
 //if(empty($_SESSION))
 //{
