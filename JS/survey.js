@@ -1710,7 +1710,7 @@ var skill_questions = [
       'website privacy statements',
       'type of website',
       'professional-looking website',
-	  'Other please specify   **************'
+	  'Other'
     ]
   },
   {
