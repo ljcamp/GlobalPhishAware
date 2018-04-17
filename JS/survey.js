@@ -69,7 +69,7 @@ $(document).ready(function(){
   		break;
   	case "Log in Not Log in Consent Form":
   	        prepSisAcknowledged();
-          	questions = participantQuestions[participantType];
+          	questions = participantQuestions[participantType].concat(PreStudyQuestions);
           	which_set = "sis";
   		break;
 	default:
@@ -731,13 +731,13 @@ var participantQuestions = [
         question:'What is your Mechanical Turk ID?',
         response: 'hide',
     },
-    {
-        type:'freeformint',
-        question:'What is your age?',
-        minimum: '18',
-	   response: 'hide',
-        rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
-    },
+    // {
+    //     type:'freeformint',
+    //     question:'What is your age?',
+    //     minimum: '18',
+	//    response: 'hide',
+    //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
+    // },
     {
         type:'checkall',
         question:'What languages can you read and understand?',
@@ -774,13 +774,13 @@ var participantQuestions = [
 ],
  [
 
-    {
-        type:'freeformint',
-        question:'What is your age?',
-        minimum: '18',
-        response: 'hide',
-        rejecterror:'This study is only for participants age 18 and older. Please alert the experimenter.'
-    },
+    // {
+    //     type:'freeformint',
+    //     question:'What is your age?',
+    //     minimum: '18',
+    //     response: 'hide',
+    //     rejecterror:'This study is only for participants age 18 and older. Please alert the experimenter.'
+    // },
     {
         type:'checkall',
         question:'What languages can you read and understand?',
@@ -2177,16 +2177,16 @@ var PreStudyQuestions = [
 	    'more than 80 years'
 	]
     },
-    {
-	type: 'radio',
-	question: 'Which gender do you most identify with?',
-	options: [
-	    'Male',
-	    'Female',
-	    'Other',
-	    'Do not wish to specify'
-	]
-    },
+    // {
+	// type: 'radio',
+	// question: 'Which gender do you most identify with?',
+	// options: [
+	//     'Male',
+	//     'Female',
+	//     'Other',
+	//     'Do not wish to specify'
+	// ]
+    // },
     {
 	type:'radio',
 	question: 'Can you read and understand English?',
