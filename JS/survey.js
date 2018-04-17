@@ -1750,13 +1750,13 @@ var skill_questions = [
 
 ];
 // console.log("OPTS: " + opts)
-var PreStudyQuestionsFile = [
+var PreStudyQuestions = [
     {
-	type: '',
+	type: 'freeform',
 	question:'What is your first name?',
     },
     {
-	type: '',
+	type: 'freeform',
 	question: 'What is your last name?',
     },
     {
@@ -1832,31 +1832,12 @@ var PreStudyQuestionsFile = [
 	]
     },
     {
-	type:'checkall',
+	type:'freeform',
 	question:'What is your nation of citizenship?',
-	options: [
-	    'America',
-	    'Australia',
-	    'New Zeland',
-	    'United Kingdon',
-	    'South Africa',
-	    'India',
-	    'China',
-	    'Other please specify   **************'
-	]
+	
     },
     {
-	type:'checkall',
+	type:'freeform',
 	question:'In what nation do you currently live?',
-	options: [
-	    'America',
-	    'Australia',
-	    'New Zeland',
-	    'United Kingdon',
-	    'South Africa',
-	    'India',
-	    'China',
-	    'Other please specify   **************'
-	    ]
     }    
 ]
