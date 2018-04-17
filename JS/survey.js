@@ -1981,7 +1981,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -1995,7 +1995,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2009,7 +2009,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2023,7 +2023,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2037,7 +2037,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2051,7 +2051,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2065,7 +2065,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2079,7 +2079,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2093,7 +2093,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2107,7 +2107,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2121,7 +2121,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2135,7 +2135,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   },
 
@@ -2149,7 +2149,7 @@ var skill_questions = [
       '4',
       '5',
       '6',
-      '7 (Stringly agree)'
+      '7 (Strongly agree)'
     ]
   }
 ];
