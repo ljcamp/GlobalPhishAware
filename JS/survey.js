@@ -757,19 +757,20 @@ var participantQuestions = [
 	response: 'hide',
 	mustbechecked:['English'],
 	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
-    },
-    {
-		type:'radio',
-		question:'Are you a US Citizen?',
-		options:[
-			'Yes',
-			'No'
-			],
-        response: 'hide',
-	/* mustbechecked:'Yes', */
-	rejecterror:'This study is designed for US Citizens. Please return the HIT.'
+    }
+      // ,
+      // {
+      //   type:'radio',
+      //   question:'Are you a US Citizen?',
+      //   options:[
+      //     'Yes',
+      //     'No'
+      //   ],
+      //   response: 'hide',
+      //   mustbechecked:'Yes',
+      //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
         
-	}
+	  // }
 ],
  [
 
