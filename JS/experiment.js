@@ -184,6 +184,10 @@ $(document).ready(function(){
   //  mouseClick['type'] += 'dblclick;'+mouseClick['type'];
   //});
   countrycode = $('#countrycode').text();
+  //if(countrycode === ""){
+  if (typeof countrycode != 'undefined'){
+      countrycode = "US";
+  }
   $('#countrycode').hide();
   participantInfo.map = dict[countrycode];
 

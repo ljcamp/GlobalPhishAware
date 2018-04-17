@@ -35,12 +35,11 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=strtoupper($_GET['COUNTRY']); // US: United States
+        $_SESSION['country']=$_GET['COUNTRY']; // US: United States
                                                            // GB: United Kingdom
                                                            // ZA: South Africa
                                                            // AU: Australia
                                                            // NZ: New Zealand
-
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
             echo "Please make sure that you put the correct testing parameters (e.g. group should be 0, 1, 2, or 3)";
         }else{
@@ -65,7 +64,7 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=strtoupper($_GET['COUNTRY']); // US: United States
+        $_SESSION['country']=$_GET['COUNTRY']; // US: United States
                                                            // GB: United Kingdom
                                                            // ZA: South Africa
                                                            // AU: Australia
@@ -81,6 +80,7 @@ if($isFirefox){
               require_once('PHP/sisSite.php');
           } elseif($_SESSION['type'] == 'iu' || $_SESSION['type'] == 'IU' ) {//iu
               require_once('PHP/casauth.php');
+              echo "<div id=\"countrycode\">" . $_SESSION['country'] . "</div>";
           } else {
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }
@@ -93,6 +93,7 @@ if($isFirefox){
 else{
   echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
 }
+        print($_SESSION['country']);
 //
 //if(empty($_SESSION))
 //{

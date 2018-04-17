@@ -54,6 +54,7 @@ $(document).ready(function(){
 	var participantType = $('#participantType').val();
   
     $("#countrycode").hide();
+    $("#ordergroup").hide();
   	var docTitle = document.title;
   	switch(docTitle){
   	case "Log in Not Log in Study Description":
@@ -148,6 +149,9 @@ function runSurvey(){
 function showFinish(){
 
     countrycode = $('#countrycode').text();
+    if(countrycode === ""){
+        countrycode = "US";
+    }
 
     // console.log("countrycode: " + countrycode);
     var websites = Object.keys(dict[countrycode + ""]);
@@ -762,7 +766,7 @@ var participantQuestions = [
 			'No'
 			],
         response: 'hide',
-	mustbechecked:'Yes',
+	/* mustbechecked:'Yes', */
 	rejecterror:'This study is designed for US Citizens. Please return the HIT.'
         
 	}
@@ -857,7 +861,7 @@ var participantQuestions = [
 			'No'
 			],
         response: 'hide',
-         mustbechecked:'Yes',
+        mustbechecked:'Yes',
         rejecterror:'This study is designed for US Citizens.'
 	}
 ]

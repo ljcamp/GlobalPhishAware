@@ -3,6 +3,7 @@ session_start();
 
 $authenticated = $_SESSION['CAS'];
 $casurl = 'https://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME'];
+$query = $_SERVER['QUERY_STRING'];
 
 if (!$authenticated) {
 	$_SESSION['CAS'] = true;
