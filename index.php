@@ -49,7 +49,11 @@ if($isFirefox){
               else if($_SESSION['type'] == 'inv') { //inv
               require_once('PHP/sisSite.php');
           } elseif($_SESSION['type'] == 'iu' || $_SESSION['type'] == 'IU' ) {//iu
-              require_once('PHP/casauth.php');
+              if($_SESSION['country'] == 'US'){
+                require_once('PHP/casauth.php');
+              }else{
+                echo 'You can not experiment with the <b>IU</b> type in the <b>non-US</b> country';
+              }
           } else {
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }
@@ -79,8 +83,12 @@ if($isFirefox){
               else if($_SESSION['type'] == 'inv') { //inv
               require_once('PHP/sisSite.php');
           } elseif($_SESSION['type'] == 'iu' || $_SESSION['type'] == 'IU' ) {//iu
-              require_once('PHP/casauth.php');
-              echo "<div id=\"countrycode\">" . $_SESSION['country'] . "</div>";
+              if($_SESSION['country'] == 'US'){
+                require_once('PHP/casauth.php');
+                echo "<div id=\"countrycode\">" . $_SESSION['country'] . "</div>";
+              }else{
+                echo 'You can not experiment with the <b>IU</b> type in the <b>non-US</b> country';
+              }
           } else {
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }
