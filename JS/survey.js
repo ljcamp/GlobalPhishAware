@@ -2236,12 +2236,13 @@ var PreStudyQuestions = [
 	]
     },
     {
-	type:'freeform',
-	question:'What is your nation of citizenship?',
-	
+        type:'radiowithother',
+        question:'What is your nation of citizenship?',
+        options:['America','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
     },
     {
-	type:'freeform',
-	question:'In what nation do you currently live?',
+        type:'radiowithother',
+        question:'In what nation do you currently live?',
+        options:['America','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
     }    
 ]
