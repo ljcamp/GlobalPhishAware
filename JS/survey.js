@@ -809,7 +809,9 @@ var participantQuestions = [
 			'No'
 			],
         response: 'hide',
-	},
+	}
+/*
+,
      {
      type:'radio',
 		question:'Are you a US Citizen?',
@@ -819,6 +821,7 @@ var participantQuestions = [
 			],
         response: 'hide',
      }
+*/
 ],
                             
 [
@@ -853,7 +856,9 @@ var participantQuestions = [
         response: 'hide',
 	mustbechecked:['English'],
 	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
-    },
+    }
+/*
+     ,
     {
 		type:'radio',
 		question:'Are you a US Citizen?',
@@ -865,6 +870,7 @@ var participantQuestions = [
         mustbechecked:'Yes',
         rejecterror:'This study is designed for US Citizens.'
 	}
+*/
 ]
 ];
 
