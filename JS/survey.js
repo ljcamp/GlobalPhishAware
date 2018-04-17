@@ -1749,3 +1749,113 @@ var skill_questions = [
 
 ];
 // console.log("OPTS: " + opts)
+var PreStudyQuestionsFile = [
+    {
+	type: '',
+	question:'What is your first name?',
+    },
+    {
+	type: '',
+	question: 'What is your last name?',
+    },
+    {
+	type:'radio',
+	question:'What is your age?',
+	options: [
+	    'Less than 18 years',
+	    '18-30 years',
+	    '30-40 years',
+	    '40-50 years',
+	    '50-60 years',
+	    '60-70 years',
+	    '70-80 years',
+	    'more than 80 years'
+	]
+    },
+    {
+	type: 'radio',
+	question: 'Which gender do you most identify with?'
+	options: [
+	    'Male',
+	    'Female',
+	    'Other',
+	    'Do not wish to specify'
+	]
+    },
+    {
+	type:'radio',
+	question: 'Can you read and understand English?'
+	options: [
+	    'Yes',
+	    'No'
+	]
+	mustbechecked:'Yes'
+    },
+    {
+	type: 'radio',
+	question: 'What is the highest degree or level of school you have completed? (If you are currently enrolled in school, please indicate the highest degree you have received.)',
+	options: [
+	    'Less than a high school diploma',
+	    'High school degree or equivalent (e.g. GED) Some college, no  degree',
+	    'Associate degree (e.g. AA, AS)',
+	    'Bachelor\'s degree (e.g. BA, BS)',
+	    'Master\'s degree (e.g. MA, MS,  MEd)',
+	    'Professional degree (e.g. MD, DDS, DVM)',
+	    'Doctorate (e.g. PhD, EdD)'
+	]
+    },
+    {
+	type:'radio',
+	question:'What is your current employment status?',
+	options: [
+	    'Employed full time (40 or more hours per week)',
+	    'Employed full time (40 or more hours per week)',
+	    'Unemployed, seeking employment',
+	    'Unemployed, not seeking employment',
+	    'Student',
+	    'Retired or Homemaker',
+	    'Self-employed',
+	    'Unable to work'
+	]
+    },
+    {
+	type:'radio',
+	question:'What is your annual income?',
+	options: [
+	    'Less than $20,000',
+	    '$20,000 to $34,999',
+	    '$35,000 to $49,999',
+	    '$50,000 to $74,999',
+	    '$75,000 to $99,999',
+	    'Over $100,000'
+	]
+    },
+    {
+	type:'checkall',
+	question:'What is your nation of citizenship?',
+	options: [
+	    'America',
+	    'Australia',
+	    'New Zeland',
+	    'United Kingdon',
+	    'South Africa',
+	    'India',
+	    'China',
+	    'Other please specify   **************'
+	]
+    },
+    {
+	type:'checkall',
+	question:'In what nation do you currently live?',
+	options: [
+	    'America',
+	    'Australia',
+	    'New Zeland',
+	    'United Kingdon',
+	    'South Africa',
+	    'India',
+	    'China',
+	    'Other please specify   **************'
+	    ]
+    }    
+]
