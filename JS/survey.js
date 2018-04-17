@@ -1749,7 +1749,7 @@ var skill_questions = [
 
 ];
 // console.log("OPTS: " + opts)
-var PreStudyQuestionsFile = [
+var PreStudyQuestions = [
     {
 	type: 'freeform',
 	question:'What is your first name?',
