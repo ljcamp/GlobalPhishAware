@@ -1702,14 +1702,15 @@ var skill_questions = [
   },
   {
     type:'checkall',
-    question:'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website?',
+    question:'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website? (Please mark all those that apply)',
     options: [
       'https',
       'lock icon on the page',
       'certificate',
       'website privacy statements',
       'type of website',
-      'professional-looking website'
+      'professional-looking website',
+	  'Other please specify   **************'
     ]
   },
   {
