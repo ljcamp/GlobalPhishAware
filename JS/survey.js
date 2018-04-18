@@ -621,28 +621,60 @@ function verifyFreeCode(question){
             $('input[name="'+name+'"]',$("#question")).addClass('error');
 	    $("#error").html('<font style="color:red;">Please answer the question with a number.</font><hr>');
         }
-    if (!value.match('117856')&&!value.match('119032')&&
-        !value.match('115656')&&!value.match('113432')&&
-       !value.match('105675')&&!value.match('107856')&&
-        !value.match('109932')&&!value.match('105675')&&
-        !value.match('507856')&&!value.match('503432')&&
-        !value.match('505675')&&!value.match('517856')&&
-       !value.match('519932')&&!value.match('515675')&&
-        !value.match('217656')&&!value.match('219087')&&
-        !value.match('217865')&&!value.match('213467')&&
-        !value.match('203432')&&!value.match('205675')&&
-       !value.match('217856')&&!value.match('219932')&&
-        !value.match('317656')&&!value.match('319032')&&
-        !value.match('317856')&&!value.match('313432')&&
-        !value.match('305675')&&!value.match('307856')&&
-       !value.match('309932')&&!value.match('305675')&&
-        !value.match('302345')&&!value.match('304325')&&
-        !value.match('907653')
-       ){
+        if (!value.match('117856')&&!value.match('119032')&&
+            !value.match('115656')&&!value.match('113432')&&
+            !value.match('105675')&&!value.match('107856')&&
+            !value.match('109932')&&!value.match('105675')&&
+            !value.match('507856')&&!value.match('503432')&&
+            !value.match('505675')&&!value.match('517856')&&
+            !value.match('519932')&&!value.match('515675')&&
+            !value.match('217656')&&!value.match('219087')&&
+            !value.match('217865')&&!value.match('213467')&&
+            !value.match('203432')&&!value.match('205675')&&
+            !value.match('217856')&&!value.match('219932')&&
+            !value.match('317656')&&!value.match('319032')&&
+            !value.match('317856')&&!value.match('313432')&&
+            !value.match('305675')&&!value.match('307856')&&
+            !value.match('309932')&&!value.match('305675')&&
+            !value.match('302345')&&!value.match('304325')&&
+            !value.match('907653')&&!value.match('119034')&&
+            !value.match('115658')&&!value.match('113434')&&
+            !value.match('105677')&&!value.match('107858')&&
+            !value.match('109934')&&!value.match('105677')&&
+            !value.match('507858')&&!value.match('503434')&&
+            !value.match('505677')&&!value.match('517858')&&
+            !value.match('519934')&&!value.match('515677')&&
+            !value.match('217658')&&!value.match('219089')&&
+            !value.match('217867')&&!value.match('213469')&&
+            !value.match('203434')&&!value.match('205677')&&
+            !value.match('217858')&&!value.match('219934')&&
+            !value.match('317658')&&!value.match('319034')&&
+            !value.match('317858')&&!value.match('313434')&&
+            !value.match('305677')&&!value.match('307858')&&
+            !value.match('309934')&&!value.match('305677')&&
+            !value.match('302347')&&!value.match('304327')&&
+            !value.match('907655')&&!value.match('119036')&&
+            !value.match('115660')&&!value.match('113436')&&
+            !value.match('105679')&&!value.match('107860')&&
+            !value.match('109936')&&!value.match('105679')&&
+            !value.match('507892')&&!value.match('503436')&&
+            !value.match('505679')&&!value.match('517860')&&
+            !value.match('519936')&&!value.match('515679')&&
+            !value.match('217660')&&!value.match('219091')&&
+            !value.match('217869')&&!value.match('213471')&&
+            !value.match('203436')&&!value.match('205679')&&
+            !value.match('217860')&&!value.match('219936')&&
+            !value.match('317660')&&!value.match('319036')&&
+            !value.match('317860')&&!value.match('313436')&&
+            !value.match('305679')&&!value.match('307860')&&
+            !value.match('309936')&&!value.match('305679')&&
+            !value.match('302349')&&!value.match('304329')&&
+            !value.match('907657')
+           ){
                      error=true;
             $('input[name="'+name+'"]',$("#question")).addClass('error');
 	    $("#error").html('<font style="color:red;">Please enter correct code.</font><hr>');
-}
+       }
 
         else {
             $('input[name="'+name+'"]',$("#question")).removeClass('error');
