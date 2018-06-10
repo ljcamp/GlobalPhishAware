@@ -7,7 +7,7 @@ use List::Util 'sum';
 #print Dumper(\@files);
 my $num_args = $#ARGV + 1;
 if($num_args < 1){
-    print "\nUsage: ./analyze.pl <username>\n";
+    print "\nUsage: ./analyze.pl <country_code>\n";
     exit 1;
 }
 my $cty = "";
@@ -35,6 +35,8 @@ my @filelist = ();
 my $female = 0;
 my $male = 0;
 my $other = 0;
+my $total_correct = 0;
+
 foreach my $f (@files){
     next if ($f =~ m/^\./);
     if ($f =~ m/raw_sis_data_.*_(.*)_(\d+)\.json/g){
@@ -69,6 +71,19 @@ foreach my $ff (@filelist){
             }
             $users{$username}[1] = "\$ ".$pay;
             $total = $total + $pay;
+            my @corrects = `grep -r correct $path/$ff`;
+            my $answer_val = 0;
+            foreach my $correct (@corrects){
+                chomp($correct);
+                my ($label, $answer) = split(/:/, $correct);
+                $answer =~ s/"//g;
+                $answer =~ s/,//g;
+                $answer =~ s/ //g;
+                $answer_val++ if $answer == 1;
+                $total_correct++ if $answer == 1;
+            }
+            $users{$username}[5] = $answer_val;
+            
         }
         if ($ff =~ m/raw_sis_data_.*\.json/){
             my $tmp2 = `grep -r '"What_is_your_first_name":' $path/$ff`;
@@ -107,10 +122,13 @@ foreach my $ff (@filelist){
 print Dumper(\%users);
 
 #my $value_count = sum values %users;
-print "\n\n=============== Analysis for $cty ===============\n\n";
+my $n_users = (scalar keys %users);
+print "\n\n=============== Analysis for $cty ===============\n";
 print "Total files : $num\n";
-print "Number of participants: " . (scalar keys %users) . "\n";
+print "Number of participants: $n_users\n";
 print "Gender (F, M, O): ($female, $male, $other)\n";
+print "Mean value of total correct answers ($total_correct / $n_users): " . $total_correct/$n_users . "\n";
 print "Total payments: \$ $total\n";
+print "\n";
 #
 exit 0;
