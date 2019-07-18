@@ -55,6 +55,7 @@ function serverTimer() {
 
 var participantInfo = {id:participantId,os: navigator.oscpu,browser:navigator.appCodeName,version:navigator.appVersion,simplifiedOS: null};
 
+console.log(navigator.oscpu); 
 //console.log(participantInfo);
 simplifiedOS = /(Windows|Mac|x86_64|-sm|Linux)/.exec(participantInfo.os)[1];
 

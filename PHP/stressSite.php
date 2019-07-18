@@ -47,8 +47,9 @@ font-size:150%;
 //     $_SESSION["country"] = "US";
 // }
 
+  //mturk
 if($_SESSION['type']=='mturk'){
-    //mturk
+    //tt = 0
     if($_SESSION['tt']==0)
     {
 	echo '
@@ -211,10 +212,10 @@ if($_SESSION['type']=='mturk'){
         
     }
 }
-
+//inv
 else if($_SESSION['type']=='inv') {
 	//TODO: Change instructions here to explain accuracy condition
-    //inv
+    //tt = 0
     if($_SESSION['tt']==0)
     {
 	echo '
@@ -379,9 +380,10 @@ else if($_SESSION['type']=='inv') {
     }
 }
 
-   else if($_SESSION['type']=='iu') {
+ //iu
+ else if($_SESSION['type']=='iu') {
 	//TODO: Change instructions here to explain accuracy condition
-       //iu
+       //tt = 0
        if($_SESSION['tt']==0)
     {
 	echo '
