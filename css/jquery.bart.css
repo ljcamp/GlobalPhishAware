@@ -11,6 +11,7 @@
 }
 #bart input.BARTinflate,
 #bart input.BARTnext,
+#bart input.BARTend,
 #bart input.BARTcashin {
     padding: 10px 15px;
     background: #e0e0e0;

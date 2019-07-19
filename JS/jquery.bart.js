@@ -151,7 +151,8 @@
                                              //    number of explosions for each balloon
             frmids_time:     [],             // optional ids of hidden form elements to save 
                                              //    mean latency between pumps (excluding time before first pump)
-            txt_cashin: '$$ Cash in $$',     // text on 'Cash in' button
+            txt_phishing: 'Go to Phishing Experiment',      // text on 'Got to Phishing Experiment' button
+            txt_cashin: '$$ Points $$',      // text on 'Cash in' button
             txt_inflate: 'Inflate balloon',  // text on 'Inflate' button
             txt_next:    'Next balloon',     // text on 'Next' button
             txt_balloon_number: 'Balloon number: ',          // text for balloon number
@@ -161,7 +162,7 @@
             txt_prob_explosion: 'Probability of explosion:', // text for probability of explosion
             txt_pumps_used: 'Max. available pumps used:',    // text for percentage of used pumps
             onload:    function() {},        // function to run before loading the script 
-            onend:    function() {alert("Thanks! You are done!");}          // function to run after finishing the last balloon 
+            onend:    function() {alert("Thanks! You are done!"); }          // function to run after finishing the last balloon 
         };
         
         var canvas = null, snds = {}, r = [];
@@ -414,6 +415,8 @@
             r = r + ([this.id, this.pumps, (this.exploded)*1, t]).join(opts.separator[0]);
             r = r +  opts.separator[1];
             $('#' + opts.frmid).val(r);
+            $('#saveBart').val(r);
+            //console.log(r);
         }
         
         
@@ -603,8 +606,10 @@
                         butInflate.hide();
                         butCashin.hide();
                         if(balcnt+1 < bs.length) butNext.show();
-                        else opts.onend();
-                            
+                        else {
+                          opts.onend();
+                          butPhishing.show();
+                        }       
                         
                     } else {
                         
@@ -713,12 +718,39 @@
                     butCashin.hide();
                     bal.save();
                     if(balcnt+1 < bs.length) butNext.show();
-                    else opts.onend();
+                    else {
+                      opts.onend();
+                      butPhishing.show();
+                    }       
                         
                     // sound
                     if(opts.sounds == true) {
                         snds.cashin.play();
                     }
+                        
+                });
+                
+            // phishing experiment button
+            var butPhishing = $('<input>')
+                .addClass('BARTend')
+                .appendTo(divBottom)
+                .attr({ 
+                    value: opts.txt_phishing, 
+                    type:  'button'
+                })
+                .css({
+                    width:  '300px',
+                    height: '90px',
+                    margin: '0 20px' 
+                })
+                .hide()
+                .on('click.bart', function(e) {
+                    // show/hide buttons
+                    butInflate.hide();
+                    butCashin.hide();
+                    butNext.hide();
+                    $('#bartResults').submit();
+                    //window.location.href = "dataReceiver.php";
                         
                 });
                 

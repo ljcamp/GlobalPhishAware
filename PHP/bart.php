@@ -60,7 +60,6 @@ if($_SESSION['user'] != ""){
     
     </head>
     <body>
-
         <h1 style="text-align:center;">Online Ballon Analogue Risk Task (oBART)</h1>
                         
         <!-- load AMP here -->
@@ -68,12 +67,12 @@ if($_SESSION['user'] != ""){
         
         <p style="text-align:center;">For more information see <a href="http://timo.gnambs.at/">http://timo.gnambs.at</a>.</p>
 	<FORM id="bartResults" method=POST action="dataReceiver.php">&nbsp;
-	</DIV>
 	<DIV id="completedquestions">
 		<input type="hidden" id="workerId" value="<?php echo $_SESSION['participant'];?>"/>
 		<input type="hidden" id="participantType" value="<?php echo $_SESSION['participantType'];?>"/>
 		<input type="hidden" id="experimentCondition" value="<?php echo $_SESSION['experimentConditionNumber'];?>"/>
     <input type="hidden" id="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
+    <input type="hidden" id="saveBart" name="bart_results" value=""/>
 	</DIV>
 	</FORM>
 
