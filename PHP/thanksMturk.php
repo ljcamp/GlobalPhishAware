@@ -19,6 +19,7 @@ both our Login task and our survey. We will approve your pay of &#36;2.00 for co
 We’d like to tell you a little more about our study design.<b>The experiment included images of websites that we created and not actual websites.  This study was designed to investigate how different groups perceive risks and privacy in online environments. </b>  
 If you have any questions about this study, please do not hesitate to contact us: sancdas@indiana.edu.
 </p>
+<!--
 <p>
     If you have any additional comments on our study we would appreciate your feedback. These comments are optional and if you just wish to complete the HIT, click the Complete HIT button. Once again thank you for your time and effort.
 
@@ -36,6 +37,12 @@ If you have any questions about this study, please do not hesitate to contact us
 <button type="submit" value="Submit">Complete Hit</button>
 <p>
     </FORM>
+-->
+<p>
+    You may now close the browser.
+
+
+</p>
 </div>
 </html>
 

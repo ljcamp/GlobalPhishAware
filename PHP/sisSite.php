@@ -123,7 +123,9 @@ $_SESSION['sisStart'] = true;
       <div id="countrycode"><?= $_SESSION['country']; ?></div>
 <?php if($_SESSION['country'] != "AU"){ ?>
 <?php if($_SESSION['country'] == "US"){ ?>
+<!--
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
+-->
 <?php } ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
@@ -190,7 +192,9 @@ researchers Sanchari Das at sancdas@indiana.edu. You can also contact our group 
 <p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with Indiana University.</p>
 <br>
 <?php if($_SESSION['country'] == "US"){ ?>
+<!--
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
+-->
 <?php } ?>
 <?php } ?>
 <?php if($_SESSION['country'] == "AU"){ ?>
@@ -218,9 +222,7 @@ The information will be stored securely in the Scholarly Data Archive at Indiana
 <?php } ?>
 
 <?php if(!$preview) :?>
-<?php if($_SESSION['country'] != "US"){ ?>
 		<BUTTON id="sisacknowledged">Continue to Experiment</BUTTON>
-<?php } ?>
 		   <?php endif;?>
 
 	</DIV>

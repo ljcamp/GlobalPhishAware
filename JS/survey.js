@@ -758,11 +758,11 @@ function isNumber(num){
 //mturk questions are indexed at 0, iu questions are indexed at 1, 2 invitation based questions. Time questions are indexed at 0, accuracy questions are indexed at 1.
 var participantQuestions = [ 
     [   
-    {
-        type:'freeform',
-        question:'What is your Mechanical Turk ID?',
-        response: 'hide',
-    },
+//    {
+//        type:'freeform',
+//        question:'What is your Mechanical Turk ID?',
+//        response: 'hide',
+//    },
     // {
     //     type:'freeformint',
     //     question:'What is your age?',
@@ -1789,7 +1789,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? (1=Voluntary; 5=Involuntary) ',
+    question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? ', //(1=Voluntary; 5=Involuntary) 
     options: [
       'Completely voluntary',
       'Voluntary',
@@ -1801,7 +1801,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? (1=Immediate; 5=Delayed) ',
+    question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? ', //(1=Immediate; 5=Delayed)
     options: [
       'Immediate',
       'Somewhat immediate',
@@ -1837,7 +1837,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? (1=Uncontrollable; 5=Controllable) ',
+    question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -1849,7 +1849,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? (1=Old; 5=New) ',
+    question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
@@ -1861,7 +1861,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? (1=Common; 5=Rare) ',
+    question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? ',// (1=Common; 5=Rare)
     options: [
       'Common',
       'Frequently encountered',
@@ -1873,7 +1873,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? (1= Individual; 5=(Many People) Global) ',
+    question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? ',// (1= Individual; 5=(Many People) Global)
     options: [
       'Individual',
       'Multiple people',
@@ -1885,7 +1885,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? (1=Not Severe; 5=Severe) ',
+    question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? ',// (1=Not Severe; 5=Severe)
     options: [
       'Not at all severe, trivial',
       'Not trivial but not severe',
@@ -1897,7 +1897,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? (1=Voluntary; 5=Involuntary) ',
+    question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
     options: [
       'Completely voluntary',
       'Voluntary',
@@ -1909,7 +1909,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Immediacy: Is the risk from the to account takeover immediate or does it occur at a later time? (1=Immediate; 5=Delayed) ',
+    question:'(Question about account takeover) Immediacy: Is the risk from the to account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
     options: [
       'Immediate',
       'Somewhat immediate',
@@ -1945,7 +1945,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? (1=Uncontrollable; 5=Controllable) ',
+    question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -1957,7 +1957,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? (1=Old; 5=New) ',
+    question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
@@ -1969,7 +1969,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? (1=Common; 5=Rare) ',
+    question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
     options: [
       'Common',
       'Frequently encountered',
@@ -1981,7 +1981,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people? (1= Individual; 5=(Many People) Global)',
+    question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
     options: [
       'Individual',
       'Multiple people',
@@ -1993,7 +1993,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ? (1=Not Severe; 5=Severe)',
+    question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
     options: [
       'Not at all severe, trivial',
       'Not trivial but not severe',

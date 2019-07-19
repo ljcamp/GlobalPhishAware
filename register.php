@@ -2,12 +2,22 @@
 // Include config file
 require_once "includes/config.php";
  
+$type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
+$tt =  isset($_GET['tt'])?$_GET['tt']:"";
+$country =  isset($_GET['country'])?$_GET['country']:"";
+if($country != ""){
+  echo "<img src='Images/$country.jpg' width='220px'>";
+}
+
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $type = isset($_POST['typeRadios'])?$_POST['typeRadios']:"";
+    $tt =  isset($_POST['tt'])?$_POST['tt']:"";
+    $country =  isset($_POST['country'])?$_POST['country']:"";
  
     // Validate username
     if(empty(trim($_POST["username"]))){
@@ -78,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: login.php");
+              header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -107,7 +117,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <div class="wrapper">
         <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+        <p>Would you like to participate? Please fill out the following form to create an account: 
+</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
@@ -127,8 +138,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
+                <input type="hidden" name="country" value="<?php echo $country; ?>" >
+                <input type="hidden" name="typeRadios" value="<?php echo $type; ?>" >
+                <input type="hidden" name="tt" value="<?php echo $tt; ?>" >
             </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <p>Already have an account? <a href="login.php?country=<?php echo $country; ?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Login here</a>.</p>
         </form>
     </div>    
 </body>

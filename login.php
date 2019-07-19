@@ -18,6 +18,9 @@ $username_err = $password_err = "";
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
 $country =  isset($_GET['country'])?$_GET['country']:"";
+if($country != ""){
+  echo "<img src='Images/$country.jpg' width='220px'>";
+}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $type = isset($_POST['typeRadios'])?$_POST['typeRadios']:"";
@@ -126,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="hidden" name="typeRadios" value="<?php echo $type; ?>" >
                 <input type="hidden" name="tt" value="<?php echo $tt; ?>" >
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="register.php?country=<?php echo $country?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Sign up now</a>.</p>
         </form>
     </div>    
 </body>
