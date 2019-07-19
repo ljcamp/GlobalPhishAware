@@ -48,10 +48,13 @@ session_start();
                     <div id="menu_nav" class="row nav centered merged-five">
 <table width="100%">
 <tr>
-<td width=50%>
+<td width=30%>
                     <a href="http://www.usablesecurity.net/"><img class="u-max-full-width" src="HATS_files/hatsWord2.jpg" alt="HATS"></a>
 </td>
-<td width=50% style="text-align:right;">
+<td width=30% style="text-align:center;">
+                    <a href="http://www.karenrenaud.com/"><img class="u-max-full-width" src="Images/Uni_Glasgow_2017_arms.png" height="160px" alt="Cyber Security"></a>
+</td>
+<td width=30% style="text-align:right;">
                     <a href="https://www.csiro.au/"><img class="u-max-full-width" src="Images/CSIRO.jpg" alt="CSIRO"></a>
 </td>
 </tr>
@@ -80,7 +83,7 @@ session_start();
                   <td><a href="action2.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
                   <td><a href="action2.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
                   <td><a href="action2.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
-                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.png" width=220px></a></td>
+                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" width=220px></a></td>
                 </tr>
                 <tr class="country">
                     <td>United States</td>
