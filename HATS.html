@@ -1,9 +1,3 @@
-<?php
-// Initialize the session
-session_start();
- 
-?>
- 
 <!DOCTYPE html>
 <html class="js" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -45,39 +39,8 @@ session_start();
         <div class="container ">
             <div class="row ">
                 <div class="twelve columns">
+                    <a href="http://www.usablesecurity.net/"><img class="u-max-full-width" src="HATS_files/hatsWord2.jpg" alt="HATS"></a>
                     <div id="menu_nav" class="row nav centered merged-five">
-<table width="100%">
-<?php if(isset($_SESSION["user"])){
-?>
-<tr>
-<td rowspan="2" width=20%>
-                    <a href="http://www.usablesecurity.net/"><img class="u-max-full-width" src="HATS_files/hatsWord2.jpg" alt="HATS"></a>
-</td>
-<td width=80%>
-        <h2>Hi, <b> <?php echo htmlspecialchars($_SESSION["user"]); ?></b>. Welcome to Phishing Experiment site.</h2>
-</td>
-</tr>
-<tr>
-<td>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-</td>
-</tr>
-<?php
-}else{
-?>
-<tr>
-<td width=20%>
-                    <a href="http://www.usablesecurity.net/"><img class="u-max-full-width" src="HATS_files/hatsWord2.jpg" alt="HATS"></a>
-</td>
-<td width=80% valign="bottom">
-        <h2>Welcome to Phishing Experiment site.</h2>
-</td>
-</tr>
-<?php
-}
-?>
-</table>
                       <!--
                         <ul id="menu_nav" style="margin-top:-5rem;margin-left:227px">
                         <li class="selected"><a href="http://www.usablesecurity.net/">Home</a></li>
@@ -131,16 +94,10 @@ session_start();
             <div style="background-color:white;">
               <table align="center">
                 <tr>
-                  <td><a href="action2.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
-                  <td><a href="action2.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
-                  <td><a href="action2.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
-                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.png" width=220px></a></td>
-                </tr>
-                <tr class="country">
-                    <td>United States</td>
-                    <td>United Kingdom</td>
-                    <td>Australia</td>
-                    <td>New Zealand</td>
+                  <td><a href="action2.php?country=US&typeRadios=mturk&tt=0"><img src="Images/US.jpg" width=250px></a></td>
+                  <td><a href="action2.php?country=UK&typeRadios=mturk&tt=0"><img src="Images/UK.jpg" height=250px></a></td>
+                  <td><a href="action2.php?country=AU&typeRadios=mturk&tt=0"><img src="Images/AU.jpg" width=250px></a></td>
+                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0"><img src="Images/NZ.png" width=250px></a></td>
                 </tr>
               </table>
             </div>
@@ -149,15 +106,48 @@ session_start();
 
 
             <div class="hats-row">
-                    <strong>Test Your Phishing Resilience</strong>
-<p>Our vision is to use a set of well-understood, well-documented, and systematically method to explore phishing resilience. Currently we are offering phishing resilience testing only to recruited participants. 
-</p>
-<p>
-  If you have a participant code please select the nation above.
-</p>
-<p>
-  If you a scholar who would like to participate or would like to sign up to test your resilience please select your country of residence to provide contact information.
-</p>
+                <div class="six columns">
+
+
+                    <strong>Translucent Security</strong>
+<p>Human-centered security is distinct from other human-centered design 
+challenges because security risk is heterogenous, the harm stochastic, 
+and the connection between risk and harm sometimes invisible.</p>
+
+<p>Why is usable security more than usability, and sometimes not aligned
+ with traditional usability? In part, because individuals rarely want to
+ perform security per se. Security is not the desired goal of the 
+individual. In fact, security is usually orthogonal and often in 
+opposition to their actual goal. To address this we strive for 
+translucent security.</p>
+
+<p>Translucent security is not simply usable security. It is not default
+ security. Translucent security is cooperative security based on risk 
+communication, with computers and humans as partners. People understand 
+the context in which they work, security engineers understand the risk. 
+Security communication is risk communication. Risk communication is best
+ when context dependent, designed for the task, the risk, and the 
+person.</p>
+
+                </div>
+                <div class="six columns"><br>
+<p>Since individuals must trust their machines to function, risk 
+communication itself may undermine the value of the networked 
+interaction. For the individual, discrete technical problems are all 
+understood under the rubric of online risk (e.g., privacy, security).</p>
+
+<p>The stochastic nature of security (and risks in general) make common 
+usability approaches inapplicable. Making clear the connection between 
+actions and consequences is particularly difficult in security and 
+privacy. Risk is inherently probabilistic. There may be no consequences.
+ Consequences could very likely be delayed. Consequences may prove 
+catastrophic. And if the consequences could be determined, the 
+action-risk-consequence information may be overwhelming.</p>
+
+<p>Fundamentally, security information is about risk and threats. Such 
+communication is most often unwelcome. Increasing unwelcome interaction 
+is not a goal of usable design, but warnings must be part of security.</p>
+
                 </div>
             </div>
         </div>
