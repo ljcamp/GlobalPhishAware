@@ -2,6 +2,15 @@
 // Initialize the session
 session_start();
  
+$agent = $_SERVER['HTTP_USER_AGENT'];
+
+$_SESSION['firefox'] = '/Firefox/';
+
+$isFirefox = preg_match($_SESSION['firefox'],$agent);
+if(!$isFirefox){
+  echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
+  die;
+}
 ?>
  
 <!DOCTYPE html>
@@ -83,7 +92,7 @@ session_start();
                   <td><a href="action2.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
                   <td><a href="action2.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
                   <td><a href="action2.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
-                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" width=220px></a></td>
+                  <td><a href="action2.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px></a></td>
                 </tr>
                 <tr class="country">
                     <td>United States</td>

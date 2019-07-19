@@ -18,9 +18,6 @@ $username_err = $password_err = "";
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
 $country =  isset($_GET['country'])?$_GET['country']:"";
-if($country != ""){
-  echo "<img src='Images/$country.jpg' width='220px'>";
-}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $type = isset($_POST['typeRadios'])?$_POST['typeRadios']:"";
@@ -109,6 +106,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+<?php
+if($country != ""){
+  echo "<a href='index.php'><img src='Images/$country.jpg' style='margin:10px;' width='220px'></a>";
+}
+?>
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>

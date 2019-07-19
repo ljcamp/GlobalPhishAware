@@ -5,9 +5,6 @@ require_once "includes/config.php";
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
 $country =  isset($_GET['country'])?$_GET['country']:"";
-if($country != ""){
-  echo "<img src='Images/$country.jpg' width='220px'>";
-}
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -115,6 +112,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
+<?php
+if($country != ""){
+  echo "<a href='index.php'><img src='Images/$country.jpg' style='margin:10px;' width='220px'></a>";
+}
+?>
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Would you like to participate? Please fill out the following form to create an account: 
