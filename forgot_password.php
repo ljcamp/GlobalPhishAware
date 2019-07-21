@@ -1,8 +1,12 @@
 <?php
+session_start();
 // Include config file
 require_once "includes/config.php";
 require_once "sendEmails.php";
  
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
+  header('location:index.php');
+}
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
 $country =  isset($_GET['country'])?$_GET['country']:"";
@@ -92,7 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Forgot Password</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }

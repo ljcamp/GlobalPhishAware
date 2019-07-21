@@ -44,12 +44,13 @@ function sendVerificationEmail($userEmail, $token)
     //Set an alternative reply-to address
     $mail->addReplyTo($valid_email, $valid_name);
 
+    $protocol = isset($_SERVER['HTTPS']) ?'https://' : 'http://';
     $body = '<!DOCTYPE html>
     <html lang="en">
 
     <head>
       <meta charset="UTF-8">
-      <title>Test mail</title>
+      <title>Email Verification</title>
       <style>
         .wrapper {
           padding: 20px;
@@ -69,7 +70,7 @@ function sendVerificationEmail($userEmail, $token)
     <body>
       <div class="wrapper">
         <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/verify_email.php?token=' . $token . '">Verify Email!</a>
+        <a href="'.$protocol. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/verify_email.php?token=' . $token . '">Verify Email!</a>
       </div>
     </body>
 
@@ -101,12 +102,13 @@ function sendVerificationEmail($userEmail, $token)
 }
 
 function sendResetPasswordEmail($email, $key, $country, $token){
+    $protocol = isset($_SERVER['HTTPS']) ?'https://' : 'http://';
     $output='<p>Dear user,</p>';
     $output.='<p>Please click on the following link to reset your password.</p>';
     $output.='<p>-------------------------------------------------------------</p>';
-    $output.='<a href="http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/verify_email.php?token=' . $token . '">Verify Email!</a>';
-    $output.='<p><a href="http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/reset-password.php?key='.$key.'&email='.$email.'&action=reset&country='. $country .'" target="_blank">
-      http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/reset-password.php?key='.$key.'&email='.$email.'&action=reset&country='.$country.'</a></p>'; 
+    $output.='<a href="'.$protocol. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/verify_email.php?token=' . $token . '">Verify Email!</a>';
+    $output.='<p><a href="'.$protocol. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/reset-password.php?key='.$key.'&email='.$email.'&action=reset&country='. $country .'" target="_blank">
+      '.$protocol. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']).'/reset-password.php?key='.$key.'&email='.$email.'&action=reset&country='.$country.'</a></p>'; 
     $output.='<p>-------------------------------------------------------------</p>';
     $output.='<p>Please be sure to copy the entire link into your browser.
       The link will expire after 1 day for security reason.</p>';

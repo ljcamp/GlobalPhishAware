@@ -17,6 +17,7 @@ $new_password_err = $confirm_password_err = "";
 
 $country = isset($_GET['country'])?$_GET['country']:"";
 
+$protocol = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
 $isExpired = true;
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
 && ($_GET["action"]=="reset") && !isset($_POST["action"])){
@@ -36,7 +37,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
           <p>The link is invalid/expired. Either you did not copy the correct link
           from the email, or you have already used the key in which case it is
           deactivated.</p>
-          <p><a href="http://'. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) .'/forgot-password.php?country='.$country.'">
+          <p><a href="'.$protocol. $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI']) .'/forgot-password.php?country='.$country.'">
           Click here</a> to reset password.</p>';
       }else{
         mysqli_stmt_bind_result($stmt, $expDate);
