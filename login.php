@@ -12,8 +12,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "includes/config.php";
  
 // Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = "";
+$username = $password = $verified = "";
+$username_err = $password_err = $verification_err = "";
 
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password, verified FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -58,19 +58,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $verified);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["user"] = $username;                            
-                            
-                            // Redirect user to welcome page
-                            header("location: action2.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+                            //echo "VERIFIED: ". $verified;
+                            if($verified == 0){
+                              $verification_err = "Your email is not verified yet.";
+                            }else{
+                              session_start();
+                              
+                              // Store data in session variables
+                              $_SESSION["loggedin"] = true;
+                              $_SESSION["id"] = $id;
+                              $_SESSION["user"] = $username;                            
+                              // Redirect user to welcome page
+                              header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+                            }
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -115,6 +119,15 @@ if($country != ""){
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<?php if (count($errors) > 0): ?>
+  <div class="alert alert-danger">
+    <?php foreach ($errors as $error): ?>
+    <li>
+      <?php echo $error; ?>
+    </li>
+    <?php endforeach;?>
+  </div>
+<?php endif;?>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
@@ -125,6 +138,10 @@ if($country != ""){
                 <input type="password" name="password" class="form-control">
                 <span class="help-block"><?php echo $password_err; ?></span>
             </div>
+            <div class="form-group <?php echo (!empty($verification_err)) ? 'has-error' : ''; ?>">
+                <input type="hidden" name="verification" class="form-control" value="<?php echo $verified; ?>">
+                <span class="help-block"><?php echo $verification_err; ?></span>
+            </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
                 <input type="hidden" name="country" value="<?php echo $country; ?>" >
@@ -132,6 +149,7 @@ if($country != ""){
                 <input type="hidden" name="tt" value="<?php echo $tt; ?>" >
             </div>
             <p>Don't have an account? <a href="register.php?country=<?php echo $country?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Sign up now</a>.</p>
+            <p>Forgot your password? <a href="forgot_password.php?country=<?php echo $country?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Reset your password</a>.</p>
         </form>
     </div>    
 </body>

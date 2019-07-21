@@ -2,7 +2,16 @@
   //check to see if they are using Firefox
 session_start();
 
-  $agent = $_SERVER['HTTP_USER_AGENT'];
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
+    $tt =  isset($_GET['tt'])?$_GET['tt']:"";
+    $country =  isset($_GET['country'])?$_GET['country']:"";
+    header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+    exit;
+}
+
+$agent = $_SERVER['HTTP_USER_AGENT'];
 
 
 $_SESSION['firefox'] = '/Firefox/';
@@ -37,17 +46,17 @@ if($isFirefox){
 #  $_SESSION["typeRadios"] = $_POST["typeRadios"];
 #  echo "typeRadios: ", $_POST["typeRadios"];
 #}
-      if(isset($_POST['tt']) && isset($_POST['typeRadios'])  && isset($_POST['country'])){
-        $_SESSION['tt']=$_POST['tt']; //Time = 0, Accuracy = 1
-        $_SESSION['type']=$_POST['typeRadios']; //iu or mturk or inv
+      if(isset($_GET['tt']) && isset($_GET['typeRadios'])  && isset($_GET['country'])){
+        $_SESSION['tt']=$_GET['tt']; //Time = 0, Accuracy = 1
+        $_SESSION['type']=$_GET['typeRadios']; //iu or mturk or inv
         $_SESSION['group'] = $group;
-        if(isset($_POST['group'])){
-          $_SESSION['group']=$_POST['group']; // 0: no tool
+        if(isset($_GET['group'])){
+          $_SESSION['group']=$_GET['group']; // 0: no tool
                                              // 1: low risk high security
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=$_POST['country']; // US: United States
+        $_SESSION['country']=$_GET['country']; // US: United States
                                                            // GB: United Kingdom
                                                            // ZA: South Africa
                                                            // AU: Australia
@@ -72,9 +81,9 @@ if($isFirefox){
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }
         }
-      }elseif(isset($_POST['TT']) && isset($_POST['TYPERADIOS'])  && isset($_POST['COUNTRY'])){
-        $_SESSION['tt']=$_POST['TT']; //Time = 0, Accuracy = 1
-        $_SESSION['type']=$_POST['TYPERADIOS']; //iu or mturk or inv
+      }elseif(isset($_POST['tt']) && isset($_POST['typeRadios'])  && isset($_POST['country'])){
+        $_SESSION['tt']=$_POST['tt']; //Time = 0, Accuracy = 1
+        $_SESSION['type']=$_POST['typeRadios']; //iu or mturk or inv
         $_SESSION['group'] = $group;
         if(isset($_POST['group'])){
           $_SESSION['group']=$_POST['group']; // 0: no tool
@@ -82,7 +91,7 @@ if($isFirefox){
                                              // 2: medium risk
                                              // 3: high risk low security
         }
-        $_SESSION['country']=$_POST['COUNTRY']; // US: United States
+        $_SESSION['country']=$_POST['country']; // US: United States
                                                            // GB: United Kingdom
                                                            // ZA: South Africa
                                                            // AU: Australia

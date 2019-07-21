@@ -1,14 +1,15 @@
 <?php
 // Include config file
 require_once "includes/config.php";
+require_once "sendEmails.php";
  
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
 $tt =  isset($_GET['tt'])?$_GET['tt']:"";
 $country =  isset($_GET['country'])?$_GET['country']:"";
 
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $email = $password = $confirm_password = "";
+$username_err = $email_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -17,18 +18,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $country =  isset($_POST['country'])?$_POST['country']:"";
  
     // Validate username
-    if(empty(trim($_POST["username"]))){
+    if(empty(trim($_POST["username"])) || empty(trim($_POST['email']))){
+      if(empty(trim($_POST['username']))){
         $username_err = "Please enter a username.";
+      }
+      if(empty(trim($_POST['email']))){
+        $email_err = "Please enter a email.";
+      }
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT id FROM users WHERE username = ? OR email = ? LIMIT 1";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_email);
             
             // Set parameters
             $param_username = trim($_POST["username"]);
+            $param_email= trim($_POST["email"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -36,9 +43,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    $username_err = "This username or email is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
+                    $email= trim($_POST["email"]);
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -69,22 +77,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (username, email, token, password) VALUES (?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "ssss", $param_username, $param_email, $param_token, $param_password);
             
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
+            $param_token = bin2hex(openssl_random_pseudo_bytes(16));
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
+              sendVerificationEmail($email, $param_token);
               header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -122,10 +132,24 @@ if($country != ""){
         <p>Would you like to participate? Please fill out the following form to create an account: 
 </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<?php if (count($errors) > 0): ?>
+  <div class="alert alert-danger">
+    <?php foreach ($errors as $error): ?>
+    <li>
+      <?php echo $error; ?>
+    </li>
+    <?php endforeach;?>
+  </div>
+<?php endif;?>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
