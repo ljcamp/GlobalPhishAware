@@ -114,15 +114,6 @@ if($country != ""){
         <p>Would you like to reset your password? Please enter your registered email: 
 </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<?php if (count($errors) > 0): ?>
-  <div class="alert alert-danger">
-    <?php foreach ($errors as $error): ?>
-    <li>
-      <?php echo $error; ?>
-    </li>
-    <?php endforeach;?>
-  </div>
-<?php endif;?>
             <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
                 <label>Email</label>
                 <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
