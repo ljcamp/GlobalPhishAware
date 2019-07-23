@@ -69,6 +69,7 @@ $(document).ready(function(){
   		break;
   	case "Log in Not Log in Consent Form":
   	        prepSisAcknowledged();
+            console.log(participantType);
           	questions = participantQuestions[participantType].concat(PreStudyQuestions);
           	which_set = "sis";
   		break;
@@ -903,6 +904,54 @@ var participantQuestions = [
         rejecterror:'This study is designed for US Citizens.'
 	}
 */
+],
+
+[   
+//    {
+//        type:'freeform',
+//        question:'What is your Mechanical Turk ID?',
+//        response: 'hide',
+//    },
+    // {
+    //     type:'freeformint',
+    //     question:'What is your age?',
+    //     minimum: '18',
+	//    response: 'hide',
+    //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
+    // },
+    {
+        type:'checkall',
+        question:'What languages can you read and understand?',
+        prefix:'language',
+        options:[
+            'English',
+            'Spanish',
+            'Chinese',
+            'French',
+            'Tagalog',
+            'Vietnamese',
+            'Hindi',
+            'Arabic',
+            'Korean',
+            'German'
+        ],
+	response: 'hide',
+	mustbechecked:['English'],
+	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
+    }
+      // ,
+      // {
+      //   type:'radio',
+      //   question:'Are you a US Citizen?',
+      //   options:[
+      //     'Yes',
+      //     'No'
+      //   ],
+      //   response: 'hide',
+      //   mustbechecked:'Yes',
+      //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
+        
+	  // }
 ]
 ];
 
@@ -1387,6 +1436,74 @@ var participantValidationQuestions = [
 		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
 		response:'hide'
     }
+],
+
+[
+ 	{
+		type:'radio',
+		question:'Refreshing the experiment page will invalidate your results and result in a rejection?',
+		options:[
+			'True',
+			'False'
+			],
+		mustbechecked:'True',
+		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+		response:'hide'
+	},
+
+	{
+		type:'radio',
+		question:'Is repeating this study allowable?',
+		options:[
+			'No',
+			'Yes'
+			],
+		mustbechecked:'No',
+		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+		response:'hide'
+	},
+
+	{
+		type:'radio',
+		question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+		options:[
+			'Close the window',
+			'Find the login button on the simulated page and click it.',
+			'Find the back button on the simulated browser and click it.',
+			'Reload the experiment',
+			'Exit your browser'
+			],
+		mustbechecked:'Find the back button on the simulated browser and click it.',
+		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+		response:'hide'
+	},
+
+	{
+		type:'radio',
+		question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+		options:[
+			'Close the window',
+                        'Find the login button on the simulated page and click it.',
+                        'Find the back button on the simulated browser and click it.',
+                        'Reload the experiment',
+                        'Exit your browser'
+			],
+ 		mustbechecked:'Find the login button on the simulated page and click it.',
+                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
+                response:'hide'
+        },
+
+	{
+		type:'radio',
+		question:'Are you using a mouse or touchpad as your input device?',
+		options:[
+			'Yes',
+			'No'
+			],
+		mustbechecked:'Yes',
+		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+		response:'hide'
+	}
 ]
 
 ];
@@ -1497,6 +1614,42 @@ var validationQuestions = [
 					],
 				mustbechecked:'$0.67',
 				rejecterror:'It is important that you understand the instructions for this experiment.',
+				response:'hide'
+			}
+		]
+	],
+    [
+		[
+			{
+				type:'radio',
+				question:'What is the time penalty for logging into an insecure site?',
+				options:[
+					'5 seconds',
+					'10 seconds',
+					'15 seconds',
+					'20 seconds',
+					'25 seconds',
+					'30 seconds'
+					],
+				mustbechecked:'15 seconds',
+				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+				response:'hide'
+			}
+		],
+		[
+			{
+				type:'radio',
+				question:'What is the penalty for logging into an insecure site?',
+				options:[
+					'$0.50',
+					'$0.67',
+					'$0.75',
+					'$1.00',
+					'$1.25',
+					'$1.33'
+					],
+				mustbechecked:'$0.67',
+				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
 				response:'hide'
 			}
 		]
