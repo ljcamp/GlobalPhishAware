@@ -119,15 +119,6 @@ if($country != ""){
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<?php if (count($errors) > 0): ?>
-  <div class="alert alert-danger">
-    <?php foreach ($errors as $error): ?>
-    <li>
-      <?php echo $error; ?>
-    </li>
-    <?php endforeach;?>
-  </div>
-<?php endif;?>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
