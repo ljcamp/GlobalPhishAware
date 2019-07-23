@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if($verified == 0){
                               $verification_err = "Your email is not verified yet.";
                             }else{
-                              session_start();
+                              //session_start();
                               
                               // Store data in session variables
                               $_SESSION["loggedin"] = true;
