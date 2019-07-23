@@ -75,6 +75,9 @@ if($isFirefox){
               }else{
                 echo 'You can not experiment with the <b>IU</b> type in the <b>non-US</b> country';
               }
+          }
+            else if($_SESSION['type'] == 'account') { //local account
+              require_once('PHP/sisSite.php');
           } else {
 #            echo "SESSION:TYPE", $_SESSION['type'], "<br/>";
 #            echo "SESSION:country", $_SESSION['country'], "<br/>";
@@ -83,7 +86,7 @@ if($isFirefox){
         }
       }elseif(isset($_POST['tt']) && isset($_POST['typeRadios'])  && isset($_POST['country'])){
         $_SESSION['tt']=$_POST['tt']; //Time = 0, Accuracy = 1
-        $_SESSION['type']=$_POST['typeRadios']; //iu or mturk or inv
+        $_SESSION['type']=$_POST['typeRadios']; //iu or mturk or inv or account
         $_SESSION['group'] = $group;
         if(isset($_POST['group'])){
           $_SESSION['group']=$_POST['group']; // 0: no tool
@@ -112,6 +115,8 @@ if($isFirefox){
               }else{
                 echo 'You can not experiment with the <b>IU</b> type in the <b>non-US</b> country';
               }
+          } else if($_SESSION['type'] == 'account') { //local account
+              require_once('PHP/sisSite.php');
           } else {
             echo 'There seems to be an error in your study type. Please contact and administrator.';
           }

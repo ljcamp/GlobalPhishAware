@@ -33,10 +33,10 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             <div style="background-color:white;">
               <table align="center">
                 <tr>
-                  <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
-                  <td><a href="action.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
-                  <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
-                  <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px></a></td>
+                  <td><a href="action.php?country=US&typeRadios=account&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
+                  <td><a href="action.php?country=UK&typeRadios=account&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
+                  <td><a href="action.php?country=AU&typeRadios=account&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
+                  <td><a href="action.php?country=NZ&typeRadios=account&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px></a></td>
                 </tr>
                 <tr class="country">
                     <td>United States</td>
