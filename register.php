@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
               sendVerificationEmail($email, $param_token);
-              header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+              //header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -132,15 +132,6 @@ if($country != ""){
         <p>Would you like to participate? Please fill out the following form to create an account: 
 </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-<?php if (count($errors) > 0): ?>
-  <div class="alert alert-danger">
-    <?php foreach ($errors as $error): ?>
-    <li>
-      <?php echo $error; ?>
-    </li>
-    <?php endforeach;?>
-  </div>
-<?php endif;?>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">

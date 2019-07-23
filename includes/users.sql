@@ -5,7 +5,7 @@ CREATE TABLE `users` (
  `verified` tinyint(1) NOT NULL DEFAULT '0',
  `token` varchar(255) DEFAULT NULL,
  `password` varchar(255) NOT NULL,
- `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+ `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  PRIMARY KEY (`id`)
 );
 
