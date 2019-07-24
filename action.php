@@ -25,7 +25,7 @@ $isFirefox = preg_match($_SESSION['firefox'],$agent);
 $group = 0;
 if($isFirefox){
     if(isset($_GET['authcheck']) && $_GET['authcheck'] == 'true'){ //check for IU access
-      if($_SESSION['valid'] == true){
+      if($_SESSION['valid'] == true || $_SESSION['valid'] == 1){
         require_once('PHP/sisSite.php');
       } else {
         echo 'CAS Session already used. Please close and reopen Firefox browser.';
