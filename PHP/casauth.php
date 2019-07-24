@@ -33,6 +33,9 @@ if ($authenticated) {
 		ob_end_clean();
 
 		list($access,$user) = explode("\n",$cas_answer,3);
+//    echo "CAS ANSWER: " . $cas_answer . "<br/>";
+//    echo "acess: " . $access;
+//    die;
 		$access = trim($access);
 		$user = trim($user);
 
