@@ -186,6 +186,7 @@ winMapDict = {
 var dict = {};
 
 dict["GB"] = GB_Dict;
+dict["UK"] = GB_Dict;
 dict["ZA"] = ZA_Dict;
 dict["AU"] = AU_Dict;
 // dict["NZ"] = NZ_Dict;

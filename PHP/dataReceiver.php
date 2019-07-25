@@ -27,6 +27,7 @@ if($_SESSION['user'] != ""){
 
 if (!file_exists(dirname(__FILE__)."/results/".$_SESSION['country'])) {
     mkdir(dirname(__FILE__)."/results/".$_SESSION['country'], 0755, true);
+    //echo "CREATING directory: " . $_SESSION['country'];
 }
 
 if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
