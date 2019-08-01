@@ -1255,17 +1255,17 @@ var participantValidationQuestions = [
 		response:'hide'
 	},
 
-	{
-		type:'radio',
-		question:'Is repeating this study allowable?',
-		options:[
-			'No',
-			'Yes'
-			],
-		mustbechecked:'No',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
-		response:'hide'
-	},
+//	{
+//		type:'radio',
+//		question:'Is repeating this study allowable?',
+//		options:[
+//			'No',
+//			'Yes'
+//			],
+//		mustbechecked:'No',
+//		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+//		response:'hide'
+//	},
 
 	{
 		type:'radio',
@@ -1662,24 +1662,24 @@ var cultureQuestions = [
     {
         type:'radiowithother',
         question:'What is your gender?',
-        options:['Male','Female']
-    },
-
-    {
-        type:'checkall',
-        prefix:'selfDescription',
-        question:'What categories describe you (check all that apply)?',
-        options:[
-            'White',
-            'Hispanic or Latino',
-            'Black or African American',
-            'Asian',
-            'Native American or Alaska Native</P>',
-            'Native Hawaiian or Other Pacific Islander',
-	        'Middle Eastern or North African',
-	        'Some other race, ethnicity, or origin'
-		]
+        options:['Male','Female', 'Do not wish to answer']
     }
+//    ,
+//    {
+//        type:'checkall',
+//        prefix:'selfDescription',
+//        question:'What categories describe you (check all that apply)?',
+//        options:[
+//            'White',
+//            'Hispanic or Latino',
+//            'Black or African American',
+//            'Asian',
+//            'Native American or Alaska Native</P>',
+//            'Native Hawaiian or Other Pacific Islander',
+//	        'Middle Eastern or North African',
+//	        'Some other race, ethnicity, or origin'
+//		]
+//    }
     ];
 /*,
 
@@ -2032,8 +2032,8 @@ var skill_questions = [
       'Individual',
       'Multiple people',
       'May be global or individual',
-      'Large numbers of people',
-      'Global'
+      'A large number of people',
+      'A very large number of people'
     ]
   },
 
@@ -2140,8 +2140,8 @@ var skill_questions = [
       'Individual',
       'Multiple people',
       'May be global or individual',
-      'Large numbers of people',
-      'Global'
+      'A large number of people',
+      'A very large number of people'
     ]
   },
 
@@ -2341,14 +2341,14 @@ var skill_questions = [
 ];
 // console.log("OPTS: " + opts)
 var PreStudyQuestions = [
-    {
-	type: 'freeform',
-	question:'What is your first name?',
-    },
-    {
-	type: 'freeform',
-	question: 'What is your last name?',
-    },
+//    {
+//	type: 'freeform',
+//	question:'What is your first name?',
+//    },
+//    {
+//	type: 'freeform',
+//	question: 'What is your last name?',
+//    },
     {
 	type:'radio',
 	question:'What is your age?',
@@ -2424,11 +2424,11 @@ var PreStudyQuestions = [
     {
         type:'radiowithother',
         question:'What is your nation of citizenship?',
-        options:['America','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+        options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
     },
     {
         type:'radiowithother',
         question:'In what nation do you currently live?',
-        options:['America','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+        options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
     }    
 ]
