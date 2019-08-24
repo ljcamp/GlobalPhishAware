@@ -33,7 +33,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             <div style="background-color:white;">
               <table align="center">
                 <tr>
-                  <td><a href="action.php?country=US&typeRadios=iu&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
+                  <td><a href="action.php?country=US&typeRadios=account&tt=0" title="United States"><img src="Images/US.jpg" width=220px></a></td>
                   <td><a href="action.php?country=UK&typeRadios=account&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px></a></td>
                   <td><a href="action.php?country=AU&typeRadios=account&tt=0" title="Australia"><img src="Images/AU.jpg" width=220px></a></td>
                   <td><a href="action.php?country=NZ&typeRadios=account&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px></a></td>
@@ -58,7 +58,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
   If you have a participant code please select the nation above.
 </p>
 <p>
-  If you a scholar who would like to participate or would like to sign up to test your resilience please select your country of residence to provide contact information.
+  If you are a scholar who would like to participate or would like to sign up to test your resilience please select your country of residence to provide contact information.
 </p>
                 </div>
             </div>

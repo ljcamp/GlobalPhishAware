@@ -114,7 +114,7 @@
         var opts = {
             balloon: {                       // default settings for a balloon
                 earnings:        0.05,       // potential earnings for each pump
-                popprob:         128,        // probability of popping (as 1 out of X)
+                popprob:         50,         // probability of popping (as 1 out of X) : used to be 128 (dikim)
                 radius:          48,         // balloon size
                 increment:       0.01,       // increment size of balloon at each pump
                 color:           '#DA110D',  // color of balloon
