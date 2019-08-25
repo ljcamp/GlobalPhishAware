@@ -73,7 +73,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
     <section class="copyright">
         <div class="container ">
             <div class="row">
-                <div class="twelve columns centered">© 2015-2019 <a href="http://usablesecurity.net/">HATS</a>. All Rights Reserved.
+                <div class="twelve columns centered">&copy; 2015-<?php echo date("Y"); ?> <a href="http://usablesecurity.net/">HATS</a>. All Rights Reserved.
                 </div>
             </div>
         </div>
