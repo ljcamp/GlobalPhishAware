@@ -82,10 +82,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(!empty($participant_code) && !array_key_exists($participant_code, $registered_codes)){
           $participant_code_err = "Invalid participant code";
         }
+    }else{
+        $participant_code_err = "Empty participant code";
     }
 
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err) && (!empty($participant_code_err) && $participant_code_err == "Empty participant code")){
 
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, email, token, password) VALUES (?, ?, ?, ?)";
