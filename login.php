@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $password = trim($_POST["password"]);
     }
 
-    if(!empty(trim($_POST["participant_code"]))){
+    if(!empty(trim($_POST["participant_code"])) && $_SESSION["loggedin"]){
         $participant_code = trim($_POST["participant_code"]);
         if(!array_key_exists($participant_code, $registered_codes)){
           $participant_code_err = "Invalid participant code";
@@ -66,6 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               // Close connection
 //              echo '<script language="javascript">';
 //              echo 'alert("Your participant code is successfully updated!")';
+//              echo "window.location=\"action.php?country=$country&typeRadios=$type&tt=$tt\"";
 //              echo '</script>';
               header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
             } else{
