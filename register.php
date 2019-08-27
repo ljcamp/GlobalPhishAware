@@ -79,13 +79,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(!empty(trim($_POST["participant_code"]))){
         $participant_code = trim($_POST["participant_code"]);
-        if(!array_key_exists($participant_code, $registered_codes)){
+        if(!empty($participant_code) && !array_key_exists($participant_code, $registered_codes)){
           $participant_code_err = "Invalid participant code";
         }
     }
 
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($participant_code_err)){
+    if(empty($username_err) && empty($email_err) && empty($password_err) && empty($confirm_password_err)){
 
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, email, token, password) VALUES (?, ?, ?, ?)";
@@ -110,7 +110,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-              sendparticipantEmail($email, $param_token);
+              if($participant_code_err){
+                sendVerificationEmail($email, $param_token);
+              }else{
+                sendParticipantEmail($email, $param_token);
+              }
               //header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
             } else{
                 echo "Something went wrong. Please try again later.";
