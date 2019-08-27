@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-              if($participant_code_err){
+              if($participant_code_err && $participant_code_err == "Empty participant code"){
                 sendVerificationEmail($email, $param_token);
               }else{
                 sendParticipantEmail($email, $param_token);
