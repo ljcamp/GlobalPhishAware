@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //              echo 'alert("Your participant code is successfully updated!")';
 //              echo "window.location=\"action.php?country=$country&typeRadios=$type&tt=$tt\"";
 //              echo '</script>';
-              header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+              header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt . "&updated=t");
             } else{
               echo "Oops! Something went wrong. Please try again later.";
             }

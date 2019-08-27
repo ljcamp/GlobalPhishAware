@@ -78,6 +78,9 @@ if($isFirefox){
               }
           }
             else if($_SESSION['type'] == 'account') { //local account
+              if(isset($_GET['updated']) && $_GET['updated'] == 't'){
+                echo "<font color='red'>Your participant code is successfully updated!</font>";
+              }
               require_once('PHP/sisSite.php');
           } else {
 #            echo "SESSION:TYPE", $_SESSION['type'], "<br/>";
