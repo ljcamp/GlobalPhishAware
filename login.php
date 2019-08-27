@@ -11,6 +11,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && !isset($_PO
 // Include config file
 require_once "includes/config.php";
 require_once "includes/participant_code.php";
+
+$_SESSION['participant'] = false;
  
 // Define variables and initialize with empty values
 $username = $password = $verified = $participant_code = "";
@@ -62,6 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               $_SESSION["loggedin"] = true;
               $_SESSION["id"] = $id;
               $_SESSION["user"] = $username;                            
+              $_SESSION['participant'] = true;
               // Redirect user to welcome page
               // Close connection
 //              echo '<script language="javascript">';
@@ -115,6 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               $_SESSION["loggedin"] = true;
                               $_SESSION["id"] = $id;
                               $_SESSION["user"] = $username;                            
+                              $_SESSION['participant'] = true;
                               // Redirect user to welcome page
                               mysqli_close($link);
                               header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
