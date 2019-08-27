@@ -8,7 +8,10 @@ $_SESSION['firefox'] = '/Firefox/';
 
 $isFirefox = preg_match($_SESSION['firefox'],$agent);
 if(!$isFirefox){
-  echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
+  echo 'It appears that you are not using a recognized version of Firefox. Please return to view this experiment using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this experiment.<br><br>';
+  if($_SESSION['verified']){
+  echo '<p><font color="red">Your email is verified!</font></p>';
+  }
   die;
 }
 ?>
