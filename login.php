@@ -79,6 +79,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           // Close statement
           mysqli_stmt_close($stmt);
         }
+    }else if(empty($participant_code) && $_SESSION["loggedin"]){
+      $participant_code_err = "You entered an empty code";
     }
 
     
@@ -177,7 +179,7 @@ if(!empty($participant_code_err)){
     <div class="wrapper">
         <h2>Your participant code is expired or invalid</h2>
         <p><font color="red">You are logged in successfully</font></p>
-        <p>Would you like to enter a new pariticipant code? </p>
+        <p>Would you like to enter a new participant code? </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <p>If you have a participant code for the paid experiment, please enter it. You can still proceed your experiment with the expired participant code but you will not receive any payment from your experiment.</p>
             <div class="form-group <?php echo (!empty($participant_code_err)) ? 'has-error' : ''; ?>">

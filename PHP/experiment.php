@@ -108,8 +108,13 @@ echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://
 <div id=\"display\">
 <div id=\"error\">
 </div>
-<div id=\"bonus\">
-</div>
+";
+if($_SESSION['valid_participant']){
+  echo "<div id=\"bonus\"></div>";
+}else{
+  echo "<div id=\"report\"></div>";
+}
+echo "
 </div>
 
 <!--<div id=\"accuracyDisplay\">

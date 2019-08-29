@@ -13,7 +13,7 @@ session_start();
 </head>
 <div id="finalForm" style="width:60%;margin-left:auto;margin-right:auto;top:100px;font-size:125%;">
 <p>
-Thank you for participating in our study. We appreciate your time an effort. You have completed
+Thank you for participating in our study. We appreciate your time and effort. You have completed
 both our Login task and our survey. 
 
 <?php if($_SESSION['valid_participant']){ ?>

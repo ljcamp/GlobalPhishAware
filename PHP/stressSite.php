@@ -58,7 +58,13 @@ if($_SESSION['type']=='mturk'){
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo'
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -72,7 +78,7 @@ if($_SESSION['type']=='mturk'){
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -119,7 +125,7 @@ if($_SESSION['type']=='mturk'){
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
@@ -138,7 +144,13 @@ if($_SESSION['type']=='mturk'){
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -152,7 +164,7 @@ if($_SESSION['type']=='mturk'){
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -199,7 +211,7 @@ if($_SESSION['type']=='mturk'){
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
@@ -224,7 +236,13 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -238,7 +256,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -285,7 +303,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -306,7 +324,12 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -320,7 +343,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -367,7 +390,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -392,7 +415,12 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -406,7 +434,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -453,7 +481,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -473,7 +501,12 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -487,7 +520,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -534,7 +567,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -556,7 +589,12 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -570,7 +608,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -617,7 +655,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -637,7 +675,12 @@ else if($_SESSION['type']=='inv') {
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-		  This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey. You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+      if($_SESSION['valid_participant']){
+   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+';
+      }
+    echo '
 		<p>
 		<center>
 		<img src="../Images/imagesforscreenshots/screenClock.png" alt="Screen Clock" width="60%"><br>Screen Clock</img>
@@ -651,7 +694,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -698,7 +741,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your payout by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>

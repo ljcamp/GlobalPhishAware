@@ -491,6 +491,15 @@ function updateClockHTML(elapsedTime, elapsedPenaltyTime,totalBonusTime,maxBonus
   }
 }
 
+function updateReport(elapsedTime, elapsedPenaltyTime,totalBonusTime,maxBonusPay, condition){
+  if (condition == 'Accuracy') {
+    return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>Got Right: '+(trialNum-(badSitesLoggedInto+goodSitesSkipped))+'</td><td>Got Wrong: '+(badSitesLoggedInto+goodSitesSkipped)+'</td></tr></table></center>');
+  }
+  else if (condition == 'Speed') {
+    return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>Elapsed Time: '+(elapsedTime+elapsedPenaltyTime).toFixed(2)+'</td><td>Penalty Time: '+elapsedPenaltyTime.toFixed(2)+'</td></tr></table></center>');
+  }
+}
+
 function isEven(n) {
    return n % 2 === 0;
 }
@@ -560,7 +569,13 @@ function startTrial(){
   //console.log(imageMap);
 
   //first we show initial screen with potential manipulations.
-  $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+  $('#report').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+  if(document.getElementById("bonus")){
+    $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+  }
+  if(document.getElementById("report")){
+    $('#report').html(updateReport(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+  }
   $('#stimuli').html(trialHTML);
   $('#trials').value = trialNum;
   $('#loading').show();
@@ -576,7 +591,12 @@ function startTrial(){
       if(trialTime < 0){
         trialTime = Number.MAX_VALUE;
       }
-      $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      if(document.getElementById("bonus")){
+        $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
+      if(document.getElementById("report")){
+        $('#report').html(updateReport(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
     },1000);
     trialRunning=true;
     $('#stimuli').show();
@@ -648,7 +668,12 @@ function applyPenalty(response,time, condition){
       $("#error").html(errorHTML).show();
       secondsLeft -= 0.1;
       initialPenaltyTime += 0.1;
-      $('#bonus').html(updateClockHTML(trialTime,initialPenaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      if(document.getElementById("bonus")){
+        $('#bonus').html(updateClockHTML(trialTime,initialPenaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
+      if(document.getElementById("report")){
+        $('#report').html(updateReport(trialTime,initialPenaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
     }
     else if((secondsLeft > 0.1) && (condition == 'Accuracy')){
       $("#stimuli").hide();
@@ -656,11 +681,21 @@ function applyPenalty(response,time, condition){
       $("#error").html(errorHTML).show();
       secondsLeft -= 0.1;
       initialPenaltyTime += 0.1;
-      $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      if(document.getElementById("bonus")){
+        $('#bonus').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
+      if(document.getElementById("report")){
+        $('#report').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
+      }
     }
     else {
       $("#error").hide();
-      $('#bonus').hide();
+      if(document.getElementById("bonus")){
+        $('#bonus').hide();
+      }
+      if(document.getElementById("report")){
+        $('#report').hide();
+      }
       $("#stimuli").show();
       $("#startTrial").show();
       clearInterval(interval);
@@ -692,7 +727,12 @@ function stopTrial(stimulus,clickResponse){
   trial.serverResponseTime = servRT;
   trialRunning = false;
   $("#error").hide();
-  $('#bonus').hide();
+  if(document.getElementById("bonus")){
+    $('#bonus').hide();
+  }
+  if(document.getElementById("report")){
+    $('#report').hide();
+  }
   trial.correct = 1;
   // Debug
   //console.log("trial[difficulty]: " + trial["difficulty"]);

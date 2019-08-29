@@ -2063,7 +2063,7 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Immediacy: Is the risk from the to account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
+    question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
     options: [
       'Immediate',
       'Somewhat immediate',
