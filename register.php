@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "includes/config.php";
-include "includes/participant_code.php";
+require_once "includes/participant_code.php";
 require_once "sendEmails.php";
 
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
