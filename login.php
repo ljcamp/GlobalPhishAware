@@ -10,9 +10,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && !isset($_PO
  
 // Include config file
 require_once "includes/config.php";
-require_once "includes/participant_code.php";
+include "includes/participant_code.php";
 
-$_SESSION['participant'] = false;
+$_SESSION['valid_participant'] = false;
  
 // Define variables and initialize with empty values
 $username = $password = $verified = $participant_code = "";
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               $_SESSION["loggedin"] = true;
               $_SESSION["id"] = $id;
               $_SESSION["user"] = $username;                            
-              $_SESSION['participant'] = true;
+              $_SESSION['valid_participant'] = true;
               // Redirect user to welcome page
               // Close connection
 //              echo '<script language="javascript">';
@@ -111,6 +111,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               $verification_err = "Your email is not verified yet.";
                             }else if(!empty($participant_code) && !array_key_exists($participant_code, $registered_codes)){
                               $participant_code_err = "Your participant code is expired.";
+                            }else if($registered_codes[$participant_code] != $country){
+                              $participant_code_err = "Your participant code is not valid for $country";
                             }else{
                               //session_start();
                               
@@ -118,7 +120,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                               $_SESSION["loggedin"] = true;
                               $_SESSION["id"] = $id;
                               $_SESSION["user"] = $username;                            
-                              $_SESSION['participant'] = true;
+                              if(!empty($participant_code)){
+                                $_SESSION['valid_participant'] = true;
+                                //echo "participant_code: True" ;
+                              }else{
+                                $_SESSION['valid_participant'] = false;
+                                //echo "participant_code: False" ;
+                              }
+                              //die;
                               // Redirect user to welcome page
                               mysqli_close($link);
                               header("location: action.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
@@ -167,6 +176,7 @@ if(!empty($participant_code_err)){
 ?>
     <div class="wrapper">
         <h2>Your participant code is expired or invalid</h2>
+        <p><font color="red">You are logged in successfully</font></p>
         <p>Would you like to enter a new pariticipant code? </p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 <p>If you have a participant code for the paid experiment, please enter it. You can still proceed your experiment with the expired participant code but you will not receive any payment from your experiment.</p>
@@ -183,7 +193,7 @@ if(!empty($participant_code_err)){
                 <input type="hidden" name="tt" value="<?php echo $tt; ?>" >
                 <input type="hidden" name="username" value="<?php echo $username; ?>" >
             </div>
-            <p>Do you want to proceed the experiment with your expired participant code? <a href="action.php?country=<?php echo $country; ?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Continue</a>.</p>
+            <p>Do you want to proceed the experiment with your expired participant code or invalid code? <a href="action.php?country=<?php echo $country; ?>&typeRadios=<?php echo $type; ?>&tt=<?php echo $tt; ?>">Continue</a>.</p>
         </form>
     </div>
 

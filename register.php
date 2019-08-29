@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "includes/config.php";
-require_once "includes/participant_code.php";
+include "includes/participant_code.php";
 require_once "sendEmails.php";
 
 $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
@@ -81,6 +81,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $participant_code = trim($_POST["participant_code"]);
         if(!empty($participant_code) && !array_key_exists($participant_code, $registered_codes)){
           $participant_code_err = "Invalid participant code";
+        }else if($registered_codes[$participant_code] != $country){
+          $participant_code_err = "Invalid participant code for $country";
         }
     }else{
         $participant_code_err = "Empty participant code";

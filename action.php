@@ -58,7 +58,7 @@ if($isFirefox){
                                              // 3: high risk low security
         }
         $_SESSION['country']=$_GET['country']; // US: United States
-                                                           // GB: United Kingdom
+                                                           // GB: United Kingdom (UK)
                                                            // ZA: South Africa
                                                            // AU: Australia
                                                            // NZ: New Zealand
@@ -99,7 +99,7 @@ if($isFirefox){
                                              // 3: high risk low security
         }
         $_SESSION['country']=$_POST['country']; // US: United States
-                                                           // GB: United Kingdom
+                                                           // GB: United Kingdom (UK)
                                                            // ZA: South Africa
                                                            // AU: Australia
                                                            // NZ: New Zealand

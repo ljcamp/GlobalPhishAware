@@ -121,12 +121,12 @@ $_SESSION['sisStart'] = true;
 <div id="jscriptwarning">You must have javascript enabled to take this study.</div>
 <div id="sis">
       <div id="countrycode"><?= $_SESSION['country']; ?></div>
-<?php if($_SESSION['country'] != "AU"){ ?>
 <?php if($_SESSION['country'] == "US"){ ?>
 <!--
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
 -->
 <?php } ?>
+<?php if($_SESSION['country'] == "US"){ ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
 <center><H3>INDIANA UNIVERSITY STUDY INFORMATION SHEET</H3></center><p>
@@ -145,10 +145,14 @@ $_SESSION['sisStart'] = true;
 		else{
 			echo "<P>You were selected as a possible subject because you agreed to participate in the study and can read and understand the English language. You must be familiar with and have experience using the Firefox browser to participate in this study. If you do not meet these qualifications, do not accept this task as your results may be rejected. We ask that you read this form and ask any questions you may have before agreeing to be in the study. <B>Additionally, you must be at least 18 years of age to participate in this study</B>; if you are under the age of 18, please do not complete this study. Also, please disable any Firefox add-ons to complete the survey.</P>";
 		}
+if($_SESSION['valid_participant']){
 ?>
 		<P>This study is funded by the following grants:
             <BR>
 		<BR>National Science Foundation(NSF), "Living in the Internet of Things"</P>
+<?php
+}
+?>
 		<H3>STUDY PURPOSE</H3>
 		This study seeks to understand how people decide whether or not it is secure to sign-in to different websites on the Internet.
 		<H3>PROCEDURES FOR THE STUDY</H3>
@@ -160,7 +164,7 @@ $_SESSION['sisStart'] = true;
             else if($_SESSION['type'] == 'iu'){
                 echo"You will receive $2 for completing these three tasks, but you can earn up to $8 more depending on how "; echo ($_SESSION['experimentConditionNumber']==0) ? "quickly you complete the experimental task. As your time on the task increases, your bonus will decrease." : "accurately you complete the experimental task. As your accuracy decreases, your bonus will decrease.";
             }
-             else{
+             else if($_SESSION['type'] == 'account' && $_SESSION['valid_participant'] == 'true'){
             echo"You will receive $2 for completing these three tasks, but you can earn up to $8 more depending on how ";echo ($_SESSION['experimentConditionNumber']==0) ? "quickly you complete the experimental task. As your time on the task increases, your bonus will decrease." : "accurately you complete the experimental task. As your accuracy decreases, your bonus will decrease.";
             }
             ?>
@@ -177,7 +181,7 @@ if($_SESSION['type'] == 'mturk'){
 }     else if($_SESSION['type'] == 'iu'){
     echo"The total payment for completing this study will range between $2 and $10 depending on the speed and accuracy of your performance while completing the experimental task. <B>Please note that some of the questions on the survey are validation questions. These will ensure the quality of your responses. If these are incorrect, you will have to talk with the person running the experiment to ensure that you understand what is expected. If these questions are not answered appropriately, your submissions will not be approved for payment. In order to ensure payment we encourage you to pay attention to every question sincerely. Participants may withdraw at any time. Payment will be made at the completion of the survey.</B>";
     }
-            else{
+            else if($_SESSION['type'] == 'account' && $_SESSION['valid_participant'] == 'true'){
     echo"The total payment for completing this study will range between $2 and $10 depending on the speed and accuracy of your performance while completing the experimental task. <B>Please note that some of the questions on the survey are validation questions. These will ensure the quality of your responses. If these questions are not answered appropriately, your submissions will not be approved for payment. In order to ensure payment we encourage you to pay attention to every question sincerely.</B> Participants may withdraw at any time. Payment will be made at the completion of the survey.";
 }
        
@@ -191,11 +195,21 @@ researchers Sanchari Das at sancdas@indiana.edu. You can also contact our group 
 		<H3>PARTICIPATION</H3>
 <p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with Indiana University.</p>
 <br>
+<?php } ?>
 <?php if($_SESSION['country'] == "US"){ ?>
 <!--
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
 -->
 <?php } ?>
+<?php if($_SESSION['country'] == "GB" || $_SESSION['country'] == 'UK'){ ?>
+<center><H3>STUDY INFORMATION SHEET</H3></center><p>
+<H3>INTRODUCTION</H3><P>
+		If you are interested in helping us better understand what users are
+		paying attention to when browsing the Internet, we welcome you to
+		participate in our research study. This study is being conducted by Sanchari Das, DongInn Kim, Dr. Timothy Kelley, and Dr. L. Jean Camp from Indiana University.
+		<P><B>Do not complete this study unless you can read and understand English, are familiar with the Firefox web browser, and are at least 18 years old.</B></P>		
+<H3>CONTACT</H3>
+<p>If you have questions at any time about the study or the procedures, you may contact Prof Karen Renaud (cyber4humans@gmail.com).</p>
 <?php } ?>
 <?php if($_SESSION['country'] == "AU"){ ?>
     <H3 ALIGN=RIGHT><I>Ethical clearance (002/18)</I></H3></right>

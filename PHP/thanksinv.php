@@ -16,7 +16,7 @@ session_start();
 Thank you for participating in our study. We appreciate your time an effort. You have completed
 both our Login task and our survey. 
 
-<?php if($_SESSION['participant']){ ?>
+<?php if($_SESSION['valid_participant']){ ?>
 We will approve your pay of &#36;2.00 for completing both tasks shortly. We will also ensure that you will get your bonus of &#36;<?php echo $_SESSION['bonusPay'];?> as soon as we are able.
 <?php } ?>
     

@@ -32,6 +32,7 @@ if (!file_exists(dirname(__FILE__)."/results/".$_SESSION['country'])) {
 
 if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     $_POST['participant'] = $_SESSION['participant'];
+    $_POST['valid_participant'] = $_SESSION['valid_participant'];
     $encoded = json_encode($_POST, JSON_PRETTY_PRINT);
     $saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_sis_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
     file_put_contents($saveto, $encoded);
@@ -41,6 +42,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
 //} elseif (array_key_exists('bart_results', $_POST)==TRUE){
 } elseif (isset($_POST['bart_results'])){
     $_POST['participant'] = $_SESSION['participant'];
+    $_POST['valid_participant'] = $_SESSION['valid_participant'];
     $encoded = json_encode($_POST, JSON_PRETTY_PRINT);
     $saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_bart_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
     file_put_contents($saveto, $encoded);
@@ -50,6 +52,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     //header("Location: bart.php");
 } elseif (array_key_exists('For_the_purposes_of_this_study_if_you_feel_the_presented_website_is_insecure_what_action_should_you_take', $_POST)==TRUE){
 	$_POST['participant'] = $_SESSION['participant'];
+  $_POST['valid_participant'] = $_SESSION['valid_participant'];
 	$encoded = json_encode($_POST, JSON_PRETTY_PRINT);
 	$saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_validation_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
 	file_put_contents($saveto, $encoded);
@@ -57,6 +60,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
 	if (array_key_exists('What_is_your_gender', $_POST) == TRUE) {
     		$_POST['workerId'] = $_SESSION['participant'];
     		$_POST['assignmentId'] = $_SESSION['assignmentId'];
+        $_POST['valid_participant'] = $_SESSION['valid_participant'];
 
     		$encoded = json_encode($_POST, JSON_PRETTY_PRINT);
     		$saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_survey_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
@@ -75,6 +79,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
 	}
 } elseif ($foundkey == TRUE) {
     $_POST['participant'] = $_SESSION['participant'];
+    $_POST['valid_participant'] = $_SESSION['valid_participant'];
 
     $saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_site_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
 
