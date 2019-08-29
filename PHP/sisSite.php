@@ -4,6 +4,13 @@
 
 //check to see if this is valid for given MTurkId
 
+$session_expired = array(
+  '' => 1,
+//  'US' => 1,
+//  'UK' => 1,
+//  'AU' => 1,
+//  'NZ' => 1
+);
 
 if (isset($_GET['workerId']) && !empty($_GET['workerId'])){
     $validId = true;
@@ -121,10 +128,8 @@ $_SESSION['sisStart'] = true;
 <div id="jscriptwarning">You must have javascript enabled to take this study.</div>
 <div id="sis">
       <div id="countrycode"><?= $_SESSION['country']; ?></div>
-<?php if($_SESSION['country'] == "US"){ ?>
-<!--
+<?php if(array_key_exists($_SESSION['country'], $session_expired)){ ?>
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
--->
 <?php } ?>
 <?php if($_SESSION['country'] == "US"){ ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
@@ -196,10 +201,8 @@ researchers Sanchari Das at sancdas@indiana.edu. You can also contact our group 
 <p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with Indiana University.</p>
 <br>
 <?php } ?>
-<?php if($_SESSION['country'] == "US"){ ?>
-<!--
+<?php if(array_key_exists($_SESSION['country'], $session_expired)){ ?>
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
--->
 <?php } ?>
 <?php if($_SESSION['country'] == "GB" || $_SESSION['country'] == 'UK'){ ?>
 <center><H3>STUDY INFORMATION SHEET</H3></center><p>
@@ -232,10 +235,10 @@ The information will be stored securely in the Scholarly Data Archive at Indiana
 <p>This study has been approved by La Trobe University’s University Human Ethics Committee and CSIRO’s Social Science Human Research Ethics Committee in accordance with the National Statement on Ethical Conduct in Human Research (2007). If you have any questions concerning your participation in the study please contact the researchers directly. Alternatively any concerns or complaints about the conduct of this study can be raised with La Trobe University’ Chair of the University Human Ethics Committee on (03) 9479 1443 |  humanethics@latrobe.edu.au, or the CSIRO’s Manager of Social Responsibility and Ethics on (07) 3833 5693 | csshrec@csiro.au.</p>
 <H3>PARTICIPATION</H3>
 <p>Your participation in this study is voluntary; you may decline to participate without penalty. If you decide to participate, you may withdraw from the study at any time without penalty. Your decision whether or not to participate in this study will not affect your current or future relations with La Trobe University or CSIRO’s Data61.</p>
-<p>By clicking on the ‘Continue to Experiment’ button, you agree to participate in this research.</p>
 <?php } ?>
 
-<?php if(!$preview) :?>
+<?php if(!$preview && !array_key_exists($_SESSION['country'], $session_expired)) :?>
+<p>By clicking on the ‘Continue to Experiment’ button, you agree to participate in this research.</p>
 		<BUTTON id="sisacknowledged">Continue to Experiment</BUTTON>
 		   <?php endif;?>
 
