@@ -72,7 +72,7 @@ if($_SESSION['type']=='mturk'){
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -152,7 +152,7 @@ if($_SESSION['type']=='mturk'){
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -238,7 +238,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -320,7 +320,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -406,7 +406,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -487,7 +487,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -570,7 +570,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -651,7 +651,7 @@ else if($_SESSION['type']=='inv') {
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in a as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final payout will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>

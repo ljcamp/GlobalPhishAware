@@ -56,7 +56,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
 
             <div class="hats-row">
                     <strong>Test Your Phishing Resilience</strong>
-<p>Our vision is to use a set of well-understood, well-documented, and systematic method to explore phishing resilience. Currently we are offering phishing resilience testing only to recruited participants. 
+<p>Our vision is to use a set of well-understood, well-documented, and systematically method to explore phishing resilience. Currently we are offering phishing resilience testing only to recruited participants. 
 </p>
 <p>
   If you have a participant code please select the nation above.
