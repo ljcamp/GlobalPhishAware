@@ -138,7 +138,7 @@ $_SESSION['sisStart'] = true;
 <H3>INTRODUCTION</H3><P>
 		If you are interested in helping us better understand what users are
 		paying attention to when browsing the Internet, we welcome you to
-		participate in our research study. This study is being conducted by DongInn Kim and Dr. L. Jean Camp from Indiana University.
+		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University.
 		<P><B>Do not complete this study unless you can read and understand English, are familiar with the Firefox web browser, and are at least 18 years old.</B></P>		
 <?php
 		if($_SESSION['type'] == 'mturk'){
@@ -195,7 +195,7 @@ if($_SESSION['type'] == 'mturk'){
 ?>
 <H3>CONTACT</H3>
 		If you have questions at any time about the study or the procedures, you may contact the
-researcher group The Human and Technical Security Group at spice@indiana.edu. You can also contact our group in regards to this study by calling (812) 856-1865.
+researcher group The Human and Technical Security at spice@indiana.edu. You can also contact our group in regards to this study by calling (812) 856-1865.
 
 <p>For questions about your rights as a research participant or to discuss problems, complaints or concerns about a research study, or to obtain information, or offer input, contact the IU Human Subjects Office at (812) 856-4242 or (800) 696-2949 [toll free].</p>
 
@@ -211,7 +211,7 @@ researcher group The Human and Technical Security Group at spice@indiana.edu. Yo
 <H3>INTRODUCTION</H3><P>
 		If you are interested in helping us better understand what users are
 		paying attention to when browsing the Internet, we welcome you to
-		participate in our research study. This study is being conducted by DongInn Kim and Dr. L. Jean Camp from Indiana University.
+		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University.
 		<P><B>Do not complete this study unless you can read and understand English, are familiar with the Firefox web browser, and are at least 18 years old.</B></P>		
 <H3>CONTACT</H3>
 <p>If you have questions at any time about the study or the procedures, you may contact Prof Karen Renaud (cyber4humans@gmail.com).</p>
