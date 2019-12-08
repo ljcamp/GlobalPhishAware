@@ -759,11 +759,11 @@ function isNumber(num){
 //mturk questions are indexed at 0, iu questions are indexed at 1, 2 invitation based questions. Time questions are indexed at 0, accuracy questions are indexed at 1.
 var participantQuestions = [ 
     [   
-//    {
-//        type:'freeform',
-//        question:'What is your Mechanical Turk ID?',
-//        response: 'hide',
-//    },
+    {
+        type:'freeform',
+        question:'What is your Mechanical Turk ID?',
+        response: 'hide',
+    },
     // {
     //     type:'freeformint',
     //     question:'What is your age?',
