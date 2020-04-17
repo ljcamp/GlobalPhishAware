@@ -4,7 +4,11 @@ session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 // if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-if(!(isset($_GET['typeRadios']) && ($_GET['typeRadios'] == 'iu' || $_GET['typeRadios'] == 'mturk')) && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) && !(isset($_GET['authcheck']) && $_GET['authcheck']) && !isset($_GET['casticket'])){
+if(!(isset($_GET['typeRadios']) && ($_GET['typeRadios'] == 'iu')) 
+  && (isset($_GET['typeRadios']) && $_GET['typeRadios'] == 'mturk') 
+  && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) 
+  && !(isset($_GET['authcheck']) && $_GET['authcheck']) 
+  && !isset($_GET['casticket'])){
     $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
     $tt =  isset($_GET['tt'])?$_GET['tt']:"";
     $country =  isset($_GET['country'])?$_GET['country']:"";
