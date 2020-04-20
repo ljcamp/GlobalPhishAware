@@ -33,7 +33,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             <div style="background-color:white;">
               <table align="center">
                 <tr>
-                  <td><a href="action.php?country=US&typeRadios=iu&tt=0" title="United States"><img src="Images/US.jpg" width=270px></a></td>
+                  <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=270px></a></td>
                   <td><a href="action.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=270px></a></td>
                   <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=270px></a></td>
 <!--
