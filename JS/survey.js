@@ -761,7 +761,8 @@ var participantQuestions = [
     [   
     {
         type:'freeform',
-        question:'What is your Mechanical Turk ID?',
+        //question:'What is your Mechanical Turk ID?',
+	    question:'What is your Prolific ID?',
         response: 'hide',
     },
     // {
@@ -771,26 +772,26 @@ var participantQuestions = [
 	//    response: 'hide',
     //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
     // },
-    {
-        type:'checkall',
-        question:'What languages can you read and understand?',
-        prefix:'language',
-        options:[
-            'English',
-            'Spanish',
-            'Chinese',
-            'French',
-            'Tagalog',
-            'Vietnamese',
-            'Hindi',
-            'Arabic',
-            'Korean',
-            'German'
-        ],
-	response: 'hide',
-	mustbechecked:['English'],
-	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
-    }
+   // {
+     //   type:'checkall',
+       // question:'What languages can you read and understand?',
+       // prefix:'language',
+       // options:[
+        //    'English',
+        //    'Spanish',
+      //      'Chinese',
+      //      'French',
+      //      'Tagalog',
+      //      'Vietnamese',
+      //      'Hindi',
+      //      'Arabic',
+      //      'Korean',
+      //      'German'
+      //  ],
+//	response: 'hide',
+//	mustbechecked:['English'],
+//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the //HIT.'
+ //   }
       // ,
       // {
       //   type:'radio',
@@ -814,26 +815,26 @@ var participantQuestions = [
     //     response: 'hide',
     //     rejecterror:'This study is only for participants age 18 and older. Please alert the experimenter.'
     // },
-    {
-        type:'checkall',
-        question:'What languages can you read and understand?',
-        prefix:'language',
-        options:[
-            'English',
-            'Spanish',
-            'Chinese',
-            'French',
-            'Tagalog',
-            'Vietnamese',
-            'Hindi',
-            'Arabic',
-            'Korean',
-            'German'
-        ],
-        response: 'hide',
-	mustbechecked:['English'],
-	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter.'
-    },
+ //   {
+ //       type:'checkall',
+ //       question:'What languages can you read and understand?',
+  //      prefix:'language',
+ //       options:[
+ //           'English',
+ //           'Spanish',
+ //           'Chinese',
+ //           'French',
+ //           'Tagalog',
+ //           'Vietnamese',
+//            'Hindi',
+//            'Arabic',
+//            'Korean',
+//            'German'
+//        ],
+//        response: 'hide',
+//	mustbechecked:['English'],
+//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter.'
+//    },
     {
 		type:'radio',
 		question:'Do you wish to participate in the research? (We will include your anonymized data in our analysis)',
@@ -858,37 +859,37 @@ var participantQuestions = [
 ],
                             
 [
-     {
-        type:'freeCode',
-        question:'What is the code provided to you over email? (if multiple codes are entered, it will reject the response)',
-    },                      
+ //    {
+ //       type:'freeCode',
+ //       question:'What is the code provided to you over email? (if multiple codes are entered, it will reject the response)',
+ //   },                      
 
+ //   {
+ //       type:'freeformint',
+ //       question:'What is your age?',
+ //       minimum: '18',
+ //       response: 'hide',
+ //       rejecterror:'This study is only for participants age 18 and older.'
+  //  },
     {
-        type:'freeformint',
-        question:'What is your age?',
-        minimum: '18',
-        response: 'hide',
-        rejecterror:'This study is only for participants age 18 and older.'
-    },
-    {
-        type:'checkall',
-        question:'What languages can you read and understand?',
-        prefix:'language',
-        options:[
-            'English',
-            'Spanish',
-            'Chinese',
-            'French',
-            'Tagalog',
-            'Vietnamese',
-            'Hindi',
-            'Arabic',
-            'Korean',
-            'German'
+//        type:'checkall',
+ //       question:'What languages can you read and understand?',
+  //      prefix:'language',
+  //      options:[
+  //          'English',
+    //        'Spanish',
+      //      'Chinese',
+     //       'French',
+     //       'Tagalog',
+     //       'Vietnamese',
+     //       'Hindi',
+    //        'Arabic',
+    //        'Korean',
+     //       'German'
         ],
-        response: 'hide',
-	mustbechecked:['English'],
-	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
+   //     response: 'hide',
+//	mustbechecked:['English'],
+//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
     }
 /*
      ,
@@ -919,26 +920,26 @@ var participantQuestions = [
 	//    response: 'hide',
     //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
     // },
-    {
-        type:'checkall',
-        question:'What languages can you read and understand?',
-        prefix:'language',
-        options:[
-            'English',
-            'Spanish',
-            'Chinese',
-            'French',
-            'Tagalog',
-            'Vietnamese',
-            'Hindi',
-            'Arabic',
-            'Korean',
-            'German'
-        ],
-	response: 'hide',
-	mustbechecked:['English'],
-	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
-    }
+ //   {
+//        type:'checkall',
+//        question:'What languages can you read and understand?',
+//        prefix:'language',
+//        options:[
+//            'English',
+ //           'Spanish',
+  //          'Chinese',
+//            'French',
+//            'Tagalog',
+//            'Vietnamese',
+//            'Hindi',
+//            'Arabic',
+//            'Korean',
+//            'German'
+//        ],
+//	response: 'hide',
+//	mustbechecked:['English'],
+//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
+  //  }
       // ,
       // {
       //   type:'radio',
@@ -986,7 +987,7 @@ var countryTax=[
     }
 ]*/
 
-
+/*
 var countriesHTML =
 	'<option value="AF">Afghanistan</option>'+
 	'<option value="AX">Åland Islands</option>'+
@@ -1239,7 +1240,7 @@ var countriesHTML =
 	'<option value="ZM">Zambia</option>'+
 	'<option value="ZW">Zimbabwe</option>';
 
-
+*/
 var participantValidationQuestions = [
 
 [
@@ -1251,7 +1252,7 @@ var participantValidationQuestions = [
 			'False'
 			],
 		mustbechecked:'True',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
 		response:'hide'
 	},
 
@@ -1278,7 +1279,7 @@ var participantValidationQuestions = [
 			'Exit your browser'
 			],
 		mustbechecked:'Find the back button on the simulated browser and click it.',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
 		response:'hide'
 	},
 
@@ -1293,7 +1294,7 @@ var participantValidationQuestions = [
                         'Exit your browser'
 			],
  		mustbechecked:'Find the login button on the simulated page and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
+                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection',
                 response:'hide'
         },
 
@@ -1305,7 +1306,7 @@ var participantValidationQuestions = [
 			'No'
 			],
 		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
 		response:'hide'
 	}
 ],
@@ -1319,7 +1320,7 @@ var participantValidationQuestions = [
                         'False'
                         ],
                 mustbechecked:'True',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
         },
 
 	 {
@@ -1783,7 +1784,8 @@ var skill_questions = [
     
      {
         type:'checkall',
-        question:'What is the purpose of an X.509 certificate?',
+      //  question:'What is the purpose of an X.509 certificate?',
+	      question:'What is the purpose of an X.509 certificate for websites?',
         options:[
             'The certificate provides encryption',
             'The certificate protects information',
@@ -1943,7 +1945,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? ', //(1=Voluntary; 5=Involuntary) 
+  //  question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? ', //(1=Voluntary; 5=Involuntary) 
+	  question:'To what extent do you have a choice in being exposed to phishing? ',
     options: [
       'Completely voluntary',
       'Voluntary',
@@ -1955,7 +1958,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? ', //(1=Immediate; 5=Delayed)
+    //question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? ', //(1=Immediate; 5=Delayed)
+	  question:'How immediate do you think is the risk from the phishing? ',
     options: [
       'Immediate',
       'Somewhat immediate',
@@ -1967,7 +1971,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
+  //  question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
+	   question:'How much would the average person reasonably know about the implications of phishing? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -1979,8 +1984,9 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Knowledge to the expert: How much would an expert know about the implications of phishing? ',
-    options: [
+    //question:'(Question about phishing) Knowledge to the expert: How much would an expert know about the implications of phishing? ',
+    question:'To what extent would an expert know about the implications of phishing? ',
+	  options: [
       'No knowledge',
       'Very little knowledge',
       'May or may not know about the risk',
@@ -1991,7 +1997,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
+    //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
+	  question:'To what extent can you control (or mitigate) the risk from being phished? ',
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -2003,7 +2010,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+   // question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+	  question:'How novel do you think are the risks from phishing? ',
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
@@ -2015,7 +2023,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+  //  question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+	  question:'How commonly encountered do you think phishing is? ',
     options: [
       'Common',
       'Frequently encountered',
@@ -2027,7 +2036,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? ',// (1= Individual; 5=(Many People) Global)
+  //  question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? ',// (1= Individual; 5=(Many People) Global)
+	  question:'Does phishing affect only the person who is phished or does it affect other people as well? ',
     options: [
       'Individual',
       'Multiple people',
@@ -2039,7 +2049,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? ',// (1=Not Severe; 5=Severe)
+    //question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? ',// (1=Not Severe; 5=Severe)
+	  question:'In the worst possible outcome, how severe are the consequences of phishing? ',
     options: [
       'Not at all severe, trivial',
       'Not trivial but not severe',
@@ -2051,7 +2062,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
+   // question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
+	  question:'To what extent do you feel like you have a choice in your account being taken over? ',
     options: [
       'Completely voluntary',
       'Voluntary',
@@ -2063,7 +2075,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
+    //question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
+	  question:'How immediate is the risk of an account being taken over by someone else? ',
     options: [
       'Immediate',
       'Somewhat immediate',
@@ -2075,7 +2088,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+   // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+	  question:'To what extent would the average person reasonably know about the implications of account takeover? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -2087,7 +2101,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
+    //question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
+	  question:'To what extent would an expert know about the implications of account takeover? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -2099,7 +2114,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
+    //question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
+	   question:'To what extent can you control (or mitigate) the risk from your account being taken over? ',
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -2111,7 +2127,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+    //question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+	  question:'How new or old is the risk of account takeover that results from technologies? ',
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
@@ -2123,7 +2140,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+    //question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+question:'How commonplace is taking over someone\'s account? ',
     options: [
       'Common',
       'Frequently encountered',
@@ -2135,7 +2153,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
+    //question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
+	  question:'Do you think account takeover affect only the person phished or does it affect many other people?',
     options: [
       'Individual',
       'Multiple people',
@@ -2147,7 +2166,8 @@ var skill_questions = [
 
   {
     type:'radio',
-    question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
+   // question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
+	   question:'In the worst possible outcome, how severe are the consequences of someone taking over your account?',
     options: [
       'Not at all severe, trivial',
       'Not trivial but not severe',
@@ -2373,15 +2393,15 @@ var PreStudyQuestions = [
 	//     'Do not wish to specify'
 	// ]
     // },
-    {
-	type:'radio',
-	question: 'Can you read and understand English?',
-	options: [
-	    'Yes',
-	    'No'
-	],
-	mustbechecked:'Yes'
-    },
+    //{
+//	type:'radio',
+//	question: 'Can you read and understand English?',
+//	options: [
+//	    'Yes',
+//	    'No'
+//	],
+//	mustbechecked:'Yes'
+  //  },
     {
 	type: 'radio',
 	question: 'What is the highest degree or level of school you have completed? (If you are currently enrolled in school, please indicate the highest degree you have received.)',
@@ -2400,7 +2420,7 @@ var PreStudyQuestions = [
 	question:'What is your current employment status?',
 	options: [
 	    'Employed full time (40 or more hours per week)',
-	    'Employed full time (40 or more hours per week)',
+	    'Employed part time (less than 40 hours per week)',
 	    'Unemployed, seeking employment',
 	    'Unemployed, not seeking employment',
 	    'Student',
@@ -2409,6 +2429,7 @@ var PreStudyQuestions = [
 	    'Unable to work'
 	]
     },
+	//this question needs to be modified for countries --- not same income levels
     {
 	type:'radio',
 	question:'What is your annual income?',
@@ -2424,11 +2445,12 @@ var PreStudyQuestions = [
     {
         type:'radiowithother',
         question:'What is your nation of citizenship?',
-        options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+       // options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+	options:['United States','Australia','New Zealand', 'United Kingdom', 'Canada']
     },
-    {
-        type:'radiowithother',
-        question:'In what nation do you currently live?',
-        options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
-    }    
+    //{
+      //  type:'radiowithother',
+      //  question:'In what nation do you currently live?',
+      //  options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+    //}    
 ]
