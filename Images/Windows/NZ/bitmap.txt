@@ -45,18 +45,18 @@ NZ_Dict = {
 
 'stuff_nz12':'<map id="scaleMap0" name="stuff_nz12_map">',
 
-'trademe_nz12':
+'trademe_nz12':'<map id="scaleMap0" name="trademe_nz12_map">',
 
-'twitch_nz12':
+'twitch_nz12':'<map id="scaleMap0" name="twitch_nz12_map">',
 
-'twitter_nz12':
+'twitter_nz12':'<map id="scaleMap0" name="twitter_nz12_map">',
 
-'wikipedia_nz12':
+'wikipedia_nz12':'<map id="scaleMap0" name="wikipedia_nz12_map">',
 
-yahoo_nz12':
+yahoo_nz12':'<map id="scaleMap0" name="yahoo_nz12_map">',
 
-'youtube_nz12':
+'youtube_nz12':'<map id="scaleMap0" name="youtube_nz12_map">',
 
-'nzcovid12':
+'nzcovid12':'<map id="scaleMap0" name="nzcovid12_map">'
 
 };
