@@ -29,15 +29,15 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
                     <!--<h6>Introducing Usable Security</h6>-->
                 </div>
             </div>
-
-            <div style="background-color:white;">
+                <div>
+           <!-- <div style="background-color:white;"> -->
               <table align="center">
                 <tr>
                   <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" width=270px></a></td>
                   <td><a href="action.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=270px></a></td>
                   <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" width=270px></a></td>
                   <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=270px></a></td>
-                  <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/NZ.jpg" height=270px></a></td>
+                  <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/CA.jpg" height=270px></a></td>
                 </tr>
                 <tr class="country">
                     <td>United States</td>
