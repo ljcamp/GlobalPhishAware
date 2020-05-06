@@ -1,0 +1,62 @@
+NZ_Dict = {
+'amazon_nz12':'<map id="scaleMap0" name="amazon_nz12_map"><area target="_blank" alt="amazon_nz_CONTROL_BACK" title="amazon_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="23,56,NaN" shape="circle"><area target="_blank" alt="amazon_nz_CONTROL_LOGIN" title="amazon_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1512,248,1621,278" shape="rect"></map>',
+
+'anz12':'<map id="scaleMap0" name="anz12_map"><area target="_blank" alt="anz_CONTROL_BACK" title="anz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,56,NaN" shape="circle"><area target="_blank" alt="anz_CONTROL_LOGIN" title="anz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1222,271,1420,312" shape="rect"></map>',
+
+'asb_nz12':'<map id="scaleMap0" name="asb_nz12_map"><area target="_blank" alt="asb_nz_CONTROL_BACK" title="asb_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="24,52,NaN" shape="circle"><area target="_blank" alt="asb_nz_CONTROL_LOGIN" title="asb_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1816,87,1900,134" shape="rect"></map>',
+    
+'auckland_nz12':'<map id="scaleMap0" name="auckland_nz12_map"><area target="_blank" alt="auckland_nz_CONTROL_BACK" title="auckland_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,52,NaN" shape="circle"><area target="_blank" alt="auckland_nz_CONTROL_LOGIN" title="auckland_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="835,85,1066,117" shape="rect"></map>',
+
+'facebook_nz12':'<map id="scaleMap0" name="facebook_nz12_map"><area target="" alt="facebook_nz_CONTROL_BACK" title="facebook_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,56,NaN" shape="circle"><area target="" alt="facebook_nz_CONTROL_LOGIN" title="facebook_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1385,105,1462,138" shape="rect"></map>',
+
+'google_nz12':'<map id="scaleMap0" name="google_nz12_map"><area target="" alt="google_nz_CONTROL_BACK" title="google_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,54,NaN" shape="circle">
+    <area target="" alt="google_nz_CONTROL_LOGIN" title="google_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1812,89,1890,124" shape="rect"></map>',
+
+'imgur_nz12':'<map id="scaleMap0" name="imgur_nz12_map">
+    <area target="" alt="imgur_nz_CONTROL_LOGIN" title="imgur_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'back\')" coords="22,54,NaN" shape="circle">
+    <area target="" alt="imgur_nz_CONTROL_LOGIN" title="imgur_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1332,82,1486,120" shape="rect">
+</map>',
+
+'instagram_nz12':'<map id="scaleMap0" name="instagram_nz12_map">    <area target="" alt="instagram_nz_CONTROL_BACK" title="instagram_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,58,NaN" shape="circle">
+    <area target="" alt="instagram_nz_CONTROL_LOGIN" title="instagram_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1293,791,1004,336" shape="rect">
+</map>',
+
+'live_nz12':'<map id="scaleMap0" name="live_nz12_map"><area target="" alt="live_nz_CONTROL_BACK" title="live_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,54,NaN" shape="circle">
+    <area target="" alt="live_nz_CONTROL_LOGIN" title="live_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="961,513,1200,592" shape="rect">
+</map>',
+
+'metservice_nz12':'<map id="scaleMap0" name="metservice_nz12_map"> <area target="" alt="metservice_nz_CONTROL_BACK" title="metservice_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,60,31" shape="circle">
+    <area target="" alt="metservice_nz_CONTROL_LOGIN" title="metservice_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="940,824,1107,851" shape="rect">
+</map>',
+
+'netflix_nz12':'<map id="scaleMap0" name="netflix_nz12_map"><area target="" alt="netflix_nz_CONTROL_BACK" title="netflix_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="22,56,NaN" shape="circle">
+    <area target="" alt="netflix_nz_CONTROL_LOGIN" title="netflix_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1758,80,1865,136" shape="rect">
+</map>',
+
+'nzherald_nz12':'<map id="scaleMap0" name="nzherald_nz12_map"><area target="" alt="nzherald_nz_CONTROL_BACK" title="nzherald_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,56,17" shape="circle">
+    <area target="" alt="nzherald_nz_CONTROL_LOGIN" title="nzherald_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="312,221,502,272" shape="rect">
+</map>',
+
+'office_nz12':'<map id="scaleMap0" name="office_nz12_map">',
+
+'piratebay_nz12':'<map id="scaleMap0" name="piratebay_nz12_map">',
+
+'reddit_nz12':'<map id="scaleMap0" name="reddit_nz12_map">',
+
+'stuff_nz12':'<map id="scaleMap0" name="stuff_nz12_map">',
+
+'trademe_nz12':
+
+'twitch_nz12':
+
+'twitter_nz12':
+
+'wikipedia_nz12':
+
+yahoo_nz12':
+
+'youtube_nz12':
+
+'nzcovid12':
+
+};
