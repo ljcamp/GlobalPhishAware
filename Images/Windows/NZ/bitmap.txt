@@ -37,13 +37,21 @@ NZ_Dict = {
     <area target="" alt="nzherald_nz_CONTROL_LOGIN" title="nzherald_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="312,221,502,272" shape="rect">
 </map>',
 
-'office_nz12':'<map id="scaleMap0" name="office_nz12_map">',
+'office_nz12':'<map id="scaleMap0" name="office_nz12_map"><area target="" alt="office_nz_CONTROL_BACK" title="office_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,54,15" shape="circle">
+    <area target="" alt="office_nz_CONTROL_LOGIN" title="office_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="949,596,1132,664" shape="rect">
+</map>',
 
-'piratebay_nz12':'<map id="scaleMap0" name="piratebay_nz12_map">',
+'piratebay_nz12':'<map id="scaleMap0" name="piratebay_nz12_map"><area target="" alt="piratebay_nz_CONTROL_BACK" title="piratebay_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,45,23" shape="circle">
+    <area target="" alt="piratebay_nz_CONTROL_LOGIN" title="piratebay_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="883,585,786,567" shape="rect">
+</map>',
 
-'reddit_nz12':'<map id="scaleMap0" name="reddit_nz12_map">',
+'reddit_nz12':'<map id="scaleMap0" name="reddit_nz12_map"><area target="" alt="reddit_nz_CONTROL_BACK" title="reddit_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="17,47,31" shape="circle">
+    <area target="" alt="reddit_nz_CONTROL_LOGIN" title="reddit_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1591,115,1907,272" shape="rect">
+</map>',
 
-'stuff_nz12':'<map id="scaleMap0" name="stuff_nz12_map">',
+'stuff_nz12':'<map id="scaleMap0" name="stuff_nz12_map"><area target="" alt="stuff_nz_CONTROL_LOGIN" title="stuff_nz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1303,82,1458,113" shape="rect">
+    <area target="" alt="stuff_nz_CONTROL_BACK" title="stuff_nz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="7,41,37" shape="circle">
+</map>',
 
 'trademe_nz12':'<map id="scaleMap0" name="trademe_nz12_map">',
 
