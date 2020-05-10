@@ -2370,18 +2370,19 @@ var PreStudyQuestions = [
 //	question: 'What is your last name?',
 //    },
     {
-	type:'radio',
+	type:'freeform',
 	question:'What is your age?',
-	options: [
-	    'Less than 18 years',
-	    '18-30 years',
-	    '30-40 years',
-	    '40-50 years',
-	    '50-60 years',
-	    '60-70 years',
-	    '70-80 years',
-	    'more than 80 years'
-	]
+	response: 'hide',
+	//options: [
+	  //  'Less than 18 years',
+	  //  '18-30 years',
+	  //  '30-40 years',
+	  //  '40-50 years',
+	  //  '50-60 years',
+	  //  '60-70 years',
+	  //  '70-80 years',
+	  //  'more than 80 years'
+//	]
     },
     // {
 	// type: 'radio',
@@ -2430,18 +2431,18 @@ var PreStudyQuestions = [
 	]
     },
 	//this question needs to be modified for countries --- not same income levels
-    {
-	type:'radio',
-	question:'What is your annual income?',
-	options: [
-	    'Less than $20,000',
-	    '$20,000 to $34,999',
-	    '$35,000 to $49,999',
-	    '$50,000 to $74,999',
-	    '$75,000 to $99,999',
-	    'Over $100,000'
-	]
-    },
+ //   {
+//	type:'radio',
+//	question:'What is your annual income?',
+//	options: [
+//	    'Less than $20,000',
+//	    '$20,000 to $34,999',
+//	    '$35,000 to $49,999',
+//	    '$50,000 to $74,999',
+//	    '$75,000 to $99,999',
+//	    'Over $100,000'
+//	]
+ //   },
     {
         type:'radiowithother',
         question:'What is your nation of citizenship?',

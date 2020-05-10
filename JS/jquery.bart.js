@@ -152,9 +152,9 @@
             frmids_time:     [],             // optional ids of hidden form elements to save 
                                              //    mean latency between pumps (excluding time before first pump)
             txt_phishing: 'Go to Phishing Experiment',      // text on 'Got to Phishing Experiment' button
-            txt_cashin: '$$ Points $$',      // text on 'Cash in' button
-            txt_inflate: 'Inflate balloon',  // text on 'Inflate' button
-            txt_next:    'Next balloon',     // text on 'Next' button
+            txt_cashin: 'Get Cash and Go to Next Balloon',      // text on 'Cash in' button
+            txt_inflate: 'Inflate Balloon',  // text on 'Inflate' button
+            txt_next:    'Next Balloon',     // text on 'Next' button
             txt_balloon_number: 'Balloon number: ',          // text for balloon number
             txt_number_of_pumps: 'Number of pumps: ',        // text for number of pumps
             txt_current_earned: 'Current earned: ',          // text for current earnings
