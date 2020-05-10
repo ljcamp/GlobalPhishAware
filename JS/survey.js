@@ -149,7 +149,7 @@ function runSurvey(){
 
 function showFinish(){
 
-    countrycode = $('#countrycode').text();
+  countrycode = $('#countrycode').text();
     if(countrycode === ""){
         countrycode = "US";
     }
@@ -856,9 +856,9 @@ var participantQuestions = [
         response: 'hide',
      }
 */
-],
+]
                             
-[
+//[
  //    {
  //       type:'freeCode',
  //       question:'What is the code provided to you over email? (if multiple codes are entered, it will reject the response)',
@@ -871,7 +871,7 @@ var participantQuestions = [
  //       response: 'hide',
  //       rejecterror:'This study is only for participants age 18 and older.'
   //  },
-    {
+  //  {
 //        type:'checkall',
  //       question:'What languages can you read and understand?',
   //      prefix:'language',
@@ -886,11 +886,11 @@ var participantQuestions = [
     //        'Arabic',
     //        'Korean',
      //       'German'
-        ],
+    //    ],
    //     response: 'hide',
 //	mustbechecked:['English'],
 //	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
-    }
+   // }
 /*
      ,
     {
@@ -905,9 +905,9 @@ var participantQuestions = [
         rejecterror:'This study is designed for US Citizens.'
 	}
 */
-],
+//],
 
-[   
+//[   
 //    {
 //        type:'freeform',
 //        question:'What is your Mechanical Turk ID?',
@@ -953,20 +953,20 @@ var participantQuestions = [
       //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
         
 	  // }
-]
+//]
 ];
 
-/* var usCitizen = [
-{
-		type:'radio',
-		question:'Are you a US Citizen? (This is not a validation question, but is used to adjust the demographic questions later in the survey)',
-		options:[
-			'Yes',
-			'No'
-			]
-	}
+// var usCitizen = [
+//{
+//		type:'radio',
+//		question:'Are you a US Citizen? (This is not a validation question, but is used to adjust the demographic questions later in the survey)',
+//		options:[
+//			'Yes',
+//			'No'
+//			]
+//	}
 
-]
+//]
 
  var usTax = [
 	{
@@ -985,7 +985,7 @@ var countryTax=[
         type:'freeform',
         question: 'What is your country of tax residence?'
     }
-]*/
+]
 
 /*
 var countriesHTML =

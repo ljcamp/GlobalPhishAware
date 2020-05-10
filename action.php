@@ -4,17 +4,17 @@ session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
 // if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-if(!(isset($_GET['typeRadios']) && ($_GET['typeRadios'] == 'iu')) 
-  && (isset($_GET['typeRadios']) && $_GET['typeRadios'] == 'mturk') 
-  && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) 
-  && !(isset($_GET['authcheck']) && $_GET['authcheck']) 
-  && !isset($_GET['casticket'])){
-    $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
-    $tt =  isset($_GET['tt'])?$_GET['tt']:"";
-    $country =  isset($_GET['country'])?$_GET['country']:"";
-    header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
-    exit;
-}
+//if(!(isset($_GET['typeRadios']) && ($_GET['typeRadios'] == 'iu')) 
+//  && (isset($_GET['typeRadios']) && $_GET['typeRadios'] == 'mturk') 
+//  && (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) 
+//  && !(isset($_GET['authcheck']) && $_GET['authcheck']) 
+//  && !isset($_GET['casticket'])){
+//    $type = isset($_GET['typeRadios'])?$_GET['typeRadios']:"";
+//    $tt =  isset($_GET['tt'])?$_GET['tt']:"";
+//    $country =  isset($_GET['country'])?$_GET['country']:"";
+//    header("location: login.php?country=". $country . "&typeRadios=" . $type . "&tt=" . $tt);
+//    exit;
+//}
 
 $agent = $_SERVER['HTTP_USER_AGENT'];
 
@@ -27,7 +27,7 @@ $isFirefox = preg_match($_SESSION['firefox'],$agent);
 ?>
 <?php
 $group = 0;
-if($isFirefox){
+//if($isFirefox){
     if(isset($_GET['authcheck']) && $_GET['authcheck'] == 'true'){ //check for IU access
       if($_SESSION['valid'] == true || $_SESSION['valid'] == 1){
         require_once('PHP/sisSite.php');
@@ -133,10 +133,10 @@ if($isFirefox){
         echo 'please make sure correct testing parameters are set';
       }
     }
-}
-else{
-  echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
-}
+//}
+//else{
+ // echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
+//}
 //
 //if(empty($_SESSION))
 //{
