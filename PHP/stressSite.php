@@ -58,7 +58,7 @@ if($_SESSION['type']=='mturk'){
 		<div id="sis">
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
-      This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+       ';
       if($_SESSION['valid_participant']){
 
    echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
@@ -71,6 +71,7 @@ if($_SESSION['type']=='mturk'){
 		</center>
 		</p>
 		<p>
+		This study consists of two tasks. The first task is to complete a brief experiment and the second task is to complete a survey.
 		<strong>Experimental Task:</strong> In this experiment, you will be presented with a series of websites, and you will need to decide whether or not to sign-in to each of these sites based on whether or not they are secure. All of the websites are designed to simulate real websites viewed with a Firefox browser, but just like in the real world,the Firefox browser may not be able to ensure the protection of your credentials.</p>
 		<br>
 		<center>
@@ -78,7 +79,7 @@ if($_SESSION['type']=='mturk'){
 				</center>
 		</div>
 		<div id="needToDo" class="instructions" style="display:none;">
-		  <center><H3>What do you need to do?</H3></center><br> The goal of this task is to visit all the websites in as short a time as possible. If the website is secure, sign-in and then you will proceed to the next website. <span id="bigText">If you decide to not login because the website is not secure, then you should not sign-in, rather you should click the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
+		  <center><H3>What do you need to do?</H3></center><br> The goal is to visit all the websites in the shortest possible time. If the website is SECURE, <strong>login to proceed to the next website</strong>. <br> If you decide to <strong> not login </strong> because the website is NOT SECURE, click on the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
 		<p>
 		<center>
@@ -86,10 +87,10 @@ if($_SESSION['type']=='mturk'){
 		<p>
 		<B>
         <OL>
-		<LI>If you decide to sign-in and the website is secure, you will proceed immediately to the next website.</LI>
-		<LI>If you decide to sign-in and the website is insecure, you will be penalized and have to wait 15 seconds before continuing.</LI>
-		<LI>If you decide to not sign-in and the website is secure, you will be penalized and have to wait 15 seconds before continuing.</LI>
-		<LI>If you decide to not sign-in and the website is not secure, you will proceed immediately to the next website.</LI>
+		<LI>If you decide to LOGIN and the website is SECURE, you will PROCEED to the next website.</LI>
+		<LI>If you decide to LOGIN and the website is NOT SECURE, you will have to WAIT 15 seconds before continuing.</LI>
+		<LI>If you decide to NOT LOGIN and the website is SECURE, you will have to WAIT 15 seconds before continuing.</LI>
+		<LI>If you decide to NOT LOGIN and the website is NOT SECURE, you will PROCEED to the next website.</LI>
 		</OL>
         </B>
 		</p><center>
@@ -109,7 +110,6 @@ if($_SESSION['type']=='mturk'){
 		<p>
 			Once you click on this prompt, you will be directed to: (1) a new page with another prompt to sign-in or log-in, or (2) a pop-up window with another prompt to sign-in or login. If prompted to sign-in or log-in, click on the sign-in or log-in prompt and then you will be directed to begin the next trial. If you decide to not login, you can click the back button on the 2nd page of the website. Please note, you cannot click the back button on the 1st page of the website.
 		</p>
-
 		<p>
 		<center>
 		<table>
@@ -183,39 +183,13 @@ if($_SESSION['type']=='mturk'){
 		</center>
 		</div>
 		<div id="loggingIn" class="instructions" style="display:none;">
+		
 		<p>
-		<center><H3>Logging- or Signing-in to a website:</H3></center><br> All websites do not follow the same conventions for signing- or logging-in. Typically, the sign-in or log-in prompt will be found in the upper right-hand side of the web page. For a few of the websites, you will need to click on a pull-down menu titled "My Account" or something similar beginning with "My xxxxxxx".
-		</p>
-		<p>
-		<center>
-		<img src="../Images/imagesforscreenshots/loginExamples.png" alt "Login Examples" width="60%"><br>Login Examples</img>
-		</center>
-		</p>
-
-		<p>
-			Once you click on this prompt, you will be directed to: (1) a new page with another prompt to sign-in or log-in, or (2) a pop-up window with another prompt to sign-in or login. If prompted to sign-in or log-in, click on the sign-in or log-in prompt and then you will be directed to begin the next trial. If you decide to not login, you can click the back button on the 2nd page of the website. Please note, you cannot click the back button on the 1st page of the website.
-		</p>
-
-		<p>
-		<center>
-		<table>
-		<tr>
-		<td><img src="../Images/imagesforscreenshots/newSiteLogin.png" alt="New Site Login" width="90%"></td>
-		<td><img src="../Images/imagesforscreenshots/popupLogin.png" alt="Popup Login" width="90%"></td>
-		</tr>
-		<tr>
-		<td><center>New Login Site</center></td><td><center>Popup Login Site</center></td></tr>
-		</tr>
-		</table>
-		</center>
-		</p>
-
-		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
-			Before you can begin the experimental task, you must verify that you undestand the instructions. Click the <strong>"Check Understanding"</strong> button at the bottom of the page.</p>
+			Before you can begin the experimental task, you must verify that you understand the instructions. Click the <strong>"Check Understanding"</strong> button at the bottom of the page.</p>
 		<p>
 				<BUTTON id="checkUnderstanding">Check Understanding</BUTTON>
 		</p>
