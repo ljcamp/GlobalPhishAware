@@ -65,7 +65,7 @@ if($_SESSION['user'] != ""){
         <!-- load AMP here -->
         <div id="bart" style="margin: auto; text-align: center;"></div>
         
-        <p style="text-align:center;">For more information see <a href="http://timo.gnambs.at/">http://timo.gnambs.at</a>.</p>
+       <!-- <p style="text-align:center;">For more information see <a href="http://timo.gnambs.at/">http://timo.gnambs.at</a>.</p> -->
 	<FORM id="bartResults" method=POST action="dataReceiver.php">&nbsp;
 	<DIV id="completedquestions">
 		<input type="hidden" id="workerId" value="<?php echo $_SESSION['participant'];?>"/>

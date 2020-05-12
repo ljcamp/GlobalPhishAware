@@ -6,7 +6,7 @@ include("includes/header.php");
     <section class="verfication">
         <div class="container">
             <div class="row">
-<?php
+<!--<?php
 if(isset($_GET['verified']) && $_GET['verified'] == "1"){
   echo "<font color='red'>Welcome! <strong>" . $_SESSION['username'] . "</strong>, your email (". $_SESSION['email'] . ") is successully verified.</font>";
   echo "<br/>";
@@ -15,7 +15,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
   echo "<font color='red'>Your password is successully updated.</font>";
   echo "<br/>";
 }
-?>
+?>-->
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
         <div class="container">
             <div class="row">
                 <div class="twelve columns section-header centered">
-                    <h1>Making security that fits the user &amp; the occasion</h1>
+                    <h1>Please Select Your Country</h1>
                     <!--<h6>Introducing Usable Security</h6>-->
                 </div>
             </div>
@@ -33,13 +33,13 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             <div style="background-color:white;"> 
               <table align="center">
                 <tr>
-                  <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" height=220px width=220px></a></td>
+                  <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" height=220px width=270px></a></td>
                   <td><a href="action.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px width=220px></a></td>
-                  <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" height=220px width=220px></a></td>
-                  <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px width=220px></a></td>
-                  <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/CA.jpg" height=220px width=220px></a></td>
+                  <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" height=220px width=270px></a></td>
+                  <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px width=180px></a></td>
+                  <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/CA.jpg" height=220px width=270px></a></td>
                 </tr>
-                <tr class="country">
+                <tr class="country" style="background-color:white;">
                     <td>United States</td>
                     <td>United Kingdom</td>
                     <td>Australia</td>
@@ -52,7 +52,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
 <br>
 
 
-            <div class="hats-row">
+          <!-- <div class="hats-row">
                     <strong>Test Your Phishing Resilience</strong>
 <p>Our vision is to use a set of well-understood, well-documented, and systematic method to explore phishing resilience. Currently we are offering phishing resilience testing only to recruited participants. 
 </p>
@@ -62,10 +62,10 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
 <p>
   If you are a scholar who would like to participate or would like to sign up to test your resilience please select your country of residence to provide contact information.
 </p>
-                </div>
+                </div>--->
             </div>
         </div>
-    </section>
+    </section> 
 
 
     <section class="copyright">
