@@ -154,18 +154,18 @@ function showFinish(){
         countrycode = "US";
     }
 
-    // console.log("countrycode: " + countrycode);
+     console.log("countrycode: " + countrycode);
     var websites = Object.keys(dict[countrycode + ""]);
-    // console.log("Websites: " + websites)
-    // console.log(tasks["taskSite"])
+     console.log("Websites: " + websites);
+  //   console.log(tasks["taskSite"]);
     opts = [];
     var arrayLength = websites.length;
-    // console.log("ArrayLength: " + arrayLength);
+     console.log("ArrayLength: " + arrayLength);
     for (var i = 0; i < arrayLength; i++) {
       if(websites[i].match(/12/)){
         var str = websites[i].replace('12', '');
         opts.push(str);
-        // console.log(str);
+         console.log(str);
       }
     }
     skill_questions[0].options = opts;
@@ -407,7 +407,7 @@ function nextQuestion(){
         //open sites
         //please wait
         // console.log("BABO showFinish");
-        $("#question").html("<h2>Survey Complete</h2>");
+        $("#question").html("<h2>Please wait for the balloon test to load</h2>");
         convertCheckboxesToHiddens();
         $("#nextbutton").hide();
         showFinish();
@@ -1270,13 +1270,13 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+		question:'For this study, if you feel the website is NOT SECURE, you should....',
 		options:[
-			'Close the window',
-			'Find the login button on the simulated page and click it.',
-			'Find the back button on the simulated browser and click it.',
-			'Reload the experiment',
-			'Exit your browser'
+			'CLOSE the window',
+			'Find the LOGIN button on the simulated page and click it.',
+			'Find the BACK button on the simulated browser and click it.',
+			'RELOAD the experiment',
+			'EXIT your browser'
 			],
 		mustbechecked:'Find the back button on the simulated browser and click it.',
 		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
@@ -1285,13 +1285,13 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+		question:'For this study, if you feel the website is SECURE, you should....',
 		options:[
-			'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+			'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
 			],
  		mustbechecked:'Find the login button on the simulated page and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection',
@@ -1300,7 +1300,7 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
+		question:'Are you using either a mouse or touchpad as your input device?',
 		options:[
 			'Yes',
 			'No'
@@ -1337,13 +1337,13 @@ var participantValidationQuestions = [
 
         {
                 type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+                question:'For this study, if you feel the website is NOT SECURE, you should....',
                 options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+                        'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
                         ],
                 mustbechecked:'Find the back button on the simulated browser and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
@@ -1351,13 +1351,13 @@ var participantValidationQuestions = [
 
         {
                 type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+                question:'For this study, if you feel the website is SECURE, you should....',
                 options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+                        'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
                         ],
                 mustbechecked:'Find the login button on the simulated page and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
@@ -1365,13 +1365,13 @@ var participantValidationQuestions = [
     {
     
     type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
+		question:'Are you using either a mouse or touchpad as your input device?',
 		options:[
 			'Yes',
 			'No'
 			],
 		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
 		response:'hide'
     }
 ],
@@ -1401,13 +1401,13 @@ var participantValidationQuestions = [
 
         {
                 type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+                question:'For this study, if you feel the website is NOT SECURE, you should....',
                 options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+                        'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
                         ],
                 mustbechecked:'Find the back button on the simulated browser and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
@@ -1415,13 +1415,13 @@ var participantValidationQuestions = [
 
         {
                 type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+                question:'For this study, if you feel the website is SECURE, you should....',
                 options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+                        'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
                         ],
                 mustbechecked:'Find the login button on the simulated page and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
@@ -1429,13 +1429,13 @@ var participantValidationQuestions = [
     {
     
     type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
+		question:'Are you using either a mouse or touchpad as your input device?',
 		options:[
 			'Yes',
 			'No'
 			],
 		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
 		response:'hide'
     }
 ],
@@ -1467,13 +1467,13 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+		question:'For this study, if you feel the website is NOT SECURE, you should....',
 		options:[
-			'Close the window',
-			'Find the login button on the simulated page and click it.',
-			'Find the back button on the simulated browser and click it.',
-			'Reload the experiment',
-			'Exit your browser'
+			'CLOSE the window',
+			'Find the LOGIN button on the simulated page and click it.',
+			'Find the BACK button on the simulated browser and click it.',
+			'RELOAD the experiment',
+			'EXIT your browser'
 			],
 		mustbechecked:'Find the back button on the simulated browser and click it.',
 		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
@@ -1482,13 +1482,13 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+		question:'For this study, if you feel the website is SECURE, you should....',
 		options:[
-			'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
+			'CLOSE the window',
+                        'Find the LOGIN button on the simulated page and click it.',
+                        'Find the BACK button on the simulated browser and click it.',
+                        'RELOAD the experiment',
+                        'EXIT your browser'
 			],
  		mustbechecked:'Find the login button on the simulated page and click it.',
                 rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
@@ -1497,13 +1497,13 @@ var participantValidationQuestions = [
 
 	{
 		type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
+		question:'Are you using either a mouse or touchpad as your input device?',
 		options:[
 			'Yes',
 			'No'
 			],
 		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
 		response:'hide'
 	}
 ]
@@ -1660,10 +1660,10 @@ var validationQuestions = [
 ];
 
 var cultureQuestions = [
-    {
-        type:'radiowithother',
-        question:'What is your gender?',
-        options:['Male','Female', 'Do not wish to answer']
+   // {
+   //     type:'radiowithother',
+   //     question:'What is your gender?',
+   //     options:['Male','Female', 'Do not wish to answer']
     }
 //    ,
 //    {
@@ -1997,14 +1997,14 @@ var skill_questions = [
 
   {
     type:'radio',
-    //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
-	  question:'To what extent can you control (or mitigate) the risk from being phished? ',
+    //question:'(Question about phishing) To what extent can you control the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
+	  question:'To what extent can you control the risk from being phished? ',
     options: [
-      'Can prevent all harm',
-      'Can prevent some harm',
-      'May or may not be able to prevent harm',
-      'Can somewhat reduce harm',
-      'No control over resulting harm'
+      'Cannot control at all',
+      'Cannot control most harm',
+      'May or may not be able to control harm',
+      'Can control some harm',
+      'Can control all harm'
     ]
   },
 
@@ -2060,122 +2060,122 @@ var skill_questions = [
     ]
   },
 
-  {
-    type:'radio',
-   // question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
-	  question:'To what extent do you feel like you have a choice in your account being taken over? ',
-    options: [
-      'Completely voluntary',
-      'Voluntary',
-      'Neither voluntary nor involuntary',
-      'Involuntary',
-      'Completely involuntary'
-    ]
-  },
+  // {
+    // type:'radio',
+   // // question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
+	  // question:'To what extent do you feel like you have a choice in your account being taken over? ',
+    // options: [
+      // 'Completely voluntary',
+      // 'Voluntary',
+      // 'Neither voluntary nor involuntary',
+      // 'Involuntary',
+      // 'Completely involuntary'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
-	  question:'How immediate is the risk of an account being taken over by someone else? ',
-    options: [
-      'Immediate',
-      'Somewhat immediate',
-      'Neither',
-      'Somewhat delayed',
-      'Delayed'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
+	  // question:'How immediate is the risk of an account being taken over by someone else? ',
+    // options: [
+      // 'Immediate',
+      // 'Somewhat immediate',
+      // 'Neither',
+      // 'Somewhat delayed',
+      // 'Delayed'
+    // ]
+  // },
 
-  {
-    type:'radio',
-   // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
-	  question:'To what extent would the average person reasonably know about the implications of account takeover? ',
-    options: [
-      'No knowledge',
-      'Very little knowledge',
-      'May or may not know about the risk',
-      'Knowledgeable',
-      'Very knowledgeable'
-    ]
-  },
+  // {
+    // type:'radio',
+   // // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+	  // question:'To what extent would the average person reasonably know about the implications of account takeover? ',
+    // options: [
+      // 'No knowledge',
+      // 'Very little knowledge',
+      // 'May or may not know about the risk',
+      // 'Knowledgeable',
+      // 'Very knowledgeable'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
-	  question:'To what extent would an expert know about the implications of account takeover? ',
-    options: [
-      'No knowledge',
-      'Very little knowledge',
-      'May or may not know about the risk',
-      'Knowledgeable',
-      'Very knowledgeable'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
+	  // question:'To what extent would an expert know about the implications of account takeover? ',
+    // options: [
+      // 'No knowledge',
+      // 'Very little knowledge',
+      // 'May or may not know about the risk',
+      // 'Knowledgeable',
+      // 'Very knowledgeable'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
-	   question:'To what extent can you control (or mitigate) the risk from your account being taken over? ',
-    options: [
-      'Can prevent all harm',
-      'Can prevent some harm',
-      'May or may not be able to prevent harm',
-      'Can somewhat reduce harm',
-      'No control over resulting harm'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
+	   // question:'To what extent can you control (or mitigate) the risk from your account being taken over? ',
+    // options: [
+      // 'Can prevent all harm',
+      // 'Can prevent some harm',
+      // 'May or may not be able to prevent harm',
+      // 'Can somewhat reduce harm',
+      // 'No control over resulting harm'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
-	  question:'How new or old is the risk of account takeover that results from technologies? ',
-    options: [
-      'Entirely an old risk',
-      'Mostly an old risk',
-      'Neither new nor old',
-      'Somewhat new',
-      'Completely new'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+	  // question:'How new or old is the risk of account takeover that results from technologies? ',
+    // options: [
+      // 'Entirely an old risk',
+      // 'Mostly an old risk',
+      // 'Neither new nor old',
+      // 'Somewhat new',
+      // 'Completely new'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
-question:'How commonplace is taking over someone\'s account? ',
-    options: [
-      'Common',
-      'Frequently encountered',
-      'Neither common nor rare',
-      'Infrequently encountered',
-      'Rare'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+// question:'How commonplace is taking over someone\'s account? ',
+    // options: [
+      // 'Common',
+      // 'Frequently encountered',
+      // 'Neither common nor rare',
+      // 'Infrequently encountered',
+      // 'Rare'
+    // ]
+  // },
 
-  {
-    type:'radio',
-    //question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
-	  question:'Do you think account takeover affect only the person phished or does it affect many other people?',
-    options: [
-      'Individual',
-      'Multiple people',
-      'May be global or individual',
-      'A large number of people',
-      'A very large number of people'
-    ]
-  },
+  // {
+    // type:'radio',
+    // //question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
+	  // question:'Do you think account takeover affect only the person phished or does it affect many other people?',
+    // options: [
+      // 'Individual',
+      // 'Multiple people',
+      // 'May be global or individual',
+      // 'A large number of people',
+      // 'A very large number of people'
+    // ]
+  // },
 
-  {
-    type:'radio',
-   // question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
-	   question:'In the worst possible outcome, how severe are the consequences of someone taking over your account?',
-    options: [
-      'Not at all severe, trivial',
-      'Not trivial but not severe',
-      'Neither trivial nor severe',
-      'May be severe',
-      'Severe'
-    ]
-  },
+  // {
+    // type:'radio',
+   // // question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
+	   // question:'In the worst possible outcome, how severe are the consequences of someone taking over your account?',
+    // options: [
+      // 'Not at all severe, trivial',
+      // 'Not trivial but not severe',
+      // 'Neither trivial nor severe',
+      // 'May be severe',
+      // 'Severe'
+    // ]
+  // },
 
   {
     type:'radio',
@@ -2361,18 +2361,15 @@ question:'How commonplace is taking over someone\'s account? ',
 ];
 // console.log("OPTS: " + opts)
 var PreStudyQuestions = [
-//    {
-//	type: 'freeform',
-//	question:'What is your first name?',
-//    },
-//    {
-//	type: 'freeform',
-//	question: 'What is your last name?',
-//    },
     {
-	type:'freeform',
-	question:'What is your age?',
-	response: 'hide',
+	type:'freeformint',
+        question:'What is your age (Enter a number only)?',
+         minimum: '18',
+	     response: 'hide',
+         rejecterror:'This study is only for participants age 18 and older.'
+	//type:'freeform',
+	//question:'What is your age?',
+	//response: 'hide',
 	//options: [
 	  //  'Less than 18 years',
 	  //  '18-30 years',
@@ -2384,25 +2381,16 @@ var PreStudyQuestions = [
 	  //  'more than 80 years'
 //	]
     },
-    // {
-	// type: 'radio',
-	// question: 'Which gender do you most identify with?',
-	// options: [
-	//     'Male',
-	//     'Female',
-	//     'Other',
-	//     'Do not wish to specify'
-	// ]
-    // },
-    //{
-//	type:'radio',
-//	question: 'Can you read and understand English?',
-//	options: [
-//	    'Yes',
-//	    'No'
-//	],
-//	mustbechecked:'Yes'
-  //  },
+     {
+	 type: 'radio',
+	 question: 'Which gender do you most identify with?',
+	 options: [
+	     'Male',
+	     'Female',
+	     'Other',
+	     'Do not wish to specify'
+	 ]
+     },
     {
 	type: 'radio',
 	question: 'What is the highest degree or level of school you have completed? (If you are currently enrolled in school, please indicate the highest degree you have received.)',
@@ -2430,28 +2418,11 @@ var PreStudyQuestions = [
 	    'Unable to work'
 	]
     },
-	//this question needs to be modified for countries --- not same income levels
- //   {
-//	type:'radio',
-//	question:'What is your annual income?',
-//	options: [
-//	    'Less than $20,000',
-//	    '$20,000 to $34,999',
-//	    '$35,000 to $49,999',
-//	    '$50,000 to $74,999',
-//	    '$75,000 to $99,999',
-//	    'Over $100,000'
-//	]
- //   },
     {
         type:'radiowithother',
         question:'What is your nation of citizenship?',
        // options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
 	options:['United States','Australia','New Zealand', 'United Kingdom', 'Canada']
     },
-    //{
-      //  type:'radiowithother',
-      //  question:'In what nation do you currently live?',
-      //  options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
-    //}    
+     
 ]

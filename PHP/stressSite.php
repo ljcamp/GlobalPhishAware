@@ -59,11 +59,11 @@ if($_SESSION['type']=='mturk'){
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
        ';
-      if($_SESSION['valid_participant']){
+     // if($_SESSION['valid_participant']){
 
-   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+   echo 'You will receive $2 for completing these two tasks, but you can earn more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <strong>You are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
 ';
-      }
+    //  }
     echo'
 		<p>
 		<center>
@@ -72,6 +72,8 @@ if($_SESSION['type']=='mturk'){
 		</p>
 		<p>
 		This study consists of two tasks. The first task is to complete a brief experiment and the second task is to complete a survey.
+		<br>
+		
 		<strong>Experimental Task:</strong> In this experiment, you will be presented with a series of websites, and you will need to decide whether or not to sign-in to each of these sites based on whether or not they are secure. All of the websites are designed to simulate real websites viewed with a Firefox browser, but just like in the real world,the Firefox browser may not be able to ensure the protection of your credentials.</p>
 		<br>
 		<center>
@@ -99,37 +101,19 @@ if($_SESSION['type']=='mturk'){
 		</div>
 		<div id="loggingIn" class="instructions" style="display:none;">
 		<p>
-		<center><H3>Logging- or Signing-in to a website:</H3></center><br> All websites do not follow the same conventions for signing- or logging-in. Typically, the sign-in or log-in prompt will be found in the upper right-hand side of the web page. For a few of the websites, you will need to click on a pull-down menu titled "My Account" or something similar beginning with "My xxxxxxx".
+		<center><H3>Logging- or Signing-in to a website:</H3></center><br> All websites do not follow the same conventions for signing- or logging-in. Typically, the sign-in or log-in prompt will be found in the upper right-hand side of the web page. 
 		</p>
-		<p>
-		<center>
-		<img src="../Images/imagesforscreenshots/loginExamples.png" alt "Login Examples" width="60%"><br>Login Examples</img>
-		</center>
-		</p>
-
+		
 		<p>
 			Once you click on this prompt, you will be directed to: (1) a new page with another prompt to sign-in or log-in, or (2) a pop-up window with another prompt to sign-in or login. If prompted to sign-in or log-in, click on the sign-in or log-in prompt and then you will be directed to begin the next trial. If you decide to not login, you can click the back button on the 2nd page of the website. Please note, you cannot click the back button on the 1st page of the website.
 		</p>
-		<p>
-		<center>
-		<table>
-		<tr>
-		<td><img src="../Images/imagesforscreenshots/newSiteLogin.png" alt="New Site Login" width="90%"></td>
-		<td><img src="../Images/imagesforscreenshots/popupLogin.png" alt="Popup Login" width="90%"></td>
-		</tr>
-		<tr>
-		<td><center>New Login Site</center></td><td><center>Popup Login Site</center></td></tr>
-		</tr>
-		</table>
-		</center>
-		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
-			Before you can begin the experimental task, you must verify that you undestand the instructions. Click the <strong>"Check Understanding"</strong> button at the bottom of the page.</p>
+			Before you can begin the experimental task, you must verify that you undestand the instructions. Click the <strong>Check Understanding</strong> button at the bottom of the page.</p>
 		<p>
 				<BUTTON id="checkUnderstanding">Check Understanding</BUTTON>
 		</p>
@@ -277,7 +261,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -364,7 +348,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -455,7 +439,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -541,7 +525,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -629,7 +613,7 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -650,8 +634,9 @@ else if($_SESSION['type']=='inv') {
 		<div id="thisStudy" class="instructions">
 		<center><H2>What Does This Study Entail</H2></center><br>
       This study consists of two tasks. The first task is to complete a brief experiment, and the second task is to complete a survey.';
+	  echo "participant:".$_SESSION['participant']."exptconditionnumber:".$_SESSION['experimentConditionNumber']."ptype:".$_SESSION['participantType']."assignment".$_SESSION['assignmentId'];
       if($_SESSION['valid_participant']){
-   echo 'You will receive $2 for completing these two tasks, but you can earn up to $8 more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
+   echo 'You will receive $2 for completing these two tasks, but you can earn more depending on how quickly you complete the experimental task. As your time on the experimental task increases, your bonus will decrease. You will be able to constantly monitor the elapsed time and bonus payout at the top of the page. Here is a screen shot of the clock that will appear at the top of every page showing elapsed time and bonus payout. The penalty time is explained below. <p>If you manage to take this HIT multiple times <strong>You will only be paid once, for your first attempt. Thus, you are not allowed to take the survey multiple times and refreshing the page will invalidate your result. Please use mouse or touchpad to take the survey. </strong>
 ';
       }
     echo '
@@ -715,12 +700,13 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
                         Before you can begin the experimental task, you must verify that you undestand the instructions. Click the <strong>"Check Understanding"</strong>
                 <p>
+					
                                 <BUTTON id="checkUnderstanding">Check Understanding</BUTTON>
                 </p>
 		</div>

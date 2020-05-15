@@ -55,29 +55,29 @@ function serverTimer() {
 
 var participantInfo = {id:participantId,os: navigator.oscpu,browser:navigator.appCodeName,version:navigator.appVersion,simplifiedOS: null};
 
-console.log(navigator.oscpu); 
+//console.log(navigator.oscpu); 
 //console.log(participantInfo);
-simplifiedOS = /(Windows|Mac|x86_64|-sm|Linux)/.exec(participantInfo.os)[1];
+//simplifiedOS = /(Windows|Mac|x86_64|-sm|Linux)/.exec(participantInfo.os)[1];
 
 
-switch(simplifiedOS){
-  case "Windows":
-    participantInfo.simplifiedOS = "Windows";
-    participantInfo.map = winMapDict;
-    break;
-  case "Mac":
-    participantInfo.simplifiedOS = "Mac";
+//switch(simplifiedOS){
+ // case "Windows":
+  //  participantInfo.simplifiedOS = "Windows";
+  //  participantInfo.map = winMapDict;
+  //  break;
+//  case "Mac":
+ //   participantInfo.simplifiedOS = "Mac";
     //participantInfo.map = macMapDict;
-    break;
+  //  break;
     //case "x86_64":
     //case "-sm":
     //participantInfo.simplifiedOS = "Linux";
     //participantInfo.map = linuxMapDict;
     //break;
-  default:
-    participantInfo.simplifiedOS = "Windows";
-    participantInfo.map = winMapDict;
-}
+ // default:
+    //participantInfo.simplifiedOS = "Windows";
+  //  participantInfo.map = winMapDict;
+//}
 
 //This forces the simplified OS to Windows until images are created for other OSes
 participantInfo.simplifiedOS = "Windows";
