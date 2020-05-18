@@ -18,7 +18,7 @@
      * Creates a Ballon Analogue Risk Task (BART). For more information see:
      *  Lejuez, C. W., Read, J. P., Kahler, C. W., Richards, J. B., Ramsey, S. E., & Stuart, G. L. (2002). 
      *      Evaluation of a behavioral measure of risk taking: The Balloon Analogue Risk Task (BART). 
-     *      Journal of Experimental Psychology, 8, 75–84.
+     *      Journal of Experimental Psychology, 8, 75â€“84.
      *
      * NOTE: There is no warranty at all that this online test does indeed and can measure
      *       the same construct as the orignial test. If you use this script do it on your own risk!
@@ -157,12 +157,12 @@
             txt_next:    'Next Balloon',     // text on 'Next' button
             txt_balloon_number: 'Balloon number: ',          // text for balloon number
             txt_number_of_pumps: 'Number of pumps: ',        // text for number of pumps
-            txt_current_earned: 'Current earned: ',          // text for current earnings
-            txt_total_earned: 'Total earned: ',              // text for total earnings
+            txt_current_earned: 'Current earned ($): ',          // text for current earnings
+            txt_total_earned: 'Total earned ($): ',              // text for total earnings
             txt_prob_explosion: 'Probability of explosion:', // text for probability of explosion
             txt_pumps_used: 'Max. available pumps used:',    // text for percentage of used pumps
             onload:    function() {},        // function to run before loading the script 
-            onend:    function() {alert("You have finished the balloon test! Please wait for the experiment to load."); }          // function to run after finishing the last balloon 
+            onend:    function() {alert("Thanks! Please wait for the experiment to load."); }          // function to run after finishing the last balloon 
         };
         
         var canvas = null, snds = {}, r = [];
@@ -626,7 +626,7 @@
                     }
                     if(opts.showcurrentearned) {
                         canvas.setLayer('curearn', { text: opts.txt_current_earned + 
-                                                            (new Number(bal.earned)).toFixed(2) });
+                                                            ((new Number(bal.earned))*0.1).toFixed(2) });
                     }
                     if(opts.showpopprob) {
                         canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" + 
@@ -708,7 +708,7 @@
                 .on('click.bart', function(e) {
                        
                     // update counts
-                    opts.earned = (opts.earned*1 + bal.earned*1).toFixed(2);
+                    opts.earned = ((opts.earned*1 + bal.earned*1)*0.1).toFixed(2);
                     if(opts.showtotalearned) {
                         canvas.setLayer('totearn', { text: opts.txt_total_earned + opts.earned }).drawLayers();
                     }
