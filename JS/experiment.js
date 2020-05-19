@@ -413,7 +413,7 @@ function startExperiment(){
   participantInfo.experimentOrderNumber = experimentOrderNumber;
   participantInfo.experimentPresentationOrder = presentationOrder;
   stimuliDirectory = stimuliDirectory+ "/" + countrycode + "/Order";
-
+	console.log(stimuliDirectory);
   experimentRunning=true;
   //hide the experiment start
   $('#startExperiment').hide();

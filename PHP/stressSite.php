@@ -109,7 +109,11 @@ if($_SESSION['type']=='mturk'){
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <<strong>responding as quickly and as accurately as possible.</strong></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
@@ -261,7 +265,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -348,7 +356,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -439,7 +451,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -525,7 +541,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -613,7 +633,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>responding as quickly and as accurately as possible.</strong></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>
@@ -700,7 +724,11 @@ else if($_SESSION['type']=='inv') {
 		</p>
 
 		<p>
+<<<<<<< HEAD
 			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>RESPONDING AS QUICKLY AND ACCURATELY AS POSSIBLE.</strong></p>
+=======
+			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <span id="bigText"><strong>responding as quickly and as accurately as possible.</strong></span></p>
+>>>>>>> 0ffa43fb5ebe41332a2a9f5de9ae0231330bf409
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		 <p>

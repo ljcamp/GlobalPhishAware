@@ -60,12 +60,12 @@ if($_SESSION['user'] != ""){
     
     </head>
     <body>
-        <h1 style="text-align:center;">Online Balloon Test: Please click on the balloon to inflate it. Once done, click on Next Balloon</h1>
+        <h1 style="text-align:center;">Online Ballon Analogue Risk Task (oBART)</h1>
                         
         <!-- load AMP here -->
         <div id="bart" style="margin: auto; text-align: center;"></div>
         
-       <!-- <p style="text-align:center;">For more information see <a href="http://timo.gnambs.at/">http://timo.gnambs.at</a>.</p> -->
+        <p style="text-align:center;">For more information see <a href="http://timo.gnambs.at/">http://timo.gnambs.at</a>.</p>
 	<FORM id="bartResults" method=POST action="dataReceiver.php">&nbsp;
 	<DIV id="completedquestions">
 		<input type="hidden" id="workerId" value="<?php echo $_SESSION['participant'];?>"/>

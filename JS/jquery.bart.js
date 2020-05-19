@@ -151,8 +151,8 @@
                                              //    number of explosions for each balloon
             frmids_time:     [],             // optional ids of hidden form elements to save 
                                              //    mean latency between pumps (excluding time before first pump)
-            txt_phishing: 'Go to Experiment',      // text on 'Got to Phishing Experiment' button
-            txt_cashin: 'Next Balloon',      // text on 'Cash in' button
+            txt_phishing: 'Go to Phishing Experiment',      // text on 'Got to Phishing Experiment' button
+            txt_cashin: 'Get Cash and Go to Next Balloon',      // text on 'Cash in' button
             txt_inflate: 'Inflate Balloon',  // text on 'Inflate' button
             txt_next:    'Next Balloon',     // text on 'Next' button
             txt_balloon_number: 'Balloon number: ',          // text for balloon number
@@ -162,7 +162,7 @@
             txt_prob_explosion: 'Probability of explosion:', // text for probability of explosion
             txt_pumps_used: 'Max. available pumps used:',    // text for percentage of used pumps
             onload:    function() {},        // function to run before loading the script 
-            onend:    function() {alert("You have finished the balloon test! Please wait for the experiment to load."); }          // function to run after finishing the last balloon 
+            onend:    function() {alert("Thanks! You are done!"); }          // function to run after finishing the last balloon 
         };
         
         var canvas = null, snds = {}, r = [];
