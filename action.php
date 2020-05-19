@@ -28,31 +28,29 @@ $isFirefox = preg_match($_SESSION['firefox'],$agent);
 <?php
 $group = 0;
 //if($isFirefox){
-//    if(isset($_GET['authcheck']) && $_GET['authcheck'] == 'true'){ //check for IU access
-//		if($_SESSION['valid'] == true || $_SESSION['valid'] == 1){
-//			require_once('PHP/sisSite.php');
-//		} else {
-//			echo 'CAS Session already used. Please close and reopen Firefox browser.';
-//		}
-//    } 
-//	elseif(isset($_GET['casticket'])){ //validate cas ticket
-//		$_SESSION['casticket'] = $_GET['casticket']; //Perm sets ticket, so you can only login once
-//		require_once('PHP/casauth.php');
-//    } 
-//	else {
+    if(isset($_GET['authcheck']) && $_GET['authcheck'] == 'true'){ //check for IU access
+      if($_SESSION['valid'] == true || $_SESSION['valid'] == 1){
+        require_once('PHP/sisSite.php');
+      } else {
+        echo 'CAS Session already used. Please close and reopen Firefox browser.';
+      }
+    } elseif(isset($_GET['casticket'])){ //validate cas ticket
+      $_SESSION['casticket'] = $_GET['casticket']; //Perm sets ticket, so you can only login once
+      require_once('PHP/casauth.php');
+    } else {
       //look for TT and Type
-if(isset($_POST["country"])){
-  $_SESSION["country"] = $_POST["country"];
-  echo "Country: ", $_POST["country"];
-}
-if(isset($_POST["tt"])){
-  $_SESSION["tt"] = $_POST["tt"];
-  echo "tt: ", $_POST["tt"];
-}
-if(isset($_POST["typeRadios"])){
-  $_SESSION["typeRadios"] = $_POST["typeRadios"];
-  echo "typeRadios: ", $_POST["typeRadios"];
-}
+#if(isset($_POST["country"])){
+#  $_SESSION["country"] = $_POST["country"];
+#  echo "Country: ", $_POST["country"];
+#}
+#if(isset($_POST["tt"])){
+#  $_SESSION["tt"] = $_POST["tt"];
+#  echo "tt: ", $_POST["tt"];
+#}
+#if(isset($_POST["typeRadios"])){
+#  $_SESSION["typeRadios"] = $_POST["typeRadios"];
+#  echo "typeRadios: ", $_POST["typeRadios"];
+#}
       if(isset($_GET['tt']) && isset($_GET['typeRadios'])  && isset($_GET['country'])){
         $_SESSION['tt']=$_GET['tt']; //Time = 0, Accuracy = 1
         $_SESSION['type']=$_GET['typeRadios']; //iu or mturk or inv
@@ -65,7 +63,7 @@ if(isset($_POST["typeRadios"])){
         }
         $_SESSION['country']=$_GET['country']; // US: United States
                                                            // GB: United Kingdom (UK)
-                                                           // CA: Canada
+                                                           // ZA: South Africa
                                                            // AU: Australia
                                                            // NZ: New Zealand
         if($_SESSION['group'] < 0 || $_SESSION['group'] > 3){
@@ -106,7 +104,7 @@ if(isset($_POST["typeRadios"])){
         }
         $_SESSION['country']=$_POST['country']; // US: United States
                                                            // GB: United Kingdom (UK)
-                                                           // CA: Canada
+                                                           // ZA: South Africa
                                                            // AU: Australia
                                                            // NZ: New Zealand
 
@@ -134,7 +132,7 @@ if(isset($_POST["typeRadios"])){
       } else {
         echo 'please make sure correct testing parameters are set';
       }
-//    }
+    }
 //}
 //else{
  // echo 'It appears that you are not using a recognized version of Firefox. Please return to view this HIT using Firefox, as we have some functionality that requires Firefox, and we want to make sure you do not have further problems with this HIT.';
