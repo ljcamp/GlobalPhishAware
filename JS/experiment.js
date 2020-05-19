@@ -198,7 +198,7 @@ $(document).ready(function(){
   $('#ordergroup').hide();
 
 
-  // console.log(countrycode);
+  console.log(countrycode);
   var keys = Object.keys(dict[countrycode + ""]);
   // console.log(keys)
   // console.log(tasks["taskSite"])
@@ -221,6 +221,9 @@ $(document).ready(function(){
         // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
         if(countrycode == "US"){
+          presentationIndex.push(i/2);
+        }
+		 if(countrycode == "CA"){
           presentationIndex.push(i/2);
         }
       }
@@ -451,20 +454,21 @@ function loadAndSaveStimuli(){
   // console.log(countrycode);
   var keys = Object.keys(dict[countrycode + ""]);
 //console.log(keys)
-  // console.log(tasks["taskSite"])
+console.log("Checking tasksite at line 481");
+  console.log(tasks["taskSite"]);
   tasks = [];
   var arrayLength = keys.length;
   for (var i = 0; i < arrayLength; i++) {
     if(experimentOrderNumber === 0 || experimentOrderNumber === 1){
       if(keys[i].match(/12/)){
         var str = keys[i].replace('12', '');
-        // console.log(str);
+         console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
       }
     }else{
       if(!keys[i].match(/12/)){
         var str = keys[i];
-        // console.log(str);
+         console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
       }
     }
@@ -537,6 +541,8 @@ function startTrial(){
   }
   var initialSource = stimuliDirectory+""+spoofedOrNot+"/"+trial.image;
   var image = initialSource+".jpg";
+  console.log("testing images");
+  console.log(image);
   // if(countrycode != "US"){
   //   image = initialSource+"_" + countrycode + ".jpg";
   // }
@@ -565,8 +571,8 @@ function startTrial(){
     trialHTML = '<center><img src=\"'+image+'\" alt='+trial.image+' id="stimuliImage1" border="0" usemap="#'+trial_image+"_map"+'"/>'+imageMap+'</center>';
     //      trialHTML = trialHTML + '<center><img src=\"'+loginImage+'\" alt='+trial.image+' id="stimuliImage2" border="0" usemap="#'+trial.image+"_login_map"+'"/>'+loginMap+'</center>';
   }
-  // Debug
-  //console.log(imageMap);
+  console.log("Debug");
+  console.log(imageMap);
 
   //first we show initial screen with potential manipulations.
   $('#report').html(updateClockHTML(trialTime,penaltyTime,bonusTime,bonusPay, experimentCondition)).show();
