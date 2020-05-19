@@ -50,7 +50,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     //echo "BART Results: ", $_POST['bart_results'];
     header("Location: stressSite.php");
     //header("Location: bart.php");
-} elseif (array_key_exists('For_the_purposes_of_this_study_if_you_feel_the_presented_website_is_insecure_what_action_should_you_take', $_POST)==TRUE){
+} elseif (array_key_exists('For_the_purposes_of_this_study_if_you_feel_the_presented_website_is_NOT_SECURE_what_action_should_you_take', $_POST)==TRUE){
 	$_POST['participant'] = $_SESSION['participant'];
   $_POST['valid_participant'] = $_SESSION['valid_participant'];
 	$encoded = json_encode($_POST, JSON_PRETTY_PRINT);
@@ -109,7 +109,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
         if($_SESSION['valid_participant']){
           echo "<p>In order to receive your bonus of <strong>\$$bonusPay</strong> with the guaranteed compensation of \$2.00, you now need to complete the survey.</p>";
         }
-        echo "<p>This survey consists of a series of questions designed to assess your practical as well as formal knowledge of cyber security. Please note that some of the questions are included for quality control, and you will not be approved for payment if you do not pay attention and answer all the questions.</p><br>
+        echo "<p>Please note that some of the questions are included for quality control, and you will not be approved for payment if you do not pay attention and answer all the questions.</p><br>
         <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">Continue to Survey</BUTTON>";
     }
 };
