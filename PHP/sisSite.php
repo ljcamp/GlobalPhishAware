@@ -246,7 +246,8 @@ The information will be stored securely in the Scholarly Data Archive at Indiana
 <DIV id="error">&nbsp;</DIV>
 
 	<DIV id="question" class="ease">&nbsp;</DIV>
-
+	<DIV id="allquestions" class="ease">&nbsp;</DIV>
+	
 	<DIV id="navigation" class="ease">&nbsp;</DIV>
 	<form id="sis_form" action="PHP/dataReceiver.php" method=POST>
 	<DIV id="completedquestions">

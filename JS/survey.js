@@ -139,10 +139,12 @@ function prepExperimentInstructions(){
 function runSurvey(){
     $("#sis").hide();
     $("#completedquestions").append("<h1>COMPLETED QUESTIONS</h1>");
-    setupQuestion(0);
+    setupAllQuestions();
+    // setupQuestion(0);
     $("#navigation").html("<hr><button id='nextbutton'>Continue</button>");
     $("#nextbutton").click(function(){
-        nextQuestion();
+        // nextQuestion();
+        nextQuestionBatch();
         return false;
     });
 }
@@ -190,6 +192,75 @@ function showFinish(){
 		break;
 	}
 }
+
+function setupAllQuestions(){
+  var q_idx ;
+  for (q_idx = 0; q_idx < questions.length ; q_idx ++){
+    let id_name = "question" + q_idx;
+    let id = "#" + id_name
+    $("#allquestions").append("<DIV id=\""+ id_name+ "\" class=\"ease\"></DIV>")
+  
+  
+    window.currentQuestion=q_idx;
+    question=questions[q_idx];
+    if (typeof question.question == 'undefined'){
+        if (window.surveypath=='benefit'){
+            question.question=question.question_ben;
+        } else {
+            question.question=question.question_risk;
+        }
+    }
+    $(id).hide();
+    $(id).html('<br><h3>['+ (q_idx +1) + " of " + questions.length + "] " +question.question+'</h3>').show();
+  
+    switch (question.type)
+    {
+        case 'checkboxmatrix':
+            buildCheckboxMatrix(question, id);
+            break;
+        case 'checkall':
+            buildCheckAll(question, id);
+            break;
+        case 'matrixrank':
+            buildMatrixRank(question, id);
+            break;
+        case 'dimensionalrank':
+            buildDimensionalRank(question, id);
+            break;
+        case 'freeformint':
+            buildFreeFormInt(question, id);
+            break;
+        case 'freeCode':
+            buildCode(question, id);
+            break;
+        case 'freeform':
+            buildFreeForm(question, id);
+            break;
+        case 'radiowithother':
+            buildRadioWithOther(question, id);
+            break;
+        case 'radio':
+            buildRadio(question, id);
+            break;
+        case 'radiowithform':
+            buildRadioWithForm(question, id);
+            break;
+        case 'agreementscale':
+            buildAgreementScale(question, id);
+            break;
+        case 'countrySelect':
+            buildCountrySelect(question, id);
+            break;
+        default:
+            alert('uncrecognized question type '+question.type);
+    }
+    // $(id).hide();
+    // $(id).html('<br><br>').show();
+    
+  }
+  window.currentQuestionStartTime = new Date().getTime();
+}
+
 
 function setupQuestion(question){
     window.currentQuestion=question;
@@ -248,7 +319,7 @@ function setupQuestion(question){
     window.currentQuestionStartTime = new Date().getTime();
 }
 
-function buildAgreementScale(question){
+function buildAgreementScale(question, id){
     var html='<table>';
 
     for (i in question.options){
@@ -263,28 +334,28 @@ function buildAgreementScale(question){
 		html += questionHTML;
     }
 	html += '</table>';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildRadio(question){
+function buildRadio(question,id){
     var html='';
     for (i in question.options){
         html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
     }
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildRadioWithOther(question){
+function buildRadioWithOther(question,id){
     var html='';
     for (i in question.options){
         html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
     }
     html+="<input type='radio' name='"+clean(question.question)+"' value='other'/> Other (please specify):";
     html+="<input type='text' name='"+clean(question.question)+"_other' value=''/><br>";
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildRadioWithForm(question){
+function buildRadioWithForm(question,id){
     var html='';
     for (i in question.options){
         html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
@@ -293,24 +364,24 @@ function buildRadioWithForm(question){
         html+=question.formText[i]+" <input type='text' name='"+clean(question.question)+'_'+clean(question.formText[i])+"' value=''/><br>";
     }
     //html+= name='"'+clean(question.question)+"_"+clean(question.formText[i])+'"';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildFreeFormInt(question){
+function buildFreeFormInt(question, id){
     var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $("#question").append(html);
+    $(id).append(html);
 }
-function buildCode(question){
+function buildCode(question,id){
     var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $("#question").append(html);
-}
-
-function buildFreeForm(question){
-    var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildDimensionalRank(question){
+function buildFreeForm(question,id){
+    var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
+    $(id).append(html);
+}
+
+function buildDimensionalRank(question,id){
     var html='';
     for (i in question.dimensions){
         html+='<b>'+question.dimensions[i].title+'</b>: '+question.dimensions[i].explanation+'<br>';
@@ -328,10 +399,10 @@ function buildDimensionalRank(question){
         html+='</tr>';
     }
     html+='</table>';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildMatrixRank(question){
+function buildMatrixRank(question,id ){
     var html='<table border="1"><tr><td><i>Information</i></td>';
     for (i in question.columns){
         html+='<td><b>'+question.columns[i]+'</b></td>';
@@ -345,10 +416,10 @@ function buildMatrixRank(question){
         html+='</tr>';
     }
     html+='</table>';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildCheckboxMatrix(question){
+function buildCheckboxMatrix(question, id){
     var html='<table border="1"><tr><td><i>Information</i></td>';
     for (i in question.columns){
         html+='<td><b>'+question.columns[i]+'</b></td>';
@@ -362,18 +433,18 @@ function buildCheckboxMatrix(question){
         html+='</tr>';
     }
     html+='</table>';
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildCheckAll(question){
+function buildCheckAll(question, id){
     var html='';
     for (i in question.options){
         html+='<input type="checkbox" name="'+clean(question.prefix+'_'+question.options[i])+'" value="yes"/>'+question.options[i]+'<br/>';
     }
-    $("#question").append(html);
+    $(id).append(html);
 }
 
-function buildCountrySelect(question){
+function buildCountrySelect(question, id){
 	var html='';
 	if(question.multiple='TRUE'){
 	html+='<select multiple name="'+clean(question.question)+'">'+countriesHTML+'</select>';
@@ -381,7 +452,7 @@ function buildCountrySelect(question){
 	else{
 	html+='<select name="'+clean(question.question)+'">'+countriesHTML+'</select>';
 	}
-	$("#question").append(html);
+	$(id).append(html);
 }
 
 window.debug=false;
@@ -416,6 +487,42 @@ function nextQuestion(){
         setupQuestion(window.currentQuestion);
     }
     return false;
+}
+
+
+
+function nextQuestionBatch(){
+  if (!verifyAllQuestion() && !window.debug){
+      $("#error").fadeIn();
+      return false;
+  }
+  $("#error").hide();
+  var endTime = new Date().getTime();
+  var responseTime = endTime - window.currentQuestionStartTime;
+  var responseTimeName = "ResponseTime";
+  // console.log(responseTimeName);
+  $("#allquestions").append('<input type="hidden" name="'+responseTimeName+'" value="'+responseTime+'">');
+
+  // window.currentQuestion++;
+  for (var q_idx = 0; q_idx < window.questions.length ; q_idx++){
+    let id = "#question"+q_idx;
+    var ref = $(id).contents();
+    $("#completedquestions").append(ref);
+  }
+  // if (window.questions.length<=window.currentQuestion){
+      //submit agreement
+      //open sites
+      //please wait
+       console.log("BABO showFinish");
+      //$("#question").html("<h2>Survey Complete</h2>");
+  $("#allquestions").html("<h2>Wait for the Experiment to Load</h2>");
+      convertCheckboxesToHiddens();
+      $("#nextbutton").hide();
+      showFinish();
+  // } else {
+  //     setupQuestion(window.currentQuestion);
+  // }
+  return false;
 }
 
 function convertCheckboxesToHiddens(){
@@ -471,6 +578,78 @@ function verifyQuestion(questionindex){
     }
 }
 
+function verifyAllQuestion(){
+  for (var q_idx = 0; q_idx < window.questions.length ; q_idx ++ ){
+    var question=window.questions[q_idx];
+    var id = "#question" + q_idx;
+    switch (question.type)
+    {
+        case 'checkboxmatrix':
+            break;
+        case 'checkall':
+            if (!verifyCheckAll(question, id)){
+              return false; 
+            }
+            break;
+        case 'matrixrank':
+            if (!verifyMatrixRank(question, id)){
+              return false; 
+            }
+            break;
+        case 'dimensionalrank':
+            if (!verifyDimensionalRank(question, id)){
+              return false; 
+            }
+            break;
+        case 'freeformint':
+            if (!verifyFreeFormInt(question, id)){
+              return false; 
+            }
+            break;
+        case 'freeCode':
+            if (!verifyFreeCode(question, id)){
+              return false; 
+            }
+            break;
+        case 'freeform':
+            if (!verifyFreeForm(question, id)){
+              return false; 
+            }
+            break;
+        case 'radiowithother':
+            if (!verifyRadioWithOther(question, id)){
+              return false; 
+            }
+            break;
+        case 'radio':
+            if (!verifyRadio(question, id)){
+              return false; 
+            }
+            break;
+        case 'radiowithform':
+            if(!verifyRadioWithForm(question, id)){
+              return false; 
+            }
+            break;
+        case 'agreementscale':
+            if (!verifyAgreementScale(question, id)){
+              return false; 
+            }
+            break;
+        case 'countrySelect':
+            if (!verifyCountrySelect(question, id)){
+              return false; 
+            }
+            break;
+        default:
+            alert('verify: uncrecognized question type '+question.type);
+            return false;
+    }
+  }
+  return true;
+}
+
+
 function hideQuestion(response){
 	if(response == 'hide'){
 		$('input').remove();
@@ -479,12 +658,12 @@ function hideQuestion(response){
 	}
 }
 
-function verifyCheckAll(question){
+function verifyCheckAll(question, id){
     var error=false;
     if (typeof question.mustbechecked != 'undefined'){
         for (i in question.mustbechecked){
             var name=clean(question.prefix+'_'+question.mustbechecked[i]);
-            var ischecked=$('input[name="'+name+'"]',$("#question")).is(':checked');
+            var ischecked=$('input[name="'+name+'"]',$(id)).is(':checked');
             if (!ischecked){
                 $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
                 hideQuestion(question.response);
@@ -493,7 +672,7 @@ function verifyCheckAll(question){
         }
         for (i in question.mustnotbechecked){
             var name=clean(question.prefix+'_'+question.mustnotbechecked[i]);
-            var ischecked=$('input[name="'+name+'"]',$("#question")).is(':checked');
+            var ischecked=$('input[name="'+name+'"]',$(id)).is(':checked');
             if (ischecked){
                 $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
                 hideQuestion(question.response);
@@ -504,29 +683,30 @@ function verifyCheckAll(question){
     return !error;
 }
 
-function verifyAgreementScale(question){
+function verifyAgreementScale(question, id){
     var error=false;
     for (i in question.options){
         var name=clean(question.options[i]);
-        var value=$('input[name="'+name+'"]',$("#question")).val().trim();
+        var value=$('input[name="'+name+'"]',$(id)).val().trim();
         if ((!$.isNumeric(value)|| parseFloat(value)>question.scale)){
             error=true;
-            $('input[name="'+name+'"]',$("#question")).addClass('error');
+            $('input[name="'+name+'"]',$(id)).addClass('error');
         } else {
-            $('input[name="'+name+'"]',$("#question")).removeClass('error');
+            $('input[name="'+name+'"]',$(id)).removeClass('error');
         }
     }
     $("#error").html('<font style="color:red;">Please fill out each field with your agreement on a scale from 1 to '+question.scale+'</font><hr>');
     return !error;
 }
 
-function verifyRadio(question){
+function verifyRadio(question, id){
     var error=false;
+    var q_num = parseInt(id.split("question")[1]) +1 ;
     var name=clean(question.question);
-    var selected=$('input[name="'+name+'"]:checked',$("#question"));
+    var selected=$('input[name="'+name+'"]:checked',$(id));
     if (selected.length<1){
-	$('input[name="'+name+'"]',$("#question")).addClass('error');
-    	$("#error").html('<font style="color:red;">Please answer the question.</font><hr>');
+	$('input[name="'+name+'"]',$(id)).addClass('error');
+    	$("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
 	return false;
     }
     if (typeof question.mustbechecked != 'undefined'){
@@ -539,38 +719,39 @@ function verifyRadio(question){
     return !error;
 }
 
-function verifyRadioWithOther(question){
+function verifyRadioWithOther(question, id){
     var error=true;
+    var q_num = parseInt(id.split("question")[1]) +1 ;
     var name=clean(question.question);
-    var selected=$('input[name="'+name+'"]:checked',$("#question"));
+    var selected=$('input[name="'+name+'"]:checked',$(id));
     if (selected.length>0){
         if (selected.val()=='other'){
-            if ($('input[name="'+name+'_other"]',$("#question")).val().trim()!=''){
+            if ($('input[name="'+name+'_other"]',$(id)).val().trim()!=''){
                 error=false;
             }
         } else {
             error=false;
         }
     }
-    $("#error").html('<font style="color:red;">Please answer the question and fill out the details if you selected "other".</font><hr>');
+    $("#error").html('<font style="color:red;">Please answer the question ' +q_num+' and fill out the details if you selected "other".</font><hr>');
     return !error;
 
 }
 
-function verifyRadioWithForm(question){
+function verifyRadioWithForm(question, id){
     var error=false;
     var name=clean(question.question);
     var test='';
-    var selected=$('input[name="'+name+'"]:checked',$("#question"));
+    var selected=$('input[name="'+name+'"]:checked',$(id));
     if (selected.length>0){
         if (selected.val().substring(0,3) == question.checkVal){
             for(i in question.formText){
-                if ($('input[name="'+name+'_'+clean(question.formText[i])+'"]',$("#question")).val().trim()==''){
-                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$("#question")).addClass('error');
+                if ($('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).val().trim()==''){
+                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).addClass('error');
                     error=true;
                 }
                 else{
-                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$("#question")).removeClass('error');
+                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).removeClass('error');
                 }
             }
         } else {
@@ -581,26 +762,28 @@ function verifyRadioWithForm(question){
     return !error;
 }
 
-function verifyFreeForm(question){
+function verifyFreeForm(question, id){
     var error=false;
+    var q_num = parseInt(id.split("question")[1]) +1 ;
     var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$("#question")).val().trim();
-    $("#error").html('<font style="color:red;">Please answer the question.</font><hr>');
+    var value=$('input[name="'+name+'"]',$(id)).val().trim();
+    $("#error").html('<font style="color:red;">Please answer the question ' + q_num +'.</font><hr>');
     return (value!='');
 }
 
-function verifyFreeFormInt(question){
+function verifyFreeFormInt(question,id){
     var error=false;
+    var q_num = parseInt(id.split("question")[1]) +1 ;
     var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$("#question")).val().trim();
+    var value=$('input[name="'+name+'"]',$(id)).val().trim();
 
         if (!isNormalInteger(value)){
             error=true;
-            $('input[name="'+name+'"]',$("#question")).addClass('error');
-	    $("#error").html('<font style="color:red;">Please answer the question with a number.</font><hr>');
+            $('input[name="'+name+'"]',$(id)).addClass('error');
+	    $("#error").html('<font style="color:red;">Please answer the question ' +q_num +' with a number.</font><hr>');
         }
         else {
-            $('input[name="'+name+'"]',$("#question")).removeClass('error');
+            $('input[name="'+name+'"]',$(id)).removeClass('error');
             if (parseInt(value) < question.minimum){
                 $('input').remove();
                 $('#nextbutton').remove();
@@ -613,15 +796,16 @@ function verifyFreeFormInt(question){
     return !error;
 }
 
-function verifyFreeCode(question){
+function verifyFreeCode(question,id){
     var error=false;
+    var q_num = parseInt(id.split("question")[1]) +1 ;
     var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$("#question")).val().trim();
+    var value=$('input[name="'+name+'"]',$(id)).val().trim();
 
         if (!isNormalInteger(value)){
             error=true;
-            $('input[name="'+name+'"]',$("#question")).addClass('error');
-	    $("#error").html('<font style="color:red;">Please answer the question with a number.</font><hr>');
+            $('input[name="'+name+'"]',$(id)).addClass('error');
+	    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
         }
         if (!value.match('117856')&&!value.match('119032')&&
             !value.match('115656')&&!value.match('113432')&&
@@ -674,12 +858,12 @@ function verifyFreeCode(question){
             !value.match('907657')
            ){
                      error=true;
-            $('input[name="'+name+'"]',$("#question")).addClass('error');
+            $('input[name="'+name+'"]',$(id)).addClass('error');
 	    $("#error").html('<font style="color:red;">Please enter correct code.</font><hr>');
        }
 
         else {
-            $('input[name="'+name+'"]',$("#question")).removeClass('error');
+            $('input[name="'+name+'"]',$(id)).removeClass('error');
             if (parseInt(value) < question.minimum){
                 $('input').remove();
                 $('#nextbutton').remove();
@@ -696,19 +880,19 @@ function isNormalInteger(str) {
     return /^\+?(0|[1-9]\d*)$/.test(str);
 }
 
-function verifyDimensionalRank(question){
+function verifyDimensionalRank(question,id){
     var error=false;
 
     for (i in question.rows){
         for (j in question.dimensions){
             var name=clean(question.prefix+'_'+question.rows[i]+'_'+question.dimensions[j].title);
-            var value=$('input[name="'+name+'"]',$("#question")).val().trim();
+            var value=$('input[name="'+name+'"]',$(id)).val().trim();
             if (value!==''){
                 if (!isNumber(value) || parseFloat(value)<1 || parseFloat(value)>7){
                     error=true;
-                    $('input[name="'+name+'"]',$("#question")).addClass('error');
+                    $('input[name="'+name+'"]',$(id)).addClass('error');
                 } else {
-                    $('input[name="'+name+'"]',$("#question")).removeClass('error');
+                    $('input[name="'+name+'"]',$(id)).removeClass('error');
                 }
             }
         }
@@ -718,19 +902,19 @@ function verifyDimensionalRank(question){
 }
 
 
-function verifyMatrixRank(question){
+function verifyMatrixRank(question,id){
     var error=false;
     var min=100;
     for (i in question.rows){
         for (j in question.columns){
             var name=clean(question.prefix+'_'+question.rows[i]+'_'+question.columns[j]);
-            var value=$('input[name="'+name+'"]',$("#question")).val().trim();
+            var value=$('input[name="'+name+'"]',$(id)).val().trim();
             if (value!==''){
                 if (!isNumber(value) || parseFloat(value)<10){
                     error=true;
-                    $('input[name="'+name+'"]',$("#question")).addClass('error');
+                    $('input[name="'+name+'"]',$(id)).addClass('error');
                 } else {
-                    $('input[name="'+name+'"]',$("#question")).removeClass('error');
+                    $('input[name="'+name+'"]',$(id)).removeClass('error');
                     value = parseFloat(value);
                     if (value<min){
                         min=value;
