@@ -238,7 +238,7 @@ The information will be stored securely in the Scholarly Data Archive at Indiana
 <?php } ?>
 
 <?php if(!$preview && !array_key_exists($_SESSION['country'], $session_expired)) :?>
-<p>By clicking on the â€˜Continue to Experimentâ€™ button, you agree to participate in this research.</p>
+	<p>By clicking on the <strong> Continue to Experiment </strong> button, you agree to participate in this research.</p>
 		<BUTTON id="sisacknowledged">Continue to Experiment</BUTTON>
 		   <?php endif;?>
 
