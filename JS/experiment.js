@@ -201,7 +201,7 @@ $(document).ready(function(){
   console.log(countrycode);
   var keys = Object.keys(dict[countrycode + ""]);
   // console.log(keys)
-  // console.log(tasks["taskSite"])
+   console.log(tasks["taskSite"])
   tasks = [];
   presentationIndex = []
   var arrayLength = keys.length;
@@ -211,7 +211,7 @@ $(document).ready(function(){
         var str = keys[i].replace('12', '');
         // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
-        if(countrycode == "US"){
+        if(countrycode == "US" || countrycode == "CA"){
           presentationIndex.push(i/2);
         }
       }
@@ -220,12 +220,10 @@ $(document).ready(function(){
         var str = keys[i];
         // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
-        if(countrycode == "US"){
+        if(countrycode == "US" || countrycode == "CA"){
           presentationIndex.push(i/2);
         }
-		 if(countrycode == "CA"){
-          presentationIndex.push(i/2);
-        }
+		
       }
     }  
     if(countrycode != "US"){
