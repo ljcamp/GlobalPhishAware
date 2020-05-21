@@ -1967,11 +1967,11 @@ var skill_questions = [
     type: 'checkall',
     question: 'What is phishing?',
     options: [
-      'Pretending to be someone or a company to steal usersâ€™ information',
+      'Pretending to be someone or a company to steal user information',
       'Making a fake website that looks legitimate to steal user information',
       'Sending spam emails, Defrauding someone online',
       'Other methods for stealing information',
-      'Hacking someoneâ€™s computer',
+      'Hacking someone\'s computer',
       'Tracking your internet habits to send advertisements ',
       'I Do not Know'
     ]
@@ -2614,7 +2614,7 @@ var PreStudyQuestions = [
     options: [
       'Male',
       'Female',
-      'Other',
+      'Non-binary or other',
       'Do not wish to specify'
     ]
   },
