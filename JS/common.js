@@ -234,6 +234,7 @@ NZ_Dict = {
 
 'youtube12':'<map id="scaleMap0" name="youtube12_map"><area target="" alt="youtube_CONTROL_BACK" title="youtube_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20, 48, 17" shape="circle"><area target="" alt="youtube_CONTROL_LOGIN" title="youtube_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1795,88,1902,134" shape="rect"></map>',
 
+'covid12': '<map id="scaleMap0" name="covid12_map"><area target="" alt="covid_CONTROL_BACK" title="covid_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="11,37,25" shape="circle"><area target="" alt="covid_CONTROL_LOGIN" title="covid_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="832,598,1151,645" shape="rect"></map>    
 };
  
 
