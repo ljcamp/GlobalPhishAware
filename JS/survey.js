@@ -1855,6 +1855,16 @@ var validationQuestions = [
 ];
 
 var cultureQuestions = [
+  {
+    type: 'radio',
+    question: 'Which gender do you most identify with?',
+    options: [
+      'Male',
+      'Female',
+      'Non-binary or other',
+      'Do not wish to specify'
+    ]
+  },
   //{
   //    type:'radiowithother',
   //    question:'What is your gender?',
@@ -2608,16 +2618,7 @@ var PreStudyQuestions = [
     //  'more than 80 years'
     //	]
   },
-  {
-    type: 'radio',
-    question: 'Which gender do you most identify with?',
-    options: [
-      'Male',
-      'Female',
-      'Non-binary or other',
-      'Do not wish to specify'
-    ]
-  },
+  
   //{
   //	type:'radio',
   //	question: 'Can you read and understand English?',
