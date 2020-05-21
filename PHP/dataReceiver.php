@@ -67,11 +67,14 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     		file_put_contents($saveto, $encoded);
 
     		if($_SESSION['CAS'] == true){
+			console.log("cas");
       		header("Location: thanksIU.php");
     		} else{
+			console.log("mturk");
                 if($_SESSION['type'] == "mturk"){
                     header("Location: thanksMturk.php");    
                 }else{
+			console.log("invited");
                     header("Location: thanksinv.php");   
                 }
       		
