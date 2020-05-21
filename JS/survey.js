@@ -1971,7 +1971,7 @@ var skill_questions = [
       'Making a fake website that looks legitimate to steal user information',
       'Sending spam emails, Defrauding someone online',
       'Other methods for stealing information',
-      'Hacking someone\'s computer',
+      'Hacking a computer that belongs to someone',
       'Tracking your internet habits to send advertisements ',
       'I Do not Know'
     ]
