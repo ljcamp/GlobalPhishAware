@@ -2281,6 +2281,29 @@ var skill_questions = [
   // ]
   // },
 
+	 {
+   type:'radio',
+   question:'How likely are you to sign-in into or use contact information from the COVID-19 information website? ',
+   options: [
+   'Not at all likely',
+   'Slightly unlikely',
+   'May or may not be likely',
+   'Slightly likely',
+   'Very likely'
+   ]
+   },
+	 {
+   type:'radio',
+  // // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+   question:'Did you spend more or less time on viewing the COVID-19 website when compared to others?',
+   options: [
+   'Less time',
+   'More time',
+   'About the same amount of time',
+   'I do not remember'
+   ]
+   },
+	
   // {
   // type:'radio',
   // // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
