@@ -34,6 +34,7 @@ font-size:150%;
 
 </style>
 <script src="../JS/jquery-1.11.0.js" type="text/javascript"></script>
+<script src="../JS/sweetalert2.js" type="text/javascript"></script>
 <script src="../JS/common.js" type="text/javascript"></script>
 <script src="../JS/survey.js" type="text/javascript"></script>
 

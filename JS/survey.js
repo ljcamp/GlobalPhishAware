@@ -21,977 +21,987 @@ var ID = function () {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
 
-function popup(url)
-{
-    var width  = screen.width;
-    var height = screen.height;
-    var left   = (screen.width  - width)/2;
-    var top    = (screen.height - height)/2;
-    var params = 'width='+width+', height='+height;
-    params += ', top='+top+', left='+left;
-    params += ', directories=no';
-    params += ', location=no';
-    params += ', menubar=no';
-    params += ', resizable=no';
-    params += ', scrollbars=yes';
-    params += ', status=no';
-    params += ', toolbar=no';
-    newwin=window.open(url,'experimentWindow', params);
-    var timer = setInterval(function() {
-        if(newwin.closed) {
-            clearInterval(timer);
-            runSurvey();
-        }
-    }, 100);
-    if (window.focus) {newwin.focus();}
+function popup(url) {
+  var width = screen.width;
+  var height = screen.height;
+  var left = (screen.width - width) / 2;
+  var top = (screen.height - height) / 2;
+  var params = 'width=' + width + ', height=' + height;
+  params += ', top=' + top + ', left=' + left;
+  params += ', directories=no';
+  params += ', location=no';
+  params += ', menubar=no';
+  params += ', resizable=no';
+  params += ', scrollbars=yes';
+  params += ', status=no';
+  params += ', toolbar=no';
+  newwin = window.open(url, 'experimentWindow', params);
+  var timer = setInterval(function () {
+    if (newwin.closed) {
+      clearInterval(timer);
+      runSurvey();
+    }
+  }, 100);
+  if (window.focus) { newwin.focus(); }
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-	blockTurkForward();
-	window.history.forward(-1);
-	var experimentCondition = $('#experimentCondition').val();
-	var participantType = $('#participantType').val();
-  
-    $("#countrycode").hide();
-    $("#ordergroup").hide();
-  	var docTitle = document.title;
-  	switch(docTitle){
-  	case "Log in Not Log in Study Description":
-  		prepValidationInstructions();
-  		questions = participantValidationQuestions[participantType].concat(validationQuestions[participantType][experimentCondition]);
-  		which_set = "validation";
-  		break;
-  	case "Study Description":
-  	        prepExperimentInstructions();
-          	questions = cultureQuestions.concat(skill_questions);
-          	which_set = "skills";
-  		break;
-  	case "Log in Not Log in Consent Form":
-  	        prepSisAcknowledged();
-            console.log(participantType);
-          	questions = participantQuestions[participantType].concat(PreStudyQuestions);
-          	which_set = "sis";
-  		break;
-	default:
-		console.log("Unknown");
-	}
+  blockTurkForward();
+  window.history.forward(-1);
+  var experimentCondition = $('#experimentCondition').val();
+  var participantType = $('#participantType').val();
+
+  $("#countrycode").hide();
+  $("#ordergroup").hide();
+  var docTitle = document.title;
+  switch (docTitle) {
+    case "Log in Not Log in Study Description":
+      prepValidationInstructions();
+      questions = participantValidationQuestions[participantType].concat(validationQuestions[participantType][experimentCondition]);
+      which_set = "validation";
+      break;
+    case "Study Description":
+      prepExperimentInstructions();
+      questions = cultureQuestions.concat(skill_questions);
+      which_set = "skills";
+      break;
+    case "Log in Not Log in Consent Form":
+      prepSisAcknowledged();
+      console.log(participantType);
+      questions = participantQuestions[participantType].concat(PreStudyQuestions);
+      which_set = "sis";
+      break;
+    default:
+      console.log("Unknown");
+  }
 });
 
-function blockTurkForward(){
-    $("#submitButton").hide();
-    $("#sis_form").keypress(function(e){
-        if (e.which == 13)
-        {
-            return false;
-        }
-    });
-    !window.debug && $("#completedquestions").hide();
+function blockTurkForward() {
+  $("#submitButton").hide();
+  $("#sis_form").keypress(function (e) {
+    if (e.which == 13) {
+      return false;
+    }
+  });
+  !window.debug && $("#completedquestions").hide();
 }
 
-function prepSisAcknowledged(){
-    $("#jscriptwarning").hide();
-    $("#sis").show();
-    $("#sisacknowledged").click(function(){
-        // TODO: verify that they have accepted the job
-        if ($('#assignmentId').val()=='ASSIGNMENT_ID_NOT_AVAILABLE'){
-            alert('You must accept the HIT before continuing.');
-            return false;
-        }
-        $("#sis").hide();
-        runSurvey();
-        return false;
-    });
-}
-
-function prepValidationInstructions(){
-	$("#jscriptwarning").hide();
-    	$("#sis").show();
-        $("#checkUnderstanding").click(function(){
-        // TODO: verify that they have accepted the job
-        if ($('#assignmentId').val()=='ASSIGNMENT_ID_NOT_AVAILABLE'){
-            alert('You must accept the HIT before continuing.');
-            return false;
-        }
-	$("#sis").hide();
-        runSurvey();
-        return false;
-    });
-}
-
-
-function prepExperimentInstructions(){
-    $("#jscriptwarning").hide();
-    $("#sis").show();
-    //$("#beginExperiment").click(function(){
-        // TODO: verify that they have accepted the job
-    //    if ($('#assignmentId').val()=='ASSIGNMENT_ID_NOT_AVAILABLE'){
-    //        alert('You must accept the HIT before continuing.');
-    //        return false;
-    //    }
-    //    $("#sis").hide();
-    //    popup("experiment.php");
-    //    $("#question").html("<h3>Please leave this window open while completing the site tasks. Closing or reloading will invalidate the results and you will not get paid.</h3>").show();
-    //    return false;
-    //});
-}
-
-function runSurvey(){
+function prepSisAcknowledged() {
+  $("#jscriptwarning").hide();
+  $("#sis").show();
+  $("#sisacknowledged").click(function () {
+    // TODO: verify that they have accepted the job
+    if ($('#assignmentId').val() == 'ASSIGNMENT_ID_NOT_AVAILABLE') {
+      alert('You must accept the HIT before continuing.');
+      return false;
+    }
     $("#sis").hide();
-    $("#completedquestions").append("<h1>COMPLETED QUESTIONS</h1>");
-    setupAllQuestions();
-    // setupQuestion(0);
-    $("#navigation").html("<hr><button id='nextbutton'>Continue</button>");
-    $("#nextbutton").click(function(){
-        // nextQuestion();
-        nextQuestionBatch();
-        return false;
-    });
+    runSurvey();
+    return false;
+  });
 }
 
-function showFinish(){
+function prepValidationInstructions() {
+  $("#jscriptwarning").hide();
+  $("#sis").show();
+  $("#checkUnderstanding").click(function () {
+    // TODO: verify that they have accepted the job
+    if ($('#assignmentId').val() == 'ASSIGNMENT_ID_NOT_AVAILABLE') {
+      alert('You must accept the HIT before continuing.');
+      return false;
+    }
+    $("#sis").hide();
+    runSurvey();
+    return false;
+  });
+}
+
+
+function prepExperimentInstructions() {
+  $("#jscriptwarning").hide();
+  $("#sis").show();
+  //$("#beginExperiment").click(function(){
+  // TODO: verify that they have accepted the job
+  //    if ($('#assignmentId').val()=='ASSIGNMENT_ID_NOT_AVAILABLE'){
+  //        alert('You must accept the HIT before continuing.');
+  //        return false;
+  //    }
+  //    $("#sis").hide();
+  //    popup("experiment.php");
+  //    $("#question").html("<h3>Please leave this window open while completing the site tasks. Closing or reloading will invalidate the results and you will not get paid.</h3>").show();
+  //    return false;
+  //});
+}
+
+function runSurvey() {
+  $("#sis").hide();
+  $("#completedquestions").append("<h1>COMPLETED QUESTIONS</h1>");
+  setupAllQuestions();
+  // setupQuestion(0);
+  $("#navigation").html("<hr><button id='nextbutton'>Continue</button>");
+  $("#nextbutton").click(function () {
+    // nextQuestion();
+    nextQuestionBatch();
+    return false;
+  });
+}
+
+function showFinish() {
 
   countrycode = $('#countrycode').text();
-    if(countrycode === ""){
-        countrycode = "US";
-    }
+  if (countrycode === "") {
+    countrycode = "US";
+  }
 
-    // console.log("countrycode: " + countrycode);
-    var websites = Object.keys(dict[countrycode + ""]);
-    // console.log("Websites: " + websites)
-    // console.log(tasks["taskSite"])
-    opts = [];
-    var arrayLength = websites.length;
-    // console.log("ArrayLength: " + arrayLength);
-    for (var i = 0; i < arrayLength; i++) {
-      if(websites[i].match(/12/)){
-        var str = websites[i].replace('12', '');
-        opts.push(str);
-        // console.log(str);
-      }
+  // console.log("countrycode: " + countrycode);
+  var websites = Object.keys(dict[countrycode + ""]);
+  // console.log("Websites: " + websites)
+  // console.log(tasks["taskSite"])
+  opts = [];
+  var arrayLength = websites.length;
+  // console.log("ArrayLength: " + arrayLength);
+  for (var i = 0; i < arrayLength; i++) {
+    if (websites[i].match(/12/)) {
+      var str = websites[i].replace('12', '');
+      opts.push(str);
+      // console.log(str);
     }
-    skill_questions[0].options = opts;
+  }
+  skill_questions[0].options = opts;
 
-	switch(which_set){
-		case 'skills':
-		$("#surveyResults").submit();
-		break;
-		case 'sis':
-		$("#sis_form").submit();
-		break;
-		case 'validation':
-		// console.log("HERE");
-		$.post('dataReceiver.php', $("#surveyResults").serialize());
-		$("#sis").hide();
-		popup("experiment.php");
-		$("#question").html("<h3>Please leave this window open while completing the site tasks. Closing or reloading this page will invalidate the results and you will not get paid.</h3>").show();
-		questions = cultureQuestions.concat(skill_questions);
-                which_set = "skills";
-		break;
-		default:
-		break;
-	}
+  switch (which_set) {
+    case 'skills':
+      $("#surveyResults").submit();
+      break;
+    case 'sis':
+      $("#sis_form").submit();
+      break;
+    case 'validation':
+      // console.log("HERE");
+      $.post('dataReceiver.php', $("#surveyResults").serialize());
+      $("#sis").hide();
+      popup("experiment.php");
+      $("#question").html("<h3>Please leave this window open while completing the site tasks. Closing or reloading this page will invalidate the results and you will not get paid.</h3>").show();
+      questions = cultureQuestions.concat(skill_questions);
+      which_set = "skills";
+      break;
+    default:
+      break;
+  }
 }
 
-function setupAllQuestions(){
-  var q_idx ;
-  for (q_idx = 0; q_idx < questions.length ; q_idx ++){
+function setupAllQuestions() {
+  var q_idx;
+  for (q_idx = 0; q_idx < questions.length; q_idx++) {
     let id_name = "question" + q_idx;
     let id = "#" + id_name
-    $("#allquestions").append("<DIV id=\""+ id_name+ "\" class=\"ease\"></DIV>")
-  
-  
-    window.currentQuestion=q_idx;
-    question=questions[q_idx];
-    if (typeof question.question == 'undefined'){
-        if (window.surveypath=='benefit'){
-            question.question=question.question_ben;
-        } else {
-            question.question=question.question_risk;
-        }
+    $("#allquestions").append("<DIV id=\"" + id_name + "\" class=\"ease\"></DIV>")
+
+
+    window.currentQuestion = q_idx;
+    question = questions[q_idx];
+    if (typeof question.question == 'undefined') {
+      if (window.surveypath == 'benefit') {
+        question.question = question.question_ben;
+      } else {
+        question.question = question.question_risk;
+      }
     }
     $(id).hide();
-    $(id).html('<br><h3>['+ (q_idx +1) + " of " + questions.length + "] " +question.question+'</h3>').show();
-  
-    switch (question.type)
-    {
-        case 'checkboxmatrix':
-            buildCheckboxMatrix(question, id);
-            break;
-        case 'checkall':
-            buildCheckAll(question, id);
-            break;
-        case 'matrixrank':
-            buildMatrixRank(question, id);
-            break;
-        case 'dimensionalrank':
-            buildDimensionalRank(question, id);
-            break;
-        case 'freeformint':
-            buildFreeFormInt(question, id);
-            break;
-        case 'freeCode':
-            buildCode(question, id);
-            break;
-        case 'freeform':
-            buildFreeForm(question, id);
-            break;
-        case 'radiowithother':
-            buildRadioWithOther(question, id);
-            break;
-        case 'radio':
-            buildRadio(question, id);
-            break;
-        case 'radiowithform':
-            buildRadioWithForm(question, id);
-            break;
-        case 'agreementscale':
-            buildAgreementScale(question, id);
-            break;
-        case 'countrySelect':
-            buildCountrySelect(question, id);
-            break;
-        default:
-            alert('uncrecognized question type '+question.type);
+    $(id).html('<br><h3>[' + (q_idx + 1) + " of " + questions.length + "] " + question.question + '</h3>').show();
+
+    switch (question.type) {
+      case 'checkboxmatrix':
+        buildCheckboxMatrix(question, id);
+        break;
+      case 'checkall':
+        buildCheckAll(question, id);
+        break;
+      case 'matrixrank':
+        buildMatrixRank(question, id);
+        break;
+      case 'dimensionalrank':
+        buildDimensionalRank(question, id);
+        break;
+      case 'freeformint':
+        buildFreeFormInt(question, id);
+        break;
+      case 'freeCode':
+        buildCode(question, id);
+        break;
+      case 'freeform':
+        buildFreeForm(question, id);
+        break;
+      case 'radiowithother':
+        buildRadioWithOther(question, id);
+        break;
+      case 'radio':
+        buildRadio(question, id);
+        break;
+      case 'radiowithform':
+        buildRadioWithForm(question, id);
+        break;
+      case 'agreementscale':
+        buildAgreementScale(question, id);
+        break;
+      case 'countrySelect':
+        buildCountrySelect(question, id);
+        break;
+      default:
+        alert('uncrecognized question type ' + question.type);
     }
     // $(id).hide();
     // $(id).html('<br><br>').show();
-    
+
   }
   window.currentQuestionStartTime = new Date().getTime();
 }
 
 
-function setupQuestion(question){
-    window.currentQuestion=question;
-    question=questions[question];
-    if (typeof question.question == 'undefined'){
-        if (window.surveypath=='benefit'){
-            question.question=question.question_ben;
-        } else {
-            question.question=question.question_risk;
-        }
-    }
-    $("#question").hide();
-    $("#question").html('<h3>'+question.question+'</h3>').show();
-
-    switch (question.type)
-    {
-        case 'checkboxmatrix':
-            buildCheckboxMatrix(question);
-            break;
-        case 'checkall':
-            buildCheckAll(question);
-            break;
-        case 'matrixrank':
-            buildMatrixRank(question);
-            break;
-        case 'dimensionalrank':
-            buildDimensionalRank(question);
-            break;
-        case 'freeformint':
-            buildFreeFormInt(question);
-            break;
-        case 'freeCode':
-            buildCode(question);
-            break;
-        case 'freeform':
-            buildFreeForm(question);
-            break;
-        case 'radiowithother':
-            buildRadioWithOther(question);
-            break;
-        case 'radio':
-            buildRadio(question);
-            break;
-        case 'radiowithform':
-            buildRadioWithForm(question);
-            break;
-        case 'agreementscale':
-            buildAgreementScale(question);
-            break;
-		case 'countrySelect':
-			buildCountrySelect(question);
-			break;
-        default:
-            alert('uncrecognized question type '+question.type);
-    }
-    window.currentQuestionStartTime = new Date().getTime();
-}
-
-function buildAgreementScale(question, id){
-    var html='<table>';
-
-    for (i in question.options){
-		var name = clean(question.options[i]);
-		var outputName = name.substr(0,name.indexOf('.'));
-		var min = question.min;
-		var max = question.scale;
-		var step = question.step;
-		var defaultVal = question.def;
-        var questionHTML = "<tr><td>"+question.options[i]+
-		"</td><td>"+min+"</td><td><input type='range' min='"+min+"' max='"+max+"' step='"+step+"' value='"+defaultVal+"'name='"+name+"'onchange='"+outputName+"Output.value = value'/></td><td>"+max+"</td></tr><tr><td colspan='4' style='text-align:center'><output id='"+outputName+"Output'>"+defaultVal+"</output></td></tr>";
-		html += questionHTML;
-    }
-	html += '</table>';
-    $(id).append(html);
-}
-
-function buildRadio(question,id){
-    var html='';
-    for (i in question.options){
-        html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
-    }
-    $(id).append(html);
-}
-
-function buildRadioWithOther(question,id){
-    var html='';
-    for (i in question.options){
-        html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
-    }
-    html+="<input type='radio' name='"+clean(question.question)+"' value='other'/> Other (please specify):";
-    html+="<input type='text' name='"+clean(question.question)+"_other' value=''/><br>";
-    $(id).append(html);
-}
-
-function buildRadioWithForm(question,id){
-    var html='';
-    for (i in question.options){
-        html+="<input type='radio' name='"+clean(question.question)+"' value='"+clean(question.options[i])+"'/> "+question.options[i]+'<br>';
-    }
-    for(i in question.formText){
-        html+=question.formText[i]+" <input type='text' name='"+clean(question.question)+'_'+clean(question.formText[i])+"' value=''/><br>";
-    }
-    //html+= name='"'+clean(question.question)+"_"+clean(question.formText[i])+'"';
-    $(id).append(html);
-}
-
-function buildFreeFormInt(question, id){
-    var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $(id).append(html);
-}
-function buildCode(question,id){
-    var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $(id).append(html);
-}
-
-function buildFreeForm(question,id){
-    var html='<br><input type="text" name="'+clean(question.question)+'" value="">';
-    $(id).append(html);
-}
-
-function buildDimensionalRank(question,id){
-    var html='';
-    for (i in question.dimensions){
-        html+='<b>'+question.dimensions[i].title+'</b>: '+question.dimensions[i].explanation+'<br>';
-    }
-    html+='<br><table border="1"><tr><td><i>Information</i></td>';
-    for (i in question.dimensions){
-        html+='<td><b>'+question.dimensions[i].title+'</b></td>';
-    }
-    html+='</tr>';
-    for (i in question.rows){
-        html+='<tr><td>'+question.rows[i]+'</td>';
-        for (j in question.dimensions){
-            html+='<td><input type="text" name="'+clean(question.prefix+'_'+question.rows[i]+'_'+question.dimensions[j].title)+'" value=""/></td>';
-        }
-        html+='</tr>';
-    }
-    html+='</table>';
-    $(id).append(html);
-}
-
-function buildMatrixRank(question,id ){
-    var html='<table border="1"><tr><td><i>Information</i></td>';
-    for (i in question.columns){
-        html+='<td><b>'+question.columns[i]+'</b></td>';
-    }
-    html+='</tr>';
-    for (i in question.rows){
-        html+='<tr><td>'+question.rows[i]+'</td>';
-        for (j in question.columns){
-            html+='<td><input type="text" name="'+clean(question.prefix+'_'+question.rows[i]+'_'+question.columns[j])+'" value=""/></td>';
-        }
-        html+='</tr>';
-    }
-    html+='</table>';
-    $(id).append(html);
-}
-
-function buildCheckboxMatrix(question, id){
-    var html='<table border="1"><tr><td><i>Information</i></td>';
-    for (i in question.columns){
-        html+='<td><b>'+question.columns[i]+'</b></td>';
-    }
-    html+='</tr>';
-    for (i in question.rows){
-        html+='<tr><td>'+question.rows[i]+'</td>';
-        for (j in question.columns){
-            html+='<td><input type="checkbox" name="'+clean(question.prefix+'_'+question.rows[i]+'_'+question.columns[j])+'" value="yes"/></td>';
-        }
-        html+='</tr>';
-    }
-    html+='</table>';
-    $(id).append(html);
-}
-
-function buildCheckAll(question, id){
-    var html='';
-    for (i in question.options){
-        html+='<input type="checkbox" name="'+clean(question.prefix+'_'+question.options[i])+'" value="yes"/>'+question.options[i]+'<br/>';
-    }
-    $(id).append(html);
-}
-
-function buildCountrySelect(question, id){
-	var html='';
-	if(question.multiple='TRUE'){
-	html+='<select multiple name="'+clean(question.question)+'">'+countriesHTML+'</select>';
-	}
-	else{
-	html+='<select name="'+clean(question.question)+'">'+countriesHTML+'</select>';
-	}
-	$(id).append(html);
-}
-
-window.debug=false;
-
-function nextQuestion(){
-    if (!verifyQuestion(window.currentQuestion) && !window.debug){
-        $("#error").fadeIn();
-        return false;
-    }
-    $("#error").hide();
-    var endTime = new Date().getTime();
-    var responseTime = endTime - window.currentQuestionStartTime;
-    var responseTimeName = clean(window.questions[window.currentQuestion].question)+"ResponseTime";
-    // console.log(responseTimeName);
-    $("#question").append('<input type="hidden" name="'+responseTimeName+'" value="'+responseTime+'">');
-
-    window.currentQuestion++;
-    var ref = $("#question").contents();
-
-    $("#completedquestions").append(ref);
-    if (window.questions.length<=window.currentQuestion){
-        //submit agreement
-        //open sites
-        //please wait
-         console.log("BABO showFinish");
-        //$("#question").html("<h2>Survey Complete</h2>");
-		$("#question").html("<h2>Wait for the Experiment to Load</h2>");
-        convertCheckboxesToHiddens();
-        $("#nextbutton").hide();
-        showFinish();
+function setupQuestion(question) {
+  window.currentQuestion = question;
+  question = questions[question];
+  if (typeof question.question == 'undefined') {
+    if (window.surveypath == 'benefit') {
+      question.question = question.question_ben;
     } else {
-        setupQuestion(window.currentQuestion);
+      question.question = question.question_risk;
+    }
+  }
+  $("#question").hide();
+  $("#question").html('<h3>' + question.question + '</h3>').show();
+
+  switch (question.type) {
+    case 'checkboxmatrix':
+      buildCheckboxMatrix(question);
+      break;
+    case 'checkall':
+      buildCheckAll(question);
+      break;
+    case 'matrixrank':
+      buildMatrixRank(question);
+      break;
+    case 'dimensionalrank':
+      buildDimensionalRank(question);
+      break;
+    case 'freeformint':
+      buildFreeFormInt(question);
+      break;
+    case 'freeCode':
+      buildCode(question);
+      break;
+    case 'freeform':
+      buildFreeForm(question);
+      break;
+    case 'radiowithother':
+      buildRadioWithOther(question);
+      break;
+    case 'radio':
+      buildRadio(question);
+      break;
+    case 'radiowithform':
+      buildRadioWithForm(question);
+      break;
+    case 'agreementscale':
+      buildAgreementScale(question);
+      break;
+    case 'countrySelect':
+      buildCountrySelect(question);
+      break;
+    default:
+      alert('uncrecognized question type ' + question.type);
+  }
+  window.currentQuestionStartTime = new Date().getTime();
+}
+
+function buildAgreementScale(question, id) {
+  var html = '<table>';
+
+  for (i in question.options) {
+    var name = clean(question.options[i]);
+    var outputName = name.substr(0, name.indexOf('.'));
+    var min = question.min;
+    var max = question.scale;
+    var step = question.step;
+    var defaultVal = question.def;
+    var questionHTML = "<tr><td>" + question.options[i] +
+      "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'>" + defaultVal + "</output></td></tr>";
+    html += questionHTML;
+  }
+  html += '</table>';
+  $(id).append(html);
+}
+
+function buildRadio(question, id) {
+  var html = '';
+  for (i in question.options) {
+    html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "'/> " + question.options[i] + '<br>';
+  }
+  $(id).append(html);
+}
+
+function buildRadioWithOther(question, id) {
+  var html = '';
+  for (i in question.options) {
+    html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "'/> " + question.options[i] + '<br>';
+  }
+  html += "<input type='radio' name='" + clean(question.question) + "' value='other'/> Other (please specify):";
+  html += "<input type='text' name='" + clean(question.question) + "_other' value=''/><br>";
+  $(id).append(html);
+}
+
+function buildRadioWithForm(question, id) {
+  var html = '';
+  for (i in question.options) {
+    html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "'/> " + question.options[i] + '<br>';
+  }
+  for (i in question.formText) {
+    html += question.formText[i] + " <input type='text' name='" + clean(question.question) + '_' + clean(question.formText[i]) + "' value=''/><br>";
+  }
+  //html+= name='"'+clean(question.question)+"_"+clean(question.formText[i])+'"';
+  $(id).append(html);
+}
+
+function buildFreeFormInt(question, id) {
+  var html = '<br><input type="text" name="' + clean(question.question) + '" value="">';
+  $(id).append(html);
+}
+function buildCode(question, id) {
+  var html = '<br><input type="text" name="' + clean(question.question) + '" value="">';
+  $(id).append(html);
+}
+
+function buildFreeForm(question, id) {
+  var html = '<br><input type="text" name="' + clean(question.question) + '" value="">';
+  $(id).append(html);
+}
+
+function buildDimensionalRank(question, id) {
+  var html = '';
+  for (i in question.dimensions) {
+    html += '<b>' + question.dimensions[i].title + '</b>: ' + question.dimensions[i].explanation + '<br>';
+  }
+  html += '<br><table border="1"><tr><td><i>Information</i></td>';
+  for (i in question.dimensions) {
+    html += '<td><b>' + question.dimensions[i].title + '</b></td>';
+  }
+  html += '</tr>';
+  for (i in question.rows) {
+    html += '<tr><td>' + question.rows[i] + '</td>';
+    for (j in question.dimensions) {
+      html += '<td><input type="text" name="' + clean(question.prefix + '_' + question.rows[i] + '_' + question.dimensions[j].title) + '" value=""/></td>';
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  $(id).append(html);
+}
+
+function buildMatrixRank(question, id) {
+  var html = '<table border="1"><tr><td><i>Information</i></td>';
+  for (i in question.columns) {
+    html += '<td><b>' + question.columns[i] + '</b></td>';
+  }
+  html += '</tr>';
+  for (i in question.rows) {
+    html += '<tr><td>' + question.rows[i] + '</td>';
+    for (j in question.columns) {
+      html += '<td><input type="text" name="' + clean(question.prefix + '_' + question.rows[i] + '_' + question.columns[j]) + '" value=""/></td>';
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  $(id).append(html);
+}
+
+function buildCheckboxMatrix(question, id) {
+  var html = '<table border="1"><tr><td><i>Information</i></td>';
+  for (i in question.columns) {
+    html += '<td><b>' + question.columns[i] + '</b></td>';
+  }
+  html += '</tr>';
+  for (i in question.rows) {
+    html += '<tr><td>' + question.rows[i] + '</td>';
+    for (j in question.columns) {
+      html += '<td><input type="checkbox" name="' + clean(question.prefix + '_' + question.rows[i] + '_' + question.columns[j]) + '" value="yes"/></td>';
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+  $(id).append(html);
+}
+
+function buildCheckAll(question, id) {
+  var html = '';
+  for (i in question.options) {
+    html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
+  }
+  $(id).append(html);
+}
+
+function buildCountrySelect(question, id) {
+  var html = '';
+  if (question.multiple = 'TRUE') {
+    html += '<select multiple name="' + clean(question.question) + '">' + countriesHTML + '</select>';
+  }
+  else {
+    html += '<select name="' + clean(question.question) + '">' + countriesHTML + '</select>';
+  }
+  $(id).append(html);
+}
+
+window.debug = false;
+
+function nextQuestion() {
+  if (!verifyQuestion(window.currentQuestion) && !window.debug) {
+    $("#error").fadeIn();
+    return false;
+  }
+  $("#error").hide();
+  var endTime = new Date().getTime();
+  var responseTime = endTime - window.currentQuestionStartTime;
+  var responseTimeName = clean(window.questions[window.currentQuestion].question) + "ResponseTime";
+  // console.log(responseTimeName);
+  $("#question").append('<input type="hidden" name="' + responseTimeName + '" value="' + responseTime + '">');
+
+  window.currentQuestion++;
+  var ref = $("#question").contents();
+
+  $("#completedquestions").append(ref);
+  if (window.questions.length <= window.currentQuestion) {
+    //submit agreement
+    //open sites
+    //please wait
+    console.log("BABO showFinish");
+    //$("#question").html("<h2>Survey Complete</h2>");
+    $("#question").html("<h2>Wait for the Experiment to Load</h2>");
+    convertCheckboxesToHiddens();
+    $("#nextbutton").hide();
+    showFinish();
+  } else {
+    setupQuestion(window.currentQuestion);
+  }
+  return false;
+}
+
+
+
+function nextQuestionBatch() {
+  if (!verifyAllQuestion() && !window.debug) {
+    let err_msg = $("#error").text();
+    if (err_msg.includes("read and understand the instructions")) {
+      // alert($("#error").text());
+      $("#error").hide();
+      Swal.fire({
+        icon: 'error',
+        title: 'Wrong Answer(s)',
+        text: $("#error").text(),
+        showConfirmButton: true,
+        // footer: '<a href>Why do I have this issue?</a>'
+      }).then((result) => {
+          window.location = "stressSite.php"    
+      });
+    }
+    else {
+      $("#error").fadeIn();
     }
     return false;
-}
-
-
-
-function nextQuestionBatch(){
-  if (!verifyAllQuestion() && !window.debug){
-      $("#error").fadeIn();
-      return false;
   }
   $("#error").hide();
   var endTime = new Date().getTime();
   var responseTime = endTime - window.currentQuestionStartTime;
   var responseTimeName = "ResponseTime";
   // console.log(responseTimeName);
-  $("#allquestions").append('<input type="hidden" name="'+responseTimeName+'" value="'+responseTime+'">');
+  $("#allquestions").append('<input type="hidden" name="' + responseTimeName + '" value="' + responseTime + '">');
 
   // window.currentQuestion++;
-  for (var q_idx = 0; q_idx < window.questions.length ; q_idx++){
-    let id = "#question"+q_idx;
+  for (var q_idx = 0; q_idx < window.questions.length; q_idx++) {
+    let id = "#question" + q_idx;
     var ref = $(id).contents();
     $("#completedquestions").append(ref);
   }
   // if (window.questions.length<=window.currentQuestion){
-      //submit agreement
-      //open sites
-      //please wait
-       console.log("BABO showFinish");
-      //$("#question").html("<h2>Survey Complete</h2>");
+  //submit agreement
+  //open sites
+  //please wait
+  console.log("BABO showFinish");
+  //$("#question").html("<h2>Survey Complete</h2>");
   $("#allquestions").html("<h2>Wait for the Experiment to Load</h2>");
-      convertCheckboxesToHiddens();
-      $("#nextbutton").hide();
-      showFinish();
+  convertCheckboxesToHiddens();
+  $("#nextbutton").hide();
+  showFinish();
   // } else {
   //     setupQuestion(window.currentQuestion);
   // }
   return false;
 }
 
-function convertCheckboxesToHiddens(){
-    $('input[type=checkbox]',$("#completedquestions")).each(function(){
-        var newhtml="<input type='text' name='"+$(this).attr('name')+"' value='"+($(this).is(':checked')?'checked':'unchecked')+"'/>";
-        $(this).replaceWith(newhtml);
-    });
+function convertCheckboxesToHiddens() {
+  $('input[type=checkbox]', $("#completedquestions")).each(function () {
+    var newhtml = "<input type='text' name='" + $(this).attr('name') + "' value='" + ($(this).is(':checked') ? 'checked' : 'unchecked') + "'/>";
+    $(this).replaceWith(newhtml);
+  });
 }
 
-function verifyQuestion(questionindex){
-    var question=window.questions[questionindex];
-    switch (question.type)
-    {
-        case 'checkboxmatrix':
-            return true;
-            break;
-        case 'checkall':
-            return verifyCheckAll(question);
-            break;
-        case 'matrixrank':
-            return verifyMatrixRank(question);
-            break;
-        case 'dimensionalrank':
-            return verifyDimensionalRank(question);
-            break;
-        case 'freeformint':
-            return verifyFreeFormInt(question);
-            break;
-        case 'freeCode':
-            return verifyFreeCode(question);
-            break;
-        case 'freeform':
-            return verifyFreeForm(question);
-            break;
-        case 'radiowithother':
-            return verifyRadioWithOther(question);
-            break;
-        case 'radio':
-            return verifyRadio(question);
-            break;
-        case 'radiowithform':
-            return verifyRadioWithForm(question);
-            break;
-        case 'agreementscale':
-            return verifyAgreementScale(question);
-            break;
-		case 'countrySelect':
-	    	return verifyCountrySelect(question);
-	    	break;
-        default:
-            alert('verify: uncrecognized question type '+question.type);
-            return false;
-    }
+function verifyQuestion(questionindex) {
+  var question = window.questions[questionindex];
+  switch (question.type) {
+    case 'checkboxmatrix':
+      return true;
+      break;
+    case 'checkall':
+      return verifyCheckAll(question);
+      break;
+    case 'matrixrank':
+      return verifyMatrixRank(question);
+      break;
+    case 'dimensionalrank':
+      return verifyDimensionalRank(question);
+      break;
+    case 'freeformint':
+      return verifyFreeFormInt(question);
+      break;
+    case 'freeCode':
+      return verifyFreeCode(question);
+      break;
+    case 'freeform':
+      return verifyFreeForm(question);
+      break;
+    case 'radiowithother':
+      return verifyRadioWithOther(question);
+      break;
+    case 'radio':
+      return verifyRadio(question);
+      break;
+    case 'radiowithform':
+      return verifyRadioWithForm(question);
+      break;
+    case 'agreementscale':
+      return verifyAgreementScale(question);
+      break;
+    case 'countrySelect':
+      return verifyCountrySelect(question);
+      break;
+    default:
+      alert('verify: uncrecognized question type ' + question.type);
+      return false;
+  }
 }
 
-function verifyAllQuestion(){
-  for (var q_idx = 0; q_idx < window.questions.length ; q_idx ++ ){
-    var question=window.questions[q_idx];
+function verifyAllQuestion() {
+  for (var q_idx = 0; q_idx < window.questions.length; q_idx++) {
+    var question = window.questions[q_idx];
     var id = "#question" + q_idx;
-    switch (question.type)
-    {
-        case 'checkboxmatrix':
-            break;
-        case 'checkall':
-            if (!verifyCheckAll(question, id)){
-              return false; 
-            }
-            break;
-        case 'matrixrank':
-            if (!verifyMatrixRank(question, id)){
-              return false; 
-            }
-            break;
-        case 'dimensionalrank':
-            if (!verifyDimensionalRank(question, id)){
-              return false; 
-            }
-            break;
-        case 'freeformint':
-            if (!verifyFreeFormInt(question, id)){
-              return false; 
-            }
-            break;
-        case 'freeCode':
-            if (!verifyFreeCode(question, id)){
-              return false; 
-            }
-            break;
-        case 'freeform':
-            if (!verifyFreeForm(question, id)){
-              return false; 
-            }
-            break;
-        case 'radiowithother':
-            if (!verifyRadioWithOther(question, id)){
-              return false; 
-            }
-            break;
-        case 'radio':
-            if (!verifyRadio(question, id)){
-              return false; 
-            }
-            break;
-        case 'radiowithform':
-            if(!verifyRadioWithForm(question, id)){
-              return false; 
-            }
-            break;
-        case 'agreementscale':
-            if (!verifyAgreementScale(question, id)){
-              return false; 
-            }
-            break;
-        case 'countrySelect':
-            if (!verifyCountrySelect(question, id)){
-              return false; 
-            }
-            break;
-        default:
-            alert('verify: uncrecognized question type '+question.type);
-            return false;
+    switch (question.type) {
+      case 'checkboxmatrix':
+        break;
+      case 'checkall':
+        if (!verifyCheckAll(question, id)) {
+          return false;
+        }
+        break;
+      case 'matrixrank':
+        if (!verifyMatrixRank(question, id)) {
+          return false;
+        }
+        break;
+      case 'dimensionalrank':
+        if (!verifyDimensionalRank(question, id)) {
+          return false;
+        }
+        break;
+      case 'freeformint':
+        if (!verifyFreeFormInt(question, id)) {
+          return false;
+        }
+        break;
+      case 'freeCode':
+        if (!verifyFreeCode(question, id)) {
+          return false;
+        }
+        break;
+      case 'freeform':
+        if (!verifyFreeForm(question, id)) {
+          return false;
+        }
+        break;
+      case 'radiowithother':
+        if (!verifyRadioWithOther(question, id)) {
+          return false;
+        }
+        break;
+      case 'radio':
+        if (!verifyRadio(question, id)) {
+          return false;
+        }
+        break;
+      case 'radiowithform':
+        if (!verifyRadioWithForm(question, id)) {
+          return false;
+        }
+        break;
+      case 'agreementscale':
+        if (!verifyAgreementScale(question, id)) {
+          return false;
+        }
+        break;
+      case 'countrySelect':
+        if (!verifyCountrySelect(question, id)) {
+          return false;
+        }
+        break;
+      default:
+        alert('verify: uncrecognized question type ' + question.type);
+        return false;
     }
   }
   return true;
 }
 
 
-function hideQuestion(response){
-	if(response == 'hide'){
-		$('input').remove();
-		$('#nextbutton').remove();
-		$("#question").hide();
-	}
+function hideQuestion(response) {
+  if (response == 'hide') {
+    $('input').remove();
+    $('#nextbutton').remove();
+    $("#question").hide();
+  }
 }
 
-function verifyCheckAll(question, id){
-    var error=false;
-    if (typeof question.mustbechecked != 'undefined'){
-        for (i in question.mustbechecked){
-            var name=clean(question.prefix+'_'+question.mustbechecked[i]);
-            var ischecked=$('input[name="'+name+'"]',$(id)).is(':checked');
-            if (!ischecked){
-                $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
-                hideQuestion(question.response);
-                return false;
-            }
-        }
-        for (i in question.mustnotbechecked){
-            var name=clean(question.prefix+'_'+question.mustnotbechecked[i]);
-            var ischecked=$('input[name="'+name+'"]',$(id)).is(':checked');
-            if (ischecked){
-                $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
-                hideQuestion(question.response);
-                return false;
-            }
-        }
+function verifyCheckAll(question, id) {
+  var error = false;
+  if (typeof question.mustbechecked != 'undefined') {
+    for (i in question.mustbechecked) {
+      var name = clean(question.prefix + '_' + question.mustbechecked[i]);
+      var ischecked = $('input[name="' + name + '"]', $(id)).is(':checked');
+      if (!ischecked) {
+        $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+        hideQuestion(question.response);
+        return false;
+      }
     }
-    return !error;
-}
-
-function verifyAgreementScale(question, id){
-    var error=false;
-    for (i in question.options){
-        var name=clean(question.options[i]);
-        var value=$('input[name="'+name+'"]',$(id)).val().trim();
-        if ((!$.isNumeric(value)|| parseFloat(value)>question.scale)){
-            error=true;
-            $('input[name="'+name+'"]',$(id)).addClass('error');
-        } else {
-            $('input[name="'+name+'"]',$(id)).removeClass('error');
-        }
+    for (i in question.mustnotbechecked) {
+      var name = clean(question.prefix + '_' + question.mustnotbechecked[i]);
+      var ischecked = $('input[name="' + name + '"]', $(id)).is(':checked');
+      if (ischecked) {
+        $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+        hideQuestion(question.response);
+        return false;
+      }
     }
-    $("#error").html('<font style="color:red;">Please fill out each field with your agreement on a scale from 1 to '+question.scale+'</font><hr>');
-    return !error;
+  }
+  return !error;
 }
 
-function verifyRadio(question, id){
-    var error=false;
-    var q_num = parseInt(id.split("question")[1]) +1 ;
-    var name=clean(question.question);
-    var selected=$('input[name="'+name+'"]:checked',$(id));
-    if (selected.length<1){
-	$('input[name="'+name+'"]',$(id)).addClass('error');
-    	$("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
-	return false;
+function verifyAgreementScale(question, id) {
+  var error = false;
+  for (i in question.options) {
+    var name = clean(question.options[i]);
+    var value = $('input[name="' + name + '"]', $(id)).val().trim();
+    if ((!$.isNumeric(value) || parseFloat(value) > question.scale)) {
+      error = true;
+      $('input[name="' + name + '"]', $(id)).addClass('error');
+    } else {
+      $('input[name="' + name + '"]', $(id)).removeClass('error');
     }
-    if (typeof question.mustbechecked != 'undefined'){
-	if(selected.val() != clean(question.mustbechecked)){
-		$("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
-		hideQuestion(question.response);
-		return false;
-	}
+  }
+  $("#error").html('<font style="color:red;">Please fill out each field with your agreement on a scale from 1 to ' + question.scale + '</font><hr>');
+  return !error;
+}
+
+function verifyRadio(question, id) {
+  var error = false;
+  var q_num = parseInt(id.split("question")[1]) + 1;
+  var name = clean(question.question);
+  var selected = $('input[name="' + name + '"]:checked', $(id));
+  if (selected.length < 1) {
+    $('input[name="' + name + '"]', $(id)).addClass('error');
+    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
+    return false;
+  }
+  if (typeof question.mustbechecked != 'undefined') {
+    if (selected.val() != clean(question.mustbechecked)) {
+      $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+      hideQuestion(question.response);
+      return false;
     }
-    return !error;
+  }
+  return !error;
 }
 
-function verifyRadioWithOther(question, id){
-    var error=true;
-    var q_num = parseInt(id.split("question")[1]) +1 ;
-    var name=clean(question.question);
-    var selected=$('input[name="'+name+'"]:checked',$(id));
-    if (selected.length>0){
-        if (selected.val()=='other'){
-            if ($('input[name="'+name+'_other"]',$(id)).val().trim()!=''){
-                error=false;
-            }
-        } else {
-            error=false;
-        }
+function verifyRadioWithOther(question, id) {
+  var error = true;
+  var q_num = parseInt(id.split("question")[1]) + 1;
+  var name = clean(question.question);
+  var selected = $('input[name="' + name + '"]:checked', $(id));
+  if (selected.length > 0) {
+    if (selected.val() == 'other') {
+      if ($('input[name="' + name + '_other"]', $(id)).val().trim() != '') {
+        error = false;
+      }
+    } else {
+      error = false;
     }
-    $("#error").html('<font style="color:red;">Please answer the question ' +q_num+' and fill out the details if you selected "other".</font><hr>');
-    return !error;
+  }
+  $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' and fill out the details if you selected "other".</font><hr>');
+  return !error;
 
 }
 
-function verifyRadioWithForm(question, id){
-    var error=false;
-    var name=clean(question.question);
-    var test='';
-    var selected=$('input[name="'+name+'"]:checked',$(id));
-    if (selected.length>0){
-        if (selected.val().substring(0,3) == question.checkVal){
-            for(i in question.formText){
-                if ($('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).val().trim()==''){
-                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).addClass('error');
-                    error=true;
-                }
-                else{
-                    $('input[name="'+name+'_'+clean(question.formText[i])+'"]',$(id)).removeClass('error');
-                }
-            }
-        } else {
-            error=false;
-        }
-    }
-    $("#error").html('<font style="color:red;">Please make sure to fill out the additional details if you selected '+question.checkVal+'.</font><hr>');
-    return !error;
-}
-
-function verifyFreeForm(question, id){
-    var error=false;
-    var q_num = parseInt(id.split("question")[1]) +1 ;
-    var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$(id)).val().trim();
-    $("#error").html('<font style="color:red;">Please answer the question ' + q_num +'.</font><hr>');
-    return (value!='');
-}
-
-function verifyFreeFormInt(question,id){
-    var error=false;
-    var q_num = parseInt(id.split("question")[1]) +1 ;
-    var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$(id)).val().trim();
-
-        if (!isNormalInteger(value)){
-            error=true;
-            $('input[name="'+name+'"]',$(id)).addClass('error');
-	    $("#error").html('<font style="color:red;">Please answer the question ' +q_num +' with a number.</font><hr>');
+function verifyRadioWithForm(question, id) {
+  var error = false;
+  var name = clean(question.question);
+  var test = '';
+  var selected = $('input[name="' + name + '"]:checked', $(id));
+  if (selected.length > 0) {
+    if (selected.val().substring(0, 3) == question.checkVal) {
+      for (i in question.formText) {
+        if ($('input[name="' + name + '_' + clean(question.formText[i]) + '"]', $(id)).val().trim() == '') {
+          $('input[name="' + name + '_' + clean(question.formText[i]) + '"]', $(id)).addClass('error');
+          error = true;
         }
         else {
-            $('input[name="'+name+'"]',$(id)).removeClass('error');
-            if (parseInt(value) < question.minimum){
-                $('input').remove();
-                $('#nextbutton').remove();
-                $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
-                hideQuestion(question.response);
-                return false;
-            }
-
-    	}
-    return !error;
+          $('input[name="' + name + '_' + clean(question.formText[i]) + '"]', $(id)).removeClass('error');
+        }
+      }
+    } else {
+      error = false;
+    }
+  }
+  $("#error").html('<font style="color:red;">Please make sure to fill out the additional details if you selected ' + question.checkVal + '.</font><hr>');
+  return !error;
 }
 
-function verifyFreeCode(question,id){
-    var error=false;
-    var q_num = parseInt(id.split("question")[1]) +1 ;
-    var name=clean(question.question);
-    var value=$('input[name="'+name+'"]',$(id)).val().trim();
+function verifyFreeForm(question, id) {
+  var error = false;
+  var q_num = parseInt(id.split("question")[1]) + 1;
+  var name = clean(question.question);
+  var value = $('input[name="' + name + '"]', $(id)).val().trim();
+  $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
+  return (value != '');
+}
 
-        if (!isNormalInteger(value)){
-            error=true;
-            $('input[name="'+name+'"]',$(id)).addClass('error');
-	    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
-        }
-        if (!value.match('117856')&&!value.match('119032')&&
-            !value.match('115656')&&!value.match('113432')&&
-            !value.match('105675')&&!value.match('107856')&&
-            !value.match('109932')&&!value.match('105675')&&
-            !value.match('507856')&&!value.match('503432')&&
-            !value.match('505675')&&!value.match('517856')&&
-            !value.match('519932')&&!value.match('515675')&&
-            !value.match('217656')&&!value.match('219087')&&
-            !value.match('217865')&&!value.match('213467')&&
-            !value.match('203432')&&!value.match('205675')&&
-            !value.match('217856')&&!value.match('219932')&&
-            !value.match('317656')&&!value.match('319032')&&
-            !value.match('317856')&&!value.match('313432')&&
-            !value.match('305675')&&!value.match('307856')&&
-            !value.match('309932')&&!value.match('305675')&&
-            !value.match('302345')&&!value.match('304325')&&
-            !value.match('907653')&&!value.match('119034')&&
-            !value.match('115658')&&!value.match('113434')&&
-            !value.match('105677')&&!value.match('107858')&&
-            !value.match('109934')&&!value.match('105677')&&
-            !value.match('507858')&&!value.match('503434')&&
-            !value.match('505677')&&!value.match('517858')&&
-            !value.match('519934')&&!value.match('515677')&&
-            !value.match('217658')&&!value.match('219089')&&
-            !value.match('217867')&&!value.match('213469')&&
-            !value.match('203434')&&!value.match('205677')&&
-            !value.match('217858')&&!value.match('219934')&&
-            !value.match('317658')&&!value.match('319034')&&
-            !value.match('317858')&&!value.match('313434')&&
-            !value.match('305677')&&!value.match('307858')&&
-            !value.match('309934')&&!value.match('305677')&&
-            !value.match('302347')&&!value.match('304327')&&
-            !value.match('907655')&&!value.match('119036')&&
-            !value.match('115660')&&!value.match('113436')&&
-            !value.match('105679')&&!value.match('107860')&&
-            !value.match('109936')&&!value.match('105679')&&
-            !value.match('507892')&&!value.match('503436')&&
-            !value.match('505679')&&!value.match('517860')&&
-            !value.match('519936')&&!value.match('515679')&&
-            !value.match('217660')&&!value.match('219091')&&
-            !value.match('217869')&&!value.match('213471')&&
-            !value.match('203436')&&!value.match('205679')&&
-            !value.match('217860')&&!value.match('219936')&&
-            !value.match('317660')&&!value.match('319036')&&
-            !value.match('317860')&&!value.match('313436')&&
-            !value.match('305679')&&!value.match('307860')&&
-            !value.match('309936')&&!value.match('305679')&&
-            !value.match('302349')&&!value.match('304329')&&
-            !value.match('907657')
-           ){
-                     error=true;
-            $('input[name="'+name+'"]',$(id)).addClass('error');
-	    $("#error").html('<font style="color:red;">Please enter correct code.</font><hr>');
-       }
+function verifyFreeFormInt(question, id) {
+  var error = false;
+  var q_num = parseInt(id.split("question")[1]) + 1;
+  var name = clean(question.question);
+  var value = $('input[name="' + name + '"]', $(id)).val().trim();
 
-        else {
-            $('input[name="'+name+'"]',$(id)).removeClass('error');
-            if (parseInt(value) < question.minimum){
-                $('input').remove();
-                $('#nextbutton').remove();
-                $("#error").html('<h2><font style="color:red;">'+question.rejecterror+'</font></h2>');
-                hideQuestion(question.response);
-                return false;
-            }
+  if (!isNormalInteger(value)) {
+    error = true;
+    $('input[name="' + name + '"]', $(id)).addClass('error');
+    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
+  }
+  else {
+    $('input[name="' + name + '"]', $(id)).removeClass('error');
+    if (parseInt(value) < question.minimum) {
+      $('input').remove();
+      $('#nextbutton').remove();
+      $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+      hideQuestion(question.response);
+      return false;
+    }
 
-    	}
-    return !error;
+  }
+  return !error;
+}
+
+function verifyFreeCode(question, id) {
+  var error = false;
+  var q_num = parseInt(id.split("question")[1]) + 1;
+  var name = clean(question.question);
+  var value = $('input[name="' + name + '"]', $(id)).val().trim();
+
+  if (!isNormalInteger(value)) {
+    error = true;
+    $('input[name="' + name + '"]', $(id)).addClass('error');
+    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
+  }
+  if (!value.match('117856') && !value.match('119032') &&
+    !value.match('115656') && !value.match('113432') &&
+    !value.match('105675') && !value.match('107856') &&
+    !value.match('109932') && !value.match('105675') &&
+    !value.match('507856') && !value.match('503432') &&
+    !value.match('505675') && !value.match('517856') &&
+    !value.match('519932') && !value.match('515675') &&
+    !value.match('217656') && !value.match('219087') &&
+    !value.match('217865') && !value.match('213467') &&
+    !value.match('203432') && !value.match('205675') &&
+    !value.match('217856') && !value.match('219932') &&
+    !value.match('317656') && !value.match('319032') &&
+    !value.match('317856') && !value.match('313432') &&
+    !value.match('305675') && !value.match('307856') &&
+    !value.match('309932') && !value.match('305675') &&
+    !value.match('302345') && !value.match('304325') &&
+    !value.match('907653') && !value.match('119034') &&
+    !value.match('115658') && !value.match('113434') &&
+    !value.match('105677') && !value.match('107858') &&
+    !value.match('109934') && !value.match('105677') &&
+    !value.match('507858') && !value.match('503434') &&
+    !value.match('505677') && !value.match('517858') &&
+    !value.match('519934') && !value.match('515677') &&
+    !value.match('217658') && !value.match('219089') &&
+    !value.match('217867') && !value.match('213469') &&
+    !value.match('203434') && !value.match('205677') &&
+    !value.match('217858') && !value.match('219934') &&
+    !value.match('317658') && !value.match('319034') &&
+    !value.match('317858') && !value.match('313434') &&
+    !value.match('305677') && !value.match('307858') &&
+    !value.match('309934') && !value.match('305677') &&
+    !value.match('302347') && !value.match('304327') &&
+    !value.match('907655') && !value.match('119036') &&
+    !value.match('115660') && !value.match('113436') &&
+    !value.match('105679') && !value.match('107860') &&
+    !value.match('109936') && !value.match('105679') &&
+    !value.match('507892') && !value.match('503436') &&
+    !value.match('505679') && !value.match('517860') &&
+    !value.match('519936') && !value.match('515679') &&
+    !value.match('217660') && !value.match('219091') &&
+    !value.match('217869') && !value.match('213471') &&
+    !value.match('203436') && !value.match('205679') &&
+    !value.match('217860') && !value.match('219936') &&
+    !value.match('317660') && !value.match('319036') &&
+    !value.match('317860') && !value.match('313436') &&
+    !value.match('305679') && !value.match('307860') &&
+    !value.match('309936') && !value.match('305679') &&
+    !value.match('302349') && !value.match('304329') &&
+    !value.match('907657')
+  ) {
+    error = true;
+    $('input[name="' + name + '"]', $(id)).addClass('error');
+    $("#error").html('<font style="color:red;">Please enter correct code.</font><hr>');
+  }
+
+  else {
+    $('input[name="' + name + '"]', $(id)).removeClass('error');
+    if (parseInt(value) < question.minimum) {
+      $('input').remove();
+      $('#nextbutton').remove();
+      $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+      hideQuestion(question.response);
+      return false;
+    }
+
+  }
+  return !error;
 }
 
 function isNormalInteger(str) {
-    return /^\+?(0|[1-9]\d*)$/.test(str);
+  return /^\+?(0|[1-9]\d*)$/.test(str);
 }
 
-function verifyDimensionalRank(question,id){
-    var error=false;
+function verifyDimensionalRank(question, id) {
+  var error = false;
 
-    for (i in question.rows){
-        for (j in question.dimensions){
-            var name=clean(question.prefix+'_'+question.rows[i]+'_'+question.dimensions[j].title);
-            var value=$('input[name="'+name+'"]',$(id)).val().trim();
-            if (value!==''){
-                if (!isNumber(value) || parseFloat(value)<1 || parseFloat(value)>7){
-                    error=true;
-                    $('input[name="'+name+'"]',$(id)).addClass('error');
-                } else {
-                    $('input[name="'+name+'"]',$(id)).removeClass('error');
-                }
-            }
+  for (i in question.rows) {
+    for (j in question.dimensions) {
+      var name = clean(question.prefix + '_' + question.rows[i] + '_' + question.dimensions[j].title);
+      var value = $('input[name="' + name + '"]', $(id)).val().trim();
+      if (value !== '') {
+        if (!isNumber(value) || parseFloat(value) < 1 || parseFloat(value) > 7) {
+          error = true;
+          $('input[name="' + name + '"]', $(id)).addClass('error');
+        } else {
+          $('input[name="' + name + '"]', $(id)).removeClass('error');
         }
+      }
     }
-    $("#error").html('<font style="color:red;">Please fill out every field and verify that each number is between 1 and 7.</font><hr>');
-    return !error;
+  }
+  $("#error").html('<font style="color:red;">Please fill out every field and verify that each number is between 1 and 7.</font><hr>');
+  return !error;
 }
 
 
-function verifyMatrixRank(question,id){
-    var error=false;
-    var min=100;
-    for (i in question.rows){
-        for (j in question.columns){
-            var name=clean(question.prefix+'_'+question.rows[i]+'_'+question.columns[j]);
-            var value=$('input[name="'+name+'"]',$(id)).val().trim();
-            if (value!==''){
-                if (!isNumber(value) || parseFloat(value)<10){
-                    error=true;
-                    $('input[name="'+name+'"]',$(id)).addClass('error');
-                } else {
-                    $('input[name="'+name+'"]',$(id)).removeClass('error');
-                    value = parseFloat(value);
-                    if (value<min){
-                        min=value;
-                    }
-                }
-            }
+function verifyMatrixRank(question, id) {
+  var error = false;
+  var min = 100;
+  for (i in question.rows) {
+    for (j in question.columns) {
+      var name = clean(question.prefix + '_' + question.rows[i] + '_' + question.columns[j]);
+      var value = $('input[name="' + name + '"]', $(id)).val().trim();
+      if (value !== '') {
+        if (!isNumber(value) || parseFloat(value) < 10) {
+          error = true;
+          $('input[name="' + name + '"]', $(id)).addClass('error');
+        } else {
+          $('input[name="' + name + '"]', $(id)).removeClass('error');
+          value = parseFloat(value);
+          if (value < min) {
+            min = value;
+          }
         }
+      }
     }
-    if (min>10){
-        error=true;
-    }
-    $("#error").html('<font style="color:red;">Please fill out every field and verify that each number is 10 or higher. At least one field must be ranked at 10.</font><hr>');
-    return !error;
+  }
+  if (min > 10) {
+    error = true;
+  }
+  $("#error").html('<font style="color:red;">Please fill out every field and verify that each number is 10 or higher. At least one field must be ranked at 10.</font><hr>');
+  return !error;
 }
 
-function clean(input){
-    var output=input.replace(/ /g,"_");
-    output=output.replace(/[^a-zA-Z0-9_.]/g,"");
-    return output;
+function clean(input) {
+  var output = input.replace(/ /g, "_");
+  output = output.replace(/[^a-zA-Z0-9_.]/g, "");
+  return output;
 }
 
-function isNumber(num){
-    return !isNaN(parseFloat(num)) && isFinite(num);
+function isNumber(num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
 }
 
 
 //mturk questions are indexed at 0, iu questions are indexed at 1, 2 invitation based questions. Time questions are indexed at 0, accuracy questions are indexed at 1.
-var participantQuestions = [ 
-    [   
+var participantQuestions = [
+  [
     {
-        type:'freeform',
-        //question:'What is your Mechanical Turk ID?',
-	    question:'What is your Prolific ID?',
-        response: 'hide',
+      type: 'freeform',
+      //question:'What is your Mechanical Turk ID?',
+      question: 'What is your Prolific ID?',
+      response: 'hide',
     },
     // {
     //     type:'freeformint',
     //     question:'What is your age?',
     //     minimum: '18',
-	//    response: 'hide',
+    //    response: 'hide',
     //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
     // },
-   // {
-     //   type:'checkall',
-       // question:'What languages can you read and understand?',
-       // prefix:'language',
-       // options:[
-        //    'English',
-        //    'Spanish',
-      //      'Chinese',
-      //      'French',
-      //      'Tagalog',
-      //      'Vietnamese',
-      //      'Hindi',
-      //      'Arabic',
-      //      'Korean',
-      //      'German'
-      //  ],
-//	response: 'hide',
-//	mustbechecked:['English'],
-//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the //HIT.'
- //   }
-      // ,
-      // {
-      //   type:'radio',
-      //   question:'Are you a US Citizen?',
-      //   options:[
-      //     'Yes',
-      //     'No'
-      //   ],
-      //   response: 'hide',
-      //   mustbechecked:'Yes',
-      //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
-        
-	  // }
-],
- [
+    // {
+    //   type:'checkall',
+    // question:'What languages can you read and understand?',
+    // prefix:'language',
+    // options:[
+    //    'English',
+    //    'Spanish',
+    //      'Chinese',
+    //      'French',
+    //      'Tagalog',
+    //      'Vietnamese',
+    //      'Hindi',
+    //      'Arabic',
+    //      'Korean',
+    //      'German'
+    //  ],
+    //	response: 'hide',
+    //	mustbechecked:['English'],
+    //	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the //HIT.'
+    //   }
+    // ,
+    // {
+    //   type:'radio',
+    //   question:'Are you a US Citizen?',
+    //   options:[
+    //     'Yes',
+    //     'No'
+    //   ],
+    //   response: 'hide',
+    //   mustbechecked:'Yes',
+    //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
+
+    // }
+  ],
+  [
 
     // {
     //     type:'freeformint',
@@ -1000,145 +1010,145 @@ var participantQuestions = [
     //     response: 'hide',
     //     rejecterror:'This study is only for participants age 18 and older. Please alert the experimenter.'
     // },
- //   {
- //       type:'checkall',
- //       question:'What languages can you read and understand?',
-  //      prefix:'language',
- //       options:[
- //           'English',
- //           'Spanish',
- //           'Chinese',
- //           'French',
- //           'Tagalog',
- //           'Vietnamese',
-//            'Hindi',
-//            'Arabic',
-//            'Korean',
-//            'German'
-//        ],
-//        response: 'hide',
-//	mustbechecked:['English'],
-//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter.'
-//    },
+    //   {
+    //       type:'checkall',
+    //       question:'What languages can you read and understand?',
+    //      prefix:'language',
+    //       options:[
+    //           'English',
+    //           'Spanish',
+    //           'Chinese',
+    //           'French',
+    //           'Tagalog',
+    //           'Vietnamese',
+    //            'Hindi',
+    //            'Arabic',
+    //            'Korean',
+    //            'German'
+    //        ],
+    //        response: 'hide',
+    //	mustbechecked:['English'],
+    //	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter.'
+    //    },
     {
-		type:'radio',
-		question:'Do you wish to participate in the research? (We will include your anonymized data in our analysis)',
-		options:[
-			'Yes',
-			'No'
-			],
-        response: 'hide',
-	}
-/*
-,
-     {
-     type:'radio',
-		question:'Are you a US Citizen?',
-		options:[
-			'Yes',
-			'No'
-			],
-        response: 'hide',
-     }
-*/
-]
-                            
-//[
- //    {
- //       type:'freeCode',
- //       question:'What is the code provided to you over email? (if multiple codes are entered, it will reject the response)',
- //   },                      
+      type: 'radio',
+      question: 'Do you wish to participate in the research? (We will include your anonymized data in our analysis)',
+      options: [
+        'Yes',
+        'No'
+      ],
+      response: 'hide',
+    }
+    /*
+    ,
+         {
+         type:'radio',
+        question:'Are you a US Citizen?',
+        options:[
+          'Yes',
+          'No'
+          ],
+            response: 'hide',
+         }
+    */
+  ]
 
- //   {
- //       type:'freeformint',
- //       question:'What is your age?',
- //       minimum: '18',
- //       response: 'hide',
- //       rejecterror:'This study is only for participants age 18 and older.'
+  //[
+  //    {
+  //       type:'freeCode',
+  //       question:'What is the code provided to you over email? (if multiple codes are entered, it will reject the response)',
+  //   },                      
+
+  //   {
+  //       type:'freeformint',
+  //       question:'What is your age?',
+  //       minimum: '18',
+  //       response: 'hide',
+  //       rejecterror:'This study is only for participants age 18 and older.'
   //  },
   //  {
-//        type:'checkall',
- //       question:'What languages can you read and understand?',
+  //        type:'checkall',
+  //       question:'What languages can you read and understand?',
   //      prefix:'language',
   //      options:[
   //          'English',
-    //        'Spanish',
-      //      'Chinese',
-     //       'French',
-     //       'Tagalog',
-     //       'Vietnamese',
-     //       'Hindi',
-    //        'Arabic',
-    //        'Korean',
-     //       'German'
-    //    ],
-   //     response: 'hide',
-//	mustbechecked:['English'],
-//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
-   // }
-/*
-     ,
-    {
-		type:'radio',
-		question:'Are you a US Citizen?',
-		options:[
-			'Yes',
-			'No'
-			],
-        response: 'hide',
-        mustbechecked:'Yes',
-        rejecterror:'This study is designed for US Citizens.'
-	}
-*/
-//],
+  //        'Spanish',
+  //      'Chinese',
+  //       'French',
+  //       'Tagalog',
+  //       'Vietnamese',
+  //       'Hindi',
+  //        'Arabic',
+  //        'Korean',
+  //       'German'
+  //    ],
+  //     response: 'hide',
+  //	mustbechecked:['English'],
+  //	rejecterror:'It is important that you be able to read and understand the instructions for this experiment.'
+  // }
+  /*
+       ,
+      {
+      type:'radio',
+      question:'Are you a US Citizen?',
+      options:[
+        'Yes',
+        'No'
+        ],
+          response: 'hide',
+          mustbechecked:'Yes',
+          rejecterror:'This study is designed for US Citizens.'
+    }
+  */
+  //],
 
-//[   
-//    {
-//        type:'freeform',
-//        question:'What is your Mechanical Turk ID?',
-//        response: 'hide',
-//    },
-    // {
-    //     type:'freeformint',
-    //     question:'What is your age?',
-    //     minimum: '18',
-	//    response: 'hide',
-    //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
-    // },
- //   {
-//        type:'checkall',
-//        question:'What languages can you read and understand?',
-//        prefix:'language',
-//        options:[
-//            'English',
- //           'Spanish',
+  //[   
+  //    {
+  //        type:'freeform',
+  //        question:'What is your Mechanical Turk ID?',
+  //        response: 'hide',
+  //    },
+  // {
+  //     type:'freeformint',
+  //     question:'What is your age?',
+  //     minimum: '18',
+  //    response: 'hide',
+  //     rejecterror:'This study is only for participants age 18 and older. Please return the HIT.'
+  // },
+  //   {
+  //        type:'checkall',
+  //        question:'What languages can you read and understand?',
+  //        prefix:'language',
+  //        options:[
+  //            'English',
+  //           'Spanish',
   //          'Chinese',
-//            'French',
-//            'Tagalog',
-//            'Vietnamese',
-//            'Hindi',
-//            'Arabic',
-//            'Korean',
-//            'German'
-//        ],
-//	response: 'hide',
-//	mustbechecked:['English'],
-//	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
+  //            'French',
+  //            'Tagalog',
+  //            'Vietnamese',
+  //            'Hindi',
+  //            'Arabic',
+  //            'Korean',
+  //            'German'
+  //        ],
+  //	response: 'hide',
+  //	mustbechecked:['English'],
+  //	rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT.'
   //  }
-      // ,
-      // {
-      //   type:'radio',
-      //   question:'Are you a US Citizen?',
-      //   options:[
-      //     'Yes',
-      //     'No'
-      //   ],
-      //   response: 'hide',
-      //   mustbechecked:'Yes',
-      //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
-        
-	  // }
-//]
+  // ,
+  // {
+  //   type:'radio',
+  //   question:'Are you a US Citizen?',
+  //   options:[
+  //     'Yes',
+  //     'No'
+  //   ],
+  //   response: 'hide',
+  //   mustbechecked:'Yes',
+  //   rejecterror:'This study is designed for US Citizens. Please return the HIT.'
+
+  // }
+  //]
 ];
 
 // var usCitizen = [
@@ -1153,23 +1163,23 @@ var participantQuestions = [
 
 //]
 
- var usTax = [
-	{
-		type:'radio',
-		question:'Do you file taxes in the US?',
-		options:[
-			'Yes',
-			'No'
-			]
-	}
+var usTax = [
+  {
+    type: 'radio',
+    question: 'Do you file taxes in the US?',
+    options: [
+      'Yes',
+      'No'
+    ]
+  }
 
-] 
+]
 
-var countryTax=[
-    {
-        type:'freeform',
-        question: 'What is your country of tax residence?'
-    }
+var countryTax = [
+  {
+    type: 'freeform',
+    question: 'What is your country of tax residence?'
+  }
 ]
 
 /*
@@ -1428,445 +1438,445 @@ var countriesHTML =
 */
 var participantValidationQuestions = [
 
-[
- 	{
-		type:'radio',
-		question:'REFRESHING the experiment page will INVALIDATE your results and result in a rejection?',
-		options:[
-			'True',
-			'False'
-			],
-		mustbechecked:'True',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
-		response:'hide'
-	},
-
-//	{
-//		type:'radio',
-//		question:'Is repeating this study allowable?',
-//		options:[
-//			'No',
-//			'Yes'
-//			],
-//		mustbechecked:'No',
-//		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
-//		response:'hide'
-//	},
-
-	{
-		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is NOT SECURE, what action should you take?',
-		options:[
-			'CLOSE the window',
-			'Find the LOGIN button on the simulated page and click it.',
-			'Find the BACK button on the simulated browser and click it.',
-			'RELOAD the experiment',
-			'EXIT your browser'
-			],
-		mustbechecked:'Find the BACK button on the simulated browser and click it.',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
-		response:'hide'
-	},
-
-	{
-		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is SECURE, what action should you take?',
-		options:[
-			'CLOSE the window',
-                        'Find the LOGIN button on the simulated page and click it.',
-                        'Find the BACK button on the simulated browser and click it.',
-                        'RELOAD the experiment',
-                        'EXIT your browser'
-			],
- 		mustbechecked:'Find the LOGIN button on the simulated page and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection',
-                response:'hide'
-        },
-
-	{
-		type:'radio',
-		question:'Are you using EITHER a mouse or touchpad as your input device?',
-		options:[
-			'Yes',
-			'No'
-			],
-		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
-		response:'hide'
-	}
-],
-
-[
-	{
-                type:'radio',
-                question:'REFRESHING the experiment page will INVALIDATE your results and nullify your potential compensation?',
-                options:[
-                        'True',
-                        'False'
-                        ],
-                mustbechecked:'True',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
-        },
-
-	 {
-                type:'radio',
-                question:'Is repeating this study allowable?',
-                options:[
-                        'No',
-                        'Yes'
-                        ],
-                mustbechecked:'No',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
-        },
-
-
-        {
-                type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
-                options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
-                        ],
-                mustbechecked:'Find the back button on the simulated browser and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
-        },
-
-        {
-                type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
-                options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
-                        ],
-                mustbechecked:'Find the login button on the simulated page and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
-        },
+  [
     {
-    
-    type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
-		options:[
-			'Yes',
-			'No'
-			],
-		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
-		response:'hide'
-    }
-],
-[
-	{
-                type:'radio',
-                question:'Refreshing the experiment page will invalidate your results and nullify your potential compensation?',
-                options:[
-                        'True',
-                        'False'
-                        ],
-                mustbechecked:'True',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
-        },
+      type: 'radio',
+      question: 'REFRESHING the experiment page will INVALIDATE your results and result in a rejection?',
+      options: [
+        'True',
+        'False'
+      ],
+      mustbechecked: 'True',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
+      response: 'hide'
+    },
 
-	 {
-                type:'radio',
-                question:'Is repeating this study allowable?',
-                options:[
-                        'No',
-                        'Yes'
-                        ],
-                mustbechecked:'No',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
-        },
+    //	{
+    //		type:'radio',
+    //		question:'Is repeating this study allowable?',
+    //		options:[
+    //			'No',
+    //			'Yes'
+    //			],
+    //		mustbechecked:'No',
+    //		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+    //		response:'hide'
+    //	},
 
-
-        {
-                type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
-                options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
-                        ],
-                mustbechecked:'Find the back button on the simulated browser and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
-        },
-
-        {
-                type:'radio',
-                question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
-                options:[
-                        'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
-                        ],
-                mustbechecked:'Find the login button on the simulated page and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
-        },
     {
-    
-    type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
-		options:[
-			'Yes',
-			'No'
-			],
-		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
-		response:'hide'
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is NOT SECURE, what action should you take?',
+      options: [
+        'CLOSE the window',
+        'Find the LOGIN button on the simulated page and click it.',
+        'Find the BACK button on the simulated browser and click it.',
+        'RELOAD the experiment',
+        'EXIT your browser'
+      ],
+      mustbechecked: 'Find the BACK button on the simulated browser and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is SECURE, what action should you take?',
+      options: [
+        'CLOSE the window',
+        'Find the LOGIN button on the simulated page and click it.',
+        'Find the BACK button on the simulated browser and click it.',
+        'RELOAD the experiment',
+        'EXIT your browser'
+      ],
+      mustbechecked: 'Find the LOGIN button on the simulated page and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'Are you using EITHER a mouse or touchpad as your input device?',
+      options: [
+        'Yes',
+        'No'
+      ],
+      mustbechecked: 'Yes',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
+      response: 'hide'
     }
-],
+  ],
 
-[
- 	{
-		type:'radio',
-		question:'Refreshing the experiment page will invalidate your results and result in a rejection?',
-		options:[
-			'True',
-			'False'
-			],
-		mustbechecked:'True',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
-		response:'hide'
-	},
+  [
+    {
+      type: 'radio',
+      question: 'REFRESHING the experiment page will INVALIDATE your results and nullify your potential compensation?',
+      options: [
+        'True',
+        'False'
+      ],
+      mustbechecked: 'True',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+    },
 
-	{
-		type:'radio',
-		question:'Is repeating this study allowable?',
-		options:[
-			'No',
-			'Yes'
-			],
-		mustbechecked:'No',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
-		response:'hide'
-	},
+    {
+      type: 'radio',
+      question: 'Is repeating this study allowable?',
+      options: [
+        'No',
+        'Yes'
+      ],
+      mustbechecked: 'No',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+    },
 
-	{
-		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
-		options:[
-			'Close the window',
-			'Find the login button on the simulated page and click it.',
-			'Find the back button on the simulated browser and click it.',
-			'Reload the experiment',
-			'Exit your browser'
-			],
-		mustbechecked:'Find the back button on the simulated browser and click it.',
-		rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
-		response:'hide'
-	},
 
-	{
-		type:'radio',
-		question:'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
-		options:[
-			'Close the window',
-                        'Find the login button on the simulated page and click it.',
-                        'Find the back button on the simulated browser and click it.',
-                        'Reload the experiment',
-                        'Exit your browser'
-			],
- 		mustbechecked:'Find the login button on the simulated page and click it.',
-                rejecterror:'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
-                response:'hide'
-        },
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the back button on the simulated browser and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
+    },
 
-	{
-		type:'radio',
-		question:'Are you using a mouse or touchpad as your input device?',
-		options:[
-			'Yes',
-			'No'
-			],
-		mustbechecked:'Yes',
-		rejecterror:'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
-		response:'hide'
-	}
-]
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the login button on the simulated page and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+    },
+    {
+
+      type: 'radio',
+      question: 'Are you using a mouse or touchpad as your input device?',
+      options: [
+        'Yes',
+        'No'
+      ],
+      mustbechecked: 'Yes',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    }
+  ],
+  [
+    {
+      type: 'radio',
+      question: 'Refreshing the experiment page will invalidate your results and nullify your potential compensation?',
+      options: [
+        'True',
+        'False'
+      ],
+      mustbechecked: 'True',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+    },
+
+    {
+      type: 'radio',
+      question: 'Is repeating this study allowable?',
+      options: [
+        'No',
+        'Yes'
+      ],
+      mustbechecked: 'No',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+    },
+
+
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the back button on the simulated browser and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
+    },
+
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the login button on the simulated page and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+    },
+    {
+
+      type: 'radio',
+      question: 'Are you using a mouse or touchpad as your input device?',
+      options: [
+        'Yes',
+        'No'
+      ],
+      mustbechecked: 'Yes',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    }
+  ],
+
+  [
+    {
+      type: 'radio',
+      question: 'Refreshing the experiment page will invalidate your results and result in a rejection?',
+      options: [
+        'True',
+        'False'
+      ],
+      mustbechecked: 'True',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'Is repeating this study allowable?',
+      options: [
+        'No',
+        'Yes'
+      ],
+      mustbechecked: 'No',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is insecure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the back button on the simulated browser and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'For the purposes of this study, if you feel the presented website is secure, what action should you take?',
+      options: [
+        'Close the window',
+        'Find the login button on the simulated page and click it.',
+        'Find the back button on the simulated browser and click it.',
+        'Reload the experiment',
+        'Exit your browser'
+      ],
+      mustbechecked: 'Find the login button on the simulated page and click it.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
+      response: 'hide'
+    },
+
+    {
+      type: 'radio',
+      question: 'Are you using a mouse or touchpad as your input device?',
+      options: [
+        'Yes',
+        'No'
+      ],
+      mustbechecked: 'Yes',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      response: 'hide'
+    }
+  ]
 
 ];
 
 var validationQuestions = [
 
-	[
-		[
-			{
-				type:'radio',
-				question:'What is the time penalty for logging into an insecure site?',
-				options:[
-					'5 seconds',
-					'10 seconds',
-					'15 seconds',
-					'20 seconds',
-					'25 seconds',
-					'30 seconds'
-					],
-				mustbechecked:'15 seconds',
-				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
-				response:'hide'
-			}
-		],
-		[
-			{
-				type:'radio',
-				question:'What is the penalty for logging into an insecure site?',
-				options:[
-					'$0.50',
-					'$0.67',
-					'$0.75',
-					'$1.00',
-					'$1.25',
-					'$1.33'
-					],
-				mustbechecked:'$0.67',
-				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
-				response:'hide'
-			}
-		]
-	],
-	[
-		[
-			{
-                                type:'radio',
-                                question:'What is the time penalty for logging into an insecure site?',
-                                options:[
-                                        '5 seconds',
-                                        '10 seconds',
-                                        '15 seconds',
-                                        '20 seconds',
-                                        '25 seconds',
-                                        '30 seconds'
-                                        ],
-                                mustbechecked:'15 seconds',
-                                rejecterror:'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
-                        }
-		],
-
-		[
-			{
-                                type:'radio',
-                                question:'What is the penalty for logging into an insecure site?',
-                                options:[
-                                        '$0.50',
-                                        '$0.67',
-                                        '$0.75',
-                                        '$1.00',
-                                        '$1.25',
-                                        '$1.33'
-                                        ],
-                                mustbechecked:'$0.67',
-                                rejecterror:'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
-
-                        }
-		]
-	],
+  [
     [
-		[
-			{
-				type:'radio',
-				question:'What is the time penalty for logging into an insecure site?',
-				options:[
-					'5 seconds',
-					'10 seconds',
-					'15 seconds',
-					'20 seconds',
-					'25 seconds',
-					'30 seconds'
-					],
-				mustbechecked:'15 seconds',
-				rejecterror:'It is important that you understand the instructions for this experiment.',
-				response:'hide'
-			}
-		],
-		[
-			{
-				type:'radio',
-				question:'What is the penalty for logging into an insecure site?',
-				options:[
-					'$0.50',
-					'$0.67',
-					'$0.75',
-					'$1.00',
-					'$1.25',
-					'$1.33'
-					],
-				mustbechecked:'$0.67',
-				rejecterror:'It is important that you understand the instructions for this experiment.',
-				response:'hide'
-			}
-		]
-	],
+      {
+        type: 'radio',
+        question: 'What is the time penalty for logging into an insecure site?',
+        options: [
+          '5 seconds',
+          '10 seconds',
+          '15 seconds',
+          '20 seconds',
+          '25 seconds',
+          '30 seconds'
+        ],
+        mustbechecked: '15 seconds',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        response: 'hide'
+      }
+    ],
     [
-		[
-			{
-				type:'radio',
-				question:'What is the time penalty for logging into an insecure site?',
-				options:[
-					'5 seconds',
-					'10 seconds',
-					'15 seconds',
-					'20 seconds',
-					'25 seconds',
-					'30 seconds'
-					],
-				mustbechecked:'15 seconds',
-				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
-				response:'hide'
-			}
-		],
-		[
-			{
-				type:'radio',
-				question:'What is the penalty for logging into an insecure site?',
-				options:[
-					'$0.50',
-					'$0.67',
-					'$0.75',
-					'$1.00',
-					'$1.25',
-					'$1.33'
-					],
-				mustbechecked:'$0.67',
-				rejecterror:'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
-				response:'hide'
-			}
-		]
-	]
+      {
+        type: 'radio',
+        question: 'What is the penalty for logging into an insecure site?',
+        options: [
+          '$0.50',
+          '$0.67',
+          '$0.75',
+          '$1.00',
+          '$1.25',
+          '$1.33'
+        ],
+        mustbechecked: '$0.67',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        response: 'hide'
+      }
+    ]
+  ],
+  [
+    [
+      {
+        type: 'radio',
+        question: 'What is the time penalty for logging into an insecure site?',
+        options: [
+          '5 seconds',
+          '10 seconds',
+          '15 seconds',
+          '20 seconds',
+          '25 seconds',
+          '30 seconds'
+        ],
+        mustbechecked: '15 seconds',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
+      }
+    ],
+
+    [
+      {
+        type: 'radio',
+        question: 'What is the penalty for logging into an insecure site?',
+        options: [
+          '$0.50',
+          '$0.67',
+          '$0.75',
+          '$1.00',
+          '$1.25',
+          '$1.33'
+        ],
+        mustbechecked: '$0.67',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
+
+      }
+    ]
+  ],
+  [
+    [
+      {
+        type: 'radio',
+        question: 'What is the time penalty for logging into an insecure site?',
+        options: [
+          '5 seconds',
+          '10 seconds',
+          '15 seconds',
+          '20 seconds',
+          '25 seconds',
+          '30 seconds'
+        ],
+        mustbechecked: '15 seconds',
+        rejecterror: 'It is important that you understand the instructions for this experiment.',
+        response: 'hide'
+      }
+    ],
+    [
+      {
+        type: 'radio',
+        question: 'What is the penalty for logging into an insecure site?',
+        options: [
+          '$0.50',
+          '$0.67',
+          '$0.75',
+          '$1.00',
+          '$1.25',
+          '$1.33'
+        ],
+        mustbechecked: '$0.67',
+        rejecterror: 'It is important that you understand the instructions for this experiment.',
+        response: 'hide'
+      }
+    ]
+  ],
+  [
+    [
+      {
+        type: 'radio',
+        question: 'What is the time penalty for logging into an insecure site?',
+        options: [
+          '5 seconds',
+          '10 seconds',
+          '15 seconds',
+          '20 seconds',
+          '25 seconds',
+          '30 seconds'
+        ],
+        mustbechecked: '15 seconds',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        response: 'hide'
+      }
+    ],
+    [
+      {
+        type: 'radio',
+        question: 'What is the penalty for logging into an insecure site?',
+        options: [
+          '$0.50',
+          '$0.67',
+          '$0.75',
+          '$1.00',
+          '$1.25',
+          '$1.33'
+        ],
+        mustbechecked: '$0.67',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        response: 'hide'
+      }
+    ]
+  ]
 
 ];
 
 var cultureQuestions = [
-    //{
-    //    type:'radiowithother',
-    //    question:'What is your gender?',
-    //    options:['Male','Female', 'Do not wish to answer']
-    //}
-//    ,
-//    {
-//        type:'checkall',
-//        prefix:'selfDescription',
-//        question:'What categories describe you (check all that apply)?',
-//        options:[
-//            'White',
-//            'Hispanic or Latino',
-//            'Black or African American',
-//            'Asian',
-//            'Native American or Alaska Native</P>',
-//            'Native Hawaiian or Other Pacific Islander',
-//	        'Middle Eastern or North African',
-//	        'Some other race, ethnicity, or origin'
-//		]
-//    }
-    ];
+  //{
+  //    type:'radiowithother',
+  //    question:'What is your gender?',
+  //    options:['Male','Female', 'Do not wish to answer']
+  //}
+  //    ,
+  //    {
+  //        type:'checkall',
+  //        prefix:'selfDescription',
+  //        question:'What categories describe you (check all that apply)?',
+  //        options:[
+  //            'White',
+  //            'Hispanic or Latino',
+  //            'Black or African American',
+  //            'Asian',
+  //            'Native American or Alaska Native</P>',
+  //            'Native Hawaiian or Other Pacific Islander',
+  //	        'Middle Eastern or North African',
+  //	        'Some other race, ethnicity, or origin'
+  //		]
+  //    }
+];
 /*,
 
 	{
@@ -1917,12 +1927,12 @@ var cultureQuestions = [
 */
 var skill_questions = [
   {
-    type:'agreementscale',
-    min:'1',
-    step:'0.1',
-    scale:'5',
-    def:'3.0',
-    question:'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
+    type: 'agreementscale',
+    min: '1',
+    step: '0.1',
+    scale: '5',
+    def: '3.0',
+    question: 'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
     options: opts
     // options:[
     //   'adcash.com',
@@ -1953,76 +1963,76 @@ var skill_questions = [
     //   'yelp.com'
     // ]
   },
-    {
-        type:'checkall',
-        question:'What is phishing?',
-        options:[
-            'Pretending to be someone or a company to steal usersâ€™ information',
-            'Making a fake website that looks legitimate to steal user information',
-            'Sending spam emails, Defrauding someone online',
-            'Other methods for stealing information',
-            'Hacking someoneâ€™s computer',
-            'Tracking your internet habits to send advertisements ',
-            'I Do not Know'
-        ]
-    },
-    
-     {
-        type:'checkall',
-      //  question:'What is the purpose of an X.509 certificate?',
-	      question:'What is the purpose of an X.509 certificate for websites?',
-        options:[
-            'The certificate provides encryption',
-            'The certificate protects information',
-            'The certificate shows the website is registered and valid',
-            'The certificate actively is secure and safe against malicious stuff, including hackers',
-            'The website is trustworthy and has proper privacy protection and is accountable for information use',
-            'I Do not Know'
-        ]
-    },
-
-
-    {
-        type:'radio',
-        question:'SQL injection is a technique to:',
-        options:[
-            'Inject a malicious virus to the database SQL engine',
-            'Inject a security patch to the database SQL engine in response to the discovery of new threats',
-            'Inject a statement that checks the database integrity through a website',
-            'Inject root user privileges to a regular user without using the graphical user interface (GUI) of the database',
-            'Inject a malicious statement to the database through a website',
-            'I Do not Know'
-
-        ]
-    },
-
-    {
-        type:'radio',
-        question:'The difference between a passive and reactive Intrusion Detection System is?',
-        options:[
-            'Passive IDS is software based and reactive is hardware based',
-            'Passive IDS provides only alerts and reactive IDS can retaliate by sending malicious code to the attacker',
-            'There are no real differences, they are just brand names',
-            'Passive IDS is included in a Firewall while reactive IDS is a standalone network component',
-            'Reactive IDS can reprogram the Firewall and passive IDS does not',
-            'I Do not Know'
-        ]
-    },
-    {
-        type:'radio',
-        question:'Without any other changes in the default settings of a web server, what can be the motivation to close port 80?',
-        options:[
-            'Block incoming XMLhttp Request',
-            'Block File Transfer Protocol daemon',
-            'Block Hypertext Transfer Protocol daemon',
-            'Block incoming and outgoing requests from SMB/CIFS clients',
-            'Block Hypertext Transfer Protocol Secure daemon',
-            'I Do not Know'
-        ]
-    },
+  {
+    type: 'checkall',
+    question: 'What is phishing?',
+    options: [
+      'Pretending to be someone or a company to steal usersâ€™ information',
+      'Making a fake website that looks legitimate to steal user information',
+      'Sending spam emails, Defrauding someone online',
+      'Other methods for stealing information',
+      'Hacking someoneâ€™s computer',
+      'Tracking your internet habits to send advertisements ',
+      'I Do not Know'
+    ]
+  },
 
   {
-    type:'radio',
+    type: 'checkall',
+    //  question:'What is the purpose of an X.509 certificate?',
+    question: 'What is the purpose of an X.509 certificate for websites?',
+    options: [
+      'The certificate provides encryption',
+      'The certificate protects information',
+      'The certificate shows the website is registered and valid',
+      'The certificate actively is secure and safe against malicious stuff, including hackers',
+      'The website is trustworthy and has proper privacy protection and is accountable for information use',
+      'I Do not Know'
+    ]
+  },
+
+
+  {
+    type: 'radio',
+    question: 'SQL injection is a technique to:',
+    options: [
+      'Inject a malicious virus to the database SQL engine',
+      'Inject a security patch to the database SQL engine in response to the discovery of new threats',
+      'Inject a statement that checks the database integrity through a website',
+      'Inject root user privileges to a regular user without using the graphical user interface (GUI) of the database',
+      'Inject a malicious statement to the database through a website',
+      'I Do not Know'
+
+    ]
+  },
+
+  {
+    type: 'radio',
+    question: 'The difference between a passive and reactive Intrusion Detection System is?',
+    options: [
+      'Passive IDS is software based and reactive is hardware based',
+      'Passive IDS provides only alerts and reactive IDS can retaliate by sending malicious code to the attacker',
+      'There are no real differences, they are just brand names',
+      'Passive IDS is included in a Firewall while reactive IDS is a standalone network component',
+      'Reactive IDS can reprogram the Firewall and passive IDS does not',
+      'I Do not Know'
+    ]
+  },
+  {
+    type: 'radio',
+    question: 'Without any other changes in the default settings of a web server, what can be the motivation to close port 80?',
+    options: [
+      'Block incoming XMLhttp Request',
+      'Block File Transfer Protocol daemon',
+      'Block Hypertext Transfer Protocol daemon',
+      'Block incoming and outgoing requests from SMB/CIFS clients',
+      'Block Hypertext Transfer Protocol Secure daemon',
+      'I Do not Know'
+    ]
+  },
+
+  {
+    type: 'radio',
     question: 'How many computer programming languages do you know (Not including HTML)?',
     options: [
       'More than 10',
@@ -2033,8 +2043,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'radio',
-    question:'How many years of working experience do you have in network operation and security?',
+    type: 'radio',
+    question: 'How many years of working experience do you have in network operation and security?',
     options: [
       'More than 10 years',
       '6-10 years',
@@ -2044,8 +2054,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'radio',
-    question:'On average, how many times do you have to deal with computer security related problems?',
+    type: 'radio',
+    question: 'On average, how many times do you have to deal with computer security related problems?',
     options: [
       'Several times every day',
       'Once a day',
@@ -2055,8 +2065,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'checkall',
-    question:'What information and network security tools do you use regularly? (Please mark all that apply)',
+    type: 'checkall',
+    question: 'What information and network security tools do you use regularly? (Please mark all that apply)',
     options: [
       'Firewall',
       'Anti-virus',
@@ -2067,8 +2077,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'checkall',
-    question:'Have you ever (select all that apply)',
+    type: 'checkall',
+    question: 'Have you ever (select all that apply)',
     options: [
       'Designed a website',
       'Registered a domain name',
@@ -2081,8 +2091,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'checkall',
-    question:'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website? (Please mark all that apply)',
+    type: 'checkall',
+    question: 'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website? (Please mark all that apply)',
     options: [
       'https',
       'lock icon on the page',
@@ -2090,12 +2100,12 @@ var skill_questions = [
       'website privacy statements',
       'type of website',
       'professional-looking website',
-	  'Other'
+      'Other'
     ]
   },
   {
-    type:'radio',
-    question:'Others can access my smartphone or tablet without needing a PIN or passcode.',
+    type: 'radio',
+    question: 'Others can access my smartphone or tablet without needing a PIN or passcode.',
     options: [
       'Strongly disagree',
       'Disagree',
@@ -2105,20 +2115,8 @@ var skill_questions = [
     ]
   },
   {
-    type:'radio',
-    question:'Whenever I step away from my computer, I lock the screen.',
-    options: [
-      'Strongly disagree',
-      'Disagree',
-      'Neither agree nor disagree',
-      'Agree',
-      'Strongly agree'
-    ]
-  },
-
-  {
-    type:'radio',
-    question:'Rather than logging out of websites, I usually just navigate elsewhere or close the window when Iâ€™m done.',
+    type: 'radio',
+    question: 'Whenever I step away from my computer, I lock the screen.',
     options: [
       'Strongly disagree',
       'Disagree',
@@ -2129,9 +2127,21 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-  //  question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? ', //(1=Voluntary; 5=Involuntary) 
-	  question:'To what extent do you have a choice in being exposed to phishing? ',
+    type: 'radio',
+    question: 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when Iâ€™m done.',
+    options: [
+      'Strongly disagree',
+      'Disagree',
+      'Neither agree nor disagree',
+      'Agree',
+      'Strongly agree'
+    ]
+  },
+
+  {
+    type: 'radio',
+    //  question:'(Question about phishing) Voluntary: To what extent do you have a choice in being exposed to this risk? ', //(1=Voluntary; 5=Involuntary) 
+    question: 'To what extent do you have a choice in being exposed to phishing? ',
     options: [
       'Completely voluntary',
       'Voluntary',
@@ -2142,9 +2152,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
+    type: 'radio',
     //question:'(Question about phishing)	Immediacy: Is the risk from the phishing immediate or does it occur at a later time? ', //(1=Immediate; 5=Delayed)
-	  question:'How immediate do you think is the risk from the phishing? ',
+    question: 'How immediate do you think is the risk from the phishing? ',
     options: [
       'Immediate',
       'Somewhat immediate',
@@ -2155,9 +2165,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-  //  question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
-	   question:'How much would the average person reasonably know about the implications of phishing? ',
+    type: 'radio',
+    //  question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
+    question: 'How much would the average person reasonably know about the implications of phishing? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -2168,10 +2178,10 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
+    type: 'radio',
     //question:'(Question about phishing) Knowledge to the expert: How much would an expert know about the implications of phishing? ',
-    question:'To what extent would an expert know about the implications of phishing? ',
-	  options: [
+    question: 'To what extent would an expert know about the implications of phishing? ',
+    options: [
       'No knowledge',
       'Very little knowledge',
       'May or may not know about the risk',
@@ -2181,9 +2191,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
+    type: 'radio',
     //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
-	  question:'To what extent can you control (or mitigate) the risk from being phished? ',
+    question: 'To what extent can you control (or mitigate) the risk from being phished? ',
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -2194,9 +2204,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-   // question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
-	  question:'How novel do you think are the risks from phishing? ',
+    type: 'radio',
+    // question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+    question: 'How novel do you think are the risks from phishing? ',
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
@@ -2207,9 +2217,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-  //  question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? ',// (1=Common; 5=Rare)
-	  question:'How commonly encountered do you think phishing is? ',
+    type: 'radio',
+    //  question:'(Question about phishing) Common-Dread: Is phishing commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+    question: 'How commonly encountered do you think phishing is? ',
     options: [
       'Common',
       'Frequently encountered',
@@ -2220,9 +2230,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-  //  question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? ',// (1= Individual; 5=(Many People) Global)
-	  question:'Does phishing affect only the person who is phished or does it affect other people as well? ',
+    type: 'radio',
+    //  question:'(Question about phishing) Chronic-catastrophic: Does phishing affect only the person who is phished or does it affect many people? ',// (1= Individual; 5=(Many People) Global)
+    question: 'Does phishing affect only the person who is phished or does it affect other people as well? ',
     options: [
       'Individual',
       'Multiple people',
@@ -2233,9 +2243,9 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
+    type: 'radio',
     //question:'(Question about phishing) Severity: In the worst possible outcome, how severe are the consequences of phishing? ',// (1=Not Severe; 5=Severe)
-	  question:'In the worst possible outcome, how severe are the consequences of phishing? ',
+    question: 'In the worst possible outcome, how severe are the consequences of phishing? ',
     options: [
       'Not at all severe, trivial',
       'Not trivial but not severe',
@@ -2246,125 +2256,125 @@ var skill_questions = [
   },
 
   // {
-    // type:'radio',
-   //question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
-	  // question:'To what extent do you feel like you have a choice in your account being taken over? ',
-    // options: [
-      // 'Completely voluntary',
-      // 'Voluntary',
-      // 'Neither voluntary nor involuntary',
-      // 'Involuntary',
-      // 'Completely involuntary'
-    // ]
+  // type:'radio',
+  //question:'(Question about account takeover) Voluntary: To what extent do you have a choice in being exposed to account takeover? ',// (1=Voluntary; 5=Involuntary)
+  // question:'To what extent do you feel like you have a choice in your account being taken over? ',
+  // options: [
+  // 'Completely voluntary',
+  // 'Voluntary',
+  // 'Neither voluntary nor involuntary',
+  // 'Involuntary',
+  // 'Completely involuntary'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
-	  // question:'How immediate is the risk of an account being taken over by someone else? ',
-    // options: [
-      // 'Immediate',
-      // 'Somewhat immediate',
-      // 'Neither',
-      // 'Somewhat delayed',
-      // 'Delayed'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) Immediacy: Is the risk from the account takeover immediate or does it occur at a later time? ',// (1=Immediate; 5=Delayed)
+  // question:'How immediate is the risk of an account being taken over by someone else? ',
+  // options: [
+  // 'Immediate',
+  // 'Somewhat immediate',
+  // 'Neither',
+  // 'Somewhat delayed',
+  // 'Delayed'
+  // ]
   // },
 
   // {
-    // type:'radio',
-   // // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
-	  // question:'To what extent would the average person reasonably know about the implications of account takeover? ',
-    // options: [
-      // 'No knowledge',
-      // 'Very little knowledge',
-      // 'May or may not know about the risk',
-      // 'Knowledgeable',
-      // 'Very knowledgeable'
-    // ]
+  // type:'radio',
+  // // question:'(Question about account takeover) Knowledge to the exposed: How much would a person like you reasonably know about the implications of account takeover? ',
+  // question:'To what extent would the average person reasonably know about the implications of account takeover? ',
+  // options: [
+  // 'No knowledge',
+  // 'Very little knowledge',
+  // 'May or may not know about the risk',
+  // 'Knowledgeable',
+  // 'Very knowledgeable'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
-	  // question:'To what extent would an expert know about the implications of account takeover? ',
-    // options: [
-      // 'No knowledge',
-      // 'Very little knowledge',
-      // 'May or may not know about the risk',
-      // 'Knowledgeable',
-      // 'Very knowledgeable'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) Knowledge to the expert: How much would an expert know about the implications of account takeover? ',
+  // question:'To what extent would an expert know about the implications of account takeover? ',
+  // options: [
+  // 'No knowledge',
+  // 'Very little knowledge',
+  // 'May or may not know about the risk',
+  // 'Knowledgeable',
+  // 'Very knowledgeable'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
-	   // question:'To what extent can you control (or mitigate) the risk from your account being taken over? ',
-    // options: [
-      // 'Can prevent all harm',
-      // 'Can prevent some harm',
-      // 'May or may not be able to prevent harm',
-      // 'Can somewhat reduce harm',
-      // 'No control over resulting harm'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) To what extent can you control (or mitigate) the risk from being account takeover? ',// (1=Uncontrollable; 5=Controllable)
+  // question:'To what extent can you control (or mitigate) the risk from your account being taken over? ',
+  // options: [
+  // 'Can prevent all harm',
+  // 'Can prevent some harm',
+  // 'May or may not be able to prevent harm',
+  // 'Can somewhat reduce harm',
+  // 'No control over resulting harm'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
-	  // question:'How new or old is the risk of account takeover that results from technologies? ',
-    // options: [
-      // 'Entirely an old risk',
-      // 'Mostly an old risk',
-      // 'Neither new nor old',
-      // 'Somewhat new',
-      // 'Completely new'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) Newness: Is account takeover a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
+  // question:'How new or old is the risk of account takeover that results from technologies? ',
+  // options: [
+  // 'Entirely an old risk',
+  // 'Mostly an old risk',
+  // 'Neither new nor old',
+  // 'Somewhat new',
+  // 'Completely new'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
-// question:'How commonplace is taking over someone\'s account? ',
-    // options: [
-      // 'Common',
-      // 'Frequently encountered',
-      // 'Neither common nor rare',
-      // 'Infrequently encountered',
-      // 'Rare'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) Common-Dread: Is account takeover commonplace or rarely encountered? ',// (1=Common; 5=Rare)
+  // question:'How commonplace is taking over someone\'s account? ',
+  // options: [
+  // 'Common',
+  // 'Frequently encountered',
+  // 'Neither common nor rare',
+  // 'Infrequently encountered',
+  // 'Rare'
+  // ]
   // },
 
   // {
-    // type:'radio',
-    // //question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
-	  // question:'Do you think account takeover affect only the person phished or does it affect many other people?',
-    // options: [
-      // 'Individual',
-      // 'Multiple people',
-      // 'May be global or individual',
-      // 'A large number of people',
-      // 'A very large number of people'
-    // ]
+  // type:'radio',
+  // //question:'(Question about account takeover) Chronic-catastrophic: Does account takeover affect only the person who is phished or does it affect many people?', //(1= Individual; 5=(Many People) Global)
+  // question:'Do you think account takeover affect only the person phished or does it affect many other people?',
+  // options: [
+  // 'Individual',
+  // 'Multiple people',
+  // 'May be global or individual',
+  // 'A large number of people',
+  // 'A very large number of people'
+  // ]
   // },
 
   // {
-    // type:'radio',
-   // // question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
-	   // question:'In the worst possible outcome, how severe are the consequences of someone taking over your account?',
-    // options: [
-      // 'Not at all severe, trivial',
-      // 'Not trivial but not severe',
-      // 'Neither trivial nor severe',
-      // 'May be severe',
-      // 'Severe'
-    // ]
+  // type:'radio',
+  // // question:'(Question about account takeover) Severity: In the worst possible outcome, how severe are the consequences of account takeover ?',// (1=Not Severe; 5=Severe)
+  // question:'In the worst possible outcome, how severe are the consequences of someone taking over your account?',
+  // options: [
+  // 'Not at all severe, trivial',
+  // 'Not trivial but not severe',
+  // 'Neither trivial nor severe',
+  // 'May be severe',
+  // 'Severe'
+  // ]
   // },
 
   {
-    type:'radio',
-    question:'Online companies would be trustworthy in handling my personal purchase preferences',
+    type: 'radio',
+    question: 'Online companies would be trustworthy in handling my personal purchase preferences',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2377,8 +2387,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
+    type: 'radio',
+    question: 'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2391,8 +2401,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'In general, it would be risky to give my personal purchase preference information to online companies',
+    type: 'radio',
+    question: 'In general, it would be risky to give my personal purchase preference information to online companies',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2405,8 +2415,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
+    type: 'radio',
+    question: 'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2419,8 +2429,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
+    type: 'radio',
+    question: 'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2433,8 +2443,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'It usually bothers me when online companies ask me for personal information',
+    type: 'radio',
+    question: 'It usually bothers me when online companies ask me for personal information',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2447,8 +2457,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'When online companies ask me for personal information, I sometimes think twice before providing it',
+    type: 'radio',
+    question: 'When online companies ask me for personal information, I sometimes think twice before providing it',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2461,8 +2471,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'It bothers me to give personal information to so many online companies',
+    type: 'radio',
+    question: 'It bothers me to give personal information to so many online companies',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2475,8 +2485,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'I\'m concerned that online companies are collecting too much personal information about me',
+    type: 'radio',
+    question: 'I\'m concerned that online companies are collecting too much personal information about me',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2489,8 +2499,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
+    type: 'radio',
+    question: 'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2503,8 +2513,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
+    type: 'radio',
+    question: 'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2517,8 +2527,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'Online companies should never sell the personal information in their computer databases to other companies',
+    type: 'radio',
+    question: 'Online companies should never sell the personal information in their computer databases to other companies',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2531,8 +2541,8 @@ var skill_questions = [
   },
 
   {
-    type:'radio',
-    question:'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information',
+    type: 'radio',
+    question: 'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information',
     options: [
       '1 (Strongly disagree)',
       '2',
@@ -2546,103 +2556,103 @@ var skill_questions = [
 ];
 // console.log("OPTS: " + opts)
 var PreStudyQuestions = [
-//    {
-//	type: 'freeform',
-//	question:'What is your first name?',
-//    },
-//    {
-//	type: 'freeform',
-//	question: 'What is your last name?',
-//    },
-    {
-	 type:'freeformint',
-         question:'What is your age?',
-         minimum: '18',
-	    response: 'hide',
-         rejecterror:'This study is only for participants age 18 and older.'
-	
-	//type:'freeform',
-	//question:'What is your age?',
-	//response: 'hide',
-	//options: [
-	  //  'Less than 18 years',
-	  //  '18-30 years',
-	  //  '30-40 years',
-	  //  '40-50 years',
-	  //  '50-60 years',
-	  //  '60-70 years',
-	  //  '70-80 years',
-	  //  'more than 80 years'
-//	]
-    },
-     {
-	 type: 'radio',
-	question: 'Which gender do you most identify with?',
-	 options: [
-	     'Male',
-	     'Female',
-	     'Other',
-	     'Do not wish to specify'
-	 ]
-     },
-    //{
-//	type:'radio',
-//	question: 'Can you read and understand English?',
-//	options: [
-//	    'Yes',
-//	    'No'
-//	],
-//	mustbechecked:'Yes'
+  //    {
+  //	type: 'freeform',
+  //	question:'What is your first name?',
+  //    },
+  //    {
+  //	type: 'freeform',
+  //	question: 'What is your last name?',
+  //    },
+  {
+    type: 'freeformint',
+    question: 'What is your age?',
+    minimum: '18',
+    response: 'hide',
+    rejecterror: 'This study is only for participants age 18 and older.'
+
+    //type:'freeform',
+    //question:'What is your age?',
+    //response: 'hide',
+    //options: [
+    //  'Less than 18 years',
+    //  '18-30 years',
+    //  '30-40 years',
+    //  '40-50 years',
+    //  '50-60 years',
+    //  '60-70 years',
+    //  '70-80 years',
+    //  'more than 80 years'
+    //	]
+  },
+  {
+    type: 'radio',
+    question: 'Which gender do you most identify with?',
+    options: [
+      'Male',
+      'Female',
+      'Other',
+      'Do not wish to specify'
+    ]
+  },
+  //{
+  //	type:'radio',
+  //	question: 'Can you read and understand English?',
+  //	options: [
+  //	    'Yes',
+  //	    'No'
+  //	],
+  //	mustbechecked:'Yes'
   //  },
-    {
-	type: 'radio',
-	question: 'What is the highest degree or level of school you have completed? (If you are currently enrolled in school, please indicate the highest degree you have received.)',
-	options: [
-	    'Less than a high school diploma',
-	    'High school degree or equivalent (e.g. GED) Some college, no  degree',
-	    'Associate degree (e.g. AA, AS)',
-	    'Bachelor\'s degree (e.g. BA, BS)',
-	    'Master\'s degree (e.g. MA, MS,  MEd)',
-	    'Professional degree (e.g. MD, DDS, DVM)',
-	    'Doctorate (e.g. PhD, EdD)'
-	]
-    },
-    {
-	type:'radio',
-	question:'What is your current employment status?',
-	options: [
-	    'Employed full time (40 or more hours per week)',
-	    'Employed part time (less than 40 hours per week)',
-	    'Unemployed, seeking employment',
-	    'Unemployed, not seeking employment',
-	    'Student',
-	    'Retired or Homemaker',
-	    'Self-employed',
-	    'Unable to work'
-	]
-    },
-	//this question needs to be modified for countries --- not same income levels
- //   {
-//	type:'radio',
-//	question:'What is your annual income?',
-//	options: [
-//	    'Less than $20,000',
-//	    '$20,000 to $34,999',
-//	    '$35,000 to $49,999',
-//	    '$50,000 to $74,999',
-//	    '$75,000 to $99,999',
-//	    'Over $100,000'
-//	]
- //   },
-    {
-        type:'radiowithother',
-        question:'What is your nation of citizenship?',
-       // options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
-	options:['United States','Australia','New Zealand', 'United Kingdom', 'Canada']
-    },
-    //{
-      //  type:'radiowithother',
-      //  question:'In what nation do you currently live?',
-      //  options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
-    //}    
+  {
+    type: 'radio',
+    question: 'What is the highest degree or level of school you have completed? (If you are currently enrolled in school, please indicate the highest degree you have received.)',
+    options: [
+      'Less than a high school diploma',
+      'High school degree or equivalent (e.g. GED) Some college, no  degree',
+      'Associate degree (e.g. AA, AS)',
+      'Bachelor\'s degree (e.g. BA, BS)',
+      'Master\'s degree (e.g. MA, MS,  MEd)',
+      'Professional degree (e.g. MD, DDS, DVM)',
+      'Doctorate (e.g. PhD, EdD)'
+    ]
+  },
+  {
+    type: 'radio',
+    question: 'What is your current employment status?',
+    options: [
+      'Employed full time (40 or more hours per week)',
+      'Employed part time (less than 40 hours per week)',
+      'Unemployed, seeking employment',
+      'Unemployed, not seeking employment',
+      'Student',
+      'Retired or Homemaker',
+      'Self-employed',
+      'Unable to work'
+    ]
+  },
+  //this question needs to be modified for countries --- not same income levels
+  //   {
+  //	type:'radio',
+  //	question:'What is your annual income?',
+  //	options: [
+  //	    'Less than $20,000',
+  //	    '$20,000 to $34,999',
+  //	    '$35,000 to $49,999',
+  //	    '$50,000 to $74,999',
+  //	    '$75,000 to $99,999',
+  //	    'Over $100,000'
+  //	]
+  //   },
+  {
+    type: 'radiowithother',
+    question: 'What is your nation of citizenship?',
+    // options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+    options: ['United States', 'Australia', 'New Zealand', 'United Kingdom', 'Canada']
+  },
+  //{
+  //  type:'radiowithother',
+  //  question:'In what nation do you currently live?',
+  //  options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
+  //}    
 ]
