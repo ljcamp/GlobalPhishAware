@@ -58,7 +58,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
 	$saveto = dirname(__FILE__)."/results/".$_SESSION['country']."/raw_validation_data_".$_SESSION['participant']."_" . $user . "_" .$_SESSION['time'].".json";
 	file_put_contents($saveto, $encoded);
 
-	if (array_key_exists('Which_gender_do_you_most_identify_with?', $_POST) == TRUE) {
+	if (array_key_exists('Which_gender_do_you_most_identify_with', $_POST) == TRUE) {
 		echo "enter the dragon";
 		echo "type".$_SESSION['type'];
 		echo "type".$_SESSION['CAS'];
