@@ -86,6 +86,7 @@ if($_SESSION['type']=='mturk'){
 		<div id="loggingIn" class="instructions" style="display:none;">
 		<p>
 		<center><H3>Logging- or Signing-in to a website:</H3></center><br> All websites do not follow the same conventions for signing- or logging-in. Typically, the sign-in or log-in prompt will be found in the upper right-hand side of the web page. For a few of the websites, you will need to click on a pull-down menu titled "My Account" or something similar beginning with "My xxxxxxx".
+		If you CANNOT find a login button at all, try to find contact information or social media information on the page (which helps you establish communication with the website). This will work ONLY when the login button is completely absent.
 		</p>
 		<p>
 		<center>
