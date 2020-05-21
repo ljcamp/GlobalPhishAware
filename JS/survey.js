@@ -178,7 +178,7 @@ function showFinish() {
       $("#sis_form").submit();
       break;
     case 'validation':
-      // console.log("HERE");
+       console.log("HERE");
       $.post('dataReceiver.php', $("#surveyResults").serialize());
       $("#sis").hide();
       popup("experiment.php");
