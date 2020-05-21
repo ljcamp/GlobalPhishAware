@@ -51,6 +51,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     header("Location: stressSite.php");
     //header("Location: bart.php");
 } elseif (array_key_exists('For_the_purposes_of_this_study_if_you_feel_the_presented_website_is_NOT_SECURE_what_action_should_you_take', $_POST)==TRUE){
+	console.log("not secure section");
 	$_POST['participant'] = $_SESSION['participant'];
   $_POST['valid_participant'] = $_SESSION['valid_participant'];
 	$encoded = json_encode($_POST, JSON_PRETTY_PRINT);
@@ -58,6 +59,9 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
 	file_put_contents($saveto, $encoded);
 
 	if (array_key_exists('What_is_your_gender', $_POST) == TRUE) {
+		console.log("enter the dragon");
+		echo "type".$_SESSION['type'];
+		echo "type".$_SESSION['CAS'];
     		$_POST['workerId'] = $_SESSION['participant'];
     		$_POST['assignmentId'] = $_SESSION['assignmentId'];
         $_POST['valid_participant'] = $_SESSION['valid_participant'];
@@ -67,14 +71,14 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
     		file_put_contents($saveto, $encoded);
 
     		if($_SESSION['CAS'] == true){
-			console.log("cas");
+				console.log("cas");
       		header("Location: thanksIU.php");
     		} else{
-			console.log("mturk");
                 if($_SESSION['type'] == "mturk"){
+					console.log("mturk");
                     header("Location: thanksMturk.php");    
                 }else{
-			console.log("invited");
+					console.log("invited");
                     header("Location: thanksinv.php");   
                 }
       		
