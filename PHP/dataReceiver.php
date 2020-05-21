@@ -119,4 +119,18 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
         echo "<p>Please note that some of the questions are included for quality control, and you will not be approved for payment if you do not pay attention and answer all the questions.</p><br>
         <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">Continue to Survey</BUTTON>";
     }
+}
+else{
+	if($_SESSION['CAS'] == true){
+		console.log("cas");
+      		header("Location: thanksIU.php");
+    	} else{
+                if($_SESSION['type'] == "mturk"){
+	 	    console.log("mturk");
+                    header("Location: thanksMturk.php");    
+                }else{
+					console.log("invited");
+                    header("Location: thanksinv.php");   
+                }
+	}
 };
