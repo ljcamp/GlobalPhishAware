@@ -2137,7 +2137,7 @@ var skill_questions = [
 
   {
     type: 'radio',
-    question: 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when Iâ€™m done.',
+    question: 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when am done.',
     options: [
       'Strongly disagree',
       'Disagree',
