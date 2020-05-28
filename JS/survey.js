@@ -1974,7 +1974,7 @@ var skill_questions = [
   },
   {
     type: 'checkall',
-    question: 'What is phishing?',
+    question: 'What is phishing? Check all that apply.',
     options: [
       'Pretending to be someone or a company to steal user information',
       'Making a fake website that looks legitimate to steal user information',
@@ -1989,13 +1989,13 @@ var skill_questions = [
   {
     type: 'checkall',
     //  question:'What is the purpose of an X.509 certificate?',
-    question: 'What is the purpose of an X.509 certificate for websites?',
+    question: 'What is the purpose of an X.509 certificate for websites? Check all that apply.',
     options: [
-      'The certificate provides encryption',
-      'The certificate protects information',
-      'The certificate shows the website is registered and valid',
-      'The certificate actively is secure and safe against malicious stuff, including hackers',
-      'The website is trustworthy and has proper privacy protection and is accountable for information use',
+      'Provides encryption',
+      'Protects information',
+      'Shows the website is registered and valid',
+      'Is actively secure and safe against malicious stuff, including hackers',
+      'Shows the website is trustworthy, has proper privacy protection and is accountable for information use',
       'I Do not Know'
     ]
   },
@@ -2176,7 +2176,7 @@ var skill_questions = [
   {
     type: 'radio',
     //  question:'(Question about phishing) Knowledge to the exposed: How much would a person like you reasonably know about the implications of phishing? ',
-    question: 'How much would the average person reasonably know about the implications of phishing? ',
+    question: 'How much would the average person reasonably know about the risks of phishing? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -2189,7 +2189,7 @@ var skill_questions = [
   {
     type: 'radio',
     //question:'(Question about phishing) Knowledge to the expert: How much would an expert know about the implications of phishing? ',
-    question: 'To what extent would an expert know about the implications of phishing? ',
+    question: 'To what extent would an expert know about the risks of phishing? ',
     options: [
       'No knowledge',
       'Very little knowledge',
@@ -2202,7 +2202,7 @@ var skill_questions = [
   {
     type: 'radio',
     //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
-    question: 'To what extent can you control (or mitigate) the risk from being phished? ',
+    question: 'To what extent can you control the risk from being phished? ',
     options: [
       'Can prevent all harm',
       'Can prevent some harm',
@@ -2215,7 +2215,7 @@ var skill_questions = [
   {
     type: 'radio',
     // question:'(Question about phishing) Newness: Is phishing a new risk resulting from new technologies or is it a new version of an old risk? ',// (1=Old; 5=New)
-    question: 'How novel do you think are the risks from phishing? ',
+    question: 'How novel do you think the risks from phishing are? ',
     options: [
       'Entirely an old risk',
       'Mostly an old risk',
