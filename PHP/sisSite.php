@@ -131,14 +131,14 @@ $_SESSION['sisStart'] = true;
 <?php if(array_key_exists($_SESSION['country'], $session_expired)){ ?>
 <center><h2><font color="red">I am sorry. The experiment is closed now</font></h2></center>
 <?php } ?>
-<?php if($_SESSION['country'] == "US" | $_SESSION['country'] == "CA"){ ?>
+<?php if($_SESSION['country'] == "US" || $_SESSION['country'] == "CA"){ ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
 <center><H3>INDIANA UNIVERSITY STUDY INFORMATION SHEET</H3></center><p>
 <H3>INTRODUCTION</H3><P>
 		If you are interested in helping us better understand what users are
 		paying attention to when browsing the Internet, we welcome you to
-		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University.
+		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University Bloomington, USA.
 		<P><B>Do not complete this study unless you can read and understand English and are at least 18 years old.</B></P>		
 <?php
 		if($_SESSION['type'] == 'mturk'){
@@ -192,8 +192,7 @@ if($_SESSION['type'] == 'mturk'){
        
 ?>
 <H3>CONTACT</H3>
-		If you have questions at any time about the study or the procedures, you may contact the
-researcher group The Human and Technical Security at spice@indiana.edu. You can also contact our group in regards to this study by calling (812) 856-1865.
+		If you have questions at any time about the study, you may contact The Human and Technical Security research group at spice@indiana.edu or (812) 856-1865.
 
 <p>For questions about your rights as a research participant or to discuss problems, complaints or concerns about a research study, or to obtain information, or offer input, contact the IU Human Subjects Office at (812) 856-4242 or (800) 696-2949 [toll free].</p>
 
@@ -209,10 +208,10 @@ researcher group The Human and Technical Security at spice@indiana.edu. You can 
 <H3>INTRODUCTION</H3><P>
 		If you are interested in helping us better understand what users are
 		paying attention to when browsing the Internet, we welcome you to
-		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University.
+		participate in our research study. This study is being conducted by Dr. L. Jean Camp from Indiana University Bloomington, USA.
 		<P><B>Do not complete this study unless you can read and understand English and are at least 18 years old.</B></P>		
 <H3>CONTACT</H3>
-<p>If you have questions at any time about the study or the procedures, you may contact Prof Karen Renaud (cyber4humans@gmail.com).</p>
+<p>If you have questions at any time about the study, you may contact The Human and Technical Security research group at spice@indiana.edu.</p>
 <?php } ?>
 <?php if($_SESSION['country'] == "AU" | $_SESSION['country'] == "NZ"){ ?>
     <H3 ALIGN=RIGHT><I>Ethical clearance (002/18)</I></H3></right>
