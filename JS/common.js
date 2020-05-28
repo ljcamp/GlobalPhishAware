@@ -130,7 +130,8 @@ macMapDict = {
 'yahoo':'<map id="scaleMap0" name="yahoo_map"><area target="" alt="YAHOO_TOOL_BACK" title="YAHOO_TOOL_BACK" href="javascript:advanceExperiment(\'back\')" coords="17,49,25" shape="circle"><area target="" alt="YAHOO_TOOL_LOGIN" title="YAHOO_TOOL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1310,257,1408,206" shape="rect"></map>',
 'yelp12':'<map id="scaleMap0" name="yelp12_map"><area target="" alt="YELP_CONTROL_BACK" title="YELP_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,48,23" shape="circle"><area target="" alt="YELP_CONTROL_LOGIN" title="YELP_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1240,153,1310,105" shape="rect"></map>',
 'yelp':'<map id="scaleMap0" name="yelp_map"><area target="" alt="YELP_TOOL_BACK" title="YELP_TOOL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,52,24" shape="circle"><area target="" alt="YELP_TOOL_LOGIN" title="YELP_TOOL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1244,236,1310,192" shape="rect"></map>',
-'covid12':'<map id="scaleMap0" name="covid_map"><area target="" alt="covid_CONTROL_BACK" title="covid_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="16,46,17" shape="circle"><area target="" alt="covid_CONTROL_LOGIN" title="covid_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1124,970,1200,1014" shape="rect">' 
+'covid':'<map id="scaleMap0" name="covid_map"><area target="" alt="covid_CONTROL_BACK" title="covid_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="16,46,17" shape="circle"><area target="" alt="covid_CONTROL_LOGIN" title="covid_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1124,970,1200,1014" shape="rect"></map>', 
+'covid12':'<map id="scaleMap0" name="covid_map"><area target="" alt="covid_CONTROL_BACK" title="covid_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="16,46,17" shape="circle"><area target="" alt="covid_CONTROL_LOGIN" title="covid_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1124,970,1200,1014" shape="rect"></map>' 
 };
 
 winMapDict = {
@@ -189,51 +190,28 @@ winMapDict = {
 };
 NZ_Dict = {
 'amazon12':'<map id="scaleMap0" name="amazon12_map"><area target="" alt="amazon_CONTROL_BACK" title="amazon_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="23,56,17" shape="circle"><area target="" alt="amazon_CONTROL_LOGIN" title="amazon_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1512,248,1621,278" shape="rect"></map>',
-
 'anz12':'<map id="scaleMap0" name="anz12_map"><area target="" alt="anz_CONTROL_BACK" title="anz_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,56,17" shape="circle"><area target="" alt="anz_CONTROL_LOGIN" title="anz_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1222,271,1420,312" shape="rect"></map>',
-
 'asb12':'<map id="scaleMap0" name="asb12_map"><area target="" alt="asb_CONTROL_BACK" title="asb_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="16,49,18" shape="circle"><area target="" alt="asb_CONTROL_LOGIN" title="asb_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1806,81,1907,158" shape="rect"></map>',
-    
 'auckland12':'<map id="scaleMap0" name="auckland12_map"><area target="" alt="auckland_CONTROL_BACK" title="auckland_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,52,17" shape="circle"><area target="" alt="auckland_CONTROL_LOGIN" title="auckland_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="835,85,1066,117" shape="rect"></map>',
-
 'facebook12':'<map id="scaleMap0" name="facebook12_map"><area target="" alt="facebook_CONTROL_BACK" title="facebook_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,56,17" shape="circle"><area target="" alt="facebook_CONTROL_LOGIN" title="facebook_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1385,105,1462,138" shape="rect"></map>',
-
 'google12':'<map id="scaleMap0" name="google12_map"><area target="" alt="google_CONTROL_BACK" title="google_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,54,17" shape="circle"><area target="" alt="google_CONTROL_LOGIN" title="google_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1812,89,1890,124" shape="rect"></map>',
-
 'imgur12':'<map id="scaleMap0" name="imgur12_map"><area target="" alt="imgur_CONTROL_LOGIN" title="imgur_CONTROL_LOGIN" href="javascript:advanceExperiment(\'back\')" coords="22,54,17" shape="circle"><area target="" alt="imgur_CONTROL_LOGIN" title="imgur_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1332,82,1486,120" shape="rect"></map>',
-
 'instagram12':'<map id="scaleMap0" name="instagram12_map"><area target="" alt="instagram_CONTROL_BACK" title="instagram_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,58,17" shape="circle"><area target="" alt="instagram_CONTROL_LOGIN" title="instagram_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1293,791,1004,336" shape="rect"></map>',
-
 'live12':'<map id="scaleMap0" name="live12_map"><area target="" alt="live_CONTROL_BACK" title="live_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,54,17" shape="circle"><area target="" alt="live_CONTROL_LOGIN" title="live_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="961,513,1200,592" shape="rect"></map>',
-
 'metservice12':'<map id="scaleMap0" name="metservice12_map"> <area target="" alt="metservice_CONTROL_BACK" title="metservice_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,60,31" shape="circle"><area target="" alt="metservice_CONTROL_LOGIN" title="metservice_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="940,824,1107,851" shape="rect"></map>',
-
 'netflix12':'<map id="scaleMap0" name="netflix12_map"><area target="" alt="netflix_CONTROL_BACK" title="netflix_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="22,56,17" shape="circle"><area target="" alt="netflix_CONTROL_LOGIN" title="netflix_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1758,80,1865,136" shape="rect"></map>',
-
 'nzherald12':'<map id="scaleMap0" name="nzherald12_map"><area target="" alt="nzherald_CONTROL_BACK" title="nzherald_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="18,56,17" shape="circle"><area target="" alt="nzherald_CONTROL_LOGIN" title="nzherald_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="312,221,502,272" shape="rect"></map>',
-
 'office12':'<map id="scaleMap0" name="office12_map"><area target="" alt="office_CONTROL_BACK" title="office_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20,54,15" shape="circle"><area target="" alt="office_CONTROL_LOGIN" title="office_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="949,596,1132,664" shape="rect"></map>',
-
 'piratebay12':'<map id="scaleMap0" name="piratebay12_map"><area target="" alt="piratebay_CONTROL_BACK" title="piratebay_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,45,23" shape="circle"><area target="" alt="piratebay_CONTROL_LOGIN" title="piratebay_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="883,585,786,567" shape="rect"></map>',
-
 'reddit12':'<map id="scaleMap0" name="reddit12_map"><area target="" alt="reddit_CONTROL_BACK" title="reddit_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="17,47,31" shape="circle"><area target="" alt="reddit_CONTROL_LOGIN" title="reddit_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1591,115,1907,272" shape="rect"></map>',
-
 'stuff12':'<map id="scaleMap0" name="stuff12_map"><area target="" alt="stuff_CONTROL_LOGIN" title="stuff_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1303,82,1458,113" shape="rect"><area target="" alt="stuff_CONTROL_BACK" title="stuff_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="7,41,37" shape="circle"></map>',
-
 'trademe12':'<map id="scaleMap0" name="trademe12_map"><area target="" alt="trademe_CONTROL_BACK" title="trademe_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="15,45,20" shape="circle"><area target="" alt="trademe_CONTROL_LOGIN" title="trademe_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1371,163,1443,216" shape="rect"></map>',
-
 'tripadvisor12':'<map id="scaleMap0" name="tripadvisor12_map"><area target="" alt="tripadvisor_CONTROL_BACK" title="tripadvisor_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="19, 53, 17" shape="circle"><area target="" alt="tripadvisor_CONTROL_LOGIN" title="tripadvisor_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1460, 84, 1509, 114" shape="rect"></map>',
-
 'twitch12':'<map id="scaleMap0" name="twitch12_map"><area target="" alt="twitch_CONTROL_BACK" title="twitch_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="5,45,30" shape="circle"><area target="" alt="twitch_CONTROL_LOGIN" title="twitch_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1785,78,1917,122" shape="rect"></map>',
-
 'twitter12':'<map id="scaleMap0" name="twitter12_map"><area target="" alt="twitter_CONTROL_BACK" title="twitter_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="19, 53, 20" shape="circle"><area target="" alt="twitter_CONTROL_LOGIN" title="twitter_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="654, 314, 738, 349" shape="rect"></map>',
-
 //'wikipedia12':'<map id="scaleMap0" name="wikipedia12_map"><area target="" alt="wiki_CONTROL_BACK" title="wiki_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="32,66,25" shape="circle"><area target="" alt="wiki_CONTROL_LOGIN" title="wiki_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1826, 107, 1894, 131" shape="rect"></map>',
-
 'yahoo12':'<map id="scaleMap0" name="yahoo12_map"><area target="" alt="yahoo_CONTROL_BACK" title="yahoo_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="17,48,19" shape="circle"><area target="" alt="yahoo_CONTROL_LOGIN" title="yahoo_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1317,158,1407,128" shape="rect"></map>',
-
 'youtube12':'<map id="scaleMap0" name="youtube12_map"><area target="" alt="youtube_CONTROL_BACK" title="youtube_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="20, 48, 17" shape="circle"><area target="" alt="youtube_CONTROL_LOGIN" title="youtube_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="1795,88,1902,134" shape="rect"></map>',
-
 'covid12': '<map id="scaleMap0" name="covid12_map"><area target="" alt="covid_CONTROL_BACK" title="covid_CONTROL_BACK" href="javascript:advanceExperiment(\'back\')" coords="11,37,25" shape="circle"><area target="" alt="covid_CONTROL_LOGIN" title="covid_CONTROL_LOGIN" href="javascript:advanceExperiment(\'login\')" coords="832,598,1151,645" shape="rect"></map>'    
 };
  
