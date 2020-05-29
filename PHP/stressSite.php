@@ -718,7 +718,7 @@ else if($_SESSION['type']=='inv') {
 ?>
 
 
-<DIV id="error">&nbsp;</DIV>
+
 
 	<FORM id="surveyResults" method=POST action="dataReceiver.php">&nbsp;
 	<DIV id="question" class="instructions"></DIV>
@@ -730,7 +730,7 @@ else if($_SESSION['type']=='inv') {
                 <input type="hidden" id="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
 	</DIV>
 	</FORM>
-
+	<DIV id="error">&nbsp;</DIV>
 	<DIV id="navigation" class="instructions">&nbsp;</DIV>
 
 
