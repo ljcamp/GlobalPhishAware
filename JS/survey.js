@@ -2653,7 +2653,7 @@ var PreStudyQuestions = [
       'Self-employed',
       'Unable to work'
     ]
-  },
+  }//,
   //this question needs to be modified for countries --- not same income levels
   //   {
   //	type:'radio',
@@ -2667,12 +2667,12 @@ var PreStudyQuestions = [
   //	    'Over $100,000'
   //	]
   //   },
-  {
-    type: 'radiowithother',
-    question: 'What is your nation of citizenship?',
+ // {
+  //  type: 'radiowithother',
+  //  question: 'What is your nation of citizenship?',
     // options:['United States','Australia','New Zealand', 'United Kingdom', 'South Africa', 'India', 'China']
-    options: ['United States', 'Australia', 'New Zealand', 'United Kingdom', 'Canada']
-  },
+  //  options: ['United States', 'Australia', 'New Zealand', 'United Kingdom', 'Canada']
+ // },
   //{
   //  type:'radiowithother',
   //  question:'In what nation do you currently live?',
