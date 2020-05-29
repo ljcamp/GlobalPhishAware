@@ -717,7 +717,7 @@ function verifyRadio(question, id) {
   if (selected.length < 1) {
     $('input[name="' + name + '"]', $(id)).addClass('error');
     $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
-	  alert('Please answer the question' + q_num + ' ');
+	
     return false;
   }
   if (typeof question.mustbechecked != 'undefined') {
@@ -745,7 +745,6 @@ function verifyRadioWithOther(question, id) {
     }
   }
   $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' and fill out the details if you selected "other".</font><hr>');
-	alert('Please answer the question' + q_num + ' ');
   return !error;
 
 }
@@ -780,7 +779,7 @@ function verifyFreeForm(question, id) {
   var name = clean(question.question);
   var value = $('input[name="' + name + '"]', $(id)).val().trim();
   $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
-	alert('Please answer the question' + q_num + ' ');
+	
   return (value != '');
 }
 
@@ -794,7 +793,7 @@ function verifyFreeFormInt(question, id) {
     error = true;
     $('input[name="' + name + '"]', $(id)).addClass('error');
     $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
-	  alert('Please answer the question' + q_num + ' ');
+	  
   }
   else {
     $('input[name="' + name + '"]', $(id)).removeClass('error');
@@ -820,7 +819,7 @@ function verifyFreeCode(question, id) {
     error = true;
     $('input[name="' + name + '"]', $(id)).addClass('error');
     $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
-	  alert('Please answer the question' + q_num + ' ');
+	 
   }
   if (!value.match('117856') && !value.match('119032') &&
     !value.match('115656') && !value.match('113432') &&
