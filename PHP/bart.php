@@ -61,7 +61,7 @@ if($_SESSION['user'] != ""){
     </head>
     <body>
         <!--<h1 style="text-align:center;">Online Ballon Analogue Risk Task (oBART)</h1>-->
-            <h1 style="text-align:center;">Please click on the balloon to inflate it. Once you are done, please click on Next Balloon.</h1>  
+            <h1 style="text-align:center;">Please click on the balloon to inflate it. Once you are done, please click on Next Balloon. If the balloon bursts, Current Earned becomes zero.</h1>  
 				<p style="text-align:center;"> <strong> Warning: </strong> You will hear a sound on every mouse click. Please make sure to have your audio on. </p>
         <!-- load AMP here -->
         <div id="bart" style="margin: auto; text-align: center;"></div>
