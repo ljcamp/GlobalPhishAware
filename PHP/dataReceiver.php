@@ -112,7 +112,7 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
         You correctly signed-in to $goodSites of $halfTrials secure websites.<br>
         You correctly declined to signed-in to $badSites of $halfTrials insecure websites.<br>";
         if($_SESSION['valid_participant']){
-          echo "<p>In order to receive your bonus of <strong>\$$bonusPay</strong> with the guaranteed compensation of \$2.00, you now need to complete the survey.</p>";
+          echo "<p>In order to receive your bonus of <strong>\$$bonusPay</strong> with the guaranteed compensation of \$2.00 and additional bonus for the balloon experiment, you now need to complete the survey.</p>";
         }
         echo "<p>Please note that some of the questions are included for quality control, and you will not be approved for payment if you do not pay attention and answer all the questions.</p><br>
         <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">Continue to Survey</BUTTON>";
