@@ -325,8 +325,9 @@ function buildAgreementScale(question, id) {
     var max = question.scale;
     var step = question.step;
     var defaultVal = question.def;
+	  //"</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'>" + defaultVal + "</output></td></tr>";
     var questionHTML = "<tr><td>" + question.options[i] +
-      "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'>" + defaultVal + "</output></td></tr>";
+      "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'></output></td></tr>";
     html += questionHTML;
   }
   html += '</table>';
