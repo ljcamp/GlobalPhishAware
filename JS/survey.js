@@ -1979,7 +1979,7 @@ var skill_questions = [
   },
   {
     type: 'checkall',
-    question: 'What is phishing? Check all that apply.',
+    question: 'What is phishing? (Please check all that apply)',
     options: [
       'Pretending to be someone or a company to steal user information',
       'Making a fake website that looks legitimate to steal user information',
@@ -1994,7 +1994,7 @@ var skill_questions = [
   {
     type: 'checkall',
     //  question:'What is the purpose of an X.509 certificate?',
-    question: 'What is the purpose of an X.509 certificate for websites? Check all that apply.',
+    question: 'What is the purpose of an X.509 certificate for websites? (Please check all that apply)',
     options: [
       'Provides encryption',
       'Protects information',
@@ -2047,7 +2047,7 @@ var skill_questions = [
 
   {
     type: 'radio',
-    question: 'How many computer programming languages do you know (Not including HTML)?',
+    question: 'How many computer programming languages do you know (not including HTML)?',
     options: [
       'More than 10',
       '6-10',
@@ -2080,7 +2080,7 @@ var skill_questions = [
   },
   {
     type: 'checkall',
-    question: 'What information and network security tools do you use regularly? (Please mark all that apply)',
+    question: 'What information and network security tools do you use regularly? (Please check all that apply)',
     options: [
       'Firewall',
       'Anti-virus',
@@ -2092,7 +2092,7 @@ var skill_questions = [
   },
   {
     type: 'checkall',
-    question: 'Have you ever (select all that apply)',
+    question: 'Have you ever (Please check all that apply)',
     options: [
       'Designed a website',
       'Registered a domain name',
@@ -2106,7 +2106,7 @@ var skill_questions = [
   },
   {
     type: 'checkall',
-    question: 'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website? (Please mark all that apply)',
+    question: 'Which of the following indicators do you use to decide if it is safe to enter your username and password on a particular website? (Please check all that apply)',
     options: [
       'https',
       'lock icon on the page',
