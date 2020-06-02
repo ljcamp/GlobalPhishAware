@@ -24,25 +24,21 @@ If you have any questions about this study, please do not hesitate to contact us
     If you have any additional comments on our study we would appreciate your feedback. These comments are optional and if you just wish to complete the HIT, click the Complete HIT button. Once again thank you for your time and effort.
 
 
-</p>  
+</p> --> 
+<p>
+    Please click on the link below to complete the study and go back to Prolific:
 
-<FORM action="https://www.mturk.com/mturk/externalSubmit" method="POST" id="mturk_form">
+</p>
+
+<FORM action="https://app.prolific.co/submissions/complete?cc=236FB438" method="POST" id="mturk_form">
     <input type="hidden" name="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
     <input type="hidden" name="bonusPay" value="<?php echo $_SESSION['bonusPay'];?>"/>
     <input type="hidden" name="foo" value="bar"/>
-    <center>
-    <textarea name="comments" cols=60 rows=6></textarea>
-    </center>
 <p>
-<button type="submit" value="Submit">Complete Hit</button>
-<p>
-    </FORM>
--->
-<p>
-    You may now close the browser.
-
-
+<button type="submit" value="Submit">Go back to Prolific</button>
 </p>
+    </FORM>
+
 </div>
 </html>
 
