@@ -35,7 +35,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
                 <tr>
                   <td><a href="action.php?country=US&typeRadios=mturk&tt=0" title="United States"><img src="Images/US.jpg" height=220px width=220px></a></td>
                   <td><a href="action.php?country=UK&typeRadios=mturk&tt=0" title="United Kingdom"><img src="Images/UK.jpg" height=220px width=200px></a></td>
-                  <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" height=220px width=250px></a></td>
+                  <td><a href="action.php?country=AU&typeRadios=mturk&tt=0" title="Australia"><img src="Images/AU.jpg" height=220px width=270px></a></td>
                   <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px width=200px></a></td>
                   <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/CA.jpg" height=220px width=220px></a></td>
                 </tr>
