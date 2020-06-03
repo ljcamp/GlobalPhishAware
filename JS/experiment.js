@@ -211,7 +211,8 @@ $(document).ready(function(){
         var str = keys[i].replace('12', '');
         // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
-        if(countrycode == "US" || countrycode == "CA"){
+        //if(countrycode == "US" || countrycode == "CA"){
+	  if(countrycode == "US"){
           presentationIndex.push(i/2);
         }
       }
@@ -220,7 +221,8 @@ $(document).ready(function(){
         var str = keys[i];
         // console.log(str);
         tasks.push({"taskSite":str,"pages":2,"condition":"EV"});
-        if(countrycode == "US" || countrycode == "CA"){
+        //if(countrycode == "US" || countrycode == "CA"){
+	  if(countrycode == "US"){
           presentationIndex.push(i/2);
         }
 		
