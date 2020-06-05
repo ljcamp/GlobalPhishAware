@@ -1987,7 +1987,7 @@ var skill_questions = [
       'Other methods for stealing information',
       'Hacking a computer that belongs to someone',
       'Tracking your internet habits to send advertisements ',
-      'I Do not Know'
+      'I do not know'
     ]
   },
 
@@ -2001,7 +2001,7 @@ var skill_questions = [
       'Shows the website is registered and valid',
       'Is actively secure and safe against malicious stuff, including hackers',
       'Shows the website is trustworthy, has proper privacy protection and is accountable for information use',
-      'I Do not Know'
+      'I do not know'
     ]
   },
 
@@ -2015,7 +2015,7 @@ var skill_questions = [
       'Inject a statement that checks the database integrity through a website',
       'Inject root user privileges to a regular user without using the graphical user interface (GUI) of the database',
       'Inject a malicious statement to the database through a website',
-      'I Do not Know'
+      'I do not know'
 
     ]
   },
@@ -2029,7 +2029,7 @@ var skill_questions = [
       'There are no real differences, they are just brand names',
       'Passive IDS is included in a Firewall while reactive IDS is a standalone network component',
       'Reactive IDS can reprogram the Firewall and passive IDS does not',
-      'I Do not Know'
+      'I do not know'
     ]
   },
   {
@@ -2041,7 +2041,7 @@ var skill_questions = [
       'Block Hypertext Transfer Protocol daemon',
       'Block incoming and outgoing requests from SMB/CIFS clients',
       'Block Hypertext Transfer Protocol Secure daemon',
-      'I Do not Know'
+      'I do not know'
     ]
   },
 
@@ -2114,12 +2114,12 @@ var skill_questions = [
       'website privacy statements',
       'type of website',
       'professional-looking website',
-      'Other'
+      'other'
     ]
   },
   {
     type: 'radio',
-    question: 'Others can access my smartphone or tablet without needing a PIN or passcode.',
+    question: 'Anyone can access my smartphone or tablet without needing a PIN or passcode.',
     options: [
       'Strongly disagree',
       'Disagree',
@@ -2130,7 +2130,7 @@ var skill_questions = [
   },
   {
     type: 'radio',
-    question: 'Whenever I step away from my computer, I lock the screen.',
+    question: 'Whenever I step away from my computer at home or work, I lock the screen.',
     options: [
       'Strongly disagree',
       'Disagree',
@@ -2209,11 +2209,11 @@ var skill_questions = [
     //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
     question: 'To what extent can you control the risk from being phished? ',
     options: [
-      'Can prevent all harm',
-      'Can prevent some harm',
-      'May or may not be able to prevent harm',
-      'Can somewhat reduce harm',
-      'No control over resulting harm'
+      'Never control harm',
+      'Almost never control harm',
+      'Sometimes control harm',
+      'Almost every time control harm',
+      'Always control harm'
     ]
   },
 
@@ -2249,8 +2249,8 @@ var skill_questions = [
     question: 'Does phishing affect only the person who is phished or does it affect other people as well? ',
     options: [
       'Individual',
+      'A few people associated with the individual',
       'Multiple people',
-      'May be global or individual',
       'A large number of people',
       'A very large number of people'
     ]
@@ -2297,7 +2297,7 @@ var skill_questions = [
 
 	 {
    type:'radio',
-   question:'How likely are you to sign-in into or use contact information from the COVID-19 information website? ',
+   question:'How likely are you to sign-in into the COVID-19 information website? ',
    options: [
    'Not at all likely',
    'Slightly unlikely',
