@@ -437,6 +437,8 @@ function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
     html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
+  	console.log(html);
+	  console.log(clean(question.prefix + '_' + question.options[i]));
   }
   $(id).append(html);
 }
