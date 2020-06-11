@@ -1520,7 +1520,7 @@ var participantValidationQuestions = [
         'False'
       ],
       mustbechecked: 'True',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
 
     {
@@ -1531,7 +1531,7 @@ var participantValidationQuestions = [
         'Yes'
       ],
       mustbechecked: 'No',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
 
 
@@ -1546,7 +1546,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the back button on the simulated browser and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.',
     },
 
     {
@@ -1560,7 +1560,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the login button on the simulated page and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
     {
 
@@ -1571,7 +1571,7 @@ var participantValidationQuestions = [
         'No'
       ],
       mustbechecked: 'Yes',
-      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
       response: 'hide'
     }
   ],
@@ -1584,7 +1584,7 @@ var participantValidationQuestions = [
         'False'
       ],
       mustbechecked: 'True',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
 
     {
@@ -1595,7 +1595,7 @@ var participantValidationQuestions = [
         'Yes'
       ],
       mustbechecked: 'No',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can clarify the instructions.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
 
 
@@ -1610,7 +1610,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the back button on the simulated browser and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.',
     },
 
     {
@@ -1624,7 +1624,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the login button on the simulated page and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please alert the experimenter so they can explain the instructions more clearly.'
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment.'
     },
     {
 
@@ -1635,7 +1635,7 @@ var participantValidationQuestions = [
         'No'
       ],
       mustbechecked: 'Yes',
-      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
       response: 'hide'
     }
   ],
@@ -1649,7 +1649,7 @@ var participantValidationQuestions = [
         'False'
       ],
       mustbechecked: 'True',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
       response: 'hide'
     },
 
@@ -1661,7 +1661,7 @@ var participantValidationQuestions = [
         'Yes'
       ],
       mustbechecked: 'No',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
       response: 'hide'
     },
 
@@ -1676,7 +1676,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the back button on the simulated browser and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection.',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection.',
       response: 'hide'
     },
 
@@ -1691,7 +1691,7 @@ var participantValidationQuestions = [
         'Exit your browser'
       ],
       mustbechecked: 'Find the login button on the simulated page and click it.',
-      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return the HIT to avoid a rejection',
+      rejecterror: 'It is important that you be able to read and understand the instructions for this experiment. Please return to avoid a rejection',
       response: 'hide'
     },
 
@@ -1703,7 +1703,7 @@ var participantValidationQuestions = [
         'No'
       ],
       mustbechecked: 'Yes',
-      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return the HIT to avoid a rejection.',
+      rejecterror: 'This study requires the use of a mouse or touchpad as an input device. Please return to avoid a rejection.',
       response: 'hide'
     }
   ]
@@ -1726,7 +1726,7 @@ var validationQuestions = [
           '30 seconds'
         ],
         mustbechecked: '15 seconds',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return to avoid a rejection',
         response: 'hide'
       }
     ],
@@ -1743,7 +1743,7 @@ var validationQuestions = [
           '$1.33'
         ],
         mustbechecked: '$0.67',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return to avoid a rejection',
         response: 'hide'
       }
     ]
@@ -1762,7 +1762,7 @@ var validationQuestions = [
           '30 seconds'
         ],
         mustbechecked: '15 seconds',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
+        rejecterror: 'It is important that you understand the instructions for this experiment.',
       }
     ],
 
@@ -1779,7 +1779,7 @@ var validationQuestions = [
           '$1.33'
         ],
         mustbechecked: '$0.67',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please alert the experimenter so they can review the instructions with you.',
+        rejecterror: 'It is important that you understand the instructions for this experiment.',
 
       }
     ]
@@ -1834,7 +1834,7 @@ var validationQuestions = [
           '30 seconds'
         ],
         mustbechecked: '15 seconds',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return to avoid a rejection',
         response: 'hide'
       }
     ],
@@ -1851,7 +1851,7 @@ var validationQuestions = [
           '$1.33'
         ],
         mustbechecked: '$0.67',
-        rejecterror: 'It is important that you understand the instructions for this experiment. Please return this HIT to avoid a rejection',
+        rejecterror: 'It is important that you understand the instructions for this experiment. Please return to avoid a rejection',
         response: 'hide'
       }
     ]
