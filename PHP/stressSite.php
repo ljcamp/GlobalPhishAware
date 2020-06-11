@@ -104,7 +104,7 @@ if($_SESSION['type']=='mturk'){
 		</p>
 
 		<p>
-			It is important to understand that you will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>responding as quickly and as accurately as possible.</strong></p>
+			You will maximize your '. ($_SESSION['valid_participant']?'payout':'score') .' by <strong>responding as quickly and as accurately as possible.</strong> There will be a time penalty of <strong> 15 SECONDS </strong> for an incorrect trial.</p>
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
