@@ -315,6 +315,21 @@ function setupQuestion(question) {
   window.currentQuestionStartTime = new Date().getTime();
 }
 
+var g_agreement = 0;
+var g_dict = {};
+
+// 26 * 2 = 52
+
+function check_agreement(option){
+  if(g_dict[option] === 0){
+    g_agreement += 2;
+    g_dict[option] = 1;
+    alert(g_agreement);
+  }else{
+    alert(option + " is already selected");
+  }
+}
+
 function buildAgreementScale(question, id) {
   var html = '<table>';
 
@@ -325,9 +340,10 @@ function buildAgreementScale(question, id) {
     var max = question.scale;
     var step = question.step;
     var defaultVal = question.def;
-	  //"</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'>" + defaultVal + "</output></td></tr>";
+    g_dict[question.options[i]] = 0;
     var questionHTML = "<tr><td>" + question.options[i] +
-      "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'></output></td></tr>";
+	  //  "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "'onchange='" + outputName + "Output.value = value'/></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'>" + defaultVal + "</output></td></tr>";
+     "</td><td>" + min + "</td><td><input type='range' min='" + min + "' max='" + max + "' step='" + step + "' value='" + defaultVal + "'name='" + name + "' onchange=check_agreement('" + question.options[i] + "') /></td><td>" + max + "</td></tr><tr><td colspan='4' style='text-align:center'><output id='" + outputName + "Output'></output></td></tr>";
     html += questionHTML;
   }
   html += '</table>';
