@@ -455,7 +455,7 @@ function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
 	  numcheck = numcheck + 1; 
-	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
+	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know_about_this_certificate" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
 	     html += "<input type='radio' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
 	     }
 	  else {
@@ -2062,7 +2062,7 @@ var skill_questions = [
       'Shows the website is registered and valid',
       'Is actively secure and safe against malicious stuff, including hackers',
       'Shows the website is trustworthy, has proper privacy protection and is accountable for information use',
-      'I do not know'
+      'I do not know about this certificate'
     ]
   },
 
