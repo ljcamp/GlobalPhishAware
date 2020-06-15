@@ -325,7 +325,7 @@ function check_agreement(option){
     g_agreement += 2;
     g_dict[option] = 1;
 	//  $('#changeopacity').css("opacity", "60%");
-    alert(g_agreement);
+    //alert(g_agreement);
   }//else{
    // alert(option + " is already selected");
   //}
