@@ -452,12 +452,12 @@ function buildCheckboxMatrix(question, id) {
 function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
-	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
-	     html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
-	     }
-	  else {
+//	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
+//	     html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
+//	     }
+//	  else {
     html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
-  	}
+//  	}
   }
   $(id).append(html);
 }
@@ -2011,7 +2011,8 @@ var skill_questions = [
       'Hacking a computer that belongs to someone',
       'Tracking your internet habits to send advertisements ',
       'I do not know'
-    ]
+    ],
+	  mustnotbechecked:'I do not know'
   },
 
   {
@@ -2025,7 +2026,8 @@ var skill_questions = [
       'Is actively secure and safe against malicious stuff, including hackers',
       'Shows the website is trustworthy, has proper privacy protection and is accountable for information use',
       'I do not know'
-    ]
+    ],
+	  mustnotbechecked:'I do not know'
   },
 
 
@@ -2125,7 +2127,8 @@ var skill_questions = [
       'Installed a computer program',
       'Written a computer program',
       'None of the above',
-    ]
+    ],
+	  mustnotbechecked:'None of the above'
   },
   {
     type: 'checkall',
