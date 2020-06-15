@@ -470,28 +470,28 @@ function radiochangecheckbox(obj) {
 		alert('radio is checked');
 		var radioid = $(obj).attr('id');
 		if(radioid == 7) {
-			  $(#1).prop('checked',false);
-			  $(#2).prop('checked',false);
-			  $(#3).prop('checked',false);
-			  $(#4).prop('checked',false);
-			  $(#5).prop('checked',false);
-			  $(#6).prop('checked',false);
+			  $('#1').prop('checked',false); //deselect
+			  $('#2').prop('checked',false);
+			  $('#3').prop('checked',false);
+			  $('#4').prop('checked',false);
+			  $('#5').prop('checked',false);
+			  $('#6').prop('checked',false);
 		}
 		if(radioid == 13) {
-			  $(#8).prop('checked',false);
-			  $(#9).prop('checked',false);
-			  $(#10).prop('checked',false);
-			  $(#11).prop('checked',false);
-			  $(#12).prop('checked',false);
+			  $('#8').prop('checked',false);
+			  $('#9').prop('checked',false);
+			  $('#10').prop('checked',false);
+			  $('#11').prop('checked',false);
+			  $('#12').prop('checked',false);
 		}
 		if(radioid == 27) {
-		          $(#20).prop('checked',false);
-			  $(#21).prop('checked',false);
-			  $(#22).prop('checked',false);
-			  $(#23).prop('checked',false);
-			  $(#24).prop('checked',false);
-			  $(#25).prop('checked',false);
-			  $(#26).prop('checked',false);
+		          $('#20').prop('checked',false);
+			  $('#21').prop('checked',false);
+			  $('#22').prop('checked',false);
+			  $('#23').prop('checked',false);
+			  $('#24').prop('checked',false);
+			  $('#25').prop('checked',false);
+			  $('#26').prop('checked',false);
 		}
         //$('input[type="checkbox"]').prop('checked', false); //unchecks all checkboxes
     }
