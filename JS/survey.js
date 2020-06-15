@@ -705,11 +705,13 @@ function verifyCheckAll(question, id) {
     for (i in question.mustnotbechecked) {
       var name = clean(question.prefix + '_' + question.mustnotbechecked[i]);
       var ischecked = $('input[name="' + name + '"]', $(id)).is(':checked');
-      if (ischecked) {
-        $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
-        hideQuestion(question.response);
-        return false;
-      }
+	    console.log(name);
+	    console.log(ischecked);
+      //if (ischecked) {
+       // $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
+       // hideQuestion(question.response);
+       // return false;
+      //}
     }
   }
   return !error;
