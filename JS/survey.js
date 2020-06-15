@@ -324,10 +324,10 @@ function check_agreement(option){
   if(g_dict[option] === 0){
     g_agreement += 2;
     g_dict[option] = 1;
-    alert(g_agreement);
-  }else{
-    alert(option + " is already selected");
-  }
+    //alert(g_agreement);
+  }//else{
+   // alert(option + " is already selected");
+  //}
 }
 
 function buildAgreementScale(question, id) {
@@ -712,16 +712,17 @@ function verifyCheckAll(question, id) {
 
 function verifyAgreementScale(question, id) {
   var error = false;
-  for (i in question.options) {
-    var name = clean(question.options[i]);
+ // for (i in question.options) {
+   // var name = clean(question.options[i]);
     var value = $('input[name="' + name + '"]', $(id)).val().trim();
-    if ((!$.isNumeric(value) || parseFloat(value) > question.scale)) {
+   // if ((!$.isNumeric(value) || parseFloat(value) > question.scale)) {
+	  if(g_agreement < 52) {
       error = true;
       $('input[name="' + name + '"]', $(id)).addClass('error');
     } else {
       $('input[name="' + name + '"]', $(id)).removeClass('error');
     }
-  }
+  //}
   $("#error").html('<font style="color:red;">Please fill out each field with your agreement on a scale from 1 to ' + question.scale + '</font><hr>');
   return !error;
 }
