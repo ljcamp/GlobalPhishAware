@@ -469,8 +469,31 @@ function radiochangecheckbox(obj) {
 	if ($(obj).is(':checked')){ //radio is now checked
 		alert('radio is checked');
 		var radioid = $(obj).attr('id');
-		console.log(radioid);
-        $('input[type="checkbox"]').prop('checked', false); //unchecks all checkboxes
+		if(radioid == 7) {
+			  $(#1).prop('checked',false);
+			  $(#2).prop('checked',false);
+			  $(#3).prop('checked',false);
+			  $(#4).prop('checked',false);
+			  $(#5).prop('checked',false);
+			  $(#6).prop('checked',false);
+		}
+		if(radioid == 13) {
+			  $(#8).prop('checked',false);
+			  $(#9).prop('checked',false);
+			  $(#10).prop('checked',false);
+			  $(#11).prop('checked',false);
+			  $(#12).prop('checked',false);
+		}
+		if(radioid == 27) {
+		          $(#20).prop('checked',false);
+			  $(#21).prop('checked',false);
+			  $(#22).prop('checked',false);
+			  $(#23).prop('checked',false);
+			  $(#24).prop('checked',false);
+			  $(#25).prop('checked',false);
+			  $(#26).prop('checked',false);
+		}
+        //$('input[type="checkbox"]').prop('checked', false); //unchecks all checkboxes
     }
 }
 
