@@ -484,7 +484,7 @@ function radiochangecheckbox(obj) {
 			  $('#11').prop('checked',false);
 			  $('#12').prop('checked',false);
 		}
-		if($('#7').is(':checked')) {
+		if($('#27').is(':checked')) {
 		          $('#20').prop('checked',false);
 			  $('#21').prop('checked',false);
 			  $('#22').prop('checked',false);
