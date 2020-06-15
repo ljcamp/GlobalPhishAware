@@ -449,14 +449,17 @@ function buildCheckboxMatrix(question, id) {
   $(id).append(html);
 }
 
+var numcheck = 0;
+
 function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
+	  numcheck = numcheck + 1; 
 	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
 	     html += "<input type='radio' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
 	     }
 	  else {
-    html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
+    html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
   	}
   }
   $(id).append(html);
