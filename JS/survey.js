@@ -453,7 +453,7 @@ function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
 	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
-	     html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "' onchange='"radiochangecheckbox(this)"'/> " + question.options[i] + '<br>';
+	     html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "' onchange='"radiochangecheckbox(this)/> " + question.options[i] + '<br>';
 	     }
 	  else {
     html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
