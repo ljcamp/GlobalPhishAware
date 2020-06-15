@@ -452,7 +452,12 @@ function buildCheckboxMatrix(question, id) {
 function buildCheckAll(question, id) {
   var html = '';
   for (i in question.options) {
+	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know") {
+	     html += "<input type='radio' name='" + clean(question.question) + "' value='" + clean(question.options[i]) + "'/> " + question.options[i] + '<br>';
+	     }
+	  else {
     html += '<input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
+  	}
   }
   $(id).append(html);
 }
