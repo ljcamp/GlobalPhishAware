@@ -459,7 +459,7 @@ function buildCheckAll(question, id) {
 	     html += "<input type='radio' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
 	     }
 	  else {
-    html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes"/>' + question.options[i] + '<br/>';
+    html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes" onchange=radiochangecheckbox(this)/>' + question.options[i] + '<br/>';
   	}
   }
   $(id).append(html);
@@ -467,9 +467,9 @@ function buildCheckAll(question, id) {
 
 function radiochangecheckbox(obj) {
 	if ($(obj).is(':checked')){ //radio is now checked
-		alert('radio is checked');
-		var radioid = $(obj).attr('id');
-		if(radioid == 7) {
+		//alert('radio is checked');
+		//var radioid = $(obj).attr('id');
+		if($('#7').is(':checked')) {
 			  $('#1').prop('checked',false); //deselect
 			  $('#2').prop('checked',false);
 			  $('#3').prop('checked',false);
@@ -477,14 +477,14 @@ function radiochangecheckbox(obj) {
 			  $('#5').prop('checked',false);
 			  $('#6').prop('checked',false);
 		}
-		if(radioid == 13) {
+		if($('#13').is(':checked')) {
 			  $('#8').prop('checked',false);
 			  $('#9').prop('checked',false);
 			  $('#10').prop('checked',false);
 			  $('#11').prop('checked',false);
 			  $('#12').prop('checked',false);
 		}
-		if(radioid == 27) {
+		if($('#7').is(':checked')) {
 		          $('#20').prop('checked',false);
 			  $('#21').prop('checked',false);
 			  $('#22').prop('checked',false);
