@@ -1963,6 +1963,7 @@ var skill_questions = [
     min: '1',
     step: '0.1',
     scale: '5',
+    def: '0',
     question: 'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
     options: opts
     // options:[
