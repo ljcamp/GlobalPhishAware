@@ -459,7 +459,8 @@ function buildCheckAll(question, id) {
 	     html += "<input type='radio' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
 	     }
 	  else {
-    html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes" onchange=radiochangecheckbox(this)/>' + question.options[i] + '<br/>';
+    html += "<input type='checkbox' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='"yes"' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
+   // html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes" onchange="'radiochangecheckbox(this)/>' + question.options[i] + '<br/>';
   	}
   }
   $(id).append(html);
