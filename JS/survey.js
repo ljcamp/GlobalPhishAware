@@ -714,7 +714,7 @@ function verifyAgreementScale(question, id) {
   var error = false;
  // for (i in question.options) {
    // var name = clean(question.options[i]);
-    var value = $('input[name="' + name + '"]', $(id)).val().trim();
+    //var value = $('input[name="' + name + '"]', $(id)).val().trim();
    // if ((!$.isNumeric(value) || parseFloat(value) > question.scale)) {
 	  if(g_agreement < 52) {
       error = true;
