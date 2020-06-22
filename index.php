@@ -26,7 +26,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
         </div>
     </section>
 <section>
-  <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;border-style: solid;width:50px;" onclick="showcollab()">Learn about the collaborators</p>
+  <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;border-style: solid;width:200px;" onclick="showcollab()">Learn about the collaborators</p>
   <div id="panel" style="padding: 5px;background-color: black;color: white;display: none;">
   <p>L Jean Camp,  Marthie Grobler,   Julian Jang-Jaccard,   Christian Probst, Karen Renaud, Paul Watters</p>
   </div>
