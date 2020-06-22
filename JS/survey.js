@@ -2288,7 +2288,7 @@ var skill_questions = [
   {
     type: 'radio',
     //question:'(Question about phishing) To what extent can you control (or mitigate) the risk from being phished? ',// (1=Uncontrollable; 5=Controllable)
-    question: 'To what extent can you control the risk from being phished? ',
+    question: 'To what extent can you control the harm that results from being phished ',
     options: [
       'Never control harm',
       'Almost never control harm',
