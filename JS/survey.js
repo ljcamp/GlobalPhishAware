@@ -2194,7 +2194,8 @@ var skill_questions = [
 	  columns: ['Strongly disagree', 'Disagree', 'Neither agree nor disagree', 'Agree', 'Strongly agree'],
 	  options: [
 		 'Anyone can access my smartphone or tablet without needing a PIN or passcode.',
-		 'Whenever I step away from my computer at home or work, I lock the screen.',
+		 'Whenever I step away from my computer at home, I lock the screen.',
+		 'Whenever I step away from my computer at work, I lock the screen.',
 		 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when am done.'
 	]
  
