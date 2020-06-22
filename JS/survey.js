@@ -2489,186 +2489,204 @@ var skill_questions = [
   // },
 
   {
-    type: 'radio',
-    question: 'Online companies would be trustworthy in handling my personal purchase preferences',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'In general, it would be risky to give my personal purchase preference information to online companies',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'It usually bothers me when online companies ask me for personal information',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'When online companies ask me for personal information, I sometimes think twice before providing it',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'It bothers me to give personal information to so many online companies',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'I\'m concerned that online companies are collecting too much personal information about me',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'Online companies should never sell the personal information in their computer databases to other companies',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
-  },
-
-  {
-    type: 'radio',
-    question: 'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information',
-    options: [
-      '1 (Strongly disagree)',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7 (Strongly agree)'
-    ]
+	  type:'checkboxmatrix',
+	  question: 'Please rate how far you agree or disagree with the following:',
+	  columns: ['Strongly disagree', 'Disagree', 'Somewhat disagree', 'Neither agree nor disagree', 'Somewhat agree', 'Agree', 'Strongly agree'], 
+	  options: [
+		  'Online companies would be trustworthy in handling my personal purchase preferences',
+		  'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
+		  'In general, it would be risky to give my personal purchase preference information to online companies',
+		  'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
+		  'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
+		  'It usually bothers me when online companies ask me for personal information',
+		  'When online companies ask me for personal information, I sometimes think twice before providing it',
+		  'It bothers me to give personal information to so many online companies',
+		  'I\'m concerned that online companies are collecting too much personal information about me',
+		  'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
+		  'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
+		  'Online companies should never sell the personal information in their computer databases to other companies',
+		  'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information'
+		  ]
+    //type: 'radio',
+    //question: 'Online companies would be trustworthy in handling my personal purchase preferences',
+    //options: [
+    //  '1 (Strongly disagree)',
+    //  '2',
+    //  '3',
+    //  '4',
+    //  '5',
+    //  '6',
+    //  '7 (Strongly agree)'
+   // ]
   }
+
+  //{
+  //  type: 'radio',
+ //   question: 'I trust that online companies would keep my best interests in mind when dealing with my personal purchase preference information',
+  //  options: [
+  //    '1 (Strongly disagree)',
+  //    '2',
+  //    '3',
+  //    '4',
+ //     '5',
+ //     '6',
+  //    '7 (Strongly agree)'
+ //   ]
+ // },
+
+ // {
+//    type: 'radio',
+//    question: 'In general, it would be risky to give my personal purchase preference information to online companies',
+//    options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+ //     '6',
+ //     '7 (Strongly agree)'
+ //   ]
+ // },
+
+  //{
+ //   type: 'radio',
+ //   question: 'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
+ //   options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+//      '6',
+//      '7 (Strongly agree)'
+//    ]
+ // },
+
+ // {
+ //   type: 'radio',
+ //   question: 'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
+ //   options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+ //     '6',
+ //     '7 (Strongly agree)'
+ //   ]
+ // },
+
+//  {
+//    type: 'radio',
+//    question: 'It usually bothers me when online companies ask me for personal information',
+//    options: [
+//      '1 (Strongly disagree)',
+//      '2',
+//      '3',
+//      '4',
+//      '5',
+//      '6',
+//      '7 (Strongly agree)'
+//    ]
+//  },
+
+//  {
+//    type: 'radio',
+//    question: 'When online companies ask me for personal information, I sometimes think twice before providing it',
+//    options: [
+//      '1 (Strongly disagree)',
+//      '2',
+//      '3',
+//      '4',
+//      '5',
+//      '6',
+//      '7 (Strongly agree)'
+//    ]
+//  },
+
+//  {
+//    type: 'radio',
+//    question: 'It bothers me to give personal information to so many online companies',
+//    options: [
+//      '1 (Strongly disagree)',
+//      '2',
+//      '3',
+//      '4',
+//      '5',
+//      '6',
+//      '7 (Strongly agree)'
+//    ]
+//  },
+
+//  {
+//    type: 'radio',
+//    question: 'I\'m concerned that online companies are collecting too much personal information about me',
+//    options: [
+//      '1 (Strongly disagree)',
+//      '2',
+//      '3',
+//      '4',
+//      '5',
+//      '6',
+//      '7 (Strongly agree)'
+//    ]
+//  },
+
+ // {
+ //   type: 'radio',
+ //   question: 'Online companies should not use personal information for any purpose unless it has been authorized by the individuals who provided the information',
+ //   options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+ //     '6',
+ //     '7 (Strongly agree)'
+ //   ]
+ // },
+
+ // {
+ //   type: 'radio',
+ //   question: 'When people give personal information to an online company for some reason, the online company should never use the information for any other reason',
+ //   options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+ //     '6',
+ //     '7 (Strongly agree)'
+  //  ]
+ // },
+
+	// {
+ //   type: 'radio',
+ //   question: 'Online companies should never sell the personal information in their computer databases to other companies',
+ //   options: [
+ //     '1 (Strongly disagree)',
+ //     '2',
+ //     '3',
+ //     '4',
+ //     '5',
+ //     '6',
+ //     '7 (Strongly agree)'
+ //   ]
+ // },
+
+  //{
+  //  type: 'radio',
+  //  question: 'Online companies should never share personal information with other companies unless it has been authorized by the individuals who provided the information',
+  //  options: [
+  //    '1 (Strongly disagree)',
+  //    '2',
+  //    '3',
+  //    '4',
+  //    '5',
+  //    '6',
+  //    '7 (Strongly agree)'
+ //   ]
+ // }
 ];
 // console.log("OPTS: " + opts)
 var PreStudyQuestions = [
