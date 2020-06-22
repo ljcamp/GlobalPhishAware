@@ -785,7 +785,7 @@ function verifyRadio(question, id) {
   var selected = $('input[name="' + name + '"]:checked', $(id));
   if (selected.length < 1) {
     $('input[name="' + name + '"]', $(id)).addClass('error');
-    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
+    $("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
 	
     return false;
   }
@@ -813,7 +813,7 @@ function verifyRadioWithOther(question, id) {
       error = false;
     }
   }
-  $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' and fill out the details if you selected "other".</font><hr>');
+  $("#error").html('<font style="color:red;">Please answer question ' + q_num + ' and fill out the details if you selected "other".</font><hr>');
   return !error;
 
 }
@@ -847,7 +847,7 @@ function verifyFreeForm(question, id) {
   var q_num = parseInt(id.split("question")[1]) + 1;
   var name = clean(question.question);
   var value = $('input[name="' + name + '"]', $(id)).val().trim();
-  $("#error").html('<font style="color:red;">Please answer the question ' + q_num + '.</font><hr>');
+  $("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
 	
   return (value != '');
 }
@@ -861,7 +861,7 @@ function verifyFreeFormInt(question, id) {
   if (!isNormalInteger(value)) {
     error = true;
     $('input[name="' + name + '"]', $(id)).addClass('error');
-    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
+    $("#error").html('<font style="color:red;">Please answer question ' + q_num + ' with a number.</font><hr>');
 	  
   }
   else {
@@ -887,7 +887,7 @@ function verifyFreeCode(question, id) {
   if (!isNormalInteger(value)) {
     error = true;
     $('input[name="' + name + '"]', $(id)).addClass('error');
-    $("#error").html('<font style="color:red;">Please answer the question ' + q_num + ' with a number.</font><hr>');
+    $("#error").html('<font style="color:red;">Please answer question ' + q_num + ' with a number.</font><hr>');
 	 
   }
   if (!value.match('117856') && !value.match('119032') &&
