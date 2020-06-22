@@ -57,8 +57,8 @@ if($_SESSION['type']=='mturk'){
 		<div id="studyarea">
 		<div id="jscriptwarning">You must have javascript enabled to take this study.</div>
 		<div id="sis">
-		<div id="thisStudy" class="instructions">
-		<center><H2>What Does This Study Entail?</H2></center><br>
+		<!--<div id="thisStudy" class="instructions">
+		<center><H2>What Does This Study Entail?</H2></center><br>-->
        ';
       if($_SESSION['valid_participant']){
 
@@ -69,11 +69,11 @@ if($_SESSION['type']=='mturk'){
 
 		<!--<p>
 		This study consists of two tasks: A brief experiment and a survey. In this experiment, you will be presented with a series of websites, and you will need to decide WHETHER TO SIGN-IN to each of these sites based on whether or not they are secure. As your time on the experimental task INCREASES, your bonus will DECREASE. You will be able to constantly monitor the elapsed time and bonus payout at the TOP OF THE PAGE. </p>
-		<br>-->
+		<br>
 		<center>
 		<BUTTON onclick="$(\'#thisStudy\').hide(); $(\'#needToDo\').show();">Next Instructions</BUTTON>
 				</center>
-		</div>
+		</div>-->
 		<div id="needToDo" class="instructions" style="display:none;">
 		  <center><H3>What do you need to do?</H3></center><br> The goal is to visit all the websites in the shortest possible time. If the website is SECURE, <strong>login to proceed to the next website</strong>. <br> If you decide to <strong> not login </strong> because the website is NOT SECURE, click on the <strong>Back Button</strong> on the browser toolbar.</span> Your performance will be timed, and your final '. ($_SESSION['valid_participant']?'payout':'score') .' will depend on how much time it takes to complete the task:
 		</p>
@@ -90,7 +90,7 @@ if($_SESSION['type']=='mturk'){
 		</OL>
         </B>
 		</p><center>
-		<BUTTON onclick="$(\'#needToDo\').hide(); $(\'#thisStudy\').show();">Previous Instructions</BUTTON> <BUTTON onclick="$(\'#needToDo\').hide(); $(\'#loggingIn\').show();">Next Instructions</BUTTON>
+		<!--<BUTTON onclick="$(\'#needToDo\').hide(); $(\'#thisStudy\').show();">Previous Instructions</BUTTON>--> <BUTTON onclick="$(\'#needToDo\').hide(); $(\'#loggingIn\').show();">Next Instructions</BUTTON>
 		</center>
 		</div>
 		<div id="loggingIn" class="instructions" style="display:none;">
