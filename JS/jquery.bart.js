@@ -626,7 +626,7 @@
                     }
                     if(opts.showcurrentearned) {
                         canvas.setLayer('curearn', { text: opts.txt_current_earned + 
-                                                            ((new Number(bal.earned))*0.1).toFixed(2) });
+                                                            ((new Number(bal.earned))).toFixed(2) });
                     }
                     if(opts.showpopprob) {
                         canvas.setLayer('popprob', { text: opts.txt_prob_explosion + "\n\n" + 
