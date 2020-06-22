@@ -625,7 +625,6 @@
                         canvas.setLayer('pumpnum', { text: opts.txt_number_of_pumps + bal.pumps });
                     }
                     if(opts.showcurrentearned) {
-                        console.log("current earned"+new Number(bal.earned).toFixed(2));
                         canvas.setLayer('curearn', { text: opts.txt_current_earned + 
                                                             ((new Number(bal.earned))*0.1).toFixed(2) });
                     }
@@ -710,7 +709,6 @@
                        
                     // update counts
                     opts.earned = ((opts.earned*1 + bal.earned*1)).toFixed(2);
-                    console.log("total earned"+opts.earned);
                     if(opts.showtotalearned) {
                         canvas.setLayer('totearn', { text: opts.txt_total_earned + opts.earned }).drawLayers();
                     }
