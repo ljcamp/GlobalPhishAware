@@ -442,9 +442,9 @@ function buildCheckboxMatrix(question, id) {
   }
   html += '</tr>';
 	console.log(opts);
-  for (i in question.rows) {
-    html += '<tr><td>' + question.rows[i] + '</td>';
-	  console.log("for every row"+question.rows[i]);
+  for (i in question.options) {
+    html += '<tr><td>' + question.options[i] + '</td>';
+	  console.log("for every row"+question.options[i]);
     for (j in question.columns) {
 	    console.log("for every column"+question.columns[i]);
       html += '<td><input type="checkbox" name="' + clean(question.prefix + '_' + question.rows[i] + '_' + question.columns[j]) + '" value="yes"/></td>';
@@ -2014,7 +2014,7 @@ var skill_questions = [
     //scale: '5',
     //def: '0',
     question: 'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
-    //options: opts,
+    options: opts,
     rows: opts,
 	  columns: ['1','2','3','4','5']
     // options:[
