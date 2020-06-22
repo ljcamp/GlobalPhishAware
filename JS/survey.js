@@ -1568,7 +1568,7 @@ var participantValidationQuestions = [
 
     {
       type: 'radio',
-      question: 'Are you using EITHER a mouse or touchpad as your input device?',
+      question: 'Are you using a mouse (or touchpad) as your input device?',
       options: [
         'Yes',
         'No'
