@@ -478,6 +478,7 @@ function radiochangecheckbox(obj) {
 	if ($(obj).is(':checked')){ //radio is now checked
 		//alert('radio is checked');
 		//var radioid = $(obj).attr('id');
+		//if($('#7').is(':checked')) {
 		if(($('#7').is(':checked')) && ($('#1').is(':unchecked') || $('#2').is(':unchecked') || $('#3').is(':unchecked') || $('#4').is(':unchecked') || $('#5').is(':unchecked') || $('#6').is(':unchecked'))) {
 			  $('#1').prop('checked',false); //deselect
 			  $('#2').prop('checked',false);
