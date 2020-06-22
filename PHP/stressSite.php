@@ -68,7 +68,7 @@ if($_SESSION['type']=='mturk'){
     echo'
 
 		<p>
-		This study consists of two tasks: A brief experiment and a survey. In this experiment, you will be presented with a series of websites, and you will need to decide WHETHER TO SIGN-IN to each of these sites based on whether or not they are secure. As your time on the experimental task INCREASES, your bonus will DECREASE. You will be able to constantly monitor the elapsed time and bonus payout at the TOP OF THE PAGE. </p>
+		This study consists of two tasks: A brief experiment and a survey. In this experiment, you will be presented with a series of websites, and you will need to decide whether to <strong>Sign-in</strong> to each of these sites based on whether or not they are <strong>secure</strong>. As your time on the experimental task <strong>increases</strong>, your bonus will <strong>decrease</strong>. You will be able to constantly monitor the elapsed time and bonus payout at the <strong>top of the page</strong>. </p>
 		<br>
 		<center>
 		<BUTTON onclick="$(\'#thisStudy\').hide(); $(\'#needToDo\').show();">Next Instructions</BUTTON>
