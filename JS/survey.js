@@ -447,7 +447,7 @@ function buildCheckboxMatrix(question, id) {
 	  console.log("for every row"+question.options[i]);
     for (j in question.columns) {
 	    console.log("for every column"+question.columns[i]);
-      html += '<td><input type="checkbox" name="' + clean(question.prefix + '_' + question.rows[i] + '_' + question.columns[j]) + '" value="yes"/></td>';
+      html += '<td><input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i] + '_' + question.columns[j]) + '" value="yes"/></td>';
     }
     html += '</tr>';
   }
