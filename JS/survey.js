@@ -2004,7 +2004,7 @@ var cultureQuestions = [
 */
 var skill_questions = [
   {
-    type: 'agreementscale',
+    type: 'radiowithform',
     min: '1',
     step: '0.1',
     scale: '5',
