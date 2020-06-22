@@ -2382,9 +2382,9 @@ var skill_questions = [
    question:'How likely are you to sign-in into the COVID-19 information website? ',
    options: [
    'Not at all likely',
-   'Slightly unlikely',
+   'Somewhat unlikely',
    'May or may not be likely',
-   'Slightly likely',
+   'Somewhat likely',
    'Very likely'
    ]
    },
