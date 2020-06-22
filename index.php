@@ -39,12 +39,19 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
                   <td><a href="action.php?country=NZ&typeRadios=mturk&tt=0" title="New Zealand"><img src="Images/NZ.jpg" height=220px width=200px></a></td>
                   <td><a href="action.php?country=CA&typeRadios=mturk&tt=0" title="Canada"><img src="Images/CA.jpg" height=220px width=220px></a></td>
                 </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
                 <tr class="country" style="background-color:white;">
-                    <td>United States</td>
-                    <td>United Kingdom</td>
-                    <td>Australia</td>
-                    <td>New Zealand</td>
-                    <td>Canada</td>
+                    <td style="font-weight:bold;">United States</td>
+                    <td style="font-weight:bold;">United Kingdom</td>
+                    <td style="font-weight:bold;">Australia</td>
+                    <td style="font-weight:bold;">New Zealand</td>
+                    <td style="font-weight:bold;">Canada</td>
                 </tr>
               </table>
             </div>
