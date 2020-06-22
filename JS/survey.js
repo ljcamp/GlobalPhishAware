@@ -435,18 +435,19 @@ function buildMatrixRank(question, id) {
 }
 
 function buildCheckboxMatrix(question, id) {
-  var html = '<table border="1"><tr><td><i>Information</i></td>';
+ // var html = '<table border="1"><tr><td><i>Information</i></td>';
+var html = '<table border="1"><tr><td><i></i></td>';
   for (i in question.columns) {
-	  console.log("goes in this loop");
+	 // console.log("goes in this loop");
     html += '<td><b>' + question.columns[i] + '</b></td>';
   }
   html += '</tr>';
-	console.log(opts);
+	// console.log(opts);
   for (i in question.options) {
     html += '<tr><td>' + question.options[i] + '</td>';
-	  console.log("for every row"+question.options[i]);
+	 // console.log("for every row"+question.options[i]);
     for (j in question.columns) {
-	    console.log("for every column"+question.columns[i]);
+	  //  console.log("for every column"+question.columns[i]);
       //html += '<td><input type="checkbox" name="' + clean(question.prefix + '_' + question.options[i] + '_' + question.columns[j]) + '" value="yes"/></td>';
 	html += '<td><input type="radio" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="' + clean(question.prefix + '_' + question.options[i] + '_' + question.columns[j]) + '"/></td>';    
     }
