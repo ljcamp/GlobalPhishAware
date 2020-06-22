@@ -866,7 +866,7 @@ function verifyFreeFormInt(question, id) {
   }
   else {
     $('input[name="' + name + '"]', $(id)).removeClass('error');
-    if (parseInt(value) < question.minimum) {
+    if (parseInt(value) < question.minimum || parseInt(value) > question.maximum) {
       $('input').remove();
       $('#nextbutton').remove();
       $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
@@ -2704,8 +2704,9 @@ var PreStudyQuestions = [
     type: 'freeformint',
     question: 'What is your age?',
     minimum: '18',
+    maximum: '120',
     response: 'hide',
-    rejecterror: 'This study is only for participants age 18 and older.'
+    rejecterror: 'This study is only for participants between the ages of 18 and 120 years'
 
     //type:'freeform',
     //question:'What is your age?',
