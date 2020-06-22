@@ -2014,10 +2014,10 @@ var skill_questions = [
     //step: '0.1',
     //scale: '5',
     //def: '0',
-    question: 'Please rate how familiar you are with the following websites \n(1=Not at All Familiar, 5=Very Familiar)?',
+    question: 'Please rate how familiar you are with the following websites:',
     options: opts,
     rows: opts,
-	  columns: ['1','2','3','4','5']
+	  columns: ['Not at all familiar','Slightly familiar','Somewhat familiar','Moderately familiar','Extremely familiar']
     // options:[
     //   'adcash.com',
     //   'adf.ly',
