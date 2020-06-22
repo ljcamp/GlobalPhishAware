@@ -3,6 +3,11 @@ include("includes/header.php");
 ?>
   <script src="HATS_files/jquery.js"></script>
   <script src="HATS_files/bootstrap.js"></script>
+  <script>
+    function showcollab() {
+      document.getElementById("panel").style.display = "block";
+    }
+  </script>
     <section class="verfication">
         <div class="container">
             <div class="row">
@@ -79,6 +84,10 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             <div class="row">
                 <div class="twelve columns centered">&copy; 2015-<?php echo date("Y"); ?> <a href="http://usablesecurity.net/">HATS</a>. All Rights Reserved.
                 </div>
+              <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;" onclick="showcollab()">Learn about the collaborators</p>
+              <div id="panel" style="padding: 5px;background-color: black;color: white;display: none;">
+                   <p>Add everyone here in a grid</p>
+              </div>
             </div>
         </div>
     </section>
