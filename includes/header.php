@@ -54,7 +54,7 @@ if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
                     <a href="http://www.usablesecurity.net/"><img class="u-max-full-width" src="HATS_files/hatsWord2.jpg" alt="HATS"></a>
 </td>
 <td width=30% style="text-align:center;">
-                    <a href="http://www.karenrenaud.com/"><img class="u-max-full-width" src="Images/Uni_Glasgow_2017_arms.png" height="140px" alt="Cyber Security"></a>
+                    <a href="javascript:void(0)"><img class="u-max-full-width" src="Images/Uni_Glasgow_2017_arms.png" height="140px" alt="Cyber Security"></a>
 </td>
 <td width=30% style="text-align:right;">
                     <a href="https://www.csiro.au/"><img class="u-max-full-width" src="Images/CSIRO.jpg" alt="CSIRO"></a>
