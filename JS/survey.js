@@ -2498,6 +2498,7 @@ var skill_questions = [
 		  'In general, it would be risky to give my personal purchase preference information to online companies',
 		  'There would be high potential for loss associated with giving my personal purchase preference information to online firms',
 		  'I am willing to give my personal purchase preference information to online companies in exchange for discounts on consumer products',
+		  'Select Agree for this question',
 		  'It usually bothers me when online companies ask me for personal information',
 		  'When online companies ask me for personal information, I sometimes think twice before providing it',
 		  'It bothers me to give personal information to so many online companies',
