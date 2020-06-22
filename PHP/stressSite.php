@@ -67,9 +67,9 @@ if($_SESSION['type']=='mturk'){
       }
     echo'
 
-		<p>
+		<!--<p>
 		This study consists of two tasks: A brief experiment and a survey. In this experiment, you will be presented with a series of websites, and you will need to decide WHETHER TO SIGN-IN to each of these sites based on whether or not they are secure. As your time on the experimental task INCREASES, your bonus will DECREASE. You will be able to constantly monitor the elapsed time and bonus payout at the TOP OF THE PAGE. </p>
-		<br>
+		<br>-->
 		<center>
 		<BUTTON onclick="$(\'#thisStudy\').hide(); $(\'#needToDo\').show();">Next Instructions</BUTTON>
 				</center>
