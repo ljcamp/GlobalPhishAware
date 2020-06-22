@@ -2188,39 +2188,48 @@ var skill_questions = [
     ]
   },
   {
-    type: 'radio',
-    question: 'Anyone can access my smartphone or tablet without needing a PIN or passcode.',
-    options: [
-      'Strongly disagree',
-      'Disagree',
-      'Neither agree nor disagree',
-      'Agree',
-      'Strongly agree'
-    ]
+	  type: 'checkboxmatrix',
+	  question: 'To what extent do you agree or disagree with the following:',
+	  columns: ['Strongly disagree', 'Disagree', 'Neither agree nor disagree', 'Agree', 'Strongly agree'],
+	  options: [
+		 'Anyone can access my smartphone or tablet without needing a PIN or passcode.',
+		 'Whenever I step away from my computer at home or work, I lock the screen.',
+		 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when am done.'
+	]
+ 
+   // type: 'radio',
+   // question: 'Anyone can access my smartphone or tablet without needing a PIN or passcode.',
+   // options: [
+   //   'Strongly disagree',
+   //   'Disagree',
+   //   'Neither agree nor disagree',
+   //   'Agree',
+   //   'Strongly agree'
+   // ]
   },
-  {
-    type: 'radio',
-    question: 'Whenever I step away from my computer at home or work, I lock the screen.',
-    options: [
-      'Strongly disagree',
-      'Disagree',
-      'Neither agree nor disagree',
-      'Agree',
-      'Strongly agree'
-    ]
-  },
+  //{
+  //  type: 'radio',
+  //  question: 'Whenever I step away from my computer at home or work, I lock the screen.',
+  //  options: [
+  //    'Strongly disagree',
+  //    'Disagree',
+  //    'Neither agree nor disagree',
+  //    'Agree',
+  //    'Strongly agree'
+  //  ]
+  //},
 
-  {
-    type: 'radio',
-    question: 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when am done.',
-    options: [
-      'Strongly disagree',
-      'Disagree',
-      'Neither agree nor disagree',
-      'Agree',
-      'Strongly agree'
-    ]
-  },
+  //{
+  //  type: 'radio',
+  //  question: 'Rather than logging out of websites, I usually just navigate elsewhere or close the window when am done.',
+  //  options: [
+  //    'Strongly disagree',
+   //   'Disagree',
+   //   'Neither agree nor disagree',
+   //   'Agree',
+   //   'Strongly agree'
+  //  ]
+ // },
 
   {
     type: 'radio',
