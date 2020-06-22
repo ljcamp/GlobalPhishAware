@@ -26,7 +26,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
         </div>
     </section>
 <section>
-  <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;border-style: solid;" onclick="showcollab()">Learn about the collaborators</p>
+  <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;border-style: solid;width:50px;" onclick="showcollab()">Learn about the collaborators</p>
   <div id="panel" style="padding: 5px;background-color: black;color: white;display: none;">
   <p>Add everyone here in a grid</p>
   </div>
