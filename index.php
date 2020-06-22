@@ -21,11 +21,12 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
         </div>
     </section>
 <hr style="height:5px;background-color:gray;">
+<h1 style="color:#800000;">Please Select Your Country</h1>
     <section class="intro" style="background-color:white;">
         <div class="container">
             <div class="row">
                 <div class="twelve columns section-header centered">
-                    <h1 style="color:#800000;">Please Select Your Country</h1>
+                    
                     <!--<h6>Introducing Usable Security</h6>-->
                 </div>
             </div>
