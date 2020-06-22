@@ -20,7 +20,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             </div>
         </div>
     </section>
-<hr>
+<hr style="height:5px;background-color:gray;">
     <section class="intro" style="background-color:white;">
         <div class="container">
             <div class="row">
@@ -50,9 +50,6 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
             </div>
 
 <br>
-<hr>
-
-
             <div class="hats-row">
                     <!--<strong>Test Your Phishing Resilience</strong>
 <p>Our vision is to use a set of well-understood, well-documented, and systematic method to explore phishing resilience. Currently we are offering phishing resilience testing only to recruited participants. 
@@ -68,7 +65,7 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
         </div>
     </section>
 
-
+<hr style="height:5px;background-color:gray;">
     <section class="copyright">
         <div class="container ">
             <div class="row">
