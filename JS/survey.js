@@ -437,9 +437,11 @@ function buildMatrixRank(question, id) {
 function buildCheckboxMatrix(question, id) {
   var html = '<table border="1"><tr><td><i>Information</i></td>';
   for (i in question.columns) {
+	  console.log("goes in this loop");
     html += '<td><b>' + question.columns[i] + '</b></td>';
   }
   html += '</tr>';
+	console.log(opts);
   for (i in question.rows) {
     html += '<tr><td>' + question.rows[i] + '</td>';
 	  console.log("for every row"+question.rows[i]);
