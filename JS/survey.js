@@ -664,7 +664,7 @@ function verifyQuestion(questionindex) {
   var question = window.questions[questionindex];
   switch (question.type) {
     case 'checkboxmatrix':
-      return true;
+      return verifyCheckboxMatrix(question);
       break;
     case 'checkall':
       return verifyCheckAll(question);
@@ -711,6 +711,9 @@ function verifyAllQuestion() {
     var id = "#question" + q_idx;
     switch (question.type) {
       case 'checkboxmatrix':
+	if(!verifyCheckboxMatrix(question, id)) {
+		return false;
+	}
         break;
       case 'checkall':
         if (!verifyCheckAll(question, id)) {
@@ -852,6 +855,31 @@ function verifyRadio(question, id) {
   }
   return !error;
 }
+
+function verifyCheckboxMatrix(question, id) {
+	var error;
+	var q_num;
+	var name;
+	var selected;
+	for (i in question.options){
+  		error = false;
+  		q_num = parseInt(id.split("question")[1]) + 1;
+		// console.log(q_num);
+  		name = clean(question.options[i]);
+		// console.log(name);
+  		selected = $('input[name="' + name + '"]:checked', $(id));
+		// console.log(selected);
+		//console.log(selected.length);
+  		if (selected.length < 1) {
+    			$('input[name="' + name + '"]', $(id)).addClass('error');
+    			$("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
+	
+   			return false;
+  		}
+	}
+	return !error;
+}
+	
 
 function verifyRadioWithOther(question, id) {
   var error = true;
