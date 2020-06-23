@@ -464,10 +464,10 @@ function buildCheckAll(question, id) {
   for (i in question.options) {
 	  numcheck = numcheck + 1; 
 	  if(clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know" || clean(question.prefix + '_' + question.options[i]) == "undefined_I_do_not_know_about_this_certificate" || clean(question.prefix + '_' + question.options[i]) == "undefined_None_of_the_above") {
-	     html += "<input type='radio' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
+	     html += "<input type='radio' class ='" + clean(question.question) + "' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='" + clean(question.options[i]) + "' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
 	     }
 	  else {
-    html += "<input type='checkbox' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='yes' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
+    html += "<input type='checkbox' class ='" + clean(question.question) + "' id='" +numcheck + "' name='" + clean(question.prefix + '_' + question.options[i]) + "' value='yes' onchange='radiochangecheckbox(this)'/> " + question.options[i] + '<br>';
    // html += '<input type="checkbox" id="' +numcheck + '" name="' + clean(question.prefix + '_' + question.options[i]) + '" value="yes" onchange="'radiochangecheckbox(this)/>' + question.options[i] + '<br/>';
   	}
   }
@@ -782,12 +782,12 @@ function verifyAgreementScale(question, id) {
 function verifyRadio(question, id) {
   var error = false;
   var q_num = parseInt(id.split("question")[1]) + 1;
-	console.log(q_num);
+	// console.log(q_num);
   var name = clean(question.question);
-	console.log(name);
+	// console.log(name);
   var selected = $('input[name="' + name + '"]:checked', $(id));
-	console.log(selected);
-	console.log(selected.length);
+	// console.log(selected);
+	//console.log(selected.length);
   if (selected.length < 1) {
     $('input[name="' + name + '"]', $(id)).addClass('error');
     $("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
