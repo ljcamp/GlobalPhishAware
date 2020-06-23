@@ -475,36 +475,49 @@ function buildCheckAll(question, id) {
 }
 
 function radiochangecheckbox(obj) {
-	if ($(obj).is(':checked')){ //radio is now checked
+	var cbs3 = document.getElementsByClassName("Have_you_ever_Please_check_all_that_apply");
+	var cbs2 = document.getElementsByClassName("What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply");
+    	var cbs = document.getElementsByClassName("What_is_phishing_Please_check_all_that_apply");
+	for (var i = 0; i < cbs.length; i++) {
+        	cbs[i].checked = false;
+   	}
+	for (var i = 0; i < cbs2.length; i++) {
+        	cbs2[i].checked = false;
+   	}
+	for (var i = 0; i < cbs3.length; i++) {
+        	cbs3[i].checked = false;
+   	}
+    	obj.checked = true;
+	//if ($(obj).is(':checked')){ //radio is now checked
 		//alert('radio is checked');
 		//var radioid = $(obj).attr('id');
-		if($('#7').is(':checked')) {
+		//if($('#7').is(':checked')) {
 		//if(($('#7').is(':checked')) && ($('#1').is(':unchecked') || $('#2').is(':unchecked') || $('#3').is(':unchecked') || $('#4').is(':unchecked') || $('#5').is(':unchecked') || $('#6').is(':unchecked'))) {
-			  $('#1').prop('checked',false); //deselect
-			  $('#2').prop('checked',false);
-			  $('#3').prop('checked',false);
-			  $('#4').prop('checked',false);
-			  $('#5').prop('checked',false);
-			  $('#6').prop('checked',false);
-		}
-		if($('#13').is(':checked')) {
-			  $('#8').prop('checked',false);
-			  $('#9').prop('checked',false);
-			  $('#10').prop('checked',false);
-			  $('#11').prop('checked',false);
-			  $('#12').prop('checked',false);
-		}
-		if($('#27').is(':checked')) {
-		          $('#20').prop('checked',false);
-			  $('#21').prop('checked',false);
-			  $('#22').prop('checked',false);
-			  $('#23').prop('checked',false);
-			  $('#24').prop('checked',false);
-			  $('#25').prop('checked',false);
-			  $('#26').prop('checked',false);
-		}
+		//	  $('#1').prop('checked',false); //deselect
+		//	  $('#2').prop('checked',false);
+		//	  $('#3').prop('checked',false);
+		//	  $('#4').prop('checked',false);
+		//	  $('#5').prop('checked',false);
+		//	  $('#6').prop('checked',false);
+		//}
+		//if($('#13').is(':checked')) {
+		//	  $('#8').prop('checked',false);
+		//	  $('#9').prop('checked',false);
+	//		  $('#10').prop('checked',false);
+	//		  $('#11').prop('checked',false);
+	//		  $('#12').prop('checked',false);
+	//	}
+	//	if($('#27').is(':checked')) {
+	//	          $('#20').prop('checked',false);
+	//		  $('#21').prop('checked',false);
+	//		  $('#22').prop('checked',false);
+	//		  $('#23').prop('checked',false);
+	//		  $('#24').prop('checked',false);
+	//		  $('#25').prop('checked',false);
+	//		  $('#26').prop('checked',false);
+	//	}
         //$('input[type="checkbox"]').prop('checked', false); //unchecks all checkboxes
-    }
+    //}
 }
 
 function buildCountrySelect(question, id) {
