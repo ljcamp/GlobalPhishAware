@@ -108,7 +108,7 @@ if($_SESSION['type']=='mturk'){
 
 		<BUTTON onclick="$(\'#loggingIn\').hide(); $(\'#needToDo\').show();">Previous Instructions</BUTTON>
 		<p>
-			Before you can begin the experimental task, you must verify that you understand the instructions. Click the <strong>"Check Understanding"</strong> button at the bottom of the page.</p>
+			Before you can begin the experimental task, you must verify that you understand the instructions. Click the <strong>"Check Understanding"</strong> button at the bottom of the page. <strong> Please DO NOT click the BACK or REFRESH buttons at any point in the experiment as it will invalidate the results. </strong> </p>
 		<p>
 				<BUTTON id="checkUnderstanding">Check Understanding</BUTTON>
 		</p>
