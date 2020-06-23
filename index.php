@@ -86,9 +86,10 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
    
             <div class="row">
               <div class="container ">
-          <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;border-style: solid;width:200px;" onclick="showcollab()">Learn about the collaborators</p>
-  <div id="panel" style="padding: 5px;width:200px;background-color: black;color: white;display: none;">
+          <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;" onclick="showcollab()">Learn about the collaborators</p>
+  <div id="panel" style="padding: 5px;background-color: black;color: white;display: none;">
   <p>L Jean Camp,  Marthie Grobler,   Julian Jang-Jaccard,   Christian Probst, Karen Renaud, Paul Watters</p>
+    <p> DongInn Kim,  Jacob Abbott, Sanchari Das, Andrew Kim, Tim Kelley, Vafa Andalibi, Jayati Dev</p>
   </div>
                 <div class="twelve columns centered">&copy; 2015-<?php echo date("Y"); ?> <a href="http://usablesecurity.net/">HATS</a>. All Rights Reserved.
                 </div>
