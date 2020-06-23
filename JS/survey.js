@@ -439,12 +439,12 @@ function buildCheckboxMatrix(question, id) {
 var html = '<table border="1"><tr><td><i></i></td>';
   for (i in question.columns) {
 	 // console.log("goes in this loop");
-    html += '<td><b>' + question.columns[i] + '</b></td>';
+    html += '<td style="padding: 5px;"><b>' + question.columns[i] + '</b></td>';
   }
   html += '</tr>';
 	// console.log(opts);
   for (i in question.options) {
-    html += '<tr><td>' + question.options[i] + '</td>';
+    html += '<tr><td style="padding: 5px;">' + question.options[i] + '</td>';
 	 // console.log("for every row"+question.options[i]);
     for (j in question.columns) {
 	  //  console.log("for every column"+question.columns[i]);
