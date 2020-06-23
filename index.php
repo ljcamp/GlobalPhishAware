@@ -5,7 +5,12 @@ include("includes/header.php");
   <script src="HATS_files/bootstrap.js"></script>
   <script>
     function showcollab() {
-      document.getElementById("panel").style.display = "block";
+      var boxshow = document.getElementById("panel");
+      if (boxshow.style.display === "none") {
+            boxshow.style.display = "block";
+      } else {
+            boxshow.style.display = "none";
+  }
     }
   </script>
     <section class="verfication">
