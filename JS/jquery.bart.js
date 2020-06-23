@@ -521,7 +521,7 @@
                     name:      'totearn',
                     fillStyle: '#000',
                     font:      '14pt Verdana, sans-serif',
-                    text:      opts.txt_total_earned + '0.00'
+                    text:      opts.txt_total_earned + '0'
                 });
                 bottomY -= 50;
             }
@@ -549,7 +549,7 @@
                     name:      'curearn',
                     fillStyle: '#000',
                     font:      '14pt Verdana, sans-serif',
-                    text:      opts.txt_current_earned + '0.00'
+                    text:      opts.txt_current_earned + '0'
                 });
             }
 
@@ -668,7 +668,7 @@
                     canvas.setLayer('pumpnum', { text: opts.txt_number_of_pumps + '0' });
                 }
                 if(opts.showcurrentearned) {
-                    canvas.setLayer('curearn', { text: opts.txt_current_earned + '0.00' });
+                    canvas.setLayer('curearn', { text: opts.txt_current_earned + '0' });
                 }
                 if(opts.showballooncount) {
                     canvas.setLayer('balnum', { text: opts.txt_balloon_number + 
