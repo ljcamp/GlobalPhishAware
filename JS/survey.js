@@ -782,12 +782,12 @@ function verifyAgreementScale(question, id) {
 function verifyRadio(question, id) {
   var error = false;
   var q_num = parseInt(id.split("question")[1]) + 1;
-	console.log(q_num);
+	//console.log(q_num);
   var name = clean(question.question);
-	console.log(name);
+	//console.log(name);
   var selected = $('input[name="' + name + '"]:checked', $(id));
-	console.log(selected);
-	console.log(selected.length);
+	//console.log(selected);
+	//console.log(selected.length);
   if (selected.length < 1) {
     $('input[name="' + name + '"]', $(id)).addClass('error');
     $("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
