@@ -865,6 +865,7 @@ function verifyCheckboxMatrix(question, id) {
   		error = false;
   		q_num = parseInt(id.split("question")[1]) + 1;
 		 console.log(q_num);
+		 console.log(question.options[i]);
   		name = clean(question.options[i]);
 		 console.log(name);
   		selected = $('input[name="' + name + '"]:checked', $(id));
