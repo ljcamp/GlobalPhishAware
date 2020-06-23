@@ -157,8 +157,8 @@
             txt_next:    'Proceed',     // text on 'Next' button
             txt_balloon_number: 'Balloon number: ',          // text for balloon number
             txt_number_of_pumps: 'Number of pumps: ',        // text for number of pumps
-            txt_current_earned: 'Current earned ($): ',          // text for current earnings
-            txt_total_earned: 'Total earned ($): ',              // text for total earnings
+            txt_current_earned: 'Current earned (&cent): ',          // text for current earnings
+            txt_total_earned: 'Total earned (&#xa2): ',              // text for total earnings
             txt_prob_explosion: 'Probability of explosion:', // text for probability of explosion
             txt_pumps_used: 'Max. available pumps used:',    // text for percentage of used pumps
             onload:    function() {},        // function to run before loading the script 
