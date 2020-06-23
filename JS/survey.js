@@ -475,19 +475,55 @@ function buildCheckAll(question, id) {
 }
 
 function radiochangecheckbox(obj) {
-	var cbs3 = document.getElementsByClassName("Have_you_ever_Please_check_all_that_apply");
-	var cbs2 = document.getElementsByClassName("What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply");
-    	var cbs = document.getElementsByClassName("What_is_phishing_Please_check_all_that_apply");
-	for (var i = 0; i < cbs.length; i++) {
-        	cbs[i].checked = false;
-   	}
-	for (var i = 0; i < cbs2.length; i++) {
-        	cbs2[i].checked = false;
-   	}
-	for (var i = 0; i < cbs3.length; i++) {
-        	cbs3[i].checked = false;
-   	}
-    	obj.checked = true;
+	$('input[class="Have_you_ever_Please_check_all_that_apply"]').on('change', function(){
+    		if ($(this).attr('type') == 'radio' ) {
+        		if ( $(this).prop('checked') ) {
+            			$('input[class="Have_you_ever_Please_check_all_that_apply"][type="checkbox"]').prop('checked', false);
+        		}
+    		}
+    		else {
+        		if ( $(this).prop('checked') ) {
+           	 		$('input[class="Have_you_ever_Please_check_all_that_apply"][type="radio"]').prop('checked', false);
+        		}
+    		}
+	});
+	$('input[class="What_is_phishing_Please_check_all_that_apply"]').on('change', function(){
+    		if ($(this).attr('type') == 'radio' ) {
+        		if ( $(this).prop('checked') ) {
+            			$('input[class="What_is_phishing_Please_check_all_that_apply"][type="checkbox"]').prop('checked', false);
+        		}
+    		}
+    		else {
+        		if ( $(this).prop('checked') ) {
+           	 		$('input[class="What_is_phishing_Please_check_all_that_apply"][type="radio"]').prop('checked', false);
+        		}
+    		}
+	});
+	$('input[class="What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply"]').on('change', function(){
+    		if ($(this).attr('type') == 'radio' ) {
+        		if ( $(this).prop('checked') ) {
+            			$('input[class="What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply"][type="checkbox"]').prop('checked', false);
+        		}
+    		}
+    		else {
+        		if ( $(this).prop('checked') ) {
+           	 		$('input[class="What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply"][type="radio"]').prop('checked', false);
+        		}
+    		}
+	});
+	//var cbs3 = document.getElementsByClassName("Have_you_ever_Please_check_all_that_apply");
+	//var cbs2 = document.getElementsByClassName("What_is_the_purpose_of_an_X.509_certificate_for_websites_Please_check_all_that_apply");
+    	//var cbs = document.getElementsByClassName("What_is_phishing_Please_check_all_that_apply");
+	//for (var i = 0; i < cbs.length; i++) {
+       // 	cbs[i].checked = false;
+   	//}
+	//for (var i = 0; i < cbs2.length; i++) {
+        //	cbs2[i].checked = false;
+   	//}
+	//for (var i = 0; i < cbs3.length; i++) {
+        //	cbs3[i].checked = false;
+   	//}
+    	//obj.checked = true;
 	//if ($(obj).is(':checked')){ //radio is now checked
 		//alert('radio is checked');
 		//var radioid = $(obj).attr('id');
