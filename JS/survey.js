@@ -789,9 +789,35 @@ function hideQuestion(response) {
 
 function verifyCheckAll(question, id) {
   var error = false;
+  var q_num;
+  var name;
+  var selected;
+  var flag=0;
+  for (i in question.options){
+  		error = false;
+  		q_num = parseInt(id.split("question")[1]) + 1;
+		 console.log(q_num);
+		 console.log(question.options[i]);
+  		name = clean(question.prefix + '_' + question.options[i]);
+		 console.log(name);
+  		selected = $('input[name="' + name + '"]:checked', $(id));
+		 console.log(selected);
+		 console.log(selected.length);
+	  	 if( selected.length < 1) {
+	         	flag = flag + 1;
+		 }
+	         console.log("flag"+flag);
+  }
+  		if (flag > 0) {
+    			$('input[name="' + name + '"]', $(id)).addClass('error');
+    			$("#error").html('<font style="color:red;">Please answer question ' + q_num + '.</font><hr>');
+	
+   			return false;
+  		}
+
   if (typeof question.mustbechecked != 'undefined') {
     for (i in question.mustbechecked) {
-      var name = clean(question.prefix + '_' + question.mustbechecked[i]);
+       name = clean(question.prefix + '_' + question.mustbechecked[i]);
       var ischecked = $('input[name="' + name + '"]', $(id)).is(':checked');
       if (!ischecked) {
         $("#error").html('<h2><font style="color:red;">' + question.rejecterror + '</font></h2>');
@@ -800,7 +826,7 @@ function verifyCheckAll(question, id) {
       }
     }
     for (i in question.mustnotbechecked) {
-      var name = clean(question.prefix + '_' + question.mustnotbechecked[i]);
+       name = clean(question.prefix + '_' + question.mustnotbechecked[i]);
       var ischecked = $('input[name="' + name + '"]', $(id)).is(':checked');
 	    console.log(name);
 	    console.log(ischecked);
