@@ -5,6 +5,18 @@ session_start();
 if ($_SESSION['country'] === "UK") {
     $countryID = "370D851E";
 }
+else if ($_SESSION['country'] === "CA") {
+    $countryID = "EBE48533";
+}
+else if ($_SESSION['country'] === "AU") {
+    $countryID = "554FF676";
+}
+else if ($_SESSION['country'] === "NZ") {
+    $countryID = "392B9C7A";
+}
+else {
+    $countryID = "57941F7C";    
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
