@@ -26,10 +26,11 @@ If you have any questions about this study, please do not hesitate to contact us
 
 </p> --> 
 <p>
+    <?php console.log($_SESSION['country']); ?>
     Please click on the link below to complete the study and go back to Prolific:
 
 </p>
-<?php console.log($_SESSION['country']); ?>
+
 <FORM action="https://app.prolific.co/submissions/complete?cc=236FB438" method="POST" id="mturk_form">
     <input type="hidden" name="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
     <input type="hidden" name="bonusPay" value="<?php echo $_SESSION['bonusPay'];?>"/>
