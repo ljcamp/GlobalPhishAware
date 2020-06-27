@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+
+if ($_SESSION['country'] === "UK") {
+    $countryID = "370D851E";
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,7 +34,7 @@ If you have any questions about this study, please do not hesitate to contact us
 
 </p>
 
-<FORM action="<?php echo "google.com"; ?>" method="POST" id="mturk_form">
+<FORM action="https://app.prolific.co/submissions/complete?cc=<?php echo $countryID ?>"" method="POST" id="mturk_form">
     <input type="hidden" name="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
     <input type="hidden" name="bonusPay" value="<?php echo $_SESSION['bonusPay'];?>"/>
     <input type="hidden" name="foo" value="bar"/>
