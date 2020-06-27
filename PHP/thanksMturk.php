@@ -26,7 +26,7 @@ If you have any questions about this study, please do not hesitate to contact us
 
 </p> --> 
 <p>
-    <?php console.log($_SESSION['country']); ?>
+    <?php echo $_SESSION['country']; ?>
     Please click on the link below to complete the study and go back to Prolific:
 
 </p>
