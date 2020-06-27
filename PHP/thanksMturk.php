@@ -46,7 +46,7 @@ If you have any questions about this study, please do not hesitate to contact us
 
 </p>
 
-<FORM action="https://app.prolific.co/submissions/complete?cc=<?php echo $countryID ?>"" method="POST" id="mturk_form">
+<FORM action="https://app.prolific.co/submissions/complete?cc=<?php echo $countryID ?>" method="POST" id="mturk_form">
     <input type="hidden" name="assignmentId" value="<?php echo $_SESSION['assignmentId'];?>"/>
     <input type="hidden" name="bonusPay" value="<?php echo $_SESSION['bonusPay'];?>"/>
     <input type="hidden" name="foo" value="bar"/>
