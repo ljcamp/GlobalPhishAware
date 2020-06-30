@@ -2605,9 +2605,10 @@ var skill_questions = [
     //  '6',
     //  '7 (Strongly agree)'
    // ]
-  }, 
-	 {
+  },
+   {
       type: 'freeform',
+      //question:'What is your Mechanical Turk ID?',
       question: 'Please enter any feedback or thoughts about the experiment or survey. Enter NA if you do not wish to comment.',
       response: 'hide',
     }
