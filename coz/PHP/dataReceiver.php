@@ -135,8 +135,15 @@ if (array_key_exists('What_is_your_age', $_POST) == TRUE) {
         if($_SESSION['valid_participant']){
           echo "<p>In order to receive your bonus of <strong>\$$bonusPay</strong> with the guaranteed compensation of \$2.00 and additional bonus for the balloon experiment, you now need to complete the survey.</p>";
         }
-        echo "<p>Please note that some of the questions are included for quality control, and you will not be approved for payment if you do not pay attention and answer all the questions.</p><br>
-        <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">Continue to Survey</BUTTON>";
+        if($_SESSION['country'] === "RU" || $_SESSION['country'] === "UA" || $_SESSION['country'] === "BY" ){
+            echo "<p>Внимание: несколько вопросов включаются для контроля качества.</p><br>
+        <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">К эксперименту</BUTTON>";
+        }
+        if($_SESSION['country'] === "BG"){
+            echo "<p>Внимание: няколко въпроси са включени за контрол на качество. </p><br>
+        <BUTTON id=\"startSurvey\" onClick=\"javascript:startSurvey()\">Продолжи към експеримента</BUTTON>";
+        }
+        
     }
 }
 else{

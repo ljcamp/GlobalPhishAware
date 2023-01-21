@@ -577,10 +577,10 @@ function updateReport(elapsedTime, elapsedPenaltyTime,totalBonusTime,maxBonusPay
   else if (condition == 'Speed') {
     //Add Translations for Penalty Time
     if(countrycode == "RU" || countrycode == "UA" || countrycode == "BY"){
-      return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>пройденное время: '+(elapsedTime+elapsedPenaltyTime).toFixed(2)+'</td><td>Penalty Time: '+elapsedPenaltyTime.toFixed(2)+'</td></tr></table></center>');
+      return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>пройденное время: '+(elapsedTime+elapsedPenaltyTime).toFixed(2)+'</td><td> Штрафное время: '+elapsedPenaltyTime.toFixed(2)+'</td></tr></table></center>');
     }
     if(countrycode == "BG"){
-      return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>изтечено време '+(elapsedTime+elapsedPenaltyTime).toFixed(2)+'</td><td>Penalty Time: '+elapsedPenaltyTime.toFixed(2)+'</td></tr></table></center>');
+      return('<center><table border=1 rules=none cellspacing=10 cellpadding=10><tr><td>изтечено време '+(elapsedTime+elapsedPenaltyTime).toFixed(2)+'</td><td>Време: '+elapsedPenaltyTime.toFixed(2)+'</td></tr></table></center>');
     }
     
   }

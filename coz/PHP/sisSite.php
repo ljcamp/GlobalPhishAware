@@ -143,7 +143,8 @@ $_SESSION['sisStart'] = true;
 <?php if($_SESSION['country'] == "RU" || $_SESSION['country'] == "UA"  || $_SESSION['country'] == "BY"){ ?>
 <H3 ALIGN=RIGHT><I>IRB Study 1707304414</I></H3></right>
 
-<H3 style="text-align:center;">INDIANA UNIVERSITY STUDY INFORMATION SHEET</H3><p>
+<H3 style="text-align:center;">INDIANA UNIVERSITY ИНФОРМАЦИОННАЯ СТРАНИЦА
+</H3><p>
 
 
 <H3>ПРЕДСТАВЛЕНИЕ</H3><P>
@@ -198,7 +199,8 @@ if($_SESSION['valid_participant']){
 <?php } ?>
 
 <?php if($_SESSION['country'] == "BG"){ ?>
-<center><H3>STUDY INFORMATION SHEET</H3></center><p>
+<center><H3>ИНФОРМАЦИОННА СТРАНИЦА
+</H3></center><p>
 <H3>ПРЕДСТАВЯНЕ</H3><P>
 Ако Ви е интересно да ни помогнете да разберем по-добре на какво потребителите в интернета обръщат внимание, каним Ви да участвате в нашето изследване. Този проект се управлява от Уилиям Смийл от Университета в Индиана, САЩ.  
 		<P><B>Молим Ви да не участвате ако българският език не Ви е роден и сте на по-малко от 18 години. </B></P>

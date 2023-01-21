@@ -34,7 +34,10 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
 
 
 <hr style="height:5px;background-color:gray;">
-<h1 style="color:#800000;text-align:center;">Please Select Your Country</h1>
+<h1 style="color:#800000;text-align:center;">Выбирайте, пожалуйста, страну. / Моля, изберете страна.
+</h1>
+<h1 style="color:#800000;text-align:center;">
+</h1>
     <section class="intro" style="background-color:white;">
         <div class="container-fluid">
             <div style="background-color:white;margin-left:15%;"> 
@@ -86,8 +89,8 @@ if(isset($_GET['action']) && $_GET['action'] == "updated"){
               <div class="container ">
           <p class="showblock" style="padding: 5px;text-align: center;background-color: white;color: gray;" onclick="showcollab()">Learn about the collaborators</p>
   <div id="panel" style="padding: 5px;background-color: black;color: white;text-align:center;display: none;">
-  <p>L Jean Camp,  Marthie Grobler,   Julian Jang-Jaccard,   Christian Probst, Karen Renaud, Paul Watters</p>
-    <p> DongInn Kim,  Jacob Abbott, Sanchari Das, Andrew Kim, Tim Kelley, Vafa Andalibi, Jayati Dev</p>
+  <p>Dr. L Jean Camp, Dr. Alexander Alexeev ,William Smeal, Yash Kumar, Vaibhav Vishwanath </p>
+    
   </div>
                 <div class="twelve columns centered">&copy; 2015-<?php echo date("Y"); ?> <a href="http://usablesecurity.net/">HATS</a>. All Rights Reserved.
                 </div>
