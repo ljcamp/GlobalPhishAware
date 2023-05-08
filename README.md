@@ -1,6 +1,13 @@
 # DCNLabStudy
 This a website for running an MTurk study examining real-world decision making
  in relationship to potential website manipulations.
+ 
+ The current goals are: 
+ replace the survey buttons with card sorting; 
+ display the results in a visualization based on the current data as a function of demographics and expertise, etc. That is, identify what variable would have to change to improve phishing score: expertise,  risk perception, risk posture
+ automate the addition of a site
+ 
+ An example is currently running at https://global.cognitivesecurity.net/
 
 ## Specifiying Testing Type and login type
 You can use the query string identifier 'tt' (Testing Type) and
